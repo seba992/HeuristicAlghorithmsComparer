@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using HeuristicAlghorithmsComparer.Model.Enums;
 using HeuristicAlghorithmsComparer.Model.Managers;
 using HeuristicAlghorithmsComparer.Model.Wrappers;
 using Alghoritm = HeuristicAlghorithmsComparer.Model.Enums.Alghoritm;
@@ -10,6 +11,7 @@ namespace HeuristicAlghorithmsComparer.Model.Services
         private readonly IAlghoritmRequestManager _alghoritmRequestManager;
         private object _testResult;
         private MLApp.MLApp _matlabContext;
+
         public MatlabService(IAlghoritmRequestManager alghoritmRequestManager, IMatlabContextWrapper matlabContextWrapper)
         {
             _alghoritmRequestManager = alghoritmRequestManager;
@@ -25,7 +27,18 @@ namespace HeuristicAlghorithmsComparer.Model.Services
 
         public void ExecuteSimulatedAnnealing()
         {
-            _alghoritmRequestManager.CreateRequest(Alghoritm.SimulatedAnnealing, 5, 10, 1000, 1000, 1000, Enums.TestFunction.Bochachevsky);
+            var annealingRequest = new AlghoritmRequest()
+            {
+                OutputParamsNumber = 5,
+                Alghoritm = Alghoritm.SimulatedAnnealing,
+                MaxTime = 5,
+                MaxIterations = 10,
+                MaxFunctionEvaluations = 1000,
+                MaxStallIterations = 1000,
+                TestFunction = TestFunction.Bochachevsky
+            };
+
+            _alghoritmRequestManager.ExecuteAlghoritm(annealingRequest);
         }
     }
 }

@@ -23,8 +23,9 @@ namespace HeuristicAlghorithmsComparer.ViewModel
 
             //            _databaseService.CheckDbConnection();
 
-            _databaseService.CheckInsertOperation();
-            _matlabService.CheckMatlabConnection();
+            //_databaseService.CheckInsertOperation();
+            //_matlabService.CheckMatlabConnection();
+            ExecuteSimulatedAnnealingTest();
         }
 
         public void ExecuteSimulatedAnnealingTest()

@@ -125,6 +125,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MetaheuristicResources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Model\AlghoritmRequest.cs" />
     <Compile Include="Model\Enums\Alghoritm.cs" />
     <Compile Include="Model\Managers\AlghoritmRequestManager.cs" />
     <Compile Include="Model\Managers\IAlghoritmRequestManager.cs" />

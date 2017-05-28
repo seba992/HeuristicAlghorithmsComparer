@@ -1,27 +1,44 @@
-﻿using HeuristicAlghorithmsComparer.Model.Enums;
-using HeuristicAlghorithmsComparer.Model.Managers;
+﻿using System;
+using System.Windows;
+using HeuristicAlghorithmsComparer.Model.Utils;
 using HeuristicAlghorithmsComparer.Model.Wrappers;
-using TestFunction = HeuristicAlghorithmsComparer.Database.TestFunction;
 
-namespace HeuristicAlghorithmsComparer.Model.Services
+namespace HeuristicAlghorithmsComparer.Model.Managers
 {
     public class AlghoritmRequestManager : IAlghoritmRequestManager
     {
         private readonly MLApp.MLApp _matlabContext;
-        private object _computingResult;
+        private object _computedResult;
 
         public AlghoritmRequestManager(IMatlabContextWrapper matlabContextWrapper)
         {
             _matlabContext = matlabContextWrapper.GetMatlabContext();
         }
 
-        public void CreateRequest(Alghoritm alghoritm, int maxTime, double maxIterations, double maxFunction,
-            double maxFunctionEvaluations, double maxStallIterations, Enums.TestFunction testFunction)
+        public void ExecuteAlghoritm(AlghoritmRequest alghoritmRequest)
         {
-            var alghoritmFileName = Utils.FunctionNameMatcher.GetAlghoritmFileName(alghoritm);
-            var testFunctionFileName = Utils.FunctionNameMatcher.GetFunctionFileName(testFunction);
-
-            _matlabContext.Feval(alghoritmFileName, 5, out _computingResult, (double)10, (double)1000, (double)1000, (double)1000, 1);
+            try
+            {
+                var alghoritmFileName = FunctionNameMatcher.GetAlghoritmFileName(alghoritmRequest.Alghoritm);
+                var testFunctionFileName = FunctionNameMatcher.GetFunctionFileName(alghoritmRequest.TestFunction);
+                _matlabContext.Feval(
+                    alghoritmFileName,
+                    alghoritmRequest.OutputParamsNumber,
+                    out _computedResult,
+                    alghoritmRequest.MaxTime,
+                    alghoritmRequest.MaxIterations, 
+                    alghoritmRequest.MaxFunctionEvaluations,
+                    alghoritmRequest.MaxStallIterations,
+                    testFunctionFileName);
+                object[] res = _computedResult as object[];
+                MessageBox.Show(res[0].ToString());
+                var test2 = _computedResult;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            
         }
     }
 }

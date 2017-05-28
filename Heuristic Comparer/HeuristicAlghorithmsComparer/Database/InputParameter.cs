@@ -21,7 +21,7 @@ namespace HeuristicAlghorithmsComparer.Database
         public int UpperBoundY { get; set; }
         public Nullable<decimal> StartingPointX { get; set; }
         public Nullable<decimal> StartingPointY { get; set; }
-        public decimal MaxTime { get; set; }
+        public int MaxTime { get; set; }
         public int MaxIterations { get; set; }
         public int MaxFunctionEvaluations { get; set; }
         public Nullable<int> SwarmSize { get; set; }

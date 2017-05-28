@@ -75,3 +75,4 @@ C:\Users\Sebastian Nalepka\Documents\HeuristicAlghorithmsComparer\Heuristic Comp
 C:\Users\Sebastian Nalepka\Documents\HeuristicAlghorithmsComparer\Heuristic Comparer\HeuristicAlghorithmsComparer\obj\Debug\HeuristicAlghorithmsComparer.exe
 C:\Users\Sebastian Nalepka\Documents\HeuristicAlghorithmsComparer\Heuristic Comparer\HeuristicAlghorithmsComparer\obj\Debug\HeuristicAlghorithmsComparer.pdb
 C:\Users\Sebastian Nalepka\Documents\HeuristicAlghorithmsComparer\Heuristic Comparer\HeuristicAlghorithmsComparer\obj\Debug\HeuristicAlghorithmsComparer.csprojResolveAssemblyReference.cache
+C:\Users\Sebastian Nalepka\Documents\HeuristicAlghorithmsComparer\Heuristic Comparer\HeuristicAlghorithmsComparer\obj\Debug\HeuristicAlghorithmsComparer.MetaheuristicResources.resources
