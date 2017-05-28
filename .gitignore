@@ -19,7 +19,9 @@
 *.rar
 *.tar
 *.zip
-
+*/packages/
+*/obj/
+*/bin/
 # Logs and databases #
 ######################
 *.log

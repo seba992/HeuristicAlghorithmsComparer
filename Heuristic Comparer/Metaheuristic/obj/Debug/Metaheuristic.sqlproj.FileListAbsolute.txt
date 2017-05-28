@@ -1,0 +1,5 @@
+C:\Users\Sebastian Nalepka\Documents\HeuristicAlghorithmsComparer\Heuristic Comparer\Metaheuristic\bin\Debug\Metaheuristic.dacpac
+C:\Users\Sebastian Nalepka\Documents\HeuristicAlghorithmsComparer\Heuristic Comparer\Metaheuristic\bin\Debug\Metaheuristic.dll
+C:\Users\Sebastian Nalepka\Documents\HeuristicAlghorithmsComparer\Heuristic Comparer\Metaheuristic\bin\Debug\Metaheuristic.pdb
+C:\Users\Sebastian Nalepka\Documents\HeuristicAlghorithmsComparer\Heuristic Comparer\Metaheuristic\obj\Debug\Metaheuristic.dll
+C:\Users\Sebastian Nalepka\Documents\HeuristicAlghorithmsComparer\Heuristic Comparer\Metaheuristic\obj\Debug\Metaheuristic.pdb

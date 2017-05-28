@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d88075bcbb0b451185867b71e3c9f409" Name="Diagram1" ZoomLevel="93" >
+        <EntityTypeShape EntityType="EntityDataModel.Alghoritm" Width="1.5" PointX="7.5" PointY="1.5" />
+        <EntityTypeShape EntityType="EntityDataModel.InputParameter" Width="1.875" PointX="9.125" PointY="3" />
+        <EntityTypeShape EntityType="EntityDataModel.Result" Width="1.5" PointX="11.75" PointY="2.25" />
+        <EntityTypeShape EntityType="EntityDataModel.TestFunction" Width="1.875" PointX="6.375" PointY="3.375" />
+        <AssociationConnector Association="EntityDataModel.TestFunctionsResults" />
+        <AssociationConnector Association="EntityDataModel.AlghoritmsResults" />
+        <AssociationConnector Association="EntityDataModel.InputParametersResults" />
+        <EntityTypeShape EntityType="EntityDataModel.ResultDetail" Width="1.5" PointX="11.25" PointY="5.25" />
+        <EntityTypeShape EntityType="EntityDataModel.ExitFlag" Width="1.5" PointX="13.5" PointY="5.625" />
+        <AssociationConnector Association="EntityDataModel.ExitFlagsResultDetails" />
+        <AssociationConnector Association="EntityDataModel.ResultDetailsResults" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
