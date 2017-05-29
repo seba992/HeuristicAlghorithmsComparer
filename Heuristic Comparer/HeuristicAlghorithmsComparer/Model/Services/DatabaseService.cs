@@ -29,6 +29,17 @@ namespace HeuristicAlghorithmsComparer.Model.Services
             _dbContext.SaveChanges();
         }
 
+        public TestFunction GetTestFunction(Enums.TestFunction testFunction)
+        {
+            return _dbContext.TestFunction.First(x => x.Id == (int) testFunction);
+        }
+
+        public void SaveResult(Result result)
+        {
+            _dbContext.Result.Add(result);
+            _dbContext.SaveChanges();
+        }
+
         public void GetData(Action<DataItem, Exception> callback)
         {
             // Use this to connect to the actual data service

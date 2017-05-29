@@ -16,9 +16,8 @@ namespace HeuristicAlghorithmsComparer.ViewModel
 
         public string WelcomeTitle { get; set; }
 
-        public MainViewModel(IDatabaseService databaseService, IMatlabService matlabService)
+        public MainViewModel(IMatlabService matlabService)
         {
-            _databaseService = databaseService;
             _matlabService = matlabService;
 
             //            _databaseService.CheckDbConnection();

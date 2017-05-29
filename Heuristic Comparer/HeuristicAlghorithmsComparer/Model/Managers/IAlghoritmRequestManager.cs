@@ -1,7 +1,10 @@
-﻿namespace HeuristicAlghorithmsComparer.Model.Managers
+﻿using HeuristicAlghorithmsComparer.Database;
+using HeuristicAlghorithmsComparer.Model.Enums;
+
+namespace HeuristicAlghorithmsComparer.Model.Managers
 {
     public interface IAlghoritmRequestManager
     {
-        void ExecuteAlghoritm(AlghoritmRequest alghoritmRequest);
+        ResultDetail ExecuteAlghoritm(Enums.Alghoritm alghoritm, Database.TestFunction testFunction, InputParameter inputParameter);
     }
 }

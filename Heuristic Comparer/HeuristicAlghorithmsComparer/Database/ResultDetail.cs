@@ -15,7 +15,7 @@ namespace HeuristicAlghorithmsComparer.Database
     public partial class ResultDetail
     {
         public int Id { get; set; }
-        public int Generations { get; set; }
+        public int Iterations { get; set; }
         public int FunctionEvaluations { get; set; }
         public decimal BestFunctionValue { get; set; }
         public decimal FinalPointX { get; set; }
@@ -23,6 +23,8 @@ namespace HeuristicAlghorithmsComparer.Database
         public decimal TotalTime { get; set; }
         public string TerminatedMessage { get; set; }
         public Nullable<int> ExitFlagId { get; set; }
+        public Nullable<decimal> StartingPointX { get; set; }
+        public Nullable<decimal> StartingPointY { get; set; }
     
         public virtual ExitFlag ExitFlag { get; set; }
     }

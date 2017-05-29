@@ -15,6 +15,7 @@ using HeuristicAlghorithmsComparer.Database;
 using Microsoft.Practices.ServiceLocation;
 using HeuristicAlghorithmsComparer.Model;
 using HeuristicAlghorithmsComparer.Model.Managers;
+using HeuristicAlghorithmsComparer.Model.Parser;
 using HeuristicAlghorithmsComparer.Model.Services;
 using HeuristicAlghorithmsComparer.Model.Wrappers;
 
@@ -45,7 +46,7 @@ namespace HeuristicAlghorithmsComparer.ViewModel
                 SimpleIoc.Default.Register<IMatlabService, MatlabService>();
                 SimpleIoc.Default.Register<IAlghoritmRequestManager, AlghoritmRequestManager>();
                 SimpleIoc.Default.Register<IMatlabContextWrapper, MatlabContextWrapper>();
-                
+                SimpleIoc.Default.Register<IResultParser, ResultParser>();
             }
 
             SimpleIoc.Default.Register<MainViewModel>();

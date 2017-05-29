@@ -28,8 +28,8 @@ namespace HeuristicAlghorithmsComparer.Database
         public virtual DbSet<Alghoritm> Alghoritm { get; set; }
         public virtual DbSet<InputParameter> InputParameter { get; set; }
         public virtual DbSet<Result> Result { get; set; }
-        public virtual DbSet<TestFunction> TestFunction { get; set; }
         public virtual DbSet<ResultDetail> ResultDetail { get; set; }
         public virtual DbSet<ExitFlag> ExitFlag { get; set; }
+        public virtual DbSet<TestFunction> TestFunction { get; set; }
     }
 }

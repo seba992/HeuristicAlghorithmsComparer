@@ -15,16 +15,11 @@ namespace HeuristicAlghorithmsComparer.Database
     public partial class InputParameter
     {
         public int Id { get; set; }
-        public int LowerBoundX { get; set; }
-        public int LowerBoundY { get; set; }
-        public int UpperBoundX { get; set; }
-        public int UpperBoundY { get; set; }
-        public Nullable<decimal> StartingPointX { get; set; }
-        public Nullable<decimal> StartingPointY { get; set; }
         public int MaxTime { get; set; }
         public int MaxIterations { get; set; }
         public int MaxFunctionEvaluations { get; set; }
         public Nullable<int> SwarmSize { get; set; }
         public Nullable<int> PopulationSize { get; set; }
+        public int MaxStallIterations { get; set; }
     }
 }

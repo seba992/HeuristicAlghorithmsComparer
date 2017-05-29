@@ -1,5 +1,6 @@
 ﻿using System;
 using HeuristicAlghorithmsComparer.Model.Enums;
+using TestFunction = HeuristicAlghorithmsComparer.Database.TestFunction;
 
 namespace HeuristicAlghorithmsComparer.Model.Utils
 {
@@ -22,7 +23,7 @@ namespace HeuristicAlghorithmsComparer.Model.Utils
 
         public static string GetFunctionFileName(TestFunction testFunction)
         {
-            return $"{testFunction}Fun";
+            return $"{testFunction.Name.Replace(" ","")}Fun";
         }
     }
 }

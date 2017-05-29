@@ -16,7 +16,11 @@ namespace HeuristicAlghorithmsComparer.Database
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public decimal DifficultyLevel { get; set; }
+        public string DifficultyLevel { get; set; }
         public string FunctionGraphLink { get; set; }
+        public string LowerBoundX { get; set; }
+        public string LowerBoundY { get; set; }
+        public string UpperBoundX { get; set; }
+        public string UpperBoundY { get; set; }
     }
 }

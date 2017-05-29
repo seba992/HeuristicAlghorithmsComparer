@@ -3,7 +3,7 @@
   <EntityContainerMapping StorageEntityContainer="EntityDataModelStoreContainer" CdmEntityContainer="EntityDataModelContainer">
     <EntitySetMapping Name="Alghoritm">
       <EntityTypeMapping TypeName="IsTypeOf(EntityDataModel.Alghoritm)">
-        <MappingFragment StoreEntitySet="Alghoritms">
+        <MappingFragment StoreEntitySet="Alghoritm">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
         </MappingFragment>
@@ -11,48 +11,32 @@
     </EntitySetMapping>
     <EntitySetMapping Name="InputParameter">
       <EntityTypeMapping TypeName="IsTypeOf(EntityDataModel.InputParameter)">
-        <MappingFragment StoreEntitySet="InputParameters">
+        <MappingFragment StoreEntitySet="InputParameter">
           <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="LowerBoundX" ColumnName="LowerBoundX" />
-          <ScalarProperty Name="LowerBoundY" ColumnName="LowerBoundY" />
-          <ScalarProperty Name="UpperBoundX" ColumnName="UpperBoundX" />
-          <ScalarProperty Name="UpperBoundY" ColumnName="UpperBoundY" />
-          <ScalarProperty Name="StartingPointX" ColumnName="StartingPointX" />
-          <ScalarProperty Name="StartingPointY" ColumnName="StartingPointY" />
           <ScalarProperty Name="MaxTime" ColumnName="MaxTime" />
           <ScalarProperty Name="MaxIterations" ColumnName="MaxIterations" />
           <ScalarProperty Name="MaxFunctionEvaluations" ColumnName="MaxFunctionEvaluations" />
           <ScalarProperty Name="SwarmSize" ColumnName="SwarmSize" />
           <ScalarProperty Name="PopulationSize" ColumnName="PopulationSize" />
+          <ScalarProperty Name="MaxStallIterations" ColumnName="MaxStallIteration" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Result">
       <EntityTypeMapping TypeName="IsTypeOf(EntityDataModel.Result)">
-        <MappingFragment StoreEntitySet="Results">
+        <MappingFragment StoreEntitySet="Result">
           <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="TestFunctionId" ColumnName="TestFunctionId" />
           <ScalarProperty Name="AlghoritmId" ColumnName="AlghoritmId" />
           <ScalarProperty Name="InputParametersId" ColumnName="InputParametersId" />
           <ScalarProperty Name="ResultDetailsId" ColumnName="ResultDetailsId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="TestFunction">
-      <EntityTypeMapping TypeName="IsTypeOf(EntityDataModel.TestFunction)">
-        <MappingFragment StoreEntitySet="TestFunctions">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="DifficultyLevel" ColumnName="DifficultyLevel" />
-          <ScalarProperty Name="FunctionGraphLink" ColumnName="FunctionGraphLink" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="ResultDetail">
       <EntityTypeMapping TypeName="IsTypeOf(EntityDataModel.ResultDetail)">
-        <MappingFragment StoreEntitySet="ResultDetails">
+        <MappingFragment StoreEntitySet="ResultDetail">
           <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Generations" ColumnName="Generations" />
+          <ScalarProperty Name="Iterations" ColumnName="Generations" />
           <ScalarProperty Name="FunctionEvaluations" ColumnName="FunctionEvaluations" />
           <ScalarProperty Name="BestFunctionValue" ColumnName="BestFunctionValue" />
           <ScalarProperty Name="FinalPointX" ColumnName="FinalPointX" />
@@ -60,14 +44,30 @@
           <ScalarProperty Name="TotalTime" ColumnName="TotalTime" />
           <ScalarProperty Name="TerminatedMessage" ColumnName="TerminatedMessage" />
           <ScalarProperty Name="ExitFlagId" ColumnName="ExitFlagId" />
+          <ScalarProperty Name="StartingPointX" ColumnName="StartingPointX" />
+          <ScalarProperty Name="StartingPointY" ColumnName="StartingPointY" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="ExitFlag">
       <EntityTypeMapping TypeName="IsTypeOf(EntityDataModel.ExitFlag)">
-        <MappingFragment StoreEntitySet="ExitFlags">
+        <MappingFragment StoreEntitySet="ExitFlag">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TestFunction">
+      <EntityTypeMapping TypeName="IsTypeOf(EntityDataModel.TestFunction)">
+        <MappingFragment StoreEntitySet="TestFunction">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="DifficultyLevel" ColumnName="DifficultyLevel" />
+          <ScalarProperty Name="FunctionGraphLink" ColumnName="FunctionGraphLink" />
+          <ScalarProperty Name="LowerBoundX" ColumnName="LowerBoundX" />
+          <ScalarProperty Name="LowerBoundY" ColumnName="LowerBoundY" />
+          <ScalarProperty Name="UpperBoundX" ColumnName="UpperBoundX" />
+          <ScalarProperty Name="UpperBoundY" ColumnName="UpperBoundY" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

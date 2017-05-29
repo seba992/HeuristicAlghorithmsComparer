@@ -129,6 +129,8 @@
     <Compile Include="Model\Enums\Alghoritm.cs" />
     <Compile Include="Model\Managers\AlghoritmRequestManager.cs" />
     <Compile Include="Model\Managers\IAlghoritmRequestManager.cs" />
+    <Compile Include="Model\Parser\ResultParser.cs" />
+    <Compile Include="Model\Parser\IResultParser.cs" />
     <Compile Include="Model\Services\MatlabService.cs" />
     <Compile Include="Model\DataItem.cs" />
     <Compile Include="Model\Services\DatabaseService.cs" />

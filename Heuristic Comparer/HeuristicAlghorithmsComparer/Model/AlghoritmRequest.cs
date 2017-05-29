@@ -1,15 +1,10 @@
-﻿using HeuristicAlghorithmsComparer.Model.Enums;
+﻿using HeuristicAlghorithmsComparer.Database;
 
 namespace HeuristicAlghorithmsComparer.Model
 {
     public class AlghoritmRequest
     {
         public int OutputParamsNumber { get; set; }
-        public Alghoritm Alghoritm { get; set; }
-        public double MaxTime { get; set; }
-        public double MaxIterations { get; set; }
-        public double MaxFunctionEvaluations { get; set; }
-        public double MaxStallIterations { get; set; }
-        public TestFunction TestFunction { get; set; }
+        public InputParameter InputParameter { get; set; }
     }
 }
