@@ -17,12 +17,12 @@ namespace HeuristicAlghorithmsComparer.Model.Services
 
         public void CheckDbConnection()
         {
-            MessageBox.Show(_dbContext.TestFunction.SingleOrDefault(x => x.Id == 1).Name);
+            MessageBox.Show(_dbContext.TestFunctions.SingleOrDefault(x => x.Id == 1).Name);
         }
 
         public void CheckInsertOperation()
         {
-            _dbContext.ExitFlag.Add(new ExitFlag
+            _dbContext.ExitFlags.Add(new ExitFlag
             {
                 Description = "test"
             });
@@ -31,12 +31,12 @@ namespace HeuristicAlghorithmsComparer.Model.Services
 
         public TestFunction GetTestFunction(Enums.TestFunction testFunction)
         {
-            return _dbContext.TestFunction.First(x => x.Id == (int) testFunction);
+            return _dbContext.TestFunctions.First(x => x.Id == (int) testFunction);
         }
 
         public void SaveResult(Result result)
         {
-            _dbContext.Result.Add(result);
+            _dbContext.Results.Add(result);
             _dbContext.SaveChanges();
         }
 

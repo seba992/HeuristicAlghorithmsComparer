@@ -18,9 +18,11 @@ namespace HeuristicAlghorithmsComparer.Database
         public int AlghoritmId { get; set; }
         public int InputParametersId { get; set; }
         public int ResultDetailsId { get; set; }
+        public int TestFunctionId { get; set; }
     
         public virtual Alghoritm Alghoritm { get; set; }
         public virtual InputParameter InputParameter { get; set; }
         public virtual ResultDetail ResultDetail { get; set; }
+        public virtual TestFunction TestFunction { get; set; }
     }
 }

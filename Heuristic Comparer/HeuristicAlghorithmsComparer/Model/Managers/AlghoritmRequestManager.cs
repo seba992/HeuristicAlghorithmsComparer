@@ -30,9 +30,9 @@ namespace HeuristicAlghorithmsComparer.Model.Managers
                     alghoritmFileName,
                     7, // OutputParamsNumber
                     out _computedResult,
-                    inputParameter.MaxTime,
-                    inputParameter.MaxIterations,
-                    inputParameter.MaxFunctionEvaluations,
+                    (double)inputParameter.MaxTime,
+                    (double)inputParameter.MaxIterations,
+                    (double)inputParameter.MaxFunctionEvaluations,
                     inputParameter.MaxStallIterations,
                     testFunctionFileName,
                     testFunction.LowerBoundX,

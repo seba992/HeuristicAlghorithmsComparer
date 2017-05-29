@@ -1,37 +1,41 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="EntityDataModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityContainer Name="EntityDataModelStoreContainer">
-    <EntitySet Name="Alghoritm" EntityType="EntityDataModel.Store.Alghoritm" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="InputParameter" EntityType="EntityDataModel.Store.InputParameter" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Result" EntityType="EntityDataModel.Store.Result" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="ResultDetail" EntityType="EntityDataModel.Store.ResultDetail" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="ExitFlag" EntityType="EntityDataModel.Store.ExitFlag" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="TestFunction" EntityType="EntityDataModel.Store.TestFunction" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Alghoritms" EntityType="EntityDataModel.Store.Alghoritms" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="InputParameters" EntityType="EntityDataModel.Store.InputParameters" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Results" EntityType="EntityDataModel.Store.Results" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ResultDetails" EntityType="EntityDataModel.Store.ResultDetails" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ExitFlags" EntityType="EntityDataModel.Store.ExitFlags" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TestFunctions" EntityType="EntityDataModel.Store.TestFunctions" store:Type="Tables" Schema="dbo" />
     <AssociationSet Name="AlghoritmsResults" Association="EntityDataModel.Store.AlghoritmsResults">
-      <End Role="Alghoritms" EntitySet="Alghoritm" />
-      <End Role="Results" EntitySet="Result" />
+      <End Role="Alghoritms" EntitySet="Alghoritms" />
+      <End Role="Results" EntitySet="Results" />
     </AssociationSet>
     <AssociationSet Name="InputParametersResults" Association="EntityDataModel.Store.InputParametersResults">
-      <End Role="InputParameters" EntitySet="InputParameter" />
-      <End Role="Results" EntitySet="Result" />
+      <End Role="InputParameters" EntitySet="InputParameters" />
+      <End Role="Results" EntitySet="Results" />
     </AssociationSet>
     <AssociationSet Name="ExitFlagsResultDetails" Association="EntityDataModel.Store.ExitFlagsResultDetails">
-      <End Role="ExitFlags" EntitySet="ExitFlag" />
-      <End Role="ResultDetails" EntitySet="ResultDetail" />
+      <End Role="ExitFlags" EntitySet="ExitFlags" />
+      <End Role="ResultDetails" EntitySet="ResultDetails" />
     </AssociationSet>
     <AssociationSet Name="ResultDetailsResults" Association="EntityDataModel.Store.ResultDetailsResults">
-      <End Role="ResultDetails" EntitySet="ResultDetail" />
-      <End Role="Results" EntitySet="Result" />
+      <End Role="ResultDetails" EntitySet="ResultDetails" />
+      <End Role="Results" EntitySet="Results" />
+    </AssociationSet>
+    <AssociationSet Name="TestFunctionResult" Association="EntityDataModel.Store.TestFunctionResult">
+      <End Role="TestFunction" EntitySet="TestFunctions" />
+      <End Role="Result" EntitySet="Results" />
     </AssociationSet>
   </EntityContainer>
-  <EntityType Name="Alghoritm">
+  <EntityType Name="Alghoritms">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
-  <EntityType Name="InputParameter">
+  <EntityType Name="InputParameters">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
@@ -41,9 +45,9 @@
     <Property Name="MaxFunctionEvaluations" Type="int" Nullable="false" />
     <Property Name="SwarmSize" Type="int" Nullable="true" />
     <Property Name="PopulationSize" Type="int" Nullable="true" />
-    <Property Name="MaxStallIteration" Type="int" Nullable="false" />
+    <Property Name="MaxStallIterations" Type="int" Nullable="false" />
   </EntityType>
-  <EntityType Name="Result">
+  <EntityType Name="Results">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
@@ -51,46 +55,47 @@
     <Property Name="AlghoritmId" Type="int" Nullable="false" />
     <Property Name="InputParametersId" Type="int" Nullable="false" />
     <Property Name="ResultDetailsId" Type="int" Nullable="false" />
+    <Property Name="TestFunctionId" Type="int" Nullable="false" />
   </EntityType>
-  <EntityType Name="ResultDetail">
+  <EntityType Name="ResultDetails">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Generations" Type="int" Nullable="false" />
+    <Property Name="Iterations" Type="int" Nullable="false" />
     <Property Name="FunctionEvaluations" Type="int" Nullable="false" />
     <Property Name="BestFunctionValue" Type="decimal" Nullable="false" Precision="18" Scale="10" />
-    <Property Name="FinalPointX" Type="decimal" Nullable="false" Precision="10" Scale="0" />
-    <Property Name="FinalPointY" Type="decimal" Nullable="false" Precision="10" Scale="0" />
-    <Property Name="TotalTime" Type="decimal" Nullable="false" Precision="10" Scale="0" />
+    <Property Name="FinalPointX" Type="decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="FinalPointY" Type="decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="TotalTime" Type="decimal" Nullable="false" Precision="18" Scale="0" />
     <Property Name="TerminatedMessage" Type="nvarchar(max)" Nullable="true" />
     <Property Name="ExitFlagId" Type="int" Nullable="true" />
-    <Property Name="StartingPointX" Type="decimal" Nullable="true" Precision="10" />
-    <Property Name="StartingPointY" Type="decimal" Nullable="true" Precision="10" />
+    <Property Name="StartingPointX" Type="decimal" Nullable="true" Precision="18" />
+    <Property Name="StartingPointY" Type="decimal" Nullable="true" Precision="18" />
   </EntityType>
-  <EntityType Name="ExitFlag">
+  <EntityType Name="ExitFlags">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
-  <EntityType Name="TestFunction">
+  <EntityType Name="TestFunctions">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="DifficultyLevel" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DifficultyLevel" Type="int" Nullable="false" />
     <Property Name="FunctionGraphLink" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="LowerBoundX" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="LowerBoundY" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="UpperBoundX" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="UpperBoundY" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LowerBoundX" Type="float" Nullable="false" />
+    <Property Name="LowerBoundY" Type="float" Nullable="false" />
+    <Property Name="UpperBoundX" Type="float" Nullable="false" />
+    <Property Name="UpperBoundY" Type="float" Nullable="false" />
   </EntityType>
   <Association Name="AlghoritmsResults">
-    <End Role="Alghoritms" Type="EntityDataModel.Store.Alghoritm" Multiplicity="1" />
-    <End Role="Results" Type="EntityDataModel.Store.Result" Multiplicity="*" />
+    <End Role="Alghoritms" Type="EntityDataModel.Store.Alghoritms" Multiplicity="1" />
+    <End Role="Results" Type="EntityDataModel.Store.Results" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Alghoritms">
         <PropertyRef Name="Id" />
@@ -101,8 +106,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="InputParametersResults">
-    <End Role="InputParameters" Type="EntityDataModel.Store.InputParameter" Multiplicity="1" />
-    <End Role="Results" Type="EntityDataModel.Store.Result" Multiplicity="*" />
+    <End Role="InputParameters" Type="EntityDataModel.Store.InputParameters" Multiplicity="1" />
+    <End Role="Results" Type="EntityDataModel.Store.Results" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="InputParameters">
         <PropertyRef Name="Id" />
@@ -113,8 +118,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="ExitFlagsResultDetails">
-    <End Role="ExitFlags" Type="EntityDataModel.Store.ExitFlag" Multiplicity="0..1" />
-    <End Role="ResultDetails" Type="EntityDataModel.Store.ResultDetail" Multiplicity="*" />
+    <End Role="ExitFlags" Type="EntityDataModel.Store.ExitFlags" Multiplicity="0..1" />
+    <End Role="ResultDetails" Type="EntityDataModel.Store.ResultDetails" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="ExitFlags">
         <PropertyRef Name="Id" />
@@ -125,14 +130,26 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="ResultDetailsResults">
-    <End Role="ResultDetails" Type="EntityDataModel.Store.ResultDetail" Multiplicity="1" />
-    <End Role="Results" Type="EntityDataModel.Store.Result" Multiplicity="*" />
+    <End Role="ResultDetails" Type="EntityDataModel.Store.ResultDetails" Multiplicity="1" />
+    <End Role="Results" Type="EntityDataModel.Store.Results" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="ResultDetails">
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="Results">
         <PropertyRef Name="ResultDetailsId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TestFunctionResult">
+    <End Role="TestFunction" Type="EntityDataModel.Store.TestFunctions" Multiplicity="1" />
+    <End Role="Result" Type="EntityDataModel.Store.Results" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TestFunction">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Result">
+        <PropertyRef Name="TestFunctionId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

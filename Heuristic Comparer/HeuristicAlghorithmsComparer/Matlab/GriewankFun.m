@@ -1,6 +1,6 @@
 % Griewank function
 % https://www.sfu.ca/~ssurjano/griewank.html, 6.08%, min=[0,0]
-function res = fun6(x)
+function res = GriewankFun(x)
 % fprintf('Griewank function 6.08%%, min=[0,0]')
 x1 = x(1);
 x2 = x(2);

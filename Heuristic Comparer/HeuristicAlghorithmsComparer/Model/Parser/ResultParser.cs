@@ -1,4 +1,5 @@
-﻿using HeuristicAlghorithmsComparer.Database;
+﻿using System;
+using HeuristicAlghorithmsComparer.Database;
 using HeuristicAlghorithmsComparer.Model.Managers;
 
 namespace HeuristicAlghorithmsComparer.Model.Parser
@@ -9,13 +10,13 @@ namespace HeuristicAlghorithmsComparer.Model.Parser
         {
             return new ResultDetail()
             {
-                FinalPointX = (decimal) result[0],
-                FinalPointY = (decimal) result[1],
-                BestFunctionValue = (decimal) result[2],
-                Iterations = (int) result[3],
-                FunctionEvaluations = (int) result[4],
-                StartingPointX = (decimal?) result[5],
-                StartingPointY = (decimal?) result[6],
+                FinalPointX = Convert.ToDecimal(result[0]),
+                FinalPointY = Convert.ToDecimal(result[1]),
+                BestFunctionValue = Convert.ToDecimal(result[2]),
+                Iterations = Convert.ToInt32(result[3]),
+                FunctionEvaluations = Convert.ToInt32(result[4]),
+                StartingPointX = Convert.ToDecimal(result[5]),
+                StartingPointY = Convert.ToDecimal(result[6])
             };
         }
 

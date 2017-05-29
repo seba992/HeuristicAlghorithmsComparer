@@ -23,7 +23,7 @@ namespace HeuristicAlghorithmsComparer.Model.Utils
 
         public static string GetFunctionFileName(TestFunction testFunction)
         {
-            return $"{testFunction.Name.Replace(" ","")}Fun";
+            return $"{testFunction.Name}Fun";
         }
     }
 }

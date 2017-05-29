@@ -1,6 +1,6 @@
 % Beale function
 % https://www.sfu.ca/~ssurjano/beale.html, 66.25%, min=[3,0.5]
-function res = fun2(x)
+function res = BealeFun(x)
 % fprintf('Beale function 66.25%%, min=[3,0.5]')
 x1 = x(1);
 x2 = x(2);

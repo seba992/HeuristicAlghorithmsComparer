@@ -48,7 +48,7 @@ namespace HeuristicAlghorithmsComparer.Model.Services
                 {
                     InputParameter = inputParameter,
                     ResultDetail = annealingResultDetails,
-                    //TestFunctionId = testFunction.Id,
+                    TestFunctionId = testFunction.Id,
                     AlghoritmId = (int) alghoritm,
                 };
 

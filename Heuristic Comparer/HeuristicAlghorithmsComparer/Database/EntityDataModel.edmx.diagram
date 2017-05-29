@@ -15,6 +15,7 @@
         <AssociationConnector Association="EntityDataModel.ExitFlagsResultDetails" />
         <AssociationConnector Association="EntityDataModel.ResultDetailsResults" />
         <EntityTypeShape EntityType="EntityDataModel.TestFunction" Width="1.5" PointX="6.125" PointY="3.25" />
+        <AssociationConnector Association="EntityDataModel.TestFunctionResult" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

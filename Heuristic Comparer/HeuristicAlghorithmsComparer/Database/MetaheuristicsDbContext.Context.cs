@@ -25,11 +25,11 @@ namespace HeuristicAlghorithmsComparer.Database
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Alghoritm> Alghoritm { get; set; }
-        public virtual DbSet<InputParameter> InputParameter { get; set; }
-        public virtual DbSet<Result> Result { get; set; }
-        public virtual DbSet<ResultDetail> ResultDetail { get; set; }
-        public virtual DbSet<ExitFlag> ExitFlag { get; set; }
-        public virtual DbSet<TestFunction> TestFunction { get; set; }
+        public virtual DbSet<Alghoritm> Alghoritms { get; set; }
+        public virtual DbSet<InputParameter> InputParameters { get; set; }
+        public virtual DbSet<Result> Results { get; set; }
+        public virtual DbSet<ResultDetail> ResultDetails { get; set; }
+        public virtual DbSet<ExitFlag> ExitFlags { get; set; }
+        public virtual DbSet<TestFunction> TestFunctions { get; set; }
     }
 }

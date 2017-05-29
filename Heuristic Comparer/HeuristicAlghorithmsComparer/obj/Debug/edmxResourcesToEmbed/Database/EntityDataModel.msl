@@ -1,42 +1,43 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="EntityDataModelStoreContainer" CdmEntityContainer="EntityDataModelContainer">
-    <EntitySetMapping Name="Alghoritm">
+    <EntitySetMapping Name="Alghoritms">
       <EntityTypeMapping TypeName="IsTypeOf(EntityDataModel.Alghoritm)">
-        <MappingFragment StoreEntitySet="Alghoritm">
+        <MappingFragment StoreEntitySet="Alghoritms">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="InputParameter">
+    <EntitySetMapping Name="InputParameters">
       <EntityTypeMapping TypeName="IsTypeOf(EntityDataModel.InputParameter)">
-        <MappingFragment StoreEntitySet="InputParameter">
+        <MappingFragment StoreEntitySet="InputParameters">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="MaxTime" ColumnName="MaxTime" />
           <ScalarProperty Name="MaxIterations" ColumnName="MaxIterations" />
           <ScalarProperty Name="MaxFunctionEvaluations" ColumnName="MaxFunctionEvaluations" />
           <ScalarProperty Name="SwarmSize" ColumnName="SwarmSize" />
           <ScalarProperty Name="PopulationSize" ColumnName="PopulationSize" />
-          <ScalarProperty Name="MaxStallIterations" ColumnName="MaxStallIteration" />
+          <ScalarProperty Name="MaxStallIterations" ColumnName="MaxStallIterations" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Result">
+    <EntitySetMapping Name="Results">
       <EntityTypeMapping TypeName="IsTypeOf(EntityDataModel.Result)">
-        <MappingFragment StoreEntitySet="Result">
+        <MappingFragment StoreEntitySet="Results">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="AlghoritmId" ColumnName="AlghoritmId" />
           <ScalarProperty Name="InputParametersId" ColumnName="InputParametersId" />
           <ScalarProperty Name="ResultDetailsId" ColumnName="ResultDetailsId" />
+          <ScalarProperty Name="TestFunctionId" ColumnName="TestFunctionId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="ResultDetail">
+    <EntitySetMapping Name="ResultDetails">
       <EntityTypeMapping TypeName="IsTypeOf(EntityDataModel.ResultDetail)">
-        <MappingFragment StoreEntitySet="ResultDetail">
+        <MappingFragment StoreEntitySet="ResultDetails">
           <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Iterations" ColumnName="Generations" />
+          <ScalarProperty Name="Iterations" ColumnName="Iterations" />
           <ScalarProperty Name="FunctionEvaluations" ColumnName="FunctionEvaluations" />
           <ScalarProperty Name="BestFunctionValue" ColumnName="BestFunctionValue" />
           <ScalarProperty Name="FinalPointX" ColumnName="FinalPointX" />
@@ -49,17 +50,17 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="ExitFlag">
+    <EntitySetMapping Name="ExitFlags">
       <EntityTypeMapping TypeName="IsTypeOf(EntityDataModel.ExitFlag)">
-        <MappingFragment StoreEntitySet="ExitFlag">
+        <MappingFragment StoreEntitySet="ExitFlags">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Description" ColumnName="Description" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="TestFunction">
+    <EntitySetMapping Name="TestFunctions">
       <EntityTypeMapping TypeName="IsTypeOf(EntityDataModel.TestFunction)">
-        <MappingFragment StoreEntitySet="TestFunction">
+        <MappingFragment StoreEntitySet="TestFunctions">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="DifficultyLevel" ColumnName="DifficultyLevel" />

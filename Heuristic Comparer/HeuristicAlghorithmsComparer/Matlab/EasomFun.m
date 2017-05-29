@@ -1,6 +1,6 @@
 % Easom function
 % https://www.sfu.ca/~ssurjano/easom.html, 26.08%, min=[pi,pi]
-function res = fun4(x)
+function res = EasomFun(x)
 % fprintf('Easom function 26.08%%, min=[pi,pi]')
 x1 = x(1);
 x2 = x(2);
