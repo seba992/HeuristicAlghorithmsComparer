@@ -32,7 +32,7 @@ namespace HeuristicAlghorithmsComparer.Model.Services
             try
             {
                 var testFunction = _databaseService.GetTestFunction(TestFunction.Bochachevsky);
-                var alghoritm = Alghoritm.SimulatedAnnealing;
+                var alghoritm = _databaseService.GetAlghoritm(Alghoritm.SimulatedAnnealing);
                 var inputParameter = new InputParameter()
                 {
                     MaxTime = 5,
@@ -49,7 +49,7 @@ namespace HeuristicAlghorithmsComparer.Model.Services
                     InputParameter = inputParameter,
                     ResultDetail = annealingResultDetails,
                     TestFunctionId = testFunction.Id,
-                    AlghoritmId = (int) alghoritm,
+                    Alghoritm = alghoritm
                 };
 
                 _databaseService.SaveResult(result);

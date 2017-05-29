@@ -40,6 +40,11 @@ namespace HeuristicAlghorithmsComparer.Model.Services
             _dbContext.SaveChanges();
         }
 
+        public Database.Alghoritm GetAlghoritm(Alghoritm alghoritm)
+        {
+            return _dbContext.Alghoritms.First(x => x.Id == (int) alghoritm);
+        }
+
         public void GetData(Action<DataItem, Exception> callback)
         {
             // Use this to connect to the actual data service

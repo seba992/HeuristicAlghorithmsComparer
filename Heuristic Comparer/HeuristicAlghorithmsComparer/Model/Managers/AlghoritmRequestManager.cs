@@ -19,7 +19,7 @@ namespace HeuristicAlghorithmsComparer.Model.Managers
             _matlabContext = matlabContextWrapper.GetMatlabContext();
         }
 
-        public ResultDetail ExecuteAlghoritm(Enums.Alghoritm alghoritm, TestFunction testFunction, InputParameter inputParameter)
+        public ResultDetail ExecuteAlghoritm(Alghoritm alghoritm, TestFunction testFunction, InputParameter inputParameter)
         {
             try
             {

@@ -65,9 +65,9 @@
     <Property Name="Iterations" Type="int" Nullable="false" />
     <Property Name="FunctionEvaluations" Type="int" Nullable="false" />
     <Property Name="BestFunctionValue" Type="decimal" Nullable="false" Precision="18" Scale="10" />
-    <Property Name="FinalPointX" Type="decimal" Nullable="false" Precision="18" Scale="0" />
-    <Property Name="FinalPointY" Type="decimal" Nullable="false" Precision="18" Scale="0" />
-    <Property Name="TotalTime" Type="decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="FinalPointX" Type="decimal" Nullable="false" Precision="18" Scale="10" />
+    <Property Name="FinalPointY" Type="decimal" Nullable="false" Precision="18" Scale="10" />
+    <Property Name="TotalTime" Type="decimal" Nullable="false" Precision="18" Scale="10" />
     <Property Name="TerminatedMessage" Type="nvarchar(max)" Nullable="true" />
     <Property Name="ExitFlagId" Type="int" Nullable="true" />
     <Property Name="StartingPointX" Type="decimal" Nullable="true" Precision="18" />

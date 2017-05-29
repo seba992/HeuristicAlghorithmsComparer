@@ -4,7 +4,7 @@ ObjectiveFunction = str2func(funName);
 lb = [lowerBoundX LowerBoundY];
 ub = [UpperBoundX UpperBoundY];
 
-startingPoint = randi([lowerBoundX,LowerBoundY],1,2); %[79 79];
+startingPoint = randi([lowerBoundX,UpperBoundX],1,2); %[79 79];
 
 options = optimoptions(@simulannealbnd, ...
     'AnnealingFcn', @annealingboltz, ... % or @annealingfast

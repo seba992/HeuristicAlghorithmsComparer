@@ -93,9 +93,9 @@
     <Property Name="Iterations" Type="Int32" Nullable="false" />
     <Property Name="FunctionEvaluations" Type="Int32" Nullable="false" />
     <Property Name="BestFunctionValue" Type="Decimal" Nullable="false" Scale="10" Precision="18" />
-    <Property Name="FinalPointX" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
-    <Property Name="FinalPointY" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
-    <Property Name="TotalTime" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="FinalPointX" Type="Decimal" Nullable="false" Precision="18" Scale="10" />
+    <Property Name="FinalPointY" Type="Decimal" Nullable="false" Precision="18" Scale="10" />
+    <Property Name="TotalTime" Type="Decimal" Nullable="false" Precision="18" Scale="10" />
     <Property Name="TerminatedMessage" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
     <NavigationProperty Name="ExitFlag" Relationship="EntityDataModel.ExitFlagsResultDetails" FromRole="ResultDetails" ToRole="ExitFlags" />
     <Property Name="ExitFlagId" Type="Int32" Nullable="true" />

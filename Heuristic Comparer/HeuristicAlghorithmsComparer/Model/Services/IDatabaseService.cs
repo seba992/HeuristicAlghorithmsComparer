@@ -15,5 +15,6 @@ namespace HeuristicAlghorithmsComparer.Model.Services
         TestFunction GetTestFunction(Enums.TestFunction testFunction);
 
         void SaveResult(Result result);
+        Alghoritm GetAlghoritm(Enums.Alghoritm alghoritm);
     }
 }
