@@ -36,9 +36,9 @@ namespace HeuristicAlghorithmsComparer.Model.Services
                 var inputParameter = new InputParameter()
                 {
                     MaxTime = 5,
-                    MaxIterations = 10,
-                    MaxFunctionEvaluations = 1000,
-                    MaxStallIterations = 1000
+                    MaxIterations = 10000,
+                    MaxFunctionEvaluations = 10000,
+                    MaxStallIterations = 10000
                 };
 
                 var annealingResultDetails = _alghoritmRequestManager.ExecuteAlghoritm(alghoritm, testFunction,
@@ -59,6 +59,39 @@ namespace HeuristicAlghorithmsComparer.Model.Services
                 MessageBox.Show(ex.ToString());
             }
 
+        }
+
+        public void ExecuteGeneticAlghoritm()
+        {
+            try
+            {
+                var testFunction = _databaseService.GetTestFunction(TestFunction.Bochachevsky);
+                var alghoritm = _databaseService.GetAlghoritm(Alghoritm.GeneticAlghoritm);
+                var inputParameter = new InputParameter()
+                {
+                    MaxTime = 5,
+                    MaxIterations = 1000, // MaxGenerations
+                    PopulationSize = 100,
+                    MaxStallIterations = 10000 // MaxStallGenerations
+                };
+
+                var annealingResultDetails = _alghoritmRequestManager.ExecuteAlghoritm(alghoritm, testFunction,
+                    inputParameter);
+
+                var result = new Result()
+                {
+                    InputParameter = inputParameter,
+                    ResultDetail = annealingResultDetails,
+                    TestFunctionId = testFunction.Id,
+                    Alghoritm = alghoritm
+                };
+
+                _databaseService.SaveResult(result);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
     }
 }

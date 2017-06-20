@@ -1,4 +1,4 @@
-function [x1,x2,fval,outIterations,outFunccount,stX,stY] = SimulatedAnnealingTestFun( maxTime, maxIterations, maxFunctionEvaluations, maxStallIterations, funName, lowerBoundX, LowerBoundY, UpperBoundX, UpperBoundY )
+function [x1,x2,fval,outIterations,outFunccount,outTotaltime,stX,stY] = SimulatedAnnealingTestFun( maxTime, maxIterations, maxFunctionEvaluations, maxStallIterations, funName, lowerBoundX, LowerBoundY, UpperBoundX, UpperBoundY )
 ObjectiveFunction = str2func(funName);
 
 lb = [lowerBoundX LowerBoundY];
@@ -21,5 +21,6 @@ stX = startingPoint(1);
 stY = startingPoint(2);
 outIterations = output.iterations;
 outFunccount = output.funccount;
+outTotaltime = output.totaltime;
 end
 

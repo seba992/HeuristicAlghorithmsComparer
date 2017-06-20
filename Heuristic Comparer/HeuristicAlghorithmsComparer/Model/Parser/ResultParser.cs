@@ -15,8 +15,9 @@ namespace HeuristicAlghorithmsComparer.Model.Parser
                 BestFunctionValue = Convert.ToDecimal(result[2]),
                 Iterations = Convert.ToInt32(result[3]),
                 FunctionEvaluations = Convert.ToInt32(result[4]),
-                StartingPointX = Convert.ToDecimal(result[5]),
-                StartingPointY = Convert.ToDecimal(result[6])
+                TotalTime = Convert.ToInt32(result[5]),
+                StartingPointX = Convert.ToDecimal(result[6]),
+                StartingPointY = Convert.ToDecimal(result[7])
             };
         }
 

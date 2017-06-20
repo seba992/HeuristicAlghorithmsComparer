@@ -26,9 +26,11 @@ namespace HeuristicAlghorithmsComparer.Model.Managers
                 var alghoritmFileName = FunctionNameMatcher.GetAlghoritmFileName(alghoritm);
                 var testFunctionFileName = FunctionNameMatcher.GetFunctionFileName(testFunction);
 
+                _computedResult = null;
+
                 _matlabContext.Feval(
                     alghoritmFileName,
-                    7, // OutputParamsNumber
+                    8, // OutputParamsNumber
                     out _computedResult,
                     (double)inputParameter.MaxTime,
                     (double)inputParameter.MaxIterations,
