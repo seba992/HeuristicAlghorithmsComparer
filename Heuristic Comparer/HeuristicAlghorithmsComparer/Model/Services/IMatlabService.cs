@@ -4,5 +4,6 @@
     {
         void CheckMatlabConnection();
         void ExecuteSimulatedAnnealing();
+        void ExecuteGeneticAlghoritm();
     }
 }

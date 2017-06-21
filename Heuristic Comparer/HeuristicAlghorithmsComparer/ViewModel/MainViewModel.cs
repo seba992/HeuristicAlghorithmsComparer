@@ -26,7 +26,7 @@ namespace HeuristicAlghorithmsComparer.ViewModel
             //_matlabService.CheckMatlabConnection();
             for (int i = 0; i < 100; i++)
             {
-                ExecuteSimulatedAnnealingTest();
+                ExecuteGeneticAlghoritmTest();
             }
             
         }
@@ -34,6 +34,11 @@ namespace HeuristicAlghorithmsComparer.ViewModel
         public void ExecuteSimulatedAnnealingTest()
         {
             _matlabService.ExecuteSimulatedAnnealing(); // TODO: add params from view
+        }
+
+        public void ExecuteGeneticAlghoritmTest()
+        {
+            _matlabService.ExecuteGeneticAlghoritm(); // TODO: add params from view
         }
     }
 }

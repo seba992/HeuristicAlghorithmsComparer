@@ -28,7 +28,15 @@ namespace HeuristicAlghorithmsComparer.Model.Parser
 
         public ResultDetail ParseGeneticResult(object[] result)
         {
-            throw new System.NotImplementedException();
+            return new ResultDetail()
+            {
+                FinalPointX = Convert.ToDecimal(result[0]),
+                FinalPointY = Convert.ToDecimal(result[1]),
+                BestFunctionValue = Convert.ToDecimal(result[2]),
+                Iterations = Convert.ToInt32(result[3]),
+                FunctionEvaluations = Convert.ToInt32(result[4]),
+                TotalTime = Convert.ToInt32(result[5])
+            };
         }
     }
 }

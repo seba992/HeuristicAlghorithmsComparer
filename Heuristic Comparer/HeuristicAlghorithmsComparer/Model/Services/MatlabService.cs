@@ -75,13 +75,13 @@ namespace HeuristicAlghorithmsComparer.Model.Services
                     MaxStallIterations = 10000 // MaxStallGenerations
                 };
 
-                var annealingResultDetails = _alghoritmRequestManager.ExecuteAlghoritm(alghoritm, testFunction,
+                var geneticResultsDetails = _alghoritmRequestManager.ExecuteAlghoritm(alghoritm, testFunction,
                     inputParameter);
 
                 var result = new Result()
                 {
                     InputParameter = inputParameter,
-                    ResultDetail = annealingResultDetails,
+                    ResultDetail = geneticResultsDetails,
                     TestFunctionId = testFunction.Id,
                     Alghoritm = alghoritm
                 };

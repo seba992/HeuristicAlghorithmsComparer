@@ -11,11 +11,11 @@ options = optimoptions(@ga, ...
     'MaxStallGenerations', maxStallGenerations);
                      %'PlotFcn',{@saplotbestf,@saplottemperature,@saplotf,@saplotstopping}) %
 tic              
-[x,fval,exitflag,output] = ga(ObjectiveFunction,2,[],[],[],[],lb,ub,[],options);
+[x,fval,exitflag,output] = ga(ObjectiveFunction,Nvariables,[],[],[],[],lb,ub,[],options);
 elapsedTime = toc;
 x1 = x(1);
 x2 = x(2);
-outGenerations  = output.generations ;
+outGenerations  = output.generations;
 outFunccount = output.funccount;
 outTotaltime = elapsedTime;
 end
