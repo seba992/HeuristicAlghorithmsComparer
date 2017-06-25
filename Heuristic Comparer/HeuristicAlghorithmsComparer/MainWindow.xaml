@@ -5,28 +5,65 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:ignore="http://www.galasoft.ch/ignore"
         mc:Ignorable="d ignore"
-        Height="300"
-        Width="300"
-        Title="MVVM Light Application"
+        Height="441"
+        Width="534.5"
+        Title="Heuristic Alghoritm Comparer"
+        Margin="2 2 2 2"
         DataContext="{Binding Main, Source={StaticResource Locator}}">
-    
+
     <Window.Resources>
-        <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="Skins/MainSkin.xaml" />
-            </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
     </Window.Resources>
 
     <Grid x:Name="LayoutRoot">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5*" />
+            <ColumnDefinition Width="3*" />
+            <ColumnDefinition Width="3*" />
+            <ColumnDefinition Width="5" />
 
-        <TextBlock FontSize="36"
-                   FontWeight="Bold"
-                   Foreground="Purple"
-                   Text="{Binding WelcomeTitle}"
-                   VerticalAlignment="Center"
-                   HorizontalAlignment="Center"
-                   TextWrapping="Wrap" />
+        </Grid.ColumnDefinitions>
 
+        <Label Content="Algorytm:" HorizontalAlignment="Right" Grid.Row="1" Grid.Column="0" />
+        <ComboBox Margin="2 2 2 2" Grid.ColumnSpan="2" Grid.Column="1" Grid.Row="1"
+                  ItemsSource="{Binding AlghoritmTypes}" SelectedItem="{Binding SelectedAlghoritm}" />
+        <Label Content="Funkcja testowa:" HorizontalAlignment="Right" Grid.Row="2" Grid.Column="0" />
+        <ComboBox Margin="2 2 2 2" Grid.ColumnSpan="2" Grid.Column="1" Grid.Row="2"
+                  ItemsSource="{Binding TestFunctions}" SelectedItem="{Binding SelectedTestFunction}" />
+        
+        <Label Content="Max czas działania:" HorizontalAlignment="Right" Grid.Row="4" Grid.Column="0"/>
+        <TextBox Margin="2 2 2 2" Grid.Row="4" Grid.Column="1" PreviewTextInput="NumericOnly" Text="{Binding MaxTime}"/>
+        <Label Content="Liczba testów:" HorizontalAlignment="Right" Grid.Row="5" Grid.Column="0" />
+        <TextBox Margin="2 2 2 2" Grid.Row="5" Grid.Column="1" PreviewTextInput="NumericOnly" Text="{Binding TestCount}"/>
+
+        <Label Content="{Binding IterationGenerationName, Mode=OneWay}" HorizontalAlignment="Right" Grid.Row="7"
+               Grid.Column="0" />
+        <TextBox Margin="2 2 2 2" Grid.Row="7" Grid.Column="1" PreviewTextInput="NumericOnly" Text="{Binding MaxIterations}"/>
+        <Label Content="Max liczba odwołań funkcji:" HorizontalAlignment="Right" Grid.Row="8" Grid.Column="0" />
+        <TextBox Margin="2 2 2 2" Grid.Row="8" Grid.Column="1" PreviewTextInput="NumericOnly" Text="{Binding MaxFunctionEvaluations}"/>
+        <Label Content="Wielkość populacji:" HorizontalAlignment="Right" Grid.Row="9" Grid.Column="0"
+               Visibility="{Binding IsPopulationAlghoritm, Converter={StaticResource BooleanToVisibilityConverter} }" />
+        <TextBox Margin="2 2 2 2" Grid.Row="9" Grid.Column="1" PreviewTextInput="NumericOnly"
+                 Visibility="{Binding IsPopulationAlghoritm, Converter={StaticResource BooleanToVisibilityConverter} }" Text="{Binding PopulationSize}"/>
+        <Label Content="Max liczba generacji bez poprawy wyniku:" HorizontalAlignment="Right" Grid.Row="10"
+               Grid.Column="0" />
+        <TextBox Margin="2 2 2 2" Grid.Row="10" Grid.Column="1" PreviewTextInput="NumericOnly" Text="{Binding MaxStall}"/>
+        <Button Margin="2 2 2 2" Content="Uruchom" Grid.Column="2" Grid.Row="12" Command="{Binding ExecuteCommand}"/>
     </Grid>
 </Window>

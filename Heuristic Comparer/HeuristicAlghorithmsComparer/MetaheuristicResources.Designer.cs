@@ -115,6 +115,24 @@ namespace HeuristicAlghorithmsComparer {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Liczba generacji:.
+        /// </summary>
+        internal static string LiczbaGeneracji {
+            get {
+                return ResourceManager.GetString("LiczbaGeneracji", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Liczba iteracji:.
+        /// </summary>
+        internal static string LiczbaIteracji {
+            get {
+                return ResourceManager.GetString("LiczbaIteracji", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ParticleSwarmOptimizationTestFun.
         /// </summary>
         internal static string ParticleSwarmOptimizationFileName {

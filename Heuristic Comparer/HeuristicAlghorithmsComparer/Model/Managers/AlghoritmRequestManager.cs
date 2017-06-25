@@ -26,15 +26,48 @@ namespace HeuristicAlghorithmsComparer.Model.Managers
                 case Enums.Alghoritm.SimulatedAnnealing:
                     return ExecuteSimulatedAnnealingAlghoritm(alghoritm, testFunction, inputParameter);
                 case Enums.Alghoritm.ParticleSwarmOptimization:
-                    return null;
-                    break;
+                    return ExecuteParticleSwarmAlghoritm(alghoritm, testFunction, inputParameter);
                 case Enums.Alghoritm.GeneticAlghoritm:
                     return ExecuteGeneticAlghoritmAlghoritm(alghoritm, testFunction, inputParameter);
-                    break;
                 default:
                     throw new ArgumentOutOfRangeException();
             }
             
+        }
+
+        private ResultDetail ExecuteParticleSwarmAlghoritm(Alghoritm alghoritm, TestFunction testFunction, InputParameter inputParameter)
+        {
+            try
+            {
+                var alghoritmFileName = FunctionNameMatcher.GetAlghoritmFileName(alghoritm);
+                var testFunctionFileName = FunctionNameMatcher.GetFunctionFileName(testFunction);
+
+                _computedResult = null;
+
+                _matlabContext.Feval(
+                    alghoritmFileName,
+                    6, // OutputParamsNumber
+                    out _computedResult,
+                    (double)inputParameter.MaxTime,
+                    (double)inputParameter.MaxIterations,
+                    (double)2, // Nvariables
+                    (double)inputParameter.SwarmSize,
+                    (double)inputParameter.MaxStallIterations,
+                    testFunctionFileName,
+                    testFunction.LowerBoundX,
+                    testFunction.LowerBoundY,
+                    testFunction.UpperBoundX,
+                    testFunction.UpperBoundY
+                    );
+
+
+                return _resultParser.ParseParticleSwarmResult(_computedResult as object[]);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            return null;
         }
 
         private ResultDetail ExecuteGeneticAlghoritmAlghoritm(Alghoritm alghoritm, TestFunction testFunction, InputParameter inputParameter)
@@ -53,7 +86,7 @@ namespace HeuristicAlghorithmsComparer.Model.Managers
                     (double)inputParameter.MaxTime,
                     (double)inputParameter.MaxIterations,
                     (double)2, // Nvariables
-                    (double)inputParameter.PopulationSize,
+                    (double)inputParameter.SwarmSize,
                     (double)inputParameter.MaxStallIterations,
                     testFunctionFileName,
                     testFunction.LowerBoundX,
@@ -64,12 +97,6 @@ namespace HeuristicAlghorithmsComparer.Model.Managers
 
 
                 return _resultParser.ParseGeneticResult(_computedResult as object[]);
-                //                
-                //
-                //                MessageBox.Show((_computedResult as object[])[0].ToString());
-                //
-                //                MessageBox.Show(res[0].ToString());
-                //                var test2 = _computedResult;
             }
             catch (Exception ex)
             {
@@ -104,12 +131,6 @@ namespace HeuristicAlghorithmsComparer.Model.Managers
 
 
                 return _resultParser.ParseAnnealingResult(_computedResult as object[]);
-                //                
-                //
-                //                MessageBox.Show((_computedResult as object[])[0].ToString());
-                //
-                //                MessageBox.Show(res[0].ToString());
-                //                var test2 = _computedResult;
             }
             catch (Exception ex)
             {

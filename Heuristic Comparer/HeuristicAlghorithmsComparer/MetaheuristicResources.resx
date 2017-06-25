@@ -135,6 +135,12 @@
   <data name="GriewankFunctionFileName" xml:space="preserve">
     <value />
   </data>
+  <data name="LiczbaGeneracji" xml:space="preserve">
+    <value>Liczba generacji:</value>
+  </data>
+  <data name="LiczbaIteracji" xml:space="preserve">
+    <value>Liczba iteracji:</value>
+  </data>
   <data name="ParticleSwarmOptimizationFileName" xml:space="preserve">
     <value>ParticleSwarmOptimizationTestFun</value>
   </data>

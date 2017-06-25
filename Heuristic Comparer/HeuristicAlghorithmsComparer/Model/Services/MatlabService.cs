@@ -12,7 +12,6 @@ namespace HeuristicAlghorithmsComparer.Model.Services
     {
         private readonly IAlghoritmRequestManager _alghoritmRequestManager;
         private readonly IDatabaseService _databaseService;
-        private object _testResult;
         private MLApp.MLApp _matlabContext;
 
         public MatlabService(IAlghoritmRequestManager alghoritmRequestManager, IMatlabContextWrapper matlabContextWrapper, IDatabaseService databaseService)
@@ -27,21 +26,22 @@ namespace HeuristicAlghorithmsComparer.Model.Services
             MessageBox.Show(_matlabContext.Execute("1+1"));
         }
 
-        public void ExecuteSimulatedAnnealing()
+        public void ExecuteSimulatedAnnealing(TestFunction function, Alghoritm alghoritm, int maxTime, int maxIterations,
+            int maxFunctionEvaluations, int maxStall)
         {
             try
             {
-                var testFunction = _databaseService.GetTestFunction(TestFunction.Bochachevsky);
-                var alghoritm = _databaseService.GetAlghoritm(Alghoritm.SimulatedAnnealing);
+                var testFunction = _databaseService.GetTestFunction(function);
+                var selectedAlghoritm = _databaseService.GetAlghoritm(alghoritm);
                 var inputParameter = new InputParameter()
                 {
-                    MaxTime = 5,
-                    MaxIterations = 10000,
-                    MaxFunctionEvaluations = 10000,
-                    MaxStallIterations = 10000
+                    MaxTime = maxTime,
+                    MaxIterations = maxIterations,
+                    MaxFunctionEvaluations = maxFunctionEvaluations,
+                    MaxStallIterations = maxStall
                 };
 
-                var annealingResultDetails = _alghoritmRequestManager.ExecuteAlghoritm(alghoritm, testFunction,
+                var annealingResultDetails = _alghoritmRequestManager.ExecuteAlghoritm(selectedAlghoritm, testFunction,
                     inputParameter);
 
                 var result = new Result()
@@ -49,7 +49,7 @@ namespace HeuristicAlghorithmsComparer.Model.Services
                     InputParameter = inputParameter,
                     ResultDetail = annealingResultDetails,
                     TestFunctionId = testFunction.Id,
-                    Alghoritm = alghoritm
+                    Alghoritm = selectedAlghoritm
                 };
 
                 _databaseService.SaveResult(result);
@@ -72,6 +72,39 @@ namespace HeuristicAlghorithmsComparer.Model.Services
                     MaxTime = 5,
                     MaxIterations = 1000, // MaxGenerations
                     PopulationSize = 100,
+                    MaxStallIterations = 10000 // MaxStallGenerations
+                };
+
+                var geneticResultsDetails = _alghoritmRequestManager.ExecuteAlghoritm(alghoritm, testFunction,
+                    inputParameter);
+
+                var result = new Result()
+                {
+                    InputParameter = inputParameter,
+                    ResultDetail = geneticResultsDetails,
+                    TestFunctionId = testFunction.Id,
+                    Alghoritm = alghoritm
+                };
+
+                _databaseService.SaveResult(result);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        public void ExecuteParticleSwarmTest()
+        {
+            try
+            {
+                var testFunction = _databaseService.GetTestFunction(TestFunction.Bochachevsky);
+                var alghoritm = _databaseService.GetAlghoritm(Alghoritm.ParticleSwarmOptimization);
+                var inputParameter = new InputParameter()
+                {
+                    MaxTime = 5,
+                    MaxIterations = 1000, // MaxGenerations
+                    SwarmSize = 100,
                     MaxStallIterations = 10000 // MaxStallGenerations
                 };
 

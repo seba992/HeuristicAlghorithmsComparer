@@ -1,0 +1,1782 @@
+\documentclass[twoside]{projektInzynierskiMS}
+\usepackage{polski}
+\usepackage[cp1250]{inputenc}
+%\usepackage{amsmath}
+\usepackage{listings}
+%\usepackage{xcolor}
+\usepackage{color}
+\usepackage{graphicx}
+%\drukJednostronny
+\usepackage{tabto}
+
+\renewcommand{\lstlistingname}{Kod ürÛd≥owy}
+\renewcommand\lstlistlistingname{Kody ürÛd≥owe}
+\renewcommand*{\refname}{Bibliografia}
+
+\definecolor{bluekeywords}{rgb}{0,0,1}
+\definecolor{greencomments}{rgb}{0,0.5,0}
+\definecolor{redstrings}{rgb}{0.64,0.08,0.08}
+\definecolor{xmlcomments}{rgb}{0.5,0.5,0.5}
+\definecolor{types}{rgb}{0.17,0.57,0.68}
+
+\usepackage{listings}
+\lstset{language=[Sharp]C,
+captionpos=b,
+showtabs=false,
+breaklines=true,
+showstringspaces=false,
+breakatwhitespace=true,
+escapeinside={(*@}{@*)},
+commentstyle=\color{greencomments},
+morekeywords={partial, var, value, get, set},
+keywordstyle=\color{bluekeywords},
+stringstyle=\color{redstrings},
+basicstyle=\ttfamily\small
+}
+
+
+%% tytu≥ promotor i autor (\title to komenda standardowa)
+\title{Projekt i wykonanie aplikacji bazodanowej wspomagajπcej pracÍ wybranej sieci hotelowej}
+\promotor{dr inø. Jaros≥aw Karcewicz}
+
+
+%% kaødy autor musi mieÊ 4 argumenty: imiÍ nazwisko, nr albumu, procent wk≥adu, opis wk≥adu
+\autor{£ukasz Lis}{225261}{32} {
+
+- Zdefiniowanie i zapis specyfikacji wymagaÒ (rozdzia≥ 2 (33 \%), 3 (33\%))
+
+- Zaprojektowanie schematu bazy danych  wraz ze wszystkim relacjami oraz tabelami s≥ownikowymi (40\%)
+
+- Opis wykorzystanych rozwiπzaÒ technologicznych (rozdzia≥ 4.1.2, 4.1.4 , 4.2.1, 4.2.2)
+
+- Przetestowanie utworzonej bazy danych wraz z jej pe≥nym opisem (rozdzia≥ 5.2)
+
+- Implementacja modu≥u edycji istniejπcej propozycji cenowej (rozdzia≥ 8.3)
+
+- Implementacja modu≥u edycji s≥ownikÛw cenowych (rozdzia≥ 8.6)
+ 
+- Implementacja interakcji okien wraz z odpowiednim wyúwietlaniem elementÛw
+
+- Opis rozdzia≥u Konto administratora i uøytkownika ñ ListView (rozdzia≥ 6.2)
+
+}
+	
+\autor{Sebastian Nalepka}{225265}{50} {
+
+- Zdefiniowanie i opis wstÍpu, genezy projektu, specyfikacji wymagaÒ i celu projektu (WstÍp, rozdzia≥ 1, 2 (33\%), 3(33\%) )
+
+- Zaprojektowanie schematu bazy danych wraz ze wszystkimi relacjami oraz tabelami s≥ownikowymi (60\%)
+
+- Utworzenie bazy danych za pomocπ SQL Server Management studio 2012
+
+- Opis wykorzystanych rozwiπzaÒ technologicznych (rozdzia≥ 4.1.3, 4.2.3, 4.2.5, 4.3.1)
+
+- Zamodelowanie aplikacji wraz z podzia≥em na klasy oraz dostosowaniem do wzorca architektonicznego MVVM (rozdzia≥ 5.1)
+
+- Komunikacja bazy danych z aplikacjπ C\# (WPF) za pomocπ Entity Framework 6 (rozdzia≥ 5.3)
+
+- Implementacja modu≥u logowania do programu wraz z jego zabezpieczeniem (rozdzia≥ 6.1, 8.1)
+
+- Implementacja modu≥u tworzenia nowej propozycji cenowej wraz z fizycznπ budowπ formy tworzonej propozycji (rozdzia≥ 6.3, 8.2)
+
+- Zaprojektowania okna g≥Ûwnego konta administratora 
+
+- Przetestowanie modu≥u dotyczπcego modyfikacji kont uøytkownikÛw
+
+- Opis perspektyw rozwoju oprogramowania oraz podsumowania (rozdzia≥ 9)
+
+}
+
+\autor{Mateusz Ogiermann}{226591}{18} {
+
+- Zdefiniowanie i zapis specyfikacji wymagaÒ (rozdzia≥ 2 (33 \%), 3 (33\%))
+
+- Zapis wstÍpu do rozdzia≥u 4
+
+- Opis wykorzystanych rozwiπzaÒ technologicznych (rozdzia≥ 4.1.1, 4.2.4, 4.3.2)
+
+- Opis wydawania kolejnych wersji oprogramowania (rozdzia≥ 7)
+
+- Implementacja modu≥u tworzenia pliku PDF wraz z utworzeniem jego szablonu oraz zapisem do pliku (rozdzia≥ 6.5 8.4)
+
+- Implementacja modu≥u przeznaczonego do zarzπdzania kontami pracownikÛw (rozdzia≥ 8.5)
+
+- Implementacja metod s≥uøπcych do edycji danych zapisanych w arkuszu DataGridView (rozdzia≥ 6.4)
+
+}		
+	
+%\NumeryNaPoczatku
+%% numeracja wzorÛw tu w≥πczona typu (1.2.3), ta druga to typu (1.2), a domyúlnie typu (1)
+%\subsectionWzory
+% \sectionWzory  
+
+%\rozdzialy
+
+%\literowaNumeracjaDodatkow %% w≥πczy numeracjÍ dodatkÛw literami
+%\rzymskaNumeracjaDodatkow  %%w≥πczy numeracjÍ dodatkÛw liczbami rzymskimi
+
+%% wy≥πczenie wyjaúnieÒ:
+\bezWyjasnien
+
+\begin{document}
+\TabPositions{0.75cm}
+
+
+Obecna sytuacja rynkowa zwiπzana z istnieniem duøej iloúci firm w zakresie kaødej branøy wymusza na przedsiÍbiorcach ciπg≥e zwiÍkszanie swojej atrakcyjnoúci oraz konkurencyjnoúci w celu zdobycia potencjalnego klienta. W realizacji powyøszego zadania konieczne jest wdraøanie nowoczesnych metod umoøliwiajπcych miÍdzy innymi obniøenie kosztÛw pracy, co wprost przek≥ada siÍ na niøszπ cenÍ produktu koÒcowego. Niøsza cena dla klienta jest jednym z najwaøniejszych elementÛw, ktÛry determinuje wybÛr konkretnego us≥ugodawcy. Aspekt ten dotyczy takøe branøy hotelarskiej, ktÛra w sposÛb bezpoúredni dotyczy naszej pracy.
+	Liczba hoteli w Polsce od kilkunastu lat nieprzerwanie roúnie \cite{LiczbaHoteli}. Implikuje to koniecznoúÊ wzmoøonej walki o klienta w celu utrzymania siÍ na rynku. Obniøenie cen us≥ug wynajmu pokoi, sal konferencyjnych oraz cateringÛw przy zachowaniu odpowiedniego poziomu dochodÛw jest problemem, z ktÛrym zmaga siÍ kaøda sieÊ hotelowa. PrzedsiÍbiorcy przeúcigajπ siÍ w znajdowaniu coraz to nowszych i efektywniejszych rozwiπzaÒ, ktÛre majπ na celu rozwiπzanie owego problemu. W XXI wieku duøπ pomocπ w tym zakresie okazuje siÍ informatyzacja.
+
+\subsection*{Geneza projektu}
+\label{dzial:geneza}
+Podczas przeprowadzania transakcji dotyczπcej organizacji szkolenia w jednej z sieci hotelowych, dostrzeøony zosta≥ potencjalny problem wynikajπcy z manualnego operowania wszelkimi danymi przez pracownikÛw dzia≥u sprzedaøy. Pracownicy Ci w czasie kontaktu z klientem majπ za zadanie ustalenie wszelkich wartoúci cenowych us≥ug wybranych przez klienta. Us≥ugi te bezpoúrednio zwiπzane sπ z typem wydarzenia, ktÛre klient chce zorganizowaÊ. Przewaønie sπ to wszelkiego rodzaju konferencje, kilkudniowe szkolenia firmowe, ale takøe imprezy weselne, urodzinowe, czy spotkania rodzinne. Przez wzglπd na rÛønπ specyfikÍ powyøszych przedsiÍwziÍÊ sieÊ hotelowa dysponuje szerokπ gamπ us≥ug z nimi zwiπzanych. 
+
+W czasie tworzenia przez sprzedawcÍ propozycji cenowej organizowanego wydarzenia, klient ma moøliwoúÊ wyboru odpowiedniej dla jego potrzeb sali konferencyjnej lub bankietowej wraz z jej dodatkowym wyposaøeniem, ustalenia aspektÛw gastronomicznych, takich jak liczba i rodzaj posi≥kÛw oraz napojÛw, a takøe wyborem odpowiedniego typu pokoju hotelowego. Po wstÍpnym wyborze zakresu us≥ug, elementy te uzupe≥niane sπ o liczbÍ osÛb, ktÛre bÍdπ w wydarzeniu uczestniczyÊ, a takøe iloúÊ dni jego trwania. Kolejnym etapem jest negocjacja rabatÛw oraz finalnie ustalenie formy zap≥aty za organizowane przedsiÍwziÍcie. Aktualnie operacja ta wraz z procesem tworzeniem dokumentu propozycji cenowej przeprowadzana jest za pomocπ aplikacji Microsoft Excel jak rÛwnieø w wersji papierowej. Obydwie metodologie generujπ liczne problemy, ktÛre bezpoúrednio wp≥ywajπ na zwiÍkszenie kosztÛw generowanych przez pracownikÛw, a co za tym idzie ceny oferowanych us≥ug. Pierwszy problem odnosi siÍ do aspektu utrudnienia aktualizacji danych, ktÛry jest nieod≥πcznym elementem branøy. Ceny pokoi hotelowych ulegajπ czÍstym modyfikacjom oraz uzaleønione sπ od sytuacji rynkowej, organizowanych okolicznych wydarzeÒ rozrywkowych i kulturalnych oraz samego faktu wolnej ich iloúci w danym czasie. Analogicznie sytuacja przedstawia siÍ w przypadku produktÛw gastronomicznych oraz pozosta≥ych wynajmowanych pomieszczeÒ.
+
+Aktualnie wszelkie modyfikacje cennikÛw pokoi hotelowych, sal moøliwych do wynajÍcia oraz dostÍpnych towarÛw dokonywane sπ przez menadøera sprzedaøy, ktÛry za poúrednictwem poczty elektronicznej przekazuje uaktualnione wersje arkuszy kalkulacyjnych oraz listy cen okreúlonym sprzedawcom. CzÍste zmiany zobowiπzujπ pracownikÛw dzia≥u sprzedaøy do ciπg≥ej kontroli skrzynki elektronicznej oraz powodujπ presjÍ spowodowanπ posiadaniem potencjalnie nieaktualnych danych. Zaawansowane arkusze kalkulacyjne wykonane w aplikacji Excel podatne sπ na b≥Ídy ludzkie, wymuszajπ na pracownikach dobrπ znajomoúÊ oprogramowania oraz umiejÍtnoúÊ jego obs≥ugi, co z kolei niekorzystnie przek≥ada siÍ na nowych pracownikÛw oraz pracodawcÍ, ktÛry zobowiπzany jest przeprowadzaÊ d≥ugie i kosztowne szkolenia w tym zakresie.
+Kolejnym dostrzeøonym problemem jest zagadnienie czasoch≥onnoúci wyszukiwania danych dotyczπcych produktÛw znajdujπcych siÍ na hotelowej restauracji i ich cen. Pracownik otrzymuje rozbudowanπ listÍ produktÛw wraz z przyporzπdkowanymi im cenami i we w≥asnym zakresie zobligowany jest znaleüÊ interesujπcπ go pozycjÍ w czasie przygotowywania propozycji cenowej. 
+Dostrzegajπc powyøsze problemy zdecydowano siÍ wykonaÊ dedykowanπ aplikacjÍ bazodanowπ, ktÛrej celem jest ich rozwiπzanie. Za≥oøono, øe konieczne by by≥o, aby kaødy ze sprzedawcÛw posiada≥ moøliwoúÊ uruchomienia na swoim s≥uøbowym komputerze programu, ktÛry dziÍki po≥πczeniu z bazπ danych i wykorzystaniu jej funkcjonalnoúci umoøliwi≥by przyspieszenie procesu przeprowadzania transakcji z klientem poprzez automatycznπ aktualizacjÍ cennikÛw oraz przedstawienie listy produktÛw gastronomicznych w skategoryzowany sposÛb. DziÍki przechowywaniu wszystkich propozycji cenowych w bazie danych, zanika≥aby koniecznoúÊ samodzielnej ich kategoryzacji i dbania o bezpieczeÒstwo na lokalnym komputerze. Umoøliwi≥oby to pracownikom pracÍ na rÛønych maszynach, co w znaczny sposÛb zwiÍkszy≥oby ich elastycznoúÊ.
+
+Kolejnym atutem przedstawionego rozwiπzania by≥oby umoøliwienie kierownictwu z poziomu kont administratorskich kontroli pracownikÛw poprzez zdalny wglπd w przygotowywane przez nich propozycje cenowe, a co za tym idzie ustalanych z klientem cen oraz zniøek. Menadøer sprzedaøy za pomocπ swojego uprzywilejowanego konta posiada≥by rÛwnieø moøliwoúÊ aktualizacji odpowiednich tabel danych, dziÍki czemu zmiany natychmiastowo by≥yby widocznie na kontach sprzedawcÛw. Zmiany te dotyczy≥yby moøliwoúci modyfikacji cen oferowanych us≥ug i produktÛw oraz kontroli sk≥adu pracowniczego poprzez funkcjonalnoúÊ dodawania, usuwania a takøe modyfikacji ich kont. 
+
+\subsection*{Cel pracy}
+
+Celem pracy jest zaprojektowanie i wykonanie dedykowanej aplikacji bazodanowej dla sieci hotelowej, ktÛrej przeznaczeniem jest zautomatyzowanie procesu transakcji z klientem dotyczπcej tworzenia propozycji cenowej organizowanego przez klienta wydarzenia.
+
+\subsection*{ZawartoúÊ pracy}
+
+Dla osiπgniÍcia wyøej wymienionego celu zrealizowana zosta≥a praca sk≥adajπca siÍ ze wstÍpu, oúmiu rozdzia≥Ûw oraz podsumowania wraz z perspektywami rozwoju oprogramowania. W rozdziale pierwszym przedstawiony zosta≥ opis specyfikacji wymagaÒ wraz z listπ za≥oøeÒ projektowych, pod kπtem ktÛrych w rozdziale drugim przeanalizowane zosta≥y istniejπce rozwiπzania konkurencyjne. Na bazie dwÛch pierwszych rozdzia≥Ûw utworzony zosta≥ w rozdziale trzecim projekt rozwiπzania problemu, na podstawie ktÛrego bazowa≥a budowana aplikacja bazodanowa. Kolejnym dzia≥em sπ zastosowane rozwiπzania technologiczne zawierajπce opis wykorzystanych w projekcie technologii, narzÍdzi oraz bibliotek zewnÍtrznych . Na ich podstawie utworzona zosta≥a odpowiednia dla budowanego systemu architektura, ktÛrej opis umiejscowiony jest w dziale piπtym. Architektura ta definiowa≥a sposÛb implementacji, z ktÛrej interesujπce ze strony programistycznej elementy opisane zosta≥y w rozdziale szÛstym. W nastÍpnych rozdzia≥ach umiejscowiona zosta≥a charakterystyka automatyzacji wydawania kolejnych wersji aplikacji oraz instrukcja obs≥ugi programu, zawierajπca szczegÛ≥owy opis wszystkich modu≥Ûw, z ktÛrych korzystaÊ moøe uøytkownik systemu.
+
+\section{Specyfikacja wymagaÒ projektowych}
+\label{dzial:specyfikacjaWymaganProjektowych}
+
+Dostrzegajπc problematykÍ dzia≥ajπcego obecnie rozwiπzania dokonano rozpoznania majπcego na celu spisanie za≥oøeÒ projektowych, ktÛre umoøliwiπ zniwelowanie aktualnych problemÛw zwiπzanych z przeprowadzaniem operacji tworzenia nowej propozycji cenowej. W czasie rozmÛw ze sprzedawcami pierwszym elementem, ktÛry zosta≥ przedstawiony w celu usprawnienia ich pracy by≥a forma dokumentÛw na bazie ktÛrych pracujπ. Wykazywano inicjatywÍ, aby owe dokumenty dotyczπce cennikÛw us≥ug aktualizowane by≥y bez ingerencji kaødego pracownika, umoøliwiajπc przy tym ciπg≥π pracÍ bez obawy o posiadanie nieaktualnych danych. Aktualnie proces ten polega na ciπg≥ym sprawdzaniu skrzynki elektronicznej, na ktÛrπ menadøer sprzedaøy wysy≥a aktualne wersje dokumentÛw oraz pobraniu ewentualnej aktualizacji. Istotnym problemem dotyczπcym tej kwestii jest rÛwnieø brak pewnoúci co do dostarczenia wiadomoúci e-mail, co powodowaÊ moøe w konsekwencji pracÍ sprzedawcÛw na bazie nieaktualnych danych.
+
+Kolejnπ sugestiπ ze strony pracownikÛw by≥o wycofanie koniecznoúci pracy z oprogramowaniem Microsoft Excel przez wzglπd na b≥Ídy spowodowane obowiπzkiem rÍcznego wypisywania nazw produktÛw wraz z ich cenami w odpowiednie pola oraz przypadkowym usuwaniem formu≥ z pÛl. Problem ten polega≥ na tym, iø tylko czÍúÊ pÛl w arkuszu, na ktÛrym przeprowadzana by≥a praca naleøa≥o modyfikowaÊ. W przypadku wpisania wartoúci do pola zawierajπcego formu≥Í, owa formu≥a zosta≥a usuwana co skutkowa≥o reakcjπ ≥aÒcuchowπ polegajπcπ na b≥Ídnym wyliczaniu wartoúci w pozosta≥ych miejscach. Proces ten bardzo niekorzystnie wp≥ywa≥ na pracÍ sprzedawcy, ktÛry dodatkowo zobligowany by≥ do kontroli wartoúci cenowych tworzonej propozycji oraz w sytuacji b≥Ídu, powtÛrzeniu ca≥ej operacji od nowa na poprawnie dzia≥ajπcej wersji arkusza kalkulacyjnego.
+
+Ostatniπ kwestiπ, w sprawie ktÛrej kaødy ze sprzedawcÛw dostrzeg≥ problem oraz moøliwoúÊ ulepszenia by≥a rozbudowana lista produktÛw gastronomicznych i ich cen. Operowanie z owπ listπ przez sprzedawcÛw opiera siÍ na manualnym wyszukiwaniu interesujπcego produktu oraz sprawdzaniu jego ceny, co przez fakt duøej iloúci elementÛw jest czasoch≥onne. Zasugerowano, aby ulepszenie listy polega≥o na podzieleniu produktÛw na kategorie oraz moøliwoúci wyboru z ustalonej kategorii odpowiedniego produktu. Tym sposobem dostÍpna lista elementÛw do wyboru by≥aby znacznie mniejsza, co przek≥ada≥oby siÍ na znacznπ oszczÍdnoúÊ czasowπ.
+
+Usprawnienie procesu tworzenia nowej propozycji cenowej oraz zarzπdzania zmianami dotyczyÊ moøe rÛwnieø menadøera sprzedaøy. Podczas zasiÍgania opinii o moøliwoúci usprawniania jego pracy otrzymano informacjÍ o chÍci zaprzestania dystrybucji nowych wersji cennikÛw oraz arkuszy Microsoft Excel za poúrednictwem skrzynki elektronicznej. Proces ten okaza≥ siÍ czasoch≥onny poprzez czÍste aktualizacje danych i obowiπzek ich przesy≥ania ca≥ej kadrze pracownikÛw, w ktÛrej dodatkowo wystÍpujπ liczne rotacje osobowe. Przy tym punkcie dostrzeøono jednoczeúnie moøliwoúÊ wprowadzenia centralnego systemu zarzπdzania kontami, ktÛry umoøliwi≥by w prosty sposÛb modyfikacje aktualnej kadry pracowniczej.
+
+Drugim przedstawionym przez menadøera aspektem usprawniajπcym jego pracÍ by≥a moøliwoúÊ przeglπdania utworzonych przez pracownikÛw propozycji cenowych. W chwili obecnej opcja ta jest niemoøliwa do wykonania przez fakt lokalnego przechowywania dokumentÛw na stacji roboczej pracownika, przez co menadøer sprzedaøy nie posiada dostÍpu do oryginalnego pliku. Poúrednim rozwiπzaniem jest dostarczenie menadøerowi propozycji drogπ elektronicznπ przez pracownika. Rozwiπzanie to implikuje jednak koniecznoúÊ dodatkowej pracy sprzedawcy oraz nie gwarantuje menadøerowi posiadania aktualnej wersji dokumentu, przez fakt moøliwoúci jej pÛüniejszej edycji przez pracownika.
+
+Waønym elementem wyciπgniÍtym z rozpoznania jest widoczny na rysunku \ref{rys:SzablonPropozycji} szablon PDF, ktÛry opracowany zosta≥ na podstawie burzy mÛzgÛw oraz aktualnej wersji dokumentu, na bazie ktÛrej tworzona jest propozycja cenowa. Szablon ten w znacznym stopniu u≥atwia rozlokowanie wszelkich elementÛw oraz ukazuje iteracyjny proces tworzenia propozycji, ktÛry naleøy zaimplementowaÊ w tworzonej aplikacji. Przedstawia on poøπdane przez pracownikÛw rozmieszczenie elementÛw propozycji oraz dziÍki utworzeniu jego formy w arkuszu kalkulacyjnym moøliwy by≥ jednoczesny zapis wszystkich zaleønoúci w postaci formu≥ i funkcji, ktÛre odwzorowujπ logikÍ tworzenia propozycji. Formu≥y te dotyczπ sposobu obliczania cen jednostkowych produktÛw wraz ze stawkπ VAT, ich zsumowanej wartoúci, sposobu uwzglÍdniania poziomu marøy oraz wyliczania terminu waønoúci propozycji.
+
+\newpage
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=.89\textwidth]{SzablonPropozycji.jpg}
+    \caption{Szablon propozycji cenowej, èrÛd≥o: Opracowanie
+     w≥asne.}
+    \label{rys:SzablonPropozycji}
+\end{figure}
+
+Dokonujπc podsumowania przedstawionych problemÛw i pomys≥Ûw wraz z ich szczegÛ≥owπ analizπ, utworzono ogÛlnπ listÍ za≥oøeÒ, ktÛrych realizacja wskazana jest w celu usprawnienia procesu tworzenia propozycji cenowej ze strony zarÛwno sprzedawcy, jak i menadøera. Przedstawiona lista zawiera takøe elementy, ktÛre na drodze dedukcji uznane zosta≥y jako warte wprowadzenia.
+
+\begin{itemize}
+
+\item \textsl{Wprowadzenie dwÛch typÛw kont uøytkownikÛw przez fakt na rÛøny zakres obowiπzkÛw s≥uøbowych,}
+
+\item \textsl{Aktualizacja wszelkich danych bez koniecznoúci osobistej ingerencji sprzedawcy (aktualizacja ze strony menadøera automatycznie powinna byÊ dostÍpna na kontach sprzedawcÛw),}
+
+\item \textsl{Zaprzestanie aktualizacji danych za pomocπ skrzynek elektronicznych (aktualizacja cennikÛw powinna odbywaÊ siÍ z poziomu konta administratora),}
+
+\item \textsl{Zaprzestanie uøywania arkuszy kalkulacyjnych (przeniesienie procesu tworzenia nowej propozycji cenowej na poziom aplikacji),}
+
+\item \textsl{MoøliwoúÊ utworzenia propozycji cenowej zarÛwno z poziomu konta uøytkownika, jak i administratora,}
+
+\item \textsl{MoøliwoúÊ zapisu utworzonej propozycji cenowej wraz z opcjπ jej pÛüniejszej modyfikacji,}
+
+\item \textsl{Zautomatyzowanie przeprowadzanych obliczeÒ w miejscach, w ktÛrych jest to moøliwe,}
+
+\item \textsl{Podzia≥ produktÛw gastronomicznych na kategorie i moøliwoúÊ wyboru szukanego elementu z wybranej kategorii,}
+
+\item \textsl{Wprowadzenie centralnego systemu zarzπdzania kontami pracownikÛw,}
+
+\item \textsl{Umoøliwienie dodawania, edycji, usuwania kont z poziomu konta administratora,}
+
+\item \textsl{MoøliwoúÊ przeglπdania tworzonych przez sprzedawcÛw propozycji cenowych z poziomu konta administratora,}
+
+\item \textsl{Walidacja wprowadzanych przez uøytkownika danych oraz informowanie go o potencjalnych b≥Ídach,}
+
+\item \textsl{Funkcja tworzenia dokumentu PDF zapisanej uprzednio propozycji cenowej,}
+
+\end{itemize}
+
+\section{Analiza istniejπcych rozwiπzaÒ \newlineTekst konkurencyjnych}
+\label{dzial:IstniejaceRozwiazaniaKonkurencyjne}
+
+W celu wdroøenia siÍ w tematykÍ automatyzacji procesu tworzenia propozycji cenowej przeprowadzono rekonesans dostÍpnych aplikacji wspierajπcych przedstawiony proces. Na podstawie utworzonej uprzednio listy ogÛlnych za≥oøeÒ z szerokiej gamy dostÍpnych rozwiπzaÒ \cite{CRMList}, wytypowane zosta≥y trzy programy, ktÛre w najwiÍkszym stopniu jπ pokrywajπ oraz mogπ byÊ zastosowane w branøy hotelarskiej. Aplikacje te przetestowane zosta≥y pod kπtem funkcjonalnoúci w celu zaznajomienia siÍ ze sposobem realizacji ustalonych wymagaÒ projektowych i ewentualnemu ich doprecyzowaniu.
+
+\begin{itemize}
+\item \textsl{ProfitCRM} 
+
+\tab ProfitCRM \cite{ProfitCRM} jest to aplikacja desktopowa s≥uøπca do wspomagania procesÛw dotyczπcych zarzπdzania relacjami z klientami. Oprogramowanie to nie jest dedykowane konkretnej branøy, jednakøe czÍúÊ jego funkcjonalnoúci moøna wykorzystaÊ do realizacji ustalonych wymagaÒ projektowych.
+Aplikacja wyposaøona jest w modu≥ logowania, na podstawie ktÛrego przeprowadzana jest identyfikacja logujπcej siÍ osoby. Wszelkie czynnoúci wykonywane w czasie pracy programu sπ wiÍc przyporzπdkowane konkretnemu pracownikowi, co z kolei umoøliwia z poziomu konta z dodatkowymi uprawnieniami okreúlenie w≥aúciciela danej propozycji cenowej znajdujπcej siÍ w systemie. Opcjπ, ktÛrπ zosta≥a dostrzeøona odnoúnie kwestii przeszukiwania propozycji cenowych przez administratora jest moøliwoúÊ wyboru propozycji konkretnego pracownika, co znosi koniecznoúÊ d≥ugotrwa≥ego szukania jednego elementu w sytuacji posiadania rozbudowanej listy elementÛw.
+DziÍki wspÛ≥pracy z systemem bazodanowym aplikacja umoøliwia rÛwnieø przeprowadzenie aktualizacji wszelkich list zawierajπcych produkty z poziomu aplikacji. Kaøda zmiana listy jest automatycznie rejestrowana i zapisywana w bazie danych. Tym sposobem kaødy uøytkownik ma pewnoúÊ, iø podczas pracy posiadaÊ bÍdzie aktualnπ wersjÍ danych. ProfitCRM posiada rÛwnieø moøliwoúÊ tworzenia spersonalizowanych pod konkretne przedsiÍbiorstwo szablonÛw dokumentÛw, ktÛre w przypadku sieci hotelowej mogπ przybraÊ formÍ propozycji cenowej, ktÛra po uzupe≥nieniu moøe zostaÊ wyeksportowana do pliku PDF.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=1\textwidth]{InterfejsProfitCRM.jpg}
+    \caption{Interfejs uøytkownika w aplikacji ProfitCRM, èrÛd≥o: Opracowanie w≥asne.}
+    \label{rys:InterfejsProfitCRM}
+\end{figure}
+
+\newpage
+
+\tab Testowane oprogramowanie przez fakt braku ukierunkowania branøowego posiada bardzo duøo opcji, z ktÛrych znaczna wiÍkszoúÊ nie jest potrzebna w kontekúcie branøy hotelarskiej. W konsekwencji tego interfejs aplikacji, ktÛry zobaczyÊ moøna na rysunku \ref{rys:InterfejsProfitCRM} jest nieczytelny, co poczπtkowo uniemoøliwia szybkie znalezienie potrzebnej funkcji. Przyk≥adem ukazujπcym z≥oøonoúÊ interfejsu jest jedna z zak≥adek menu przedstawiona na rysunku \ref{rys:profitcrm}.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.45\textwidth]{ProfitCRM.jpg}
+    \caption{Jedna z siedmiu pozycji menu w ProfitCRM, èrÛd≥o: Opracowanie w≥asne.}
+    \label{rys:profitcrm}
+\end{figure}
+
+\newpage
+
+\item \textsl{AsystentCRM}
+
+\tab Kolejnπ przetestowanπ aplikacjπ jest AsystentCRM \cite{AsystentCRM}, ktÛrego przeznaczeniem jest, analogicznie jak w przyk≥adzie poprzednim, wspomaganie procesÛw odnoszπcych siÍ do zarzπdzania relacjami z klientami. Zaletπ aplikacji jest jej uniwersalnoúÊ odnoszπca siÍ do dostosowania siÍ do potrzeb przedsiÍbiorstwa. Zaleta ta najbardziej zauwaøalna jest w module edytora szablonÛw generowanego dokumentu, ktÛry widoczny jest na rysunku \ref{rys:SzablonAsystentCRM}. Szablon tworzony w edytorze konstruowany jest wykorzystujπc jÍzyk HTML oraz CSS, co umoøliwia utworzenie dowolnego schematu wymaganego przez przedsiÍbiorstwo dokumentu oraz pÛüniejsze wygenerowanie jego pliku PDF.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.9\textwidth]{SzablonAsystentCRM.jpg}
+    \caption{Edytor szablonÛw aplikacji AsystentCRM, èrÛd≥o: Opracowanie w≥asne.}
+    \label{rys:SzablonAsystentCRM}
+\end{figure}
+
+\tab W czasie testowania aplikacji, duøa uwaga zwrÛcona zosta≥a modu≥owi s≥uøπcy do zarzπdzania kontami uøytkownikÛw, ktÛry zawiera moøliwoúÊ dodania i usuniÍcia uøytkownika oraz zmianÍ danych personalnych, statusu konta oraz jego has≥a. Edycja ta moøliwa jest z poziomu uporzπdkowanej tabeli, ktÛrej graficzna reprezentacja podobna jest do standardowych arkuszy kalkulacyjnych. Metoda ta jest bardzo prosta i intuicyjna dla uøytkownika oraz w przeciwieÒstwie do tworzenia szablonu dokumentu nie wymaga øadnej specjalistycznej wiedzy.
+Podobnie jak w ProfitCRM, aplikacja posiada modu≥ logowania, z tπ rÛønicπ, iø nie jest dostÍpna opcja przeglπdania utworzonych przez pracownikÛw dokumentÛw z poziomu konta administratora. Ograniczenie to wyklucza moøliwoúÊ zdalnej kontroli pracownikÛw, ktÛra jest jednπ z priorytetowych za≥oøeÒ prezentowanego projektu inøynierskiego. Drugim z kolei ograniczeniem jest brak kategoryzacji elementÛw, ktÛry w przypadku pracy na listach zawierajπcych duøo elementÛw moøe byÊ znacznie utrudniony.
+
+\item \textsl{Gestor GT} 
+
+\tab Ostatnim testowanym oprogramowaniem jest Gestor GT \cite{Gestor} s≥uøπcy do wspomagania firmy w zakresie obs≥ugi klienta, w szczegÛlnoúci odnoszπc siÍ do planowania oraz realizacji wszelkich dzia≥aÒ handlowych. Warto wspomnieÊ, iø  budowa programu jest modu≥owa juø na poziomie aplikacji. W celu uøycia funkcji dotyczπcych wspÛlnych kartotek towarÛw, wraz ze wszystkimi cenami, rabatami, a takøe wystawiania dokumentÛw handlowych, wymagane jest doinstalowanie odpowiednich dodatkÛw takich jak Subiekt GT oraz Rewizor GT. Wersja demonstracyjna, na ktÛrej przeprowadzane by≥y testy zawiera jednak pe≥en pakiet oprogramowania, co znosi koniecznoúÊ ich oddzielnego pobierania.
+
+Graficzny interfejs uøytkownika przedstawiony na rysunku \ref{rys:InterfejGestorGT}, podobnie jak w aplikacji ProfitCRM jest bardzo rozbudowany z tπ jednak rÛønicπ, iø wszelkie dostÍpne elementy zosta≥y u≥oøone wed≥ug ustalonej hierarchii w dobrze skategoryzowanym formacie. Z tego teø powodu wyszukiwanie interesujπcych funkcji jest stosunkowo szybkie i intuicyjne. Testowana aplikacja posiada standardowe funkcjonalnoúci dotyczπce tworzenia dokumentu, ktÛrego schemat graficzny naleøy wybraÊ z listy dostÍpnych schematÛw. Nie istnieje moøliwoúÊ jego dostosowania do potrzeb przedsiÍbiorstwa, jednakøe dostÍpna lista posiada bardzo duøo elementÛw, co zwiÍksza szansÍ na znalezienie szablonu odpowiedniego pod dane przedsiÍbiorstwo.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.9\textwidth]{InterfejGestorGTs.jpg}
+    \caption{Interfejs programu Gestor GT, èrÛd≥o: Opracowanie w≥asne.}
+    \label{rys:InterfejGestorGT}
+\end{figure}
+
+Istotnπ rÛønicπ odnoúnie tworzonych dokumentÛw w porÛwnaniu z uprzednio opisywanymi programami jest sposÛb ich zapisu do postaci dokumentu PDF. Sama aplikacja nie wspiera takiej funkcjonalnoúci, jednak po zainstalowaniu dodatkowego oprogramowania PDFCreator \cite{PDFCreator}, wygenerowanie dokumentu PDF jest moøliwe podczas operacji drukowania. 
+\end{itemize}
+
+W przedstawionych programach moøna dostrzec podobieÒstwa w implementacji ich funkcjonalnoúci, z tπ rÛønicπ, iø øadna z prezentowanych aplikacji nie pokry≥a w pe≥ni wszystkich elementÛw zawartych na utworzonej uprzednio liúcie za≥oøeÒ. Opis przeprowadzonych testÛw zawiera wy≥πcznie elementy, ktÛre rÛøniπ siÍ pomiÍdzy kolejno testowanymi aplikacjami z wykluczeniem standardowych funkcjonalnoúci ktÛre kaøda prezentowana aplikacja posiada.
+
+Wszystkie trzy programy sπ programami pos≥ugujπcymi siÍ systemami bazodanowymi wspierajπcymi pracÍ uøytkownikÛw na dwÛch typach kont - uøytkownik oraz administrator. DziÍki moøliwoúÊ centralnego przechowywania danych kont uøytkownikÛw, po uruchomieniu kaødej aplikacji widoczny jest modu≥ logowania jednoznacznie identyfikujπcy osobÍ, zabezpieczajπc dodatkowo moøliwoúÊ pracy przez nieupowaønionego uøytkownika. Po prawid≥owo przeprowadzonym procesie logowania, uøytkownik kaødego prezentowanego systemu ma moøliwoúÊ utworzenia propozycji cenowej, z tπ rÛønicπ, iø tylko AsystentCRM oraz ProfitCRM majπ funkcjÍ dostosowania szablonu tworzonego dokumentu. Utworzona propozycja cenowa posiada moøliwoúÊ pÛüniejszej edycji oraz zapisu w formacie PDF z poziomu kaødego prezentowanego programu, z rÛønicπ tπ, iø Gestor GT wymaga instalacji dodatkowego zewnÍtrznego oprogramowania w celu spe≥nienia tej funkcjonalnoúci.
+
+NajwiÍksze dostrzeøone rÛønice dotyczπ jednak moøliwoúci przeglπdania tworzonych przez uøytkownikÛw propozycji cenowych z poziomu konta administratora oraz podziale produktÛw na kategorie. ProfitCRM jako jedyny umoøliwia kontrolÍ akcji pracownikÛw wliczajπc w to podglπd tworzonych przez nich dokumentÛw, a takøe wraz z systemem Gestor GT posiada narzÍdzie umoøliwiajπce kategoryzacjÍ wprowadzonej do systemu listy produktÛw. 
+
+Przetestowanie aplikacji konkurencyjnych umoøliwi≥o doprecyzowanie kilku punktÛw zawartych na liúcie wymagaÒ projektowych. Dostrzeøono koniecznoúÊ zbudowania prostego interfejsu uøytkownika, ktÛry umoøliwi intuicyjnπ obs≥ugÍ programu. Liczba dostÍpnych funkcjonalnoúci ograniczona byÊ powinna wy≥πcznie do niezbÍdnych opcji potrzebnych do przeprowadzenia operacji tworzenia propozycji cenowej oraz jej pÛüniejszej edycji. Pomocny w tym aspekcie jest fakt, iø aplikacja projektu inøynierskiego tworzona jest pod konkretnπ branøÍ, co niweluje koniecznoúÊ wprowadzenia licznych uniwersalnych opcji, ktÛrych listÍ moøna dostrzec na rysunku \ref{rys:profitcrm}. Zaletπ wynikajπcπ z ukierunkowania pod jednπ branøÍ jest rÛwnieø moøliwoúÊ dostosowania szablonu PDF, ktÛry zawieraÊ moøe dok≥adnie sprecyzowane kategorie odnoszπce siÍ do konkretnych elementÛw tworzenia propozycji cenowej organizowanego przez klienta wydarzenia. Aplikacja ProfitCRM nakreúli≥a rÛwnieø moøliwy schemat podglπdu propozycji cenowych innych uøytkownikÛw dotyczπcy opcji wyboru z listy i wyúwietlenia propozycji konkretnego uøytkownika, a nie tylko wszystkich utworzonych propozycji.
+
+
+\section{Projekt rozwiπzania problemu}
+\label{dzial:PomyslNaRozwiazanieProblemu}
+
+Przeprowadzona analiza opisana w rozdziale \ref{dzial:specyfikacjaWymaganProjektowych} oraz zawarta w niej lista wymagaÒ projektowych, ktÛra doprecyzowana zosta≥a w czasie testÛw aplikacji opisanych w rozdziale \ref{dzial:IstniejaceRozwiazaniaKonkurencyjne} umoøliwi≥a powstanie pomys≥u na rozwiπzanie problemu dotyczπcego zautomatyzowania procesu tworzenia propozycji cenowej w wybranej sieci hotelowej.
+
+Uøytkownik po uruchomieniu aplikacji przeniesiony zostanie do ekranu logowania, ktÛre zobowiπzywaÊ go bÍdzie do wpisania jego loginu, has≥a oraz naciúniÍcia przycisku logowania. Mechanizmy realizujπce proces logowania ustanawiajπc po≥πczenie z bazπ danych sprawdzaÊ bÍdπ poprawnoúÊ wpisanych danych i w zaleønoúci od informacji zwrotnej bÍdπ mog≥y wykonaÊ jednπ z trzech operacji:
+
+\begin{itemize}
+\item{\textsl{B≥Ídne dane logowania}}
+
+\tab Uøytkownik w sytuacji podania danych, ktÛre nie znalezione zostanπ w bazie danych otrzyma informacjÍ o b≥Ídzie.
+
+\item{\textsl{Pierwsze logowanie uøytkownika}}
+
+\tab Uøytkownik w momencie pierwszego logowania na swoje dedykowane konto, zostanie poinformowany o koniecznoúci ustawienia swojego has≥a. Po prawid≥owym przeprowadzeniu tej operacji, uøytkownik przeniesiony zostanie do odpowiedniego panelu g≥Ûwnego aplikacji.
+
+\item{\textsl{Przeniesienie do panelu g≥Ûwnego}}
+
+\tab W sytuacji podania prawid≥owego loginu i has≥a uøytkownik przenoszony zostanie do panelu g≥Ûwnego aplikacji.
+
+\end{itemize}
+
+Po prawid≥owo przeprowadzonym procesie logowania, w zaleønoúci od uprawnieÒ konta zawartych w tabeli bazodanowej, uøytkownik przeniesiony zostanie do panelu uøytkownika lub w przypadku posiadania praw administratorskich do panelu administratora.
+
+Panel uøytkownika umoøliwiaÊ bÍdzie korzystajπcemu z niego uøytkownikowi przeprowadzenie podstawowych czynnoúci zawartych na liúcie wymagaÒ projektowych. Okno g≥Ûwne zawieraÊ bÍdzie listÍ propozycji uøytkownika, na ktÛrej zawieraÊ siÍ bÍdπ wszystkie utworzone przez niego propozycje cenowe wraz z moøliwoúciπ ich zapisu do pliku PDF. Bazujπc na przeprowadzonych analizach dotyczπcych rozwiπzaÒ konkurencyjnych, przycisk umoøliwiajπcy generowanie plikÛw PDF umiejscowiony bÍdzie w dobrze widocznym miejscu w celu bezproblemowego wykonania przedstawianej operacji. Z menu g≥Ûwnego uøytkownik bÍdzie posiada≥ moøliwoúÊ wybrania opcji utworzenia nowej propozycji cenowej, ktÛra przeniesie go do formy umoøliwiajπcej jej utworzenie. Kolejna opcja dostÍpna z poziomu menu to edycja istniejπcej propozycji cenowej, ktÛra po zaznaczeniu uprzednio interesujπcej propozycji cenowej z listy rÛwnieø przeniesie uøytkownika do formy umoøliwiajπcej jej utworzenie, z tπ rÛønicπ, iø z bazy danych pobrane zostanπ wszystkie uzupe≥nione wczeúniej elementy wybranej propozycji gotowe do dalszej modyfikacji. Trzecia z kolei opcja to lista propozycji, ktÛra umoøliwiaÊ bÍdzie przeniesienie uøytkownika do okna g≥Ûwnego w przypadku zrezygnowania z utworzenia nowej propozycji cenowej lub w czasie jej modyfikacji. Ostatnia opcja bÍdzie standardowym wyjúciem z programu, ktÛre przez wzglπd na intuicyjnoúÊ obs≥ugi rÛwnieø zamieszczone bÍdzie w menu g≥Ûwnym.
+
+Panel administratora skonstruowany bÍdzie w analogiczny sposÛb, z tπ rÛønicπ, iø bÍdzie posiada≥ dwie dodatkowe zak≥adki menu oraz lekko zmodyfikowane okno g≥Ûwne. Modyfikacja okna g≥Ûwnego dotyczyÊ bÍdzie zawartoúci listy propozycji, ktÛra zawieraÊ bÍdzie propozycje utworzone przez wszystkich uøytkownikÛw systemu. Administrator bÍdzie posiada≥ moøliwoúÊ ich podglπdu, zapisu do pliku PDF w sposÛb analogiczny jak uøytkownik standardowy oraz filtrowania wyúwietlanych propozycji cenowych po konkretnym uøytkowniku. Dodatkowe pozycje w menu bÍdπ dotyczy≥y natomiast edycji s≥ownikÛw dotyczπcych cen pokoi hotelowych, elementÛw gastronomicznych oraz kosztu wynajmu sal okolicznoúciowych. Administrator bÍdzie mia≥ ponadto moøliwoúÊ dodania nowego konta uøytkownika, edycji jego danych wraz z moøliwoúciπ zresetowania has≥a w przypadku jego utracenia oraz jego usuniÍcia.
+
+\section{Zastosowane rozwiπzania technologiczne}
+\label{dzial:ZastosowaneRozwiπzaniaTechnologiczne}
+W rozdziale \ref{dzial:specyfikacjaWymaganProjektowych} przedstawiono za≥oøenia projektowe dotyczπce opisanego w genezie pracy problemu sieci hotelowej wystÍpujπcego podczas przeprowadzania transakcji z klientem. Za≥oøenia te wraz z opisanym w dziale \ref{dzial:PomyslNaRozwiazanieProblemu} pomys≥em na ich rozwiπzanie sπ podstawowymi czynnikami determinujπcymi docelowπ formÍ aplikacji i dobÛr narzÍdzi. Pierwszym istotnym elementem infrastruktury IT w firmach jest to, jaki typ systemÛw operacyjnych jest uøywany. Jak pokazujπ rankingi, jednymi z najczÍúciej uøywanych systemÛw operacyjnych sπ systemy rodziny Windows \cite{Systemy} takie jak Windows 7, 8. W kontekúcie doboru technologii oznacza to, iø warto zastosowaÊ rozwiπzania firmy Microsoft ktÛre sπ w pe≥ni zintegrowane z systemami Windows, ze wzglÍdu na ich wysokπ wydajnoúÊ oraz popularnoúÊ. Fundamentalnym elementem prezentowanej aplikacji jest baza danych w ktÛrej przechowywane sπ detale transakcji, szczegÛ≥owe listy oferowanych us≥ug czy dane osobowe pracownikÛw. Firma Microsoft oferuje produkt SQL Server, ktÛry posiada darmowe dystrybucje i jest oprogramowaniem bazodanowym dedykowanym dla jÍzykÛw platformy programistycznej .NET Framework. SQL Server w wersji darmowej moøe zostaÊ uøyty do w projektach czysto hobbystycznych jak i w pe≥ni komercyjnych co jest jego duøym atutem. W rankingu portalu \textsl{db-engines.com} SQL Server zajmuje 3 pozycjÍ, nieprzerwanie od 2014 roku poúrÛd ponad 200 sklasyfikowanych silnikÛw baz danych \cite{SQLRanking}. Wystarczajπcym kryterium ktÛre musi zostaÊ spe≥nione aby firma mog≥a korzystaÊ z aplikacji bazujπcej na tym silniku, jest przygotowanie jednego serwera centralnego z ktÛrym za poúrednictwem aplikacji ≥πczπ siÍ pracownicy. 
+
+Popularnym jÍzykiem platformy programistycznej .NET Framework jest jÍzyk C\#. Umoøliwia on tworzenie nowoczesnych aplikacji okienkowych, przy uøyciu bibliotek graficznych takich jak WPF. Tworzenie okien i ich komponentÛw takich jak przyciski, listy rozwijane czy pola tekstowe jest proste i wygodne dla programistÛw, poniewaø nie wymagajπ duøych ingerencji w kod ürÛd≥owy. Manipulacja komponentami okien odbywa siÍ poprzez modelowanie elementÛw graficznych w kreatorze. Umoøliwia on tworzenie graficznego interfejsu uøytkownika podobnie jak w popularnych programach s≥uøπcych do obrÛbki grafiki. Do zaprojektowanego w ten sposÛb interfejsu, wystarczy podpiπÊ konkretne funkcjonalnoúci zaimplementowane w kodzie ürÛd≥owym. Mogπ to byÊ operacje takie jak zapisywanie propozycji cenowych do pliku PDF poprzez klikniÍcie przycisku. W konsekwencji czas implementacji aplikacji ulega redukcji. Istotnπ kwestiπ podczas implementacji oprogramowania jest komunikacja aplikacji z zasobami bazy danych z poziomu kodu ürÛd≥owego. Dla jÍzyka C\# firma Microsoft zaprojektowa≥a system Entity Framework ktÛry s≥uøy do odwzorowania relacyjnej bazy danych na obiekty dostÍpne z poziomu kodu. Zapytania bazodanowe takie jak usuwanie czy modyfikacja tabel sπ implementowane w kodzie operujπcym na obiektach utworzonych przez Entity Framework.
+
+Wydawanie kolejnych wersji oprogramowania w úrodowisku produkcyjnym czy to testowym przysparzaÊ moøe wiele problemÛw dotyczπcych zawartoúci wydawanej paczki oraz czasoch≥onnoúci tego procesu. W prezentowanym projekcie wykorzystany zosta≥ serwer ciπg≥ej integracji Jenkins umoøliwiajπcy szybkie wygenerowanie archiwum zawierajπcego pliki niezbÍdne do prawid≥owego dzia≥ania najnowszej wersji programu, ktÛre moøe byÊ przekazane testerom, programistom czy potencjalnemu uøytkownikowi w dowolnym momencie.
+
+Jednym z aspektÛw procesu wytwarzania oprogramowania jest wybranie, jakiego typu bÍdzie to aplikacja. Za≥oøeniem niniejszego projektu inøynierskiego jest implementacja aplikacji desktopowej. Zalety tradycyjnych aplikacji desktopowych, ktÛre spowodowa≥y wybÛr tego typu sπ nastÍpujπce:
+
+\begin{itemize}
+\item \textsl{Prostota w implementacji GUI} 
+
+\tab Szereg bibliotek graficznych dla jÍzyka C\# pozwala na szybkie i przyjemne projektowanie graficznego interfejsu uøytkownika co przek≥ada siÍ na szybkoúÊ i koszty implementacji projektÛw.
+
+\item \textsl{£atwoúÊ obs≥ugi aplikacji desktopowych} 
+
+\tab Aplikacje desktopowe sπ zazwyczaj prostsze w obs≥udze, ze wzglÍdu na spÛjny i prosty interfejs tworzony za pomocπ kreatorÛw. 
+
+\item \textsl{Brak problemÛw zgodnoúci} 
+
+\tab Uøytkownicy korzystajπ z rÛønych przeglπdarek internetowych takich jak Mozilla Firefox, Google Chrome, Safari czy Opera. Dostosowanie wyglπdu, skalowalnoúci oraz funkcjonalnoúci dla rÛønych przeglπdarek jest czasoch≥onne, podczas gdy w przypadku aplikacji desktopowych wymieniony problem nie wystÍpuje.
+\end{itemize}
+
+\subsection{Wykorzystane technologie}
+\label{dzial:technologie}
+
+Niniejszy podrozdzia≥ zawiera opis technologii wykorzystanych do implementacji aplikacji. Zakres opisu obejmuje nastÍpujπce komponenty:
+
+\begin{itemize}
+\item \textsl{JÍzyk programowania}
+\item \textsl{Silnik graficzny}
+\item \textsl{JÍzyk opisu graficznego interfejsu uøytkownika}
+\item \textsl{JÍzyk zapytaÒ bazy danych}
+\end{itemize}
+
+\subsubsection{.NET Framework/C\#}
+
+.NET Framework jest platformπ programistycznπ firmy Microsoft, po raz pierwszy wydany w 2002 r. S≥uøy do wytwarzania oprogramowania dla systemÛw operacyjnych Windows, Windows Phone, Windows Server i Microsoft Azure \cite{Clr}. G≥Ûwnymi komponentami platformy sπ:
+
+\begin{itemize}
+
+\item \textsl{Kompilatory jÍzykÛw wysokiego poziomu}
+
+\tab Umoøliwiajπ kompilacjÍ programÛw napisanych w jÍzykach C++/CLI, C\#, F\#, J\#, Visual Basic .NET.
+
+\item \textsl{CLR (ang. Common Language Runtime)}
+
+\tab CLR jest tzw. úrodowiskiem uruchomieniowym jÍzyka wspÛlnego. Jego zadaniem jest kompilacja i uruchamianie tzw. kodu zarzπdzanego (ang. managed code) zapisanego w standardowym jÍzyku poúrednim CIL (ang. Common Intermediate Language), gwarantujπc funkcje wymagane do dzia≥ania aplikacji \cite{Clr2}. 
+
+\tab BCL jest standardowπ bibliotekπ klas, zawiera standardowe funkcjonalnoúci programistyczne takie jak definicje typÛw danych, odczyt i zapis plikÛw czy obs≥uga kolekcji zawarte w przestrzeni nazw \textit{System} \cite{Bcl} 
+
+\item \textsl{FCL (ang. Framework Class Library)}
+
+\tab FCL jest rozszerzeniem BCL, obejmuje rozszerzony zestaw bibliotek m. in. silniki graficzne Windows Forms i WPF \cite{Fcl}.
+
+\item \textsl{CTS (ang. Common Type System)} 
+
+\tab WspÛlny system typÛw CTS definiuje jak uøywane i deklarowane sπ typy danych w jÍzykach programowania platformy .NET udostÍpnianych przez CLR \cite{Cts}.
+
+\item \textsl{CLS (ang. Common Language Specification)}
+
+\tab WspÛlna specyfikacja jÍzyka CLS jest zestawem podstawowych zasad ktÛre spe≥niajπ jÍzyki programowania rodziny .NET \cite{Cls}.
+
+\end{itemize}
+
+
+Platforma .NET zapewnia wsparcie dla jÍzyka C\#, ktÛry jest obecnie jednym z najpopularniejszych jÍzykÛw programowania na úwiecie. Wed≥ug rankingu firmy TIOBE Software z grudnia 2015 r. znajduje siÍ on na piπtym miejscu, spoúrÛd piÍÊdziesiÍciu sklasyfikowanych jÍzykÛw. Poczπwszy od 2000 r. jÍzyk C\# awansowa≥ z dziesiπtego miejsca na piπte \cite{CRanking}. 
+
+C\# jest nowoczesnym, obiektowym jÍzykiem programowania, wyprodukowanym przez firmÍ Microsoft. Zosta≥ wydany po raz pierwszy w lipcu 2000 r. G≥Ûwnym projektantem jÍzyka jest duÒski inøynier oprogramowania Anders Hejlsberg \cite{chash}. Moøe zostaÊ wykorzystywany do pisania aplikacji desktopowych, internetowych oraz mobilnych. Programy napisane w C\# kompilowane sπ do kodu poúredniego zapisanego w jÍzyku CIL (ang. Common Intermediate Language) i wykonywane w úrodowisku uruchomieniowym .NET Framework. Jest on uznawany za prosty w nauce jÍzyk, poniewaø posiada szereg modu≥Ûw oraz udogodnieÒ u≥atwiajπcych pracÍ programistom, takich jak \cite{cadv}:
+
+\begin{itemize}
+
+\item \textsl{Odúmiecanie pamiÍci (ang. Garbage collection)}
+
+\tab Dynamicznie przydzielona pamiÍÊ jest zwalniana automatycznie.
+
+\item \textsl{Brak koniecznoúci tworzenia plikÛw nag≥Ûwkowych .h w porÛwnaniu do jÍzyka C++}
+
+\item \textsl{MoøliwoúÊ przeciπøania operatorÛw w porÛwnaniu do jÍzyka Java}
+
+\item \textsl{Zmienne inicjalizowane sπ swoimi domyúlnymi wartoúciami}
+
+\item \textsl{Wprowadzenie dodatkowych elementÛw sk≥adowych klas, takich jak w≥aúciwoúci i indeksery}
+
+\end{itemize}
+\subsubsection{WPF}
+
+WPF (ang. Windows Presentation Foundation) \cite{WPF} jest technologiπ, ktÛrπ wprowadzono w .Net 3.0. Wykorzystuje jÍzyk XML, a dok≥adnie jego odmianÍ XAML. Do wyúwietlania okien wykorzystywana jest grafika wektorowa, co jest wspomagane przez karty graficzne. Cechuje siÍ on bardzo duøπ elastycznoúciπ w tworzeniu interfejsu, miÍdzy innymi tworzenie przycisku z obrazkiem. Technologia ta zosta≥a zaprojektowana tak, øeby w jak najwiÍkszym stopniu odseparowaÊ wyglπd aplikacji od innych warstw programu. W niektÛrych przypadkach wiπøe siÍ z dodatkowym nak≥adem pracy w stosunku do technologii Winforms  np. wyúwietlany obrazek w kontrolerze ListView . Jeúli chodzi o wyglπd aplikacji dziÍki duøej elastycznoúci jest moøliwe tworzenie programÛw z interfejsem 3D. Nie tylko rÛøni siÍ moøliwoúciami tworzenia interfejsÛw, ale i wewnÍtrznymi mechanizmami. WPF wykorzystuje dedykowany mechanizm do prezentacji aplikacji, w stosunku do WinformsÛw, ktÛry wywo≥uje tylko elementy WinAPI. Wiπøe siÍ to z brakiem wiÍkszych moøliwoúci edycji wyglπdu aplikacji. NastÍpnπ cechπ istotnπ z punktu dzia≥ania programu jest odúwieøanie elementÛw okna. W przypadku WinformsÛw najechanie na jakikolwiek element z w≥aúciwoúciπ zmiany wyglπdu np. zmiany podúwietlania po najechaniu powoduje odúwieøenie ca≥ego okna programu, co nie ma miejsca w przypadku programÛw tworzonych w WPF. Natomiast technologia WPF obejmuje duøπ liczbÍ paneli, kontrolek, jest moøliwe ≥πczenie teø tych elementÛw, wyzwalacze i dodanie dynamicznych elementÛw. Moøliwe jest tworzenie stylÛw, szablonÛw, ktÛre u≥atwiajπ proces tworzenia aplikacji. Wykorzystuje siÍ te elementy bardo czÍsto. Tych elementÛw jest pozbawiony Winformsach. Jest teø moøliwe tworzenie wstπøki znanej z innych produktÛw Microsoftu miedzy innymi Office. Piszπc program z wykorzystaniem WPF jest siÍ powiπzanym z hierarchiπ elementÛw jakie po sobie wystÍpujπ. Jeúli we wnÍtrzu jakiegoú elementu znajduje siÍ inny, ktÛry ma po≥πczenie z jakimú polem klasy, a nie jest uúciúlona nazwa klasy, z ktÛrej to w≥aúciwoúÊ pochodzi nastÍpuje sprawdzenie czy element nadrzÍdny nie ma pod≥πczonej klasy zawierajπcym tπ w≥aúciwoúÊ. Drugim istotnym element jest kolejnoúÊ dodawanych kontrolek. Ma wp≥yw na widocznoúÊ elementÛw, to co jest najbardziej na dole w kodzie XAML znajduje siÍ najbliøej uøytkownik.
+   
+DziÍki bardzo dobremu wsparciu dla wzorca architektonicznego MVVM. Istnieje moøliwoúÊ pod≥πczania (binding) w≥aúciwoúci z zewnÍtrznych klas. Ten typ podejúcia umoøliwia szybkie tworzenie elementÛw programu, rozwijanie w sposÛb niezaleøny interfejsu uøytkownik od silnika aplikacji.
+
+\subsubsection{XAML}
+\label{dzial:XAML}
+
+XAML jest to oparty na XML\cite{Xml} deklaratywny jÍzyk znacznikÛw, ktÛrego zadaniem jest opis interfejsu uøytkownika obecnego w zastosowanej przez zespÛ≥ technologii WPF. W technologii tej jÍzyk XAML umoøliwia zaprojektowanie oraz u≥oøenie wszystkich elementÛw wizualnych takich jak kontrolki, ramki oraz okna, a takøe pozwala na rozdzielenie pracy pomiÍdzy programistami (back-end) oraz grafikami (front-end), ktÛrzy tworzπ graficzny interfejs uøytkownika. Graficy, przez wzglπd na zakres obowiπzkÛw, nie czÍsto znajπ jÍzyk programowania C\#. Problem ten rozwiπzuje w≥aúnie XAML, ktÛry umoøliwia zrozumienie przez nich zasady dzia≥ania poszczegÛlnych okien, powiπzaÒ miÍdzy nimi oraz projektowanie interfejsu w prosty sposÛb z poziomu drzewiastej struktury lub dedykowanego narzÍdzia Expression Blend, ktÛre umoøliwia przeprowadzenie wszystkich powyøszych operacji z poziomu swojego úrodowiska graficznego.
+\subsubsection{T-SQl}
+
+Jest to krÛtkie okreúlenie Transaction-SQL\cite{T-SQL}, ktÛre jest rozwiniÍciem standardowego SQL. JÍzyk SQL zosta≥ stworzony specjalne dla relacyjnych baz danych opracowa≥a go na poczπtku lat 70 firma IBM \cite{bazy}, jest to standard otwarty. WspÛ≥czeúnie jest on wykorzystywany przez wiÍkszoúÊ firm do tworzenia zapytaÒ bazodanowych. Wiele firm dodaje swoje usprawnienia w zaleønoúci, co odczuje za stosowne by rozszerzyÊ moøliwoúÊ i przyspieszyÊ pracÍ baz danych np. PL/SQL firmy Oracle.  
+T-SQL jest jÍzykiem transakcyjny, polega na wykonywanie operacji, jeúli operacja zosta≥a zaakceptowana to nastÍpuje zapis do bazy, moøna to porÛwnaÊ do przelewÛw bankowych zabranie z jednego konta i przelaniu na drugie konto, jeúli na pierwszym koncie jest suma potrzebna do przelewu. W przeciwnym wypadku przelew nie nastÍpuje tak jak zapis do bazy, jeúli dane bÍdπ nieprawid≥owe. Umoøliwia rÛwnieø tworzenie zmiennych, pÍtli jak rÛwnieø instrukcji warunkowych. Pozwala na tworzenie obiektÛw, takie jak widoki, procedury sk≥adowane, wyzwalacze i funkcje zdefiniowane przez uøytkownika.
+
+\subsection{Wykorzystane narzÍdzia}
+
+W celu efektywnej pracy z technologiami opisanymi w rozdziale \ref{dzial:technologie} warto wspomagaÊ siÍ dedykowanymi narzÍdziami, ktÛre upraszczajπ wykorzystanie ich moøliwoúci. W tym celu w czasie pracy nad prezentowanym projektem inøynierskim pos≥uøono siÍ szeregiem narzÍdzi, ktÛre umoøliwi≥y skrÛcenie procesu implementacyjnego budowanego systemu oraz usprawnienie organizacji pracy zespo≥u.
+
+\subsubsection{Visual Studio 2013}
+
+Visual Studio \cite{bookVS} jest bardzo rozbudowanym úrodowiskiem pracy programistycznej, jest produktem typu IDE (ang. Integrated development environment - zintegrowane úrodowisko programistyczne).Wspiera on rÛwnieø bardzo wiele jÍzykÛw programowania miedzy innymi JavaScript, HTML, C\#, VB, XAML, C++. 
+Produkt tego typu zwiera w sobie:
+\begin{itemize}
+
+\item \textsl{Edytor tekstu}
+
+\tab	 W Visual Studio edytor tekstu jest bardzo rozbudowany dziÍki wielu systemom wspomagajπcych proces wytwarzania oprogramowania. Waønym z punktu widzenia programisty jest wyglπd kodu, by mÛc siÍ szybko i sprawnie w nim odnaleüÊ. Jednym z mechanizmÛw wspomagajπcych wyglπd jest kolorowanie sk≥adni. Typy zmiennych w zaleønoúci, czy jest to klasa kolor, wtedy jest zielony, jeúli inny typ przedefiniowany np. instrukcje warunkowe, pÍtle, domyúlne zmienne niebieski. Drugim mechanizmem  jest system podpowiadania elementÛw sk≥adowych klas, nazywanym IntelliSense.Technologia to wspomagana jest rÛwnieø przez odpowiednie komentowanie kodu tak by te komentarze teø siÍ wyúwietla≥y w podpowiedzi. DziÍki temu mechanizmowi istnieje moøliwoúÊ szybszego odnajdywania poszczegÛlnych elementÛw klasy, ktÛry sπ w danym momencie wymagane. Wykorzystujπc odpowiednie udogodnienia istnieje moøliwoúÊ szybszego pisania kodu, co przek≥ada siÍ na iloúÊ kodu do napisania przez programistÍ.
+
+\item \textsl{Kompilator}
+
+\tab 	G≥Ûwnym i najwaøniejszym elementem tego úrodowiska jest kompilator, ktÛry wytwarza program z linii kodu, a dok≥adniej t≥umaczy kod  zapisany w jÍzyku programowania na kod zrozumia≥y dla sprzÍtu to znaczy maszynowy. W wypadku produktu linii Visual studio moøe on pracowaÊ w dwÛch trybach release i debug, kaødy z nich charakteryzuje siÍ innymi parametrami. W trybie debug gdy  program jest kompilowany  jest moøliwe debugowanie z wykorzystaniem wbudowanego debuggera, ale o tym w dalszej czÍúci tego rozdzia≥u. Niestety w tym trybie jest brak optymalizacji kodu, jest tworzona ca≥a otoczka umoøliwiajπca debugowanie. W drugim trybie sπ uruchamiane optymalizacje miedzy, innymi tak zwane inline, ktÛra polega w duøym uproszczeniu na przekopiowane na przyk≥ad cia≥a funkcji w miejsce w ktÛrym zosta≥a ona wywo≥ana. Dodatkowe mechanizmy optymalizacji powodujπ niemoøliwoúÊ znajdowania b≥ÍdÛw.   
+
+\item \textsl{Debugger}
+
+\tab Debugger wbudowany w Visual Studio umoøliwia szybkie znajdowanie b≥ÍdÛw, dziÍki moøliwoúci úledzenia programu krok po kroku w trakcie jego pracy. Ten mechanizm umoøliwia podglπdanie wartoúci zmiennych, co teø dana funkcja zwrÛci≥a. DziÍki punktom zatrzymania (ang. breakpoint) jest moøliwe wyznaczenie miejsca zatrzymania, a w trakcie debugowania jest moøliwe tworzenie nowych punktÛw w innych elementach programu. Program moøna úledziÊ w dwojaki sposÛb. Dok≥adnie krok po kroku z wchodzeniem w poszczegÛlne funkcje, klasy  nawet te, ktÛre zosta≥y wykorzystane z zewnÍtrznych ürÛde≥ lub teø wbudowane w úrodowisko programistyczne. Drugπ moøliwoúciπ jest úledzenie programu w danym bloku kodu, jest to duøym udogodnieniem, bo szukamy tylko w danej funkcji. Istnieje rÛwnieø opcja mieszania tych trybÛw co umoøliwia znajdowanie b≥ÍdÛw nie tylko w ca≥ym projekcie ale w jego czÍúci.   
+
+\end{itemize}
+
+Visual Studio istnieje w wielu wersjach tego úrodowiska programistycznego. Kaøda charakteryzuje siÍ innymi elementami.
+\begin{itemize}
+
+\item \textsl{Express Edition}
+
+\tab Jest to ca≥kowicie darmowe narzÍdzie do uøytku domowa i komercyjnego. Ograniczone jest do konkretnych rozwiπzaÒ na przyk≥ad aplikacji komputerowych, stron internetowych lub na platformy mobilne. 
+	
+\item \textsl{Community Edition}
+
+\tab Tak jak powyøsza wersja programu ta jest rÛwnieø darmowa ograniczona liczbπ moøliwych uøytkownikÛw korzystajπcych z niej do 5, jeúli ktoú chce korzystaÊ komercyjne to maksymalnie do 250 uøytkownikÛw lub przychÛd nie wiÍkszy niø milion dolarÛw amerykaÒskich.\cite{VSlicencja}. W stosunku do poprzedniej wersji ma moøliwoúÊ tworzenie aplikacji dla wiÍkszej iloúci rozwiπzaÒ. 		
+\item \textsl{Professional}
+
+\tab Do napisania projektu zosta≥ wykorzystany Visual Studio w wersji 2013 \cite{VS} edycja Professional. Jest to produkt komercyjny, ktÛry zosta≥ wykorzystany w ramach licencji studenckiej udostÍpnionej w programie MSDN Academic Alliance (DreamSpark)  dla studentÛw Wydzia≥u Matematyki Stosowanej \cite{msdn}. DziÍki temu studenci mogπ poznaÊ produkt komercyjny. Wersja ta umoøliwia rÛwnieø pisanie testÛw jednostkowych, tworzenie aplikacji na Windows Phone, aplikacji chmurowych.  
+
+\item \textsl{Premium}
+
+\tab Zawiera	wszystkie elementy poprzednich wersji. Ma bardzo bogate rozbudowane úrodowisko testowe miedzy, innymi o przyk≥adowe testy, plany testÛw i testy interfejsu uøytkownika.	
+
+\item \textsl{Ultimate}
+
+\tab Jest to najbardziej rozbudowana wersja oprogramowania, umoøliwia tworzenie instalatorÛw serwisÛw internetowych. Pozwala rÛwnieø na nagrywanie w trakcie dzia≥ania aplikacji. Jeúli w trakcie nagrywania zdarzy siÍ  b≥πd nie jest wymagane jego ponowne symulowanie, lub teø prÛba jego odtworzenia. Umoøliwia rÛwnieø przedstawiania zaleønoúci w kodzie w postaci diagramÛw UML. DziÍki temu mechanizmowi jest moøliwe zauwaøenie wielu zaleønoúci, ktÛre czÍsto potrafiπ byÊ bardzo zawi≥e. Bardzo ciekawπ mechanizmem jest edytowanie kodu w trakcie debugowania co umoøliwia na bieøπco naprawianie b≥ÍdÛw.
+
+\end{itemize}
+
+ Standardowym úrodowiskiem dla technologii jakimi sπ WPF .NET/C\#  jest Visual Studio. DziÍki wbudowanym mechanizmom istnieje rÛwnieø moøliwoúci ich rozszerzania poprzez napisanie dodatkÛw z wykorzystaniem SDK. Moøna rÛwnieø pobraÊ juø gotowe rozszerzenia z Visual  Studio gallery  \cite{VSG} stworzonych przez innych uøytkownikÛw zrzeszonych wúrÛd produktÛw firmy Microsoft. Wykorzystujπc odpowiednie udogodnienia istnieje moøliwoúÊ szybszego pisania kodu, co przek≥ada siÍ na iloúÊ kodu do napisania przez programistÍ.
+
+Kolejnym istotnym elementem z punktu widzenia projektu jest moøliwoúÊ projektowania okien w dwÛch technologiach WPF i Winforms. U≥atwia to pracÍ nad interfejsem uøytkownika, poniewaø wyeliminowana jest koniecznoúÊ ciπg≥ego uruchamiania pisanego programu, by zobaczyÊ wyglπd aplikacji. Zawiera rÛwnieø wiele predefiniowanych elementÛw dla tworzonego wyglπdu miedzy, innymi pola tekstowe, przyciski. Wykorzystujπc technikÍ drag-and-drop moøna w ≥awy sposÛb ustawiaÊ elementy w wybranym przez siebie miejscu.
+
+\subsubsection{SQL Server Management Studio}
+
+W trakcie prac nad projektem wykorzystano darmowe narzÍdzie do zarzπdzania bazπ danych SQL Server Management Studio 2012 Express \cite{SQL Server Management Studio Express} wynika to z istniejπcej infrastruktury opartej na rozwiπzaniach Microsoftu, co u≥atwi≥o pracÍ i proces projektowania ca≥ej bazy danych. DziÍki przejrzystemu interfejsowi uøytkownika, moøna w bardzo ≥atwy sposÛb tworzyÊ nawet bardzo skomplikowane struktury, bez koniecznoúci znajomoúci jÍzyka tworzπcego bazÍ danych.  Program ten u≥atwi≥ tworzenie wymaganej przez sieÊ hotelowπ bazy danych. Istnieje rÛwnieø moøliwoúÊ generowania skryptÛw, ktÛrych zadaniem jest odtworzenie ca≥ej struktury bazy danych. W programie jest rÛwnieø moøliwoúÊ tworzenia diagramÛw: wszystkich jak rÛwnieø wybranych tabel. Te moøliwoúci przedstawia rysunek  \ref{rys:interfejsSQL} Umoøliwia to diagnozowanie problemu braku po≥πczeÒ niektÛrych tabel z resztπ struktury. 
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=1\textwidth]{diagrambazy.jpg}
+    \caption{Interfejs SQL Server Management Studio Express, èrÛd≥o: Opracowanie w≥asne.}
+     \label{rys:interfejsSQL}
+\end{figure}
+
+Wykorzystujπc wbudowane mechanizmy moøliwe jest ≥atwe wpisywanie poczπtkowych danych takich jak: uøytkownicy systemu, ceny produktÛw, ich edycja na poziomie bazy. Umoøliwia to sprawdzenie, czy baza dzia≥a zgodnie oczekiwaniami. W ten sposÛb moøna úledziÊ dzia≥anie programu w trakcie pracy. SprawdziÊ moøna czy wszystkie elementy prawid≥owo dzia≥ajπ i czy w poprawny sposÛb jest zapisywana dana pozycja. W projekcie wykorzystano:
+\begin{itemize}
+\item \textsl{Edytor zapytaÒ}
+		
+\tab Jest to edytor wspomagajπcy jÍzyki Transact-SQL, MDX, DMX lub XML, ktÛry dziÍki kolorowaniu s≥Ûw kluczowych w trakcie pisania skryptÛw zwiÍksza czytelnoúÊ kodu. Wykorzystuje siÍ teø jako interfejs do zapytaÒ Transact-SQL. RÛwnieø jak opisany wczeúniej Visual Studio wykorzystuje mechanizm IntelliSense odpowiedzialny za podpowiadanie kolumn tabel. Ma moøliwoúÊ wykrywania b≥ÍdÛw nieprawid≥owej sk≥adni. Wyúwietla b≥Ídy, ostrzeøenia i komunikaty informacyjne, ktÛre sπ zwracane przez serwer.
+\item \textsl{Object Explorer}
+
+\tab Drugim waønym elementem SQL Server Management Studio jest Object Explorer umoøliwiajπcy przeglπdanie wielu instancji bazy danych. W tym teø elemencie jest moøliwoúÊ generowania diagramÛw baz danych,  projektowania ca≥ej bazy danych. Wyúwietla podglπd tabel  wyzwalacze, procedury. Podglπd tabel daje teø moøliwoúÊ edycji danych  w tabeli jak i wybierania pieszych wierszy w danej tabeli. U≥atwia to sprawdzenie zachowaÒ aplikacji na dane testowe. DziÍki graficznemu interfejsowi jest moøliwe w bardzo prosty sposÛb usuwanie bazy danych poprzez naciúniÍcie przycisku ,,DELETE". Umoøliwia generowanie skryptu dziÍki, ktÛremu moøna odtworzyÊ ca≥π strukturÍ bazy danych
+\end{itemize}   
+
+\subsubsection{Trello}
+
+Podczas pracy zespo≥owej napotyka siÍ liczne problemy zwiπzane z organizacjπ pracy, jej synchronizacjπ oraz podzia≥em obowiπzkÛw. StopieÒ zaawansowania przedstawionych problemÛw dodatkowo wzrasta, w sytuacji, gdy wspÛ≥praca zespo≥u przebiega zdalnie. W takich okolicznoúciach warto pos≥uøyÊ siÍ dedykowanymi narzÍdziami, ktÛre umoøliwiajπ prostπ, szybkπ i skutecznπ komunikacjÍ wspierajπcπ pracÍ wielu osÛb nad jednym projektem. 
+Trello jest to darmowa aplikacja, ktÛrej przeznaczeniem jest wspieranie organizacji pracy grupowej opierajπc siÍ na metodyce Kanban \cite{Kanban}, ktÛra zaadoptowana zosta≥a na potrzeby inøynierii oprogramowania. Potencjalny wzrost wydajnoúci pracy przy uøyciu Trello ma nastπpiÊ dziÍki scentralizowanemu systemowi zarzπdzania projektem opierajπcemu siÍ na wirtualnych tablicach oraz ulokowanych na nich list zadaÒ, ktÛre moøna dostrzec na rysunku \ref{rys:InterfejsTrello}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=1\textwidth]{trello.jpg}
+    \caption{Interfejs aplikacji webowej Trello, èrÛd≥o: Opracowanie w≥asne.}
+    \label{rys:InterfejsTrello}
+\end{figure}
+
+Listy te umoøliwiajπ konstruowanie zadaÒ w postaci tak zwanych kafelek, ktÛre w intuicyjny sposÛb moøna przenosiÊ pomiÍdzy listami za pomocπ techniki drag-and-drop. Kaøda kafelka reprezentujπca zadanie w Trello posiada szereg dodatkowych funkcjonalnoúci, ktÛre moøna dostrzec na za≥πczonym rysunku \ref{rys:KafelkaTrello}. W czasie pracy nad projektem wykorzystano opcjÍ przypisania konkretnej osoby lub grupy osÛb do zadania, co jednoznacznie determinowa≥o odpowiedzialnoúÊ jego wykonania oraz funkcjÍ utworzenia listy czynnoúci, ktÛre naleøy wykonaÊ w celu realizacji zadania. Dodatkowym waønym aspektem jest data, ktÛra po wspÛlnych ustaleniach przypisywana jest do konkretnego zadania i stanowi ostateczny termin wprowadzenia danej funkcjonalnoúci.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.75\textwidth]{trello2.jpg}
+    \caption{SzczegÛ≥y zadania na pojedynczej kafelce., èrÛd≥o: Opracowanie
+     w≥asne.}
+    \label{rys:KafelkaTrello}
+\end{figure}
+
+Ciekawπ funkcjonalnoúciπ godnπ przedstawienia sπ takøe powiadomienia zmian, ktÛre w sposÛb automatyczny przekazywane sπ na skrzynkÍ elektronicznπ lub jako powiadomienia push na urzπdzenia przenoúne. 
+DziÍki temu, iø narzÍdzie Trello dostÍpne jest w postaci webowej, a takøe jako aplikacja mobilna na Androida, iOS oraz Windows 8 \cite{PlatformyTrello}, dostÍp do niej jest w znaczny sposÛb u≥atwiony. Umoøliwia to otrzymanie niemal natychmiastowej informacji o naniesionych zmianach w projekcie lub zbliøajπcym siÍ terminie ukoÒczenia zadania, do ktÛrego jesteúmy przypisani.
+
+Wszystkie przedstawione funkcjonalnoúci narzÍdzia Trello umoøliwi≥y zespo≥owi uproszczenie i przyspieszenie procesu organizacji pracy nad projektem co w konsekwencji doprowadzi≥o do oszczÍdnoúci czasowych, ktÛre przeznaczone zosta≥y na elementy implementacyjne budowanego systemu.
+
+\newpage
+
+\subsubsection{Git/SourceTree/GitHub}
+
+Oprogramowanie wytwarzane jest przez kilkuosobowe zespo≥y programistyczne, a pliki ürÛd≥owe projektÛw przechowywane sπ na serwerach. Jednym z aspektÛw pracy zespo≥owej jest ≥πczenie rÛwnolegle wytwarzanego kodu ürÛd≥owego przez poszczegÛlnych programistÛw. W tym celu zespo≥y uøywajπ systemÛw kontroli wersji (ang. version control system) ktÛre umoøliwiajπ integracjÍ zmian wykonanych na plikach. W prostym jÍzyku oznacza to, øe programista pobiera aktualnπ wersjÍ plikÛw i odsy≥a je do serwera wraz z nowym kodem ürÛd≥owym. Istniejπ trzy rodzaje systemÛw kontroli wersji \cite{versionrodzaje}:
+
+\begin{itemize}
+
+\item \textsl{Lokalne (np. RCS)}
+
+\tab Umoøliwiajπ kontrolÍ plikÛw tylko na lokalnych komputerach.
+
+\item \textsl{Scentralizowane (np. SVN)}
+
+\tab Oparte o architekturÍ typu klient-serwer. Poprzednie wersje plikÛw przechowywane sπ tylko na serwerze.
+
+\item \textsl{Rozproszone (np. Git)}
+
+\tab OpartÍ o architekturÍ P2P. Poprzednie wersje plikÛw przechowywane sπ na serwerze i w lokalnych repozytoriach, co zabezpiecza przed utratπ danych.
+
+\end{itemize}
+
+Popularnym systemem kontroli wersji jest Git, wydany na darmowej licencji. Zosta≥ stworzony przez Linusa Torvalds'a, po raz piewszy wydany w 2005 roku \cite{git0}. Posiada w≥asnπ stronÍ internetowπ, zawierajπcπ dokumentacje oraz pliki binarne programu. Jest wieloplatformowy, posiada dystrybucje dedykowane zarÛwno dla systemÛw rodziny Linux, jak i Windows czy OS X. Posiada nastÍpujπce zalety, ktÛre zdecydowa≥y o uøyciu systemu do synchronizacji zmian w niniejszym projekcie \cite{gitadv}:
+
+\begin{itemize}
+\item \textsl{BezpieczeÒstwo danych}
+
+\tab W razie awarii serwera, moøna odtworzyÊ poprzednie wersje plikÛw na podstawie lokalnej kopii.
+
+\item \textsl{RÛwnoleg≥a praca}
+
+\tab Git umoøliwia niezaleøny rozwÛj oprogramowania, poprzez tworzenie tzw. ga≥Ízi (ang. branch). Zazwyczaj projekty dzielone sπ na ga≥Ízie poszczegÛlnych programistÛw i ga≥πü g≥Ûwna tzw. master branch. Ga≥Ízie mogπ byÊ ≥πczone (ang. merge) w dowolnym momencie.
+
+\item \textsl{OszczÍdnoúÊ przestrzeni dyskowej}
+
+\tab W porÛwnaniu do SVN, gdzie kaøda ga≥πü jest kopiπ ca≥ego projektu Git posiada mechanizmy synchronizujπce rÛønice pomiÍdzy poszczegÛlnymi wersjami plikÛw. 
+
+\end{itemize}
+
+Historia zmian dokonanych w plikach ürÛd≥owych zapisywana jest za pomocπ polecenia commit, ktÛre nadaje identyfikator aktualnej wersji projektu, opis zmian (opcjonalnie) oraz spis zmodyfikowanych plikÛw. Pliki na serwer wysy≥ane sπ za pomocπ komendy push. Pobieranie plikÛw zamieszczanych na serwerze przez pozosta≥ych cz≥onkÛw zespo≥u umoøliwia komenda fetch, natomiast synchronizacjÍ zmian z lokalnπ kopiπ umoøliwia komenda pull \cite{useOfGit}. 
+Git jest programem dzia≥ajπcym w linii poleceÒ. Istnieje rÛwnieø graficzna nak≥adka na Git'a, ktÛrπ jest Atlassian SourceTree. Jest on darmowym programem, jednak po up≥ywie trzydziestu dni od instalacji, uøytkownik zobowiπzany jest do rejestracji konta w celu dalszego korzystania z aplikacji \cite{treelic}. Posiada dystrybucje dla systemu Windows oraz OS X. OprÛcz standardowych funkcjonalnoúci Git'a umoøliwia podglπd zmian w plikach dla poszczegÛlnych commit'Ûw \cite{tree}. Podczas pracy nad projektem programistycznym, prawdopodobnπ sytuacjπ jest dokonanie zmian na tym samym pliku przez dwÛch programistÛw. Jeúli zmiany wzajemnie siÍ wykluczajπ, problem moøna rozwiπzaÊ za pomocπ zewnÍtrznego narzÍdzia do rozwiπzywania konfliktÛw SVN. Umoøliwia on uøytkownikowi porÛwnanie rÛønic w poszczegÛlnych wersjach pliku. Programista wybiera bloki kodu ürÛd≥owego ktÛre majπ zostaÊ zapisane w pliku, zatwierdza zmiany a konflikt zostaje oznaczony jako rozwiπzany. Rysunek \ref{rys:SourceTree} przedstawia okno g≥Ûwne SourceTree.
+
+\newpage
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=1\textwidth]{tree.jpg}
+    \caption{Atlassian SourceTree - okno g≥Ûwne, èrÛd≥o: Opracowanie w≥asne.}
+    \label{rys:SourceTree}
+\end{figure}
+
+GitHub.com jest darmowym serwisem internetowym ktÛry pozwala na przechowywanie projektÛw programistycznych, wspiera system kontroli wersji Git. Pierwsza wersja zosta≥a wydana, w kwietniu 2008 roku \cite{github}. GitHub umoøliwia miÍdzy innymi tworzenie i zarzπdzanie repozytoriami (np. nadawanie uprawnieÒ dostÍpu wspÛ≥pracownikom), podglπd plikÛw danego projektu. Rysunek \ref{rys:RepozytoriumWWW} przedstawia repozytorium niniejszego projektu. 
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=1\textwidth]{repowww.jpg}
+    \caption{Interfejs repozytorium w witrynie GiHub.com, èrÛd≥o: Opracowanie w≥asne.}
+    \label{rys:RepozytoriumWWW}
+\end{figure}
+
+Ciekawπ funkcjonalnoúciπ serwisu przedstawionπ na rysunku \ref{rys:GitHub}, jest opracowywanie statystyk uøytkownikÛw, i prezentowanie ich wk≥adu w konkretny projekt w formie wykresÛw. 
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=1\textwidth]{github.jpg}
+    \caption{Statystyka wk≥adu pracy z dnia 13 grudnia 2015 r., èrÛd≥o: Opracowanie w≥asne.}
+    \label{rys:GitHub}
+\end{figure}
+
+\clearpage
+\subsubsection{ReSharper}
+
+WydajnoúÊ pracy w projektach developerskich jest kluczowπ kwestiπ, ktÛra bezpoúrednio przek≥ada siÍ na korzyúci finansowe i zaoszczÍdzony czas. Istniejπ narzÍdzia, ktÛrych przeznaczeniem jest zwiÍkszenie efektywnoúci pracy programisty poprzez zautomatyzowanie czÍsto powtarzajπcych siÍ czynnoúci oraz nadzorowanie pisanego kodu wed≥ug ustalonych wczeúniej zasad.
+
+ReSharper jest to narzÍdzie zaprojektowane z myúlπ o programistach .NET \cite{.NETOpis} pracujπcych w Microsoft Visual Studio, ktÛre w znacznym stopniu rozszerza dostÍpnπ funkcjonalnoúÊ wyøej wymienionego úrodowiska, u≥atwiajπc tym samym pisanie oraz refaktoryzacjÍ kodu.
+
+Funkcje dostÍpne z poziomu ReSharpera moøna podzieliÊ na kilkanaúcie modu≥Ûw, z ktÛrych jednym z najwaøniejszych jest modu≥ zajmujπcy siÍ inspekcjπ kodu. Podczas pracy programisty z uruchomionym w tle ReSharperem, w czasie rzeczywistym sprawdzane jest ponad 1700 regu≥ dotyczπcych prawid≥owoúci kodu i w sytuacji znalezienia nieúcis≥oúci, znaleziony wyjπtek natychmiast wyúwietlany jest na poziomie graficznego interfejsu Visual Studio z dok≥adnym jego opisem i miejscem wystπpienia. Wyjπtki te dotyczπ miÍdzy innymi moøliwoúci zastπpienia fragmentu kodu jego wydajniejszπ wersjπ, ostrzeøeniem programisty przed kodem, ktÛry potencjalnie moøe doprowadziÊ do nieprawid≥owego dzia≥ania ca≥ego oprogramowania lub informacjπ o fragmencie, ktÛry jest kodem martwym \cite{MartwyKod}. Przyk≥ad kodu, ktÛry spowodowaÊ moøe nieprawid≥owe dzia≥anie aplikacji oraz przyk≥adowe jego rozwiπzania dostÍpne sπ do wglπdu na rysunku \ref{rys:ResharperNullReference}.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=1\textwidth]{ResharperNullReference.jpg}
+    \caption{Informacja Resharpera dotyczπca potencjalnej moøliwoúci wystπpienia wyjπtku NullReferenceException, èrÛd≥o: Opracowanie w≥asne.}
+    \label{rys:ResharperNullReference}
+\end{figure}
+
+Kolejnym bardzo istotnym modu≥em jest modu≥ generowania kodu. Podczas programowania wiele czynnoúci takich jak pisanie nowych klas, metod, implementacja interfejsÛw czy zmiana nazw wielokrotnie siÍ powtarza. DziÍki odpowiednim skrÛtom klawiszowym wszystkie te elementy ReSharper wykona za programistÍ. Przeniesie on wybranπ klasÍ do oddzielnego pliku, utworzy na podstawie nazwy i jej typu szablon brakujπcej metody, wygeneruje wymagane przy dziedziczeniu interfejsu wszystkie jego elementy oraz automatycznie zamieni wybranπ nazwÍ na nowπ, w kaødym miejscu jej wystÍpowania. SzczegÛlnie ostatnia opcja w pracy przy rozbudowanym systemie jest wyjπtkowo przydatna i znacznie skraca czas wykonywanej czynnoúci.
+
+Przedstawione funkcjonalnoúci ReSharpera wraz z wieloma innymi dostÍpnymi do zapoznania siÍ pod \cite{ReSharperFunkcje} elementami, umoøliwi≥y skrÛcenie etapu implementacji wymaganych w projekcie modu≥Ûw poprzez zautomatyzowanie powtarzajπcych siÍ czynnoúci i zniwelowanie pojawiajπcych siÍ zagroøeÒ juø we wczesnej fazie pisania kodu. Korzyúciπ p≥ynπcπ z tego rozwiπzania by≥a oszczÍdnoúÊ czasowa, ktÛra umoøliwi≥a zwrÛcenie wiÍkszej uwagi na aspekt przetestowania zastosowanych rozwiπzaÒ.
+
+\subsubsection{Jenkins}
+
+Jenkins Continuous Integration Server jest darmowym, wieloplatformowym narzÍdziem s≥uøacym do ciπg≥ej integracji projektÛw programistycznych. Zosta≥ napisany w jÍzyku Java, wywodzi siÍ od narzÍdzia Hudson. Zosta≥ wydany po raz pierwszy w 2011 r. \cite{jenkins}. Posiada szereg wtyczek zapewniajπcych funkcjonalnoúci takie jak statyczna analiza kodu, automatyczne tworzenie dokumentacji kodu ürÛd≥owego, powiadomienia e-mail, pobieranie plikÛw z repozytoriÛw. Pozwala na budowanie oraz testowanie projektÛw w popularnych jÍzykach programowania, m. in. w jezyku C\# czy Java. Jenkins jest aplikacjπ internetowπ, domyúlnie dzia≥ajπcπ na porcie 8080. Zadania do wykonania definiowane sπ w postaci planÛw (ang. job) ktÛre mogπ byÊ uruchamiane cyklicznie, zgodnie z okreúlonym harmonogramem lub manualnie. Plany wykonywane sπ w tzw. obszarach roboczych (ang. wokrspace) ktÛre sπ katalogami na dysku \cite{jenkins2}. 
+
+\subsection{Biblioteki zewnÍtrzne}
+
+W sytuacji budowy systemu informatycznego zdarza siÍ, iø zachodzi koniecznoúÊ implementacji czÍsto powtarzajπcej siÍ w rÛønych projektach funkcjonalnoúci dotyczπcej dla przyk≥adu wyboru daty w odpowiednim formacie, koloru z dostÍpnej palety barw lub, jak w prezentowanym projekcie inøynierskim, wygenerowania pliku o ustalonym formacie. W tym celu warto zastosowaÊ biblioteki zewnÍtrzne ktÛre umoøliwiajπ dodanie w prosty sposÛb funkcjonalnoúci bez koniecznoúci implementacji ich od podstaw. Biblioteki te przez fakt ciπg≥ego rozwoju przez ich autorÛw oraz naprawiania b≥ÍdÛw, zg≥aszanych przez uøytkownikÛw sπ z regu≥y pewnymi elementami, ktÛre umoøliwiajπ uzyskanie znacznych korzyúci czasowych w czasie wdraøania nowej funkcjonalnoúci aplikacji. 
+
+\subsubsection{Extended WPF Toolkit}
+
+Waønym aspektem kaødego rodzaju oprogramowania uøytkowego jest stopieÒ trudnoúci jego obs≥ugi. Interfejs graficzny aplikacji powinien byÊ budowany w sposÛb przejrzysty i intuicyjny dla uøytkownika w celu bezproblemowego korzystania z wszystkich jej funkcjonalnoúci. Kaødy element programu, ktÛry przysparza uøytkownikowi problem w obs≥udze jest potencjalnym fragmentem, ktÛry moøe doprowadziÊ do nieprawid≥owego dzia≥ania oprogramowania. Dla przyk≥adu pole, do ktÛrego uøytkownik zobowiπzany jest wprowadziÊ datÍ moøe przysporzyÊ sporo problemÛw w sytuacji, gdy jest ono zwyk≥ym polem tekstowym. W takim przypadku nie wiadomo jaki jest poøπdany format daty, co implikuje koniecznoúÊ dok≥adnej walidacji wpisanych przez uøytkownika ciπgÛw znakÛw oraz informacji zwrotnej w sytuacji b≥Ídnej ich formy.
+
+Domyúlnie technologia WPF podobnie jak WinForms posiada wbudowany pakiet kontrolek graficznych wraz z ich licznymi w≥asnoúciami i zdarzeniami. W≥asnoúci te umoøliwiajπ okreúlenie dok≥adnej formy uøytej kontrolki dotyczπcej jej koloru, wielkoúci, po≥oøenia, wyrÛwnania, nazwy oraz widocznoúci. Zdarzenia kontrolki z kolei odpowiadajπ za jej reakcje w czasie interakcji z uøytkownikiem oprogramowania w ktÛrym zosta≥a zastosowana. Zdarzenia te dotyczπ dla przyk≥adu klikniÍcia w kontrolkÍ, przesuniÍcia kursora myszki nad niπ oraz jej przesuniÍcia.
+
+Liczba domyúlnych kontrolek dla zaimplementowania niektÛrych funkcjonalnoúci nie jest jednak wystarczajπca. Odwo≥ujπc siÍ do przytoczonego przyk≥adu wpisania daty przez uøytkownika, WPF wymaga od programisty duøego wk≥adu pracy do prawid≥owego wykonania tej funkcjonalnoúci. Z pomocπ przychodzπ jednak dedykowane biblioteki rozszerzajπce, z ktÛrych jednπ jest Extended WPF Toolkit.
+
+Extended WPF Toolkit jest to darmowa biblioteka przeznaczona dla technologii WPF, ktÛra rozpowszechniana jest na zasadach Microsoft Public Licence \cite{MicrosoftPublicLicence}. Biblioteka ta w znacznym zakresie rozszerza liczbÍ domyúlnych kontrolek umoøliwiajπc szybkπ i prostπ implementacjÍ licznych funkcjonalnoúci, ktÛrych nie umoøliwia≥y kontrolki domyúlne. 
+
+Jednym z elementÛw, dla ktÛrego przedstawiona biblioteka znalaz≥a zastosowanie w projekcie jest wpisywanie przez uøytkownika wartoúci liczbowej do ustalonego pola. Kontrolka IntegerUpDown umoøliwia programiúcie zapisanie w jej w≥asnoúciach zakresu przyjmowanych liczb, ktÛre niwelujπ koniecznoúÊ implementacji dodatkowej walidacji. Dodajπc do tego domyúlne funkcje powyøszej kontrolki odnoszπce siÍ do wewnÍtrznego sprawdzania typu wpisanych przez uøytkownika znakÛw, podkreúlania i nieprzyjmowania b≥Ídnych danych oraz dwÛch graficznych przyciskÛw, ktÛre umoøliwiajπ po ich naciúniÍciu zmiany wpisanej wartoúci, kontrolka ta doskonale nadaje siÍ do przedstawionej funkcjonalnoúci odciπøajπc przy tym w znaczny sposÛb programistÍ.
+
+Kolejnym miejscem zastosowania biblioteki Extended WPF Toolkit w projekcie jest ustalanie z poziomu programu daty oraz godziny. Do tych celÛw pos≥uøono siÍ dwiema dodatkowymi kontrolkami DatePicker oraz TimePicker.
+Kontrolka DatePicker, ktÛrej wyglπd przedstawiony zosta≥ na rysunku \ref{rys:DatePicker}, umoøliwia uøytkownikowi wybÛr daty w ustandaryzowanym formacie. Po operacji naciúniÍcia kursorem myszki w przedstawianπ kontrolkÍ wyúwietlany jest przejrzysty kalendarz, w ktÛrym proces wyboru daty polega na wybraniu przez uøytkownika odpowiedniego roku, miesiπca, a nastÍpnie klikniÍcia w dzieÒ odpowiadajπcy jego potrzebom. Istnieje takøe moøliwoúÊ wpisania rÍcznie daty, z tπ rÛønicπ, iø musi byÊ ona podana w formacie RRRR-MM-DD. Zapis daty w innych formatach zostanie automatycznie wykryty przez mechanizmy wewnÍtrzne kontrolki jako niepoprawny, a wpisana wartoúÊ usuniÍta.
+ 
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.35\textwidth]{ExtendedWpfDataPicker.jpg}
+    \caption{Kontrolka DatePicker, èrÛd≥o: Opracowanie w≥asne.}
+	\label{rys:DatePicker}
+\end{figure}
+
+Walidacja godziny, analogicznie jak daty, takøe moøe doprowadziÊ do wielu problemÛw na tle jednolitego formatu danych. Zastosowana kontrolka TimePicker widoczna na rysunku \ref{rys:TimePicker} niweluje ten problem poprzez wprowadzenie mechanizmÛw czuwajπcych nad prawid≥owym formatem wpisanej godziny i w przypadku b≥Ídnego jej wprowadzenia, podobnie jak DatePicker, usuwa jπ. Uøytkownik samodzielnie moøe wpisaÊ godzinÍ w formacie GG:MM lub za pomocπ przyciskÛw odpowiednio ustaliÊ jej wartoúci.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.25\textwidth]{ExtendedWpfTimePicker.jpg}
+    \caption{Kontrolka TimePicker, èrÛd≥o: Opracowanie w≥asne.}
+    \label{rys:TimePicker}
+\end{figure}
+
+\newpage
+\subsubsection{PDFsharp \& MigraDoc Foundation}
+
+PDF (ang. Portable Document Format) czyli tzw. przenoúny format dokumentÛw, zosta≥ zaprojektowany i wdroøony przez firmÍ Adobe Systems w 1992 r. Dokumenty przechowywane w tym formacie mogπ zawieraÊ proste dane tekstowe, jak rÛwnieø düwiÍki, grafiki czy tabele. Jednπ z zalet formatu jest jego uniwersalnoúÊ, wyglπd pliku jest spÛjny niezaleønie od systemu operacyjnego uøytkownika \cite{DefinicjaPdf}. Darmowe narzÍdzia, takie jak Adobe Acrobat Reader, Foxit Reader umoøliwiajπ podglπd plikÛw PDF. WiÍkszoúÊ pakietÛw biurowych takich jak, Microsoft Office czy Apache OpenOffice umoøliwia zapis plikÛw do formatu PDF. PopularnoúÊ PDF stale wzrasta \cite{PopularnoscPdf}. Wszelkie rachunki, faktury, prace naukowe sπ archiwizowane w postaci plikÛw PDF. 
+
+Jednym z celÛw projektu, jest przedstawienie szczegÛ≥Ûw transakcji pomiÍdzy klientem, a sprzedawcπ w formie lekkiego i przejrzystego dokumentu. Format PDF spe≥nia za≥oøone wymagania. Do implementacji modu≥u tworzπcego dokument wykorzystano bibliotekÍ PDFSharp \& Migradoc Foundation dla jÍzyka C\#.
+
+PDFSharp \& Migradoc Foundation jest darmowπ bibliotekπ umoøliwiajπcπ tworzenie dokumentÛw PDF w jÍzykach programowania z rodziny .NET. Oferowane funkcjonalnoúci to m. in. tworzenie paragrafÛw, tabel, formatowanie tekstu, za≥πczanie oraz skalowanie grafiki. Projekt posiada dedykowanπ stronÍ internetowπ zawierajπcπ dokumentacjÍ i przyk≥adowe programy wraz z kodami ürÛd≥owymi \cite{PdfSharp}. Instalacja w Microsoft Visual Studio jest moøliwa za pomocπ menedøera pakietÛw Nuget. 
+
+\section{Architektura budowanego systemu}
+
+Budowa bazodanowego systemu informatycznego od podstaw wymaga dok≥adnego przeanalizowania elementÛw dotyczπcych jego architektury. Przez fakt budowy dwÛch oddzielnych elementÛw, analiza ta podzielona zosta≥a na czÍúÊ dotyczπcπ modelowania bazy danych, aplikacji uøytkownika oraz ich wzajemnej komunikacji. 
+
+\subsection{Architektura aplikacji}
+\label{dzial:ArchitekturaAplikacji}
+
+W inøynierii oprogramowania analogicznie jak w innych dziedzinach, w ktÛrych przeprowadzana jest operacja budowania zadanego przedmiotu, naleøy starannie zaplanowaÊ jego proces. Prezentowany rozdzia≥ zawiera opis metodologii, ktÛra umoøliwia w uporzπdkowany sposÛb przeprowadzenie procesu budowania aplikacji wraz z zastosowanπ w prezentowanym projekcie jego odmianπ. Rozdzia≥ \ref{dzial:ModelApki} przedstawia rÛwnieø efekt zastosowanego rozwiπzania widoczny z poziomu projektu programistycznego.
+
+\subsubsection{Wzorce architektoniczne oprogramowania}
+
+W celu przeprowadzenia procesu budowy aplikacji w sposÛb umoøliwiajπcy jego efektywny rozwÛj oraz dokonywanie zmian we funkcjonalnoúciach naleøy kierowaÊ siÍ przyjÍtymi fazami produkcji oprogramowania \cite{FazyProdukcjiOprogramowania}. Fazy te mÛwiπ o tym, iø naleøy dok≥adnie okreúliÊ wymagania, ktÛre powinno budowane oprogramowanie spe≥niaÊ, a nastÍpnie ustaliÊ jego ogÛlnπ architekturÍ. Punkt ten jest niebywale waøny z racji na problematycznoúÊ zmiany architektury zbudowanego juø systemu. W celu zobrazowania tego zagadnienia moøna przywo≥aÊ operacjÍ budowy budynku. Wszelkie zmiany dotyczπce jego konstrukcji sπ ciÍøkie do zrealizowania w sytuacji, w ktÛrej jest on juø fizycznie gotowy. Kolejne fazy polegajπ na realizacji opisanej wczeúniej architektury poprzez implementacjÍ wszystkich komponentÛw oprogramowania wraz z ich wzajemnymi po≥πczeniami, przetestowaniem ca≥ego systemu oraz jego finalnemu uruchomieniu wraz z usuwaniem wykrytych podczas jego dzia≥ania b≥ÍdÛw.
+
+Odnoszπc siÍ do planowania architektury systemu bardzo pomocne okazujπ siÍ dostÍpne wzorce architektoniczne. Wzorce te sπ to sprawdzone oraz zaakceptowane sposoby rozwiπzania danego problemu z dziedziny architektury oprogramowania, okreúlajπce ogÛlnπ strukturÍ systemu informatycznego, zasady komunikacji pomiÍdzy komponentami oraz elementy wchodzπce w jego sk≥ad wraz z opisem ich funkcji. WybÛr odpowiedniego wzorca w duøej mierze zaleøny jest od wykorzystanej w projekcie technologii. W przypadku WPF powszechnie uznanym rozwiπzaniem jest MVVM (Model View ViewModel) \cite{MvvmOpis}, ktÛry jest zmodyfikowanπ wersjπ wzorca MVC, zawierajπcπ specjalizacjÍ modelu prezentacji.
+
+\subsubsection{Zastosowany wzorzec architektoniczny ñ MVVM}
+\label{dzial:MVVMBindowanieCommandy}
+
+MVVM jest to wzorzec, ktÛry dziÍki funkcjonalnoúci odseparowania warstwy prezentacji od warstwy logiki biznesowej, umoøliwia napisanie ≥atwo testowalnej oraz prostej w rozbudowanie aplikacji, ktÛrej fragment kodu moøe zostaÊ ponownie uøyty w innych projektach. Opisywany wzorzec cieszy siÍ duøπ popularnoúciπ w gronie developerÛw WPF z powodu moøliwoúci wykorzystania najwiÍkszych atutÛw tej technologii, takich jak komendy (command), wiπzania (binding) oraz zachowania (behavior). Kod aplikacji o architekturze Model-View-ViewModel podzielony jest, zgodnie z jego nazwπ na trzy oddzielne warstwy Model, View oraz ViewModel, z ktÛrych kaøda przechowuje dedykowane dla siebie dane i spe≥nia okreúlone funkcje. Z graficznym podzia≥em wraz z kierunkiem przep≥ywu danych moøna zapoznaÊ siÍ pod rysunkiem \ref{rys:MvvmDiagram}.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.8\textwidth]{MvvmDiagram.jpg}
+    \caption{Przep≥yw danych w modelu MVVM, èrÛd≥o: www.tomaszmalesza.pl}
+    \label{rys:MvvmDiagram}
+\end{figure}
+%www.tomaszmalesza.pl/wp-content/uploads/2012/08/MVVM\_Relation1.jpg
+
+Model to warstwa, ktÛra odpowiedzialna jest w omawianym wzorcu za logikÍ biznesowπ aplikacji \cite{LogikaBiznesowa}. W przypadku przedstawianego projektu inøynierskiego warstwa ta reprezentowana jest przez przez klasy, ktÛre utworzone zosta≥y za pomocπ biblioteki Entity Framework, s≥uøπcej do odwzorowania relacyjnej bazy danych na obiekty dostÍpne z poziomu kodu. Wszelkie klasy zawierajπce dane, ktÛre maja przekazane byÊ z poziomu modelu do warstwy widoku, z ktÛrego uøytkownik moøe owe informacje odczytaÊ zobowiπzane sπ do implementacji interfejsu INotifyPropertyChanged lub INotifyCollectionChanged, ktÛry wspÛ≥pracuje z bindingiem \cite{DataBinding} wykorzystywanym w WPF.
+
+ViewModel zajmuje siÍ reprezentacjπ danych, ktÛre wysy≥ane sπ do widoku, nie majπc przy tym øadnej referencji do niego. Widok odnosi siÍ do elementÛw ViewModelu za poúrednictwem komend oraz wspomnianych operacji bindowania, co zapewnia pe≥nπ separacjÍ warstwy ViewModelu i umoøliwia przetestowanie jej odrÍbnie od modelu i czÍúci prezentujπcej.
+
+Wastwa widoku (View) odpowiedzialna jest za wyúwietlanie danych i pe≥ni rolÍ wy≥πcznie prezentacyjnπ. Jej komunikacja z warstwπ modelu przebiega za poúrednictwem warstwy poúredniczπcej ViewModel, do ktÛrej jest przy≥πczona za pomocπ w≥aúciwoúci DataContext. W≥aúciwoúÊ ta wstrzykuje zaleønoúci pomiÍdzy View oraz ViewModel, ktÛry jπ kontroluje. 
+
+\subsubsection{Model aplikacji}
+\label{dzial:ModelApki}
+
+Stosowanie wzorca MVVM doprowadzi≥o w prezentowanym projekcie do powstania rozbudowanego schematu solucji, w ktÛrej sk≥ad wchodzi ponad szeúÊdziesiπt plikÛw. DziÍki uporzπdkowanej strukturze podzia≥u na katalogi przedstawionej na rysunku \ref{rys:ModelFoldery}, uda≥o siÍ jednak zachowaÊ porzπdek umoøliwiajπcy p≥ynne oraz intuicyjne odnalezienie szukanych elementÛw. Wszystkie pliki podzielone zosta≥y pomiÍdzy szeúÊ folderÛw, ktÛrych nazwy jednoznacznie determinujπ ich zastosowanie. Sama zawartoúÊ przedstawionych katalogÛw zbudowana jest rÛwnieø w sposÛb umoøliwiajπcy szybkie odnalezienie pliku, ktÛry zawiera szukane elementy. 
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.4\textwidth]{ModelFoldery.jpg}
+    \caption{Struktura folderÛw w projekcie, èrÛd≥o: Opracowanie w≥asne.}
+    \label{rys:ModelFoldery}
+\end{figure}
+\newpage
+
+\begin{itemize}
+\item \textsl{FillingObjects}
+
+Folder \textsl{FillingObjects} ukazany na rysunku \ref{rys:ModelFillingObjectsFolder} zawiera, jak sama nazwa wskazuje, pliki obiektÛw, ktÛre uøywane sπ do wype≥niania elementÛw wymagajπcych pobranie danych z poziomu bazy danych. DziÍki samodzielnie zdefiniowanej strukturze obiektÛw, moøliwe jest proste wype≥nienie wszystkich domyúlnych elementÛw szablonu nowej propozycji cenowej (\textsl{AddNewProposition.cs} oraz danych uøytkownika jπ tworzπcego (\textsl{AdminProposition.cs} oraz \textsl{UserProposition.cs}).
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.35\textwidth]{ModelFillingObjectsFolder.jpg}
+    \caption{Folder FillingObjects, èrÛd≥o: Opracowanie w≥asne.}
+    \label{rys:ModelFillingObjectsFolder}
+\end{figure}
+
+\item \textsl{Model}
+
+\textsl{Model} jest to katalog przedstawiony na obrazku \ref{rys:ModelModelFolder}, ktÛry w przypadku prezentowanego projektu zawiera utworzonπ przez Entity Framework strukturÍ obiektowπ relacyjnej bazy danych. Liczba plikÛw, ktÛre zawiera uzaleøniona jest bezpoúrednio od liczby tabel uøytej w bazie. W czasie dzia≥aÒ implementacyjnych nie jest konieczna wiedza o szczegÛ≥owej strukturze przedstawianego folderu, a tylko ktÛra bazodanowa tabela zawiera jakie dane.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.54\textwidth]{ModelModelFolder.jpg}
+    \caption{Folder Modelu, èrÛd≥o: Opracowanie w≥asne.}
+    \label{rys:ModelModelFolder}
+\end{figure}
+
+\item \textsl{Resources}
+
+Jest to folder zawierajπcy, ktÛrym przeznaczeniem jest przechowywanie wszelkich ürÛde≥ graficznych wykorzystywanych projekcie. W prezentowanym przyk≥adzie zawiera on tylko jeden plik bÍdπcy nag≥Ûwkiem graficznym stosowanym w generowanym pliku PDF propozycji cenowej.
+
+\item \textsl{Tools}
+
+Katalog narzÍdzi, ktÛrego graficzna reprezentacja dostÍpna jest do zobaczenia na rysunku \ref{rys:ModelToolFolder} jest najbardziej rozbudowanym katalogiem w drzewie solucji. Przez wzglπd na jego szerokie zastosowanie zawiera on trzy podfoldery, ktÛre uúciúlajπ definicjÍ elementÛw w nich siÍ znajdujπcych. Podkatalog \textsl{Converters} posiada dwa konwertery, ktÛre umoøliwiajπ konwersjÍ obiektu napisu na jego skrÛt (\textsl{Shaconverter.cs}) oraz numeru miesiπca na jego angielskπ oraz polskπ nazwÍ (\textsl{DateTimeConverter.cs}. Folder \textsl{MvvmClasses} jest bardzo waønym elementem przez wzglπd na zawartoúÊ klas niezbÍdnych do prawid≥owego schematu dzia≥ania wzorca MVVM. Pliki ktÛre zawiera umoøliwiajπ p≥ynne odúwieøanie widoki z poziomu ViewModeli (\textsl{ObservableObject.cs}) oraz wykonywanie akcji po naciúniÍciu przyciskÛw (\textsl{RelayCommand.cs} oraz \textsl{RelayCommandGeneric.cs}). Przeznaczeniem kolejnego folderu jest tworzenie pliku PDF wybranej propozycji cenowe, natomiast ostatniego katalogu - sprawdzenie z≥oøonoúci has≥a, ktÛre uniemoøliwia uøytkownikowi ustawienie has≥a zbyt s≥abego.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.5\textwidth]{ModelToolFolder.jpg}
+    \caption{Folder Tools, èrÛd≥o: Opracowanie w≥asne.}
+    \label{rys:ModelToolFolder}
+\end{figure}
+
+\item \textsl{ViewModels}
+
+Kolejnym prezentowanym folderem jest \textsl{ViewModels} przedstawiony na rysunku \ref{rys:ModelViewModelFolder}, ktÛry zawiera kolejne pliki dostosowane do pracy ze wzorcem MVVM. Struktura folderu podzielona zosta≥a ze wzglÍdu na funkcjonalnoúci dostÍpne z poziomu konta zwyk≥ego uøytkownika oraz jego uprzywilejowanego odpowiednika. Pliki obecne w folderze \textsl{ViewModels} odpowiadajπ na interakcjÍ uøytkownika i realizujπ akcjÍ okna w ktÛrym obecnie pracuje.
+Logika okna g≥Ûwnego oraz wszelkie akcje w nim dostÍpne obs≥ugiwane sπ zaleønie od typu konta zalogowanego uøytkownika w plikach \textsl{AdminViewModel.cs} oraz \textsl{UserViewModel.cs}. Funkcje dotyczπce dodawania, edycji danych uøytkownikÛw oraz jego usuwania wykonywane sπ kolejno w \textsl{AddUserViewModel.cs}, \textsl{EditUserViewModel.cs} oraz \textsl{RemoveUserViewModel.cs}. Obs≥uga edycji s≥ownikÛw natomiast jak sama nazwa wskazuje umiejscowiona jest w folderze \textsl{DictionaryViewModel.cs}.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.5\textwidth]{ModelViewModelFolder.jpg}
+    \caption{Folder ViewModels, èrÛd≥o: Opracowanie w≥asne.}
+    \label{rys:ModelViewModelFolder}
+\end{figure}
+
+\item \textsl{Views}
+
+Ostatni katalog jak katalogiem najwaøniejszym ze strony uøytkownika, gdyø zawiera definicje budowy i rozmieszczenia okien wystÍpujπcych w programie wraz z umiejscowieniem wszelkich elementÛw ktÛre posiadajπ. W tym w≥aúnie miejscu wykorzystywany jest opisywany w rozdziale \ref{dzial:XAML} jÍzyk XAML umoøliwiajπc przeprowadzenie operacji bindowania i komend, ktÛre wspomniane by≥y w dziale \ref{dzial:MVVMBindowanieCommandy}.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.5\textwidth]{ModelViewFolder.jpg}
+    \caption{Folder Views, èrÛd≥o: Opracowanie w≥asne.}
+    \label{rys:ModelViewFolder}
+\end{figure}
+
+\end{itemize}
+
+\newpage
+
+\subsection{Architektura bazy danych}
+\label{dzial:ArchitekturaBazyDanych}
+
+W zwiπzku z wymaganiami projektu wynika≥a potrzeba zastosowania bazy danych uwzglÍdniajπc potrzeby przedstawione w rozdziale \ref{dzial:PomyslNaRozwiazanieProblemu} oraz wykorzystane technologie zaprezentowanej w rozdziale \ref{dzial:ZastosowaneRozwiπzaniaTechnologiczne}. Opisany zosta≥ serwer realizujπcy instancjÍ bazy w raz z jego dzia≥aniem oraz model.
+
+
+\subsubsection{MS-SQL ñ Zastosowany system zarzπdzania bazπ danych}
+\label{dzial:MS-SQL}
+Z racji wykorzystania w projekcie baz danych istnia≥a koniecznoúÊ uruchomienia serwera bazodanowego. W konsekwencji wykorzystanych technologii opisanych w rodziale \ref{dzial:ZastosowaneRozwiπzaniaTechnologiczne} uøyto Microsoft SQL Server\cite{MS-SQL}. Oprogramowanie umoøliwia tworzenie relacyjnych i nierelacyjnych baz danych ktÛrych proces tworzenia odbywa siÍ przy uøyciu:
+\begin{enumerate}
+	\item	SQL Server Management Studio, ktÛry jest nak≥adkπ graficznπ
+	\item	T-SQL. 
+\end{enumerate}
+DziÍki wbudowanym typom danych zabezpiecza to przed wpisaniem nieprawid≥owej wartoúci w danym miejscu.
+Wbudowane mechanizmy kopii zapasowej plikÛw i transakcji pozwalajπ na zapis ich na innym klastrze. W wypadku kiedy g≥Ûwny klaster zostanie uszkodzony zadanie przejmuje drugi klaster. Istnieje rÛwnieø moøliwoúÊ tworzenia testÛw rozwojowych bazy danych. Wykorzystujπc dziennik jest moøliwe diagnozowanie problemÛw z dzia≥aniem bazy danych obciπøenie.
+
+W tym silniku bazodanowym moøna wyszczegÛlniÊ kilka komponentÛw:
+\begin{itemize}
+	\item \textsl{Interfejs T-SQL}
+
+	\tab
+ Komponent ten odpowiada za interpretacje zapytania lub innych instrukcji napisanych w jÍzyku T-SQL i wys≥anie wynikÛw do uøytkownika. 
+ 	
+	\item \textsl{Podsystem bezpieczeÒstwa}
+
+	\tab
+	Modu≥ ten odpowiada za dostÍp od bazy danych moøna go konfigurowaÊ w dwojaki sposÛb wykorzystujπc  SQL Server Management Studio lub T-SQL. Modu≥ ten umoøliwia szyfrowanie ca≥ej bazy lub tylko wybranych kolumn.
+	\item \textsl{SQL agent}
+	
+	\tab SQL agent odpowiada za automatyzacjÍ czÍúci rzeczy miÍdzy, innymi za tworzenie kopii zapasowej o okreúlonej godzinie. DziÍki takiemu planowaniu jest moøliwe rÛwnomierne roz≥oøenie obciπøenia serwera. Pozwala wysy≥anie wiadomoúci w przypadku jakiegoú krytycznego b≥Ídu, czy siÍ wykona≥a jakiejú zaplanowana czynnoúÊ danego dnia.
+	\item \textsl{Replikant}
+	
+	\tab
+	Odpowiada on za rozpowszechnianie danych pomiÍdzy rÛønymi serwerami na przyk≥ad FTP lub teø urzπdzeniami. G≥Ûwnie ten modu≥ wykorzystuje siÍ w przypadku serwer-serwer do tworzenie kopii zapasowej w tej sytuacji jeden serwer jest serwerem centralny a drugi kopiπ zapasowπ. 
+	
+\end{itemize}
+
+
+\subsubsection{Budowa bazy danych uøytej w projekcie}
+
+Bazy danych moøna porÛwnaÊ do archiwum firmy gdzie dla przyk≥adu przechowywane sπ wszystkie projekty lub dane osobowe. Tabelπ w kontekúcie tego przyk≥adu jest pojedynczy segregator zawierajπcy dane o identycznej tematyce. Tabela sk≥ada siÍ z wierszy dalej zwanych rekordami i kolumn. Rekord tworzy spÛjnπ ca≥oúÊ tak jak dane jednej osoby, kolumny natomiast sπ to poszczegÛlne dane typu imiÍ, nazwisko lub pesel. Tak jak pesel jest unikatowy dla osoby tak klucz g≥Ûwny w tabeli teø musi byÊ unikatowy. Po≥πczenie dwÛch segregatorÛw poprzez dla przyk≥adu numer pesel danej osoby to tak zwana relacja, w ktÛrej w drugim segregatorze numer pesel stanowi klucz obcy. W terminologii bazodanowej rozrÛøniÊ moøna kilka relacji, ktÛre przekszta≥cone zosta≥y z \cite{RelacjeBazDanych} na potrzeby przedstawianego przyk≥adu:
+
+\begin{enumerate}
+  \item Jeden do wielu, kiedy jedna koszulka w segregatorze ≥πczy siÍ z wieloma koszulkami w drugim.
+  \item Jeden do jednego wystÍpuje wtedy, kiedy jedna koszulka ≥πczy siÍ tylko z jednπ (innπ) koszulkπ.
+  \item Wiele do wielu wystÍpuje wtedy, kiedy jedna koszulka z jednego segregatora odpowiada wielu koszulkom w drugim i na odwrÛt.
+\end{enumerate}
+
+W projekcie zosta≥a wykorzystana baza relacyjna, ktÛra dzia≥a na powyøszym przyk≥adzie. Waønym z punktu widzenia projektowania aplikacji bazodanowej jest odpowiednie zaprojektowanie struktury tabel i po≥πczeÒ miedzy nim. Nie moøna lekcewaøyÊ tego procesu. Gdy siÍ üle zaprojektuje bazÍ mogπ wyniknπÊ w pÛüniejszym czasie problemy z jej dalszym rozwojem. Istnieje jeszcze gorszy scenariusz, gdy w trakcie dalszych prac baza danych nie bÍdzie spe≥nia≥a swojego zadania. Efektem üle zaprojektowanej bazy danych moøe byÊ d≥ugoúÊ wykonywanych zapytaÊ jak i bardzo duøa z≥oøonoúÊ. Wiπøe siÍ to z koniecznoúciπ przeprojektowania od poczπtku ca≥ej bazy lub starania siÍ w programie ukryÊ te niedomagania.
+
+
+BazÍ, ktÛra zosta≥a wykorzystana w projekcie moøna podzieliÊ na dwie g≥Ûwne czÍúci: czÍúci zawierajπcπ domyúlne wartoúÊ w dalszej czÍúci zwane s≥ownikami i czÍúÊ powiπzana z tworzonπ propozycjπ cenowπ.
+\begin{itemize}
+	\item \textsl{CzÍúÊ s≥ownikowa}
+	
+\tab 
+Tabele s≥ownikowe przez wzglπd na funkcje, ktÛrπ pe≥niπ nie sπ powiπzane z innymi tabelami Taki podzia≥ tabel na dwa osobne zbiory zosta≥ spowodowany bezpieczeÒstwem. Jeúli istnia≥aby relacja ≥πczπca te dwie tabele to zmiana wartoúÊ w tabeli s≥ownikowej powodowa≥aby zmianÍ cen produktÛw w starszych propozycja. Efektem unikniÍcia tego typu problemÛw jest rozdzielenie na dwie odseparowane czÍúci.  Gdyby tak nie by≥o wtedy moøliwoúÊ odtworzenia starej propozycji cenowej by≥aby niemoøliwa, co jest efektem niepoøπdanym z punktu widzenia dzia≥ania aplikacji. Przedstawia to rysunek \ref{Schemat:Slownikow1}.
+
+\newpage
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=1\textwidth]{dicSchemat1.jpg}
+    \caption{Przedstawienie czÍúci s≥ownikowej bazy danych, èrÛd≥o: Opracowanie w≥asne.}
+    \label{Schemat:Slownikow1}
+\end{figure} 
+
+
+\item \textsl{CzÍúÊ Propozycji}
+	
+\tab 
+Drugi cz≥on bazy danych stanowiπ tabele zwiπzane z tworzonπ propozycjπ cenowπ. Sπ one podzielone w logiczny sposÛb uwzglÍdniajπc podzia≥ przyk≥adowej propozycji cenowej przedstawione przez sieÊ hotelowπ: produkty gastronomiczne, wyposaøenie sali, szczegÛ≥y rezerwacji, szczegÛ≥y klienta. Jest to teø najbardziej rozbudowana czÍúÊ bazy danych wiπøπ siÍ teø z niπ konta uøytkownikÛw kto, ktÛrπ propozycje cenowπ wystawi≥. Wiπøe ze sobπ koniecznoúÊ nadawania uprawnieÒ uøytkownikom w systemie. Aktualnie istniejπ tylko dwa typy kont sprzedawca i administrator. Do kaødej stworzonej propozycji cenowej sπ teø do≥πczane rabaty na poszczegÛlne jej elementy: gastronomie, wyposaøenie sali. Ca≥a bazÍ przedstawia rysunek \ref{Schemat:Prop1}.
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=1\textwidth]{schProp.jpg}
+    \caption{Przedstawienie czÍúci bazy danych odpowiedzialnej za tworzonπ propozycji, èrÛd≥o: Opracowanie w≥asne.}
+    \label{Schemat:Prop1}
+\end{figure}   
+
+\end{itemize}
+Podzia≥ taki uwzglÍdnia moøliwoúÊ dalszego rozwoju aplikacji. Moøliwe jest dodawanie nowych s≥ownikÛw ktÛra bÍdπ zwieraÊ inne elementy zwiπzane z tworzonπ propozycjπ cenowa. Dodanie nowej tabeli do s≥ownikÛw,  ktÛra bÍdzie wiπza≥a siÍ z nowπ  grupy produktÛw.
+
+\subsection{Komunikacja bazy danych z projektem programistycznym}
+\label{dzial:komunikacja}
+
+Po≥πczenie bazy danych z projektem programistycznym jest kluczowπ kwestiπ dotyczπcπ poprawnoúci dzia≥ania aplikacji bazodanowej. Ciπg≥e, stabilne i kontrolowane po≥πczenie umoøliwia bezproblemowe przesy≥anie danych z gwarancjπ ich niezmiennoúci oraz stosownπ informacjπ w sytuacji wystπpienia b≥Ídu komunikacyjnego. W technologii .NET moøliwe jest jest standardowe podejúcie dostarczane przez ADO.NET oraz nowsze dotyczπce komunikacji na poziomie obiektÛw.
+
+\subsubsection{Mapowanie obiektowo-relacyjne}
+
+PojÍcie mapowania obiektowo-relacyjnego (ORM) odnosi siÍ do  programistycznego terminu dotyczπcego wspÛ≥pracy z bazπ danych, wykorzystujπc idee programowania obiektowego. Konkretnie rzecz ujmujπc chodzi o zamianÍ danych, przechowywanych w postaci tabelarycznej w relacyjnej bazie danych na postaÊ obiektowπ dostÍpnπ z poziomu uøywanego jÍzyka programowania lub w drugπ stronÍ.
+
+Przedstawiona translacja danych okaza≥a siÍ bardzo praktyczna przez wzglπd na zniwelowanie koniecznoúci zag≥Íbiania siÍ w struktury bazy danych przez programistÍ, a takøe w przypadku uøycia dodatkowych frameworkÛw, brak wymogu dotyczπcego jego znajomoúci zapytaÒ jÍzyka SQL przez fakt pracy wy≥πcznie na obiektach, ktÛre odwzorowujπ strukturÍ tabel.
+
+Aplikacje komputerowe, ktÛrych funkcjonalnoúci zorientowane sπ na wielu uøytkownikÛw lub wymuszajπ koniecznoúÊ ciπg≥ego przechowywania i przetwarzania duøych iloúci danych bardzo czÍsto korzystajπ z systemÛw bazodanowych. Systemy te umoøliwiajπ nieprzerwane magazynowanie duøej iloúci informacji, a takøe szybkie ich wyszukiwanie, sortowanie, dodawanie, edycjÍ oraz usuwanie. Przedstawione aspekty sπ bardzo trudne do zaimplementowania wewnπtrz standardowych aplikacji. 
+
+W przypadku technologii .NET, w ktÛrej prowadzony jest prezentowany projekt, standardowa komunikacja aplikacji z bazπ danych odbywa siÍ za poúrednictwem protoko≥u ADO.NET. Przy jego uøyciu programista ma obowiπzek kaødorazowo nawiπzaÊ po≥πczenie z bazπ, rÍcznie wprowadziÊ zapytanie SQL, odebraÊ wynik i zapisaÊ go w odpowiednim obiekcie oraz zamknπÊ po≥πczenie. Schemat ten w znacznym stopniu utrudnia utrzymanie prawid≥owego dzia≥ania aplikacji w przypadku jej rozbudowy lub modyfikacji bazy danych. Napisane zapytanie SQL w øadnym stopniu nie jest sprawdzane ze wzglÍdu na jego poprawnπ formÍ, a w sytuacji zmiany przyk≥adowo nazwy kolumny w wykorzystywanej bazie danych, programista w celu utrzymania prawid≥owej pracy aplikacji ma obowiπzek aktualizacji wszystkich zapytaÒ, ktÛre dotyczy≥y zmienionej kolumny. Przedstawione zagadnienie wraz z porÛwnaniem analogicznej operacji w technologii mapowania obiektowo-relacyjnej przedstawione zosta≥o z poziomu kodu w kodzie ürÛd≥owym \ref{listing:AdoEntityCompare}.
+
+W celu przeciwdzia≥ania przedstawionym problemom zdecydowano siÍ zastosowaÊ dedykowany framework, ktÛry upraszcza developerowi przeprowadzanie wszelkich bazodanowych operacji.
+
+\begin{lstlisting}[caption={PorÛwnanie operacji dodania uøytkownika w ADO.NET oraz Entity Framework}, label={listing:AdoEntityCompare}]
+
+//ADO.NET
+//wymagane manualne dodanie pliku konfiguracji po≥πczenia
+SqlConnection connection = 
+    new SqlConnection(connectionString);
+SqlCommand command = 
+    new SqlCommand(@"INSERT INTO [TestDb].[Users]  
+    VALUES (@Login, @Password)", connection);           
+command.Parameters.Add(
+    new SqlParameter("Login", "TestLogin"));
+command.Parameters.Add(
+    new SqlParameter("Password","TestPa$$"));            
+connection.Open();
+command.ExecuteNonQuery();
+connection.Close();
+
+//Entity Framework
+// EF automatycznie odczyta plik konfiguracji po≥πczenia
+MyEntities dataContext = new MyEntities();
+TestUser newUser = new TestUser
+{ Login = "TestLogin", Password = "TestPa$$word" };
+dataContext.Users.Add(newUser);
+dataContext.SaveChanges(); 
+\end{lstlisting}
+
+\subsubsection{Zastosowane narzÍdzie ORM ñ Entity Framework} 
+
+Entity Framework jest to dedykowane dla platformy .NET narzÍdzie mapowania obiektowo-relacyjnego, ktÛre wspiera budowÍ trÛjwarstwowych aplikacji bazodanowych. Budowa obiektowego modelu bazy danych w prezentowanym frameworku moøe przebiegaÊ w zaleønoúci od potrzeb trzema úcieøkami.
+
+Pierwszπ opcjπ jest podejúcie Database First, ktÛre okazuje siÍ przydatne w sytuacji, gdy obecna jest dzia≥ajπca fizycznie baza danych. W tym przypadku, korzystajπc z wbudowanego we framework kreatora, istnieje moøliwoúÊ okreúlenia lokalizacji bazy oraz automatycznego jej mapowania, w wyniku ktÛrego wygenerowane zostajπ potrzebne klasy obiektowego modelu bazy danych.
+
+Kolejnπ metodπ jest Code First umoøliwiajπce utworzenie fizycznego modelu bazy danych na podstawie w≥asnorÍcznie napisanych klas w jÍzyku C\# wraz z jej odpowiednimi adnotacjami \cite{AdnotacjeCodeFirst}.
+
+Ostatnie podejúcie to Model First, ktÛre polega na zbudowaniu fizycznego modelu bazy danych pos≥ugujπc siÍ wbudowanemu we framework Designerowi, ktÛry w znacznym stopniu u≥atwia tworzenie encji oraz w≥aúciwoúci bazy danych. åcieøka ta jest wykorzystywana w sytuacji posiadania wy≥πcznie schematu bazy danych. Ze zbudowanego modelu generowany jest fizyczny model bazy danych jak i rÛwnieø klasy, ktÛre reprezentujπ model obiektowy.
+
+\subsubsection{Stosowanie poleceÒ bazodanowych ze strony projektu C\# za pomocπ Linq to Entities}
+
+Zastosowane narzÍdzie Entity Framework nie tylko w znacznym stopniu upraszcza po≥πczenie bazy danych z projektem programistycznym ale takøe umoøliwia w nim proste i intuicyjne wykonywanie poleceÒ bazodanowych. W projekcie w celu zaimplementowania za≥oøonych funkcjonalnoúci stosowano trzy podstawowe polecenia modyfikujπce zawartoúÊ bazy: Insert, Update oraz Delete. Entity Framework domyúlnie zawiera modu≥ \textsl{LINQ to Entities}, ktÛry umoøliwia wykorzystanie sk≥adni technologii LINQ \cite{LINQ} do operowania na bazodanowym ürÛdle danych.
+
+W celu wykonania polecenia SELECT zwracajπcego rekordy z bazy danych naleøy za pomocπ przedstawionego w kodzie ürÛd≥owym \ref{listing:SelectOpis} schematu wybraÊ nazwÍ tabeli z obiektu kontekstu wygenerowanego przez Entity Framework, a nastÍpnie uøyÊ polecenia \textsl{where} definiujπcego wyszukiwanπ zaleønoúÊ. Finalnie poleceniem \textsl{select} nastÍpuje ustalenie zdefiniowanej wczeúniej zwracanej zmiennej, w ktÛrej przechowywane sπ wyszukane elementy. Tym sposobem dane przechowywane w bazie danych poddane zostajπ translacji na poziom obiektÛw, z ktÛrych moøliwe jest korzystanie z poziomu C\# w sposÛb standardowy.
+
+\begin{lstlisting}[caption= {Opis polecenia select}, label={listing:SelectOpis}]
+var exampleQuerry = (from records in _context.TableName
+		where table.ColumnName == _valueToFind
+		select records);
+\end{lstlisting}
+
+Edycja danych znajdujπcych siÍ w bazie danych z poziomu projektu programistycznego realizowana jest poprzez modyfikacjÍ opisanego polecenia \textsl{SELECT}. Modyfikacja ta polega na przekszta≥ceniu typu otrzymanego obiektu na typ klasy modelu Entity, ktÛry reprezentuje edytowanπ bazodanowπ tabelÍ. W przypadku operowania na jednym rekordzie, przekszta≥cenie te naleøy dokonaÊ pos≥ugujπc siÍ metodπ \textsl{SingleOrDefault}, natomiast w przypadku wielu rekordÛw metodπ \textsl{ToList}, ktÛra dokona konwersji na listÍ obiektÛw poøπdanego typu. Do takiego utworzonego obiektu, programista ma moøliwoúÊ odwo≥ywania siÍ i dokonywania zmian w standardowy dla jÍzyka C\# sposÛb. Po operacji modyfikacji, wszystkie zmiany naleøy potwierdziÊ metodπ \textsl{SaveChanges} na obiekcie modelu Entity, ktÛra uaktualnia zmodyfikowane elementy na poziomie bazy danych.
+
+Dodanie rekordu do bazy danych jest operacjπ, ktÛre nie wymaga znajomoúci sk≥adni LINQ to Entities. Operacja ta polega na utworzeniu obiektu klasy wygenerowanej przez Entity Framework, ktÛra reprezentuje bazodanowπ tabelÍ, do ktÛrej nowy rekord ma byÊ dodany, a nastÍpnie uzupe≥nieniu jego elementÛw danymi. Tak zbudowany obiekt naleøy dodaÊ do obiektu kontekstu, odwo≥ujπc siÍ do jego w≥aúciwoúci o nazwie interesujπcej nas tabeli bazy danych, a nastÍpnie w parametrze metody \textsl{Add} umieúciÊ wczeúniej zbudowany obiekt. Dokonane zmiany, analogicznie jak w przypadku edycji danych naleøy potwierdziÊ na obiekcie kontekstu. Przedstawienie opisanej operacji z poziomu kodu, dostÍpne jest rÛwnieø do wglπdu w drugiej czÍúci kodu ürÛd≥owego \ref{listing:AdoEntityCompare}.
+
+\section{Implementacja aplikacji}
+Kaødy projekt programistyczny posiada elementy skomplikowane pod wzglÍdem algorytmicznym. Wymagajπ one duøych nak≥adÛw czasowych w procesie wytwarzania kodu ürÛd≥owego wybranego modu≥u. W prezentowanym rozdziale zosta≥y ujÍte istotne aspekty programistyczne ciekawe ze wzglÍdu na schemat ich dzia≥ania i sposÛb implementacji.     
+
+\subsection{Proces logowania i jego bezpieczeÒstwo}
+
+Modu≥ logowania jest czÍúciπ systemu, do ktÛrego dostÍp ma kaødy uøytkownik korzystajπcy z prezentowanej aplikacji. Implikuje to koniecznoúÊ jego zabezpieczenia przed niepowo≥anym uøyciem dotyczπcym dostÍpu do poufnych danych, takich jak dane osobiste oraz has≥a, dla ktÛrych dobrπ praktykπ odnoszπcπ siÍ do bezpieczeÒstwa jest ich nieprzechowywanie w øadnym miejscu w postaci jawnej.
+
+Pole wpisywania has≥a przez uøytkownika w oknie logowania stanowi dedykowana dla tego celu kontrolka PasswordBox, dostÍpna do wglπdu na rysunku \ref{rys:PasswordBox}. Jest to zmodyfikowana kontrolka TextBox dostÍpna w technologi WPF, ktÛra wyúwietla swojπ zawartoúÊ w postaci ukrytej, uniemoøliwiajπc jednoczeúnie wykonanie na jej zawartoúci operacji kopiowania oraz wycinania z poziomu klawiatury oraz myszy. Zabezpiecza to przed niechcianym podejrzeniem has≥a oraz jego odzyskaniem przez osobÍ trzeciπ.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.5\textwidth]{PasswordBox.jpg}
+    \caption{Kontrolka PasswordBox z przedstawieniem aspektÛw bezpieczeÒstwa, èrÛd≥o: Opracowanie w≥asne.}
+    \label{rys:PasswordBox}
+\end{figure}
+
+Sama operacja sprawdzania poprawnoúci wpisanego has≥a zosta≥a zaprojektowana w taki sposÛb, aby otrzymane z kontrolki has≥o nie by≥o nigdzie zapisywane i porÛwnywane w postaci jawnej. W chwili wpisania has≥a przez uøytkownika oraz klikniÍcia przycisku logowania, nastÍpuje sprawdzenie ustalonych zasad dotyczπcych z≥oøonoúci has≥a oraz w sytuacji ich pozytywnego rozpatrzenia, has≥o przekszta≥cane jest za pomocπ 256-bitowej odmiany algorytmu haszujπcego SHA-2 na skrÛt, ktÛry porÛwnywany jest ze skrÛtem has≥a dopasowanemu wpisanej nazwie uøytkownika w bazie danych. Na tej podstawie przyznawany lub odmawiany jest dostÍp do dalszej czÍúci programu. Pojedynczy rekord bazowanowy zawierajπcy has≥o uøytkownika widoczny jest na rysunku \ref{rys:UserBazaDanych}. 
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=1\textwidth]{UserBazaDanych.jpg}
+    \caption{Rekord bazodanowy zawierajπcy wszystkie dane uøytkownika, èrÛd≥o: Opracowanie w≥asne.}
+    \label{rys:UserBazaDanych}
+\end{figure}
+
+%TODO: hasze hasel screen z bazy jak wlaczy sie hashowanie
+
+Ustalenie has≥a przez uøytkownika programu implikuje obowiπzek walidacji wprowadzonego przez niego ciπgu znakÛw w celu sprawdzenia jego poziomu bezpieczeÒstwa. KrÛtkie has≥a sπ bardziej podatne prÛbÍ ich z≥amania, niø d≥uøsze ciπgi, sk≥adajπce siÍ zarÛwno z liter jak i cyfr. W tym celu, w czasie ustalania przez uøytkownika nowego has≥a, wprowadzona zosta≥a metoda widoczna przy kodzie ürÛd≥owym \ref{listing:ValidatePasswordMethod}, ktÛrej zadaniem jest weryfikacja za≥oøonych z gÛry aspektÛw, ktÛre musi has≥o spe≥niaÊ w celu jego akceptacji. Wymogami tymi jest d≥ugoúÊ has≥a, ktÛre sk≥adaÊ siÍ musi z przynajmniej oúmiu znakÛw, posiadanie minimum jednej duøej oraz ma≥ej litery, a takøe obecnoúÊ w jego sk≥adzie cyfry. W przypadku niespe≥nienia chociaø jednej z przedstawionych zasad, has≥o jest automatycznie odrzucane, a uøytkownik informowany jest o zaistnia≥ym problemie.
+
+\begin{lstlisting}[caption={Metoda weryfikujπca poprawnoúÊ wpisanego przez uøytkownika has≥a}, label={listing:ValidatePasswordMethod}]
+
+public static bool ValidatePassword(string pass)
+{
+    // minimalna wymagana d≥ugoúÊ has≥a
+    const int minLength = 8;
+    // sprawdzenie czy has≥o jest puste
+    if (pass == null) 
+        return false;
+    // sprawdzenie poprawnoúci d≥ugoúci has≥a
+    bool isPassLengthOk = pass.Length >= minLength;
+    bool hasUpperCaseChar = false;
+    bool hasLowerCaseChar = false;
+    bool hasDecimalDigit = false;
+    if (isPassLengthOk)
+    {
+        // sprawdzanie czy has≥o zawiera duøπ literÍ, ma≥π literÍ oraz cyfrÍ
+        foreach (char letter in pass)
+        {
+            if (char.IsUpper(letter)) 
+            	hasUpperCaseChar = true;
+            else if (char.IsLower(letter)) 
+            	hasLowerCaseChar = true;
+            else if (char.IsDigit(letter)) 
+            	hasDecimalDigit = true;
+        }
+    }
+    bool isValid = (isPassLengthOk && hasUpperCaseChar
+                    && hasLowerCaseChar && hasDecimalDigit);
+    // true == has≥o poprawne, false == has≥o niepoprawne
+    return isValid;
+}
+
+\end{lstlisting}
+
+\subsection{Konto administratora i uøytkownika ñ ListView}
+Uøytkownik moøe oglπdaÊ swoje propozycje ich iloúÊ jak i z jak firmami zwiπzana jest dana propozycja cenowa. Do tego celu nie moøna w bezpoúredni sposÛb wykorzystaÊ bazy danych lecz zosta≥a stworzona warstwa poúrednia w postaci klasy AdminProposition. Klasa ta zawiera pola wymagane do wyúwietlenia propozycji cenowej w postaci imiÍ nazwisko osoby odpowiedzialnej, status, jeúli dana propozycja cenowa jest dla firmy to firmÍ. Wykorzystujπc polecenia LINQ sπ pobierane dane z bazy danych i wykorzystujπc wbudowane mechanizmy, jest tworzona lista propozycji z wymaganymi polami nastÍpnie nastÍpuje zapisanie jej do w≥aúciwoúci PropositionsList. Przedstawia to kod ürÛd≥owy \ref{listing:propuser}.
+\begin{lstlisting}[caption= {Polecenie wyciπgajπce wszystkie propozycje uøytkownika}, label={listing:propuser}]
+ var myProposition = (from prop in _ctx.Proposition
+                      from user in _ctx.Users 
+                      where user.Id == _userId		
+                      where prop.Id_user == _userId 
+            // szuka propozycji uøytkownika zalogowanego
+            select new AdminProposition
+            {
+             PropositionId = prop.Id,
+             UserFirstName = user.Name,
+             UserSurname = user.Surname,
+             CustomerFullName = prop.PropClient
+             				.CustomerFullName,
+             CompanyName = prop.PropClient.CompanyName,
+             UpdateDate = prop.UpdateDate,
+             Status = prop.Status
+            }).ToList();
+            PropositionsList = myProposition; 
+//przypisanie do listy propozycji 
+//w prawid≥owej formie do wyúwietlenia
+\end{lstlisting}
+Administrator ma rÛwnieø dodatkowπ moøliwoúÊ wybierania propozycji danego uøytkownika. Wykorzystujπc moøliwoúci jÍzyka LINQ tworzona jest lista wszystkich uøytkownikÛw majπcych jakiekolwiek propozycje cenowe i przypisanie ich do ComboBox. Proces przypisywania prezentuje kod ürÛd≥owy \ref{listing:user}. Wraz z wyborem uøytkownika z tej listy nastÍpuje odúwieøenie ListView z propozycjami. 
+\begin{lstlisting}[caption= {Polecenie wyciπgajπce wszystkie uøytkownika posiadajπcych propozycjÍ}, label={listing:user}]
+ var userlist = (from s in _ctx.Users
+                     where s.Proposition.Any()
+                     select s).ToList();
+            userlist.Add(new Users()); 
+ //dodanie pustego uøytkownika by 
+ //mÛc wyúwietliÊ wszystkie propozycje
+            UsersList = userlist;
+
+\end{lstlisting}
+
+Edycja propozycji w obydwu przypadkach odbywa siÍ w ten sam sposÛb poprzez wybranie propozycji z ListView nastÍpuje przypisanie identyfikatora z bazy danych do zmiennej i wyszukanie wszystkich elementÛw danej propozycji. Z kolei wype≥niane sπ wszystkie pola, ktÛre zosta≥y zaznaczone w procesie tworzenia propozycji.
+
+\subsection{Tworzenie propozycji cenowej}
+
+Modu≥ tworzenia propozycji cenowej wraz z modu≥em jej edycji jest najwaøniejszym modu≥em prezentowanej aplikacji, ktÛry przez fakt aktywnej komunikacji z bazπ danych w celu pobrania potrzebnych s≥ownikowych oraz zapisu wybranych przez uøytkownika elementÛw posiada skomplikowanπ logikÍ dzia≥ania. 
+Najwaøniejszym elementem koniecznym do prawid≥owej pracy prezentowanego modu≥u by≥a kontrola przesy≥anych pomiÍdzy bazπ a aplikacjπ danych. Pola obiektÛw, ktÛre zawiera≥y puste wartoúci wymaga≥y szczegÛ≥owej kontroli i konwersji typu NULL na typ obs≥ugiwany przez odbiorcÍ. WymÛg ten by≥ konieczny przez wzglπd na moøliwoúÊ wystπpienia wyjπtku, ktÛry przerywa≥ pracÍ ca≥ej aplikacji. Zgodnie z za≥oøeniami projektowymi, uøytkownik w czasie tworzenia propozycji cenowej ma moøliwoúÊ wype≥niania tylko jej czÍúci. Dodajπc do tego fakt, iø uøytkownik przypadkowo moøe wype≥niÊ dla przyk≥adu rekord zawierajπcy element gastronomiczny bez wpisania jego dni lub iloúci, szczegÛ≥owa kontrola zawartoúci obiektÛw by≥a priorytetowa. W sytuacji nie wpisania wszystkich kolumn rekordu odnoszπcego siÍ do elementu zak≥adki opisywanej w punktach \ref{dzial:SalaIWyposazenieUzytkownik}, \ref{dzial:UslugiGastronomiczneUzytkownik}, \ref{dzial:UslugiNoclegoweUzytkownik} oraz \ref{dzial:UslugiDodatkoweIPlatnoscUzytkownik}, przy zapisie propozycji do bazy danych, rekord ten jest wychwytywany przez mechanizmy walidujπce i usuwany.
+
+\subsection{Edycja s≥ownikÛw oraz kont uøytkownikÛw}
+
+Aby umoøliwiÊ edycjÍ danych z poziomu DataGridView ktÛry jest arkuszem podzielonym na wiersze i komÛrki, zaprezentowanym na rysunku \ref{rys:EdytujUzytkownika} zaimplementowano metody obs≥ugujπce zdarzenie \textit{DataGridRowEditEndingEventArgs}. W sytuacji w ktÛrej edycja danej komÛrki zostaje ukoÒczona owe zdarzenie jest przechwytywane. W tym celu wymagane jest uøycie zmiennej dynamic ktÛrej wartoúÊ sprawdzana jest podczas wywo≥ania, a nie kompilacji \cite{dynamic}. Umoøliwia to odwo≥anie do nowych wartoúci zapisanych w komÛrkach i przekazanie ich jako argumentÛw do fragmentÛw kodu odpowiedzialnych za aktualizacjÍ bazy danych. Fragment kodu zawarty w programie \ref{listing:DynamicGridView} realizuje powyøsze operacje, wykorzystywany jest w module s≥uøπcym do edycji danych pracownikÛw i s≥ownikÛw cenowych. 
+
+\begin{lstlisting}[caption= {Implementacja i opis fragmentu kodu aktualizujπcego bazÍ danych z poziomu DataGridView}, label={listing:DynamicGridView}]
+//pobranie identyfikatora uøytkownika ktÛrego wiersz 
+//jest zaznaczony w DataGridView oraz zapis do zmiennej typu int
+object item = UserList.SelectedItem;
+string ID = 
+    (UserList.SelectedCells[0]
+             .Column
+             .GetCellContent(item) as TextBlock).Text;
+
+int selected = Int32.Parse(ID);
+
+//zapis danych z poszczegÛlnych kolumn do zmiennej dynamicznej
+dynamic userRow = UserList.SelectedItem;
+
+//konwersja rodzaju konta z liczby na tekst
+int tmp = 0;
+if (userRow.UserAccountType == "Administrator")
+	tmp = 1;
+else
+    tmp = 2;
+
+//deklaracja obiektu bazy danych
+DiamondDBEntities _ctx = new DiamondDBEntities();
+Users userUpdate = (from user in _ctx.Users
+                    where user.Id == selected
+                    select user).First();
+	
+	//przypisanie nowych wartoúci z komÛrek do poszczegÛlnych 
+	//kolumn tabeli Users
+	userUpdate.Name = userRow.UserName;
+	userUpdate.Surname = userRow.UserSurname;
+	userUpdate.PhoneNum = userRow.UserPhoneNumber;
+	userUpdate.Email = userRow.UserEmail;
+	userUpdate.Position = userRow.UserPosition;
+	userUpdate.AccountType = tmp;
+	userUpdate.Login = userRow.UserLogin;
+	
+	//zapis danych do bazy
+	_ctx.SaveChanges();
+\end{lstlisting}
+
+\subsection{Tworzenie szablonu PDF propozycji cenowej}
+
+Za pomocπ mechanizmÛw biblioteki MigraDoc, zaimplementowano funckje tworzπce tabele propozycji cenowej. Kod ürÛd≥owy \ref{listing:PdfSharpTable} przedstawia implementacje mechanizmu tworzπcego tabelÍ z jednπ kolumnπ i wierszem. 
+
+\begin{lstlisting}[caption= {Fragment kodu tworzπcego prostπ tabelÍ przy uøyciu biblioteki PDFSharp \& MigraDoc}, label={listing:PdfSharpTable}]
+//inicjalizacja nowej tabeli, ustawienie czcionki i jej rozmiaru
+Table table = document.LastSection.AddTable();
+table.Borders.Visible = true;
+table.Format.Font.Size = 10;
+table.Format.Font.Name = "Calibri";
+
+//dodawanie nowej kolumny
+Column column = table.AddColumn("3.750cm");
+column.Format.Alignment = ParagraphAlignment.Left;
+
+//dodawanie nowego wiersza, z przyk≥adowymi atrybutami 
+Row row = table.AddRow();
+row.Cells[0].Shading.Color = Colors.LightGray;
+row.Cells[0].AddParagraph("WYNAJEM");
+\end{lstlisting}
+
+Kod ürÛd≥owy \ref{listing:SavePdf} przedstawia implementacjÍ funkcji zapisujπcej wygenerowane przez program tabele propozycji cenowej do pliku PDF.
+
+\begin{lstlisting}[caption= {Implementacja i opis funkcji zapisujπcej propozycjÍ cenowπ do pliku PDF}, label={listing:SavePdf}]
+// deklaracja obiektu klasy PdfDocumentRenderer
+PdfDocumentRenderer renderDocument = new PdfDocumentRenderer(
+   true,PdfSharp.Pdf.PdfFontEmbedding.Always
+);
+//renderowanie dokumentu
+renderDocument.Document = document;
+renderDocument.RenderDocument();
+//zapis do pliku
+renderDocument.Save(path);
+\end{lstlisting}
+
+\section{Automatyzacja wydawania kolejnych wersji aplikacji}
+
+Niniejszy dzia≥ opisuje praktyki stosowane w celu integracji zmian w kodzie ürÛd≥owym zachodzπcych podczas procesu wytwarzania oprogramowania. Przedstawiono rÛwnieø schemat koncepcji wydawania kolejnych wersji niniejszego projektu w oparciu o narzÍdzie Jenkins oraz metodologiÍ Continuous Deployment. OprÛcz podstawowego za≥oøenia ktÛrym jest wytworzenie paczki zawierajπcej pliki wykonywalne oraz niezbÍdne do poprawnego dzia≥ania aplikacji bibliotek w formie archiwum zip jest przeprowadzenie statycznej analizy kodu ürÛd≥owego przy uøyciu SonarQube. Wygenerowany w ten sposÛb raport analizy jest przydatny podczas procesu refaktoryzacji kodu.
+
+\subsection{Continuous Integration/Continuous Delivery/Continuous Deployment}
+
+Ciπg≥a integracja (ang. Continuous Integration, CI) jest praktykπ stosowanπ podczas procesu wytwarzania oprogramowania. Cz≥onkowie zespo≥Ûw programistycznych synchronizujπ zmiany w kodzie ürÛd≥owym przynajmniej raz dziennie, dπøπc do wielokrotnej intagracji jednego dnia. Kaøda integracja weryfikowana jest przez narzÍdzia do automatyzacji (ang. build automation), takie jak Jenkins. Dla kaødej zmiany kodu ürÛd≥owego w repozytorium kompilacja, czy testy jednostkowe mogπ zostaÊ wykonane automatycznie, co prowadzi do wczeúniejszego wykrywania b≥ÍdÛw. Stosowanie tej praktyki umoøliwia zmniejszenie iloúci pracy podczas ≥πczenia zmian  w projektach programistycznych \cite{ci}.
+
+Ciπg≥a dostawa (ang. Continuous Delivery) jest podejúciem w inøynierii oprogramowania ktÛrego podstawowym za≥oøeniem jest zapewnienie wysokiej jakoúci oraz poprawnoúci dzia≥ania cyklicznie wytwarzanego oprogramowania. Wynikiem procesu jest stabilna wersja oprogramowania, ktÛra moøe zostaÊ dostarczona do klienta w dowolnym czasie \cite{cdel}. RozwiniÍciem praktyki jest ciπg≥e wdraøanie (ang. Continuous Deployment), ktÛre umoøliwia automatyczne wydawanie aplikacji do lini produkcyjnej \cite{cdr}.
+
+\subsection{Wtyczka uøyta w Jenkins - SonarQube}
+
+SonarQube jest darmowπ, wieloplatformowπ aplikacjπ s≥uøπcπ do zarzπdzania jakoúciπ kodu ürÛd≥owego. Zosta≥a napisanπ w jÍzykach Java i Ruby. Domyúlnie dzia≥a na porcie 9000. Posiada szereg wtyczek zapewniajπcych wsparcie dla popularnych jÍzykÛw programowania takich jak Java, C++, Objective-C, C\# czy PHP \cite{SonarLang}, ktÛre umoøliwiajπ statycznπ analizÍ kodu. W przypadku niniejszego projektu uøyto wtyczkÍ SonarQube Scanner for MSBuild, ktÛra zawiera zbiÛr zasad okreúlajπcych poprawnoúÊ kodu w jÍzyku C\#. Wsparcie SonarQube w Jenkins'ie, umoøliwia wykorzystywanie narzÍdzia w planach ciπg≥ej integracji \cite{MsScaner}. Podstawowe parametry wyliczane w analizie sπ nastÍpujπce:
+
+\begin{itemize}
+\item \textsl{Liczba linii kodu ürÛd≥owego}
+\item \textsl{Liczba plikÛw i katalogÛw}
+\item \textsl{Liczba funkcji, klas}
+\item \textsl{Liczba powtÛrzeÒ blokÛw kodu}
+\item \textsl{Liczba potencjalnych b≥ÍdÛw i przybliøony czas potrzebny do ich rozwiπzania}
+\item \textsl{Ocena jakoúci w skali SQALE}
+\end{itemize}
+
+SonarQube na podstawie raportu analizy dokonuje oceny jakoúci kodu w skali SQALE (ang. Software Quality Assessment based on Lifecycle Expectations). Ocena jest wyliczana ze wzoru \cite{SQALE}:
+
+\begin{center}
+$\displaystyle\frac{\mbox{Liczba dni potrzebnych do naprawienia b≥ÍdÛw}}{\mbox{Liczba dni potrzebnych do naprawy b≥Ídu z jednej linii kodu * Liczba linii kodu}}$
+\end{center}
+
+Wynik dzia≥ania jest przedstawiany w procentach. Im mniejsza wartoúÊ, tym jakoúÊ kodu jest wyøsza. Oceny odpowiadajπce wartoúciom wyliczonym ze wzoru sπ nastÍpujπce:
+
+\begin{itemize}
+\item \textsl{A - mniej niø 10\% }
+\item \textsl{B - od 11\% do 20\%}
+\item \textsl{C - od 21\% do 50\%}
+\item \textsl{D - od 51\% do 100\%}
+\item \textsl{E - powyøej 100\%}
+\end{itemize}
+
+Przyk≥adowy raport analizy kodu niniejszego projektu zosta≥ przedstawiony na rysunku \ref{rys:RaportAnalizy}. Kod ürÛd≥owy projektu uzyska≥ ocenÍ A w skali SQALE.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=1\textwidth]{sonarraport.jpg}
+    \caption{Raport statycznej analizy kodu ürÛd≥owego, èrÛd≥o: Opracowanie w≥asne.}
+    \label{rys:RaportAnalizy}
+\end{figure}
+
+Potencjalne b≥Ídy znalezione podczas przeprowadzania analizy, zapisywane sπ na liúcie zadaÒ pokazanej na rysunku \ref{rys:SonarIssues}. 
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=1\textwidth]{SonarIssues.jpg}
+    \caption{Lista b≥ÍdÛw w kodzie ürÛd≥owym w SonarQube, èrÛd≥o: Opracowanie w≥asne.}
+    \label{rys:SonarIssues}
+\end{figure} 
+
+\newpage
+\subsection{Schemat budowania projektu}
+
+Kolejne wersje niniejszego projektu sπ wydawane zgodnie z zasadami Continuous Delivery. Utworzono plan w Jenkins'ie ktÛry wykonuje nastÍpujπce zadania:
+
+\begin{itemize}
+\item \textsl{Pobranie kodu ürÛd≥owego} 
+
+\tab Pliki zawierajπce kod ürÛd≥owy sπ pobierane z repozytorium do obszaru roboczego.
+
+\item \textsl{RozpoczÍcie statycznej analizy kodu} 
+
+\tab Za pomocπ wtyczki SonarQube Scanner for MSBuild, SonarQube Scanner rozpoczyna statycznπ analizÍ kodu ürÛd≥owego.
+
+\item \textsl{Aktualizacja bibliotek} 
+
+\tab W projekcie zosta≥y uøyte zewnÍtrzne biblioteki takie jak PDFSharp \& Migradoc Foundation. Kod zostanie skompilowany poprawnie po przywrÛceniu (ang. restore) bibliotek przy uøyciu NuGet Package Manager.
+
+\item \textsl{Kompilacja kodu ürÛd≥owego} 
+
+\tab Kod ürÛd≥owy zostaje skompilowany przy uøyciu MSBuild, ktÛry jest kompilatorem zintegrowanego úrodowiska programistycznego Visual Studio. 
+
+\item \textsl{Raport analizy} 
+
+\tab Raport statycznej analizy kodu zostaje opublikowany w SonarQube. 
+
+\item \textsl{Utworzenie paczki zip} 
+
+\tab Jeøeli kompilacja kodu siÍ powiod≥a, zostaje utworzone archiwum w formacie zip. Zawiera plik wykonywalny, w formacie exe oraz niezbÍdne do poprawnego dzia≥ania aplikacji pliki. Paczka zawierajπca kolejnπ wersjÍ aplikacji, moøe zostaÊ dostarczona do potencjalnego klienta w dowolnym czasie.
+
+\end{itemize}
+
+Rysunek \ref{rys:JenkinsSek} przedstawia stronÍ wygenerowanπ dla planu.
+
+\newpage
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=1\textwidth]{jenkinsek.jpg}
+    \caption{Plan ciπg≥ej integracji w Jenkins'ie, èrÛd≥o: Opracowanie w≥asne.}
+    \label{rys:JenkinsSek}
+\end{figure}
+
+\section{Testowanie aplikacji}
+Rezultatem prezentowanego projektu inøynierskiego jest desktopowa aplikacja bazodanowa wspomagajπcπ pracÍ wybranej sieci hotelowej. W celu pokazania dzia≥ania oprogramowania, w niniejszym rozdziale zawarta zosta≥a prezentacja funkcjonalnoúci zaimplementowanych w programie. Demonstracja zosta≥a przedstawiona w formie instrukcji obs≥ugi poszczegÛlnych modu≥Ûw, obejmujπc ich opis teoretyczny wraz z do≥πczonymi do nich obrazkami.
+
+\subsection{Przeprowadzenie operacji logowania uøytkownika}
+
+Podstawowym modu≥em kaødej aplikacji wspierajπcej pracÍ wielu uøytkownikÛw na ich dedykowanych kontach jest modu≥ logowania. Po uruchomieniu aplikacji, ktÛra jest przedmiotem projektu, oczom uøytkownika ukazuje siÍ widocznie na rysunku \ref{rys:UzytkownikLogowanie} okno, ktÛrego zadaniem jest sprawdzenie jego toøsamoúci oraz w sytuacji jej potwierdzenia, prze≥πczenie do odpowiedniego okna g≥Ûwnego aplikacji, w zaleønoúci od posiadanych uprawnieÒ. 
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.85\textwidth]{UzytkownikLogowanie.jpg}
+    \caption{Okno procesu logowania, èrÛd≥o: Opracowanie w≥asne.}
+    \label{rys:UzytkownikLogowanie}
+\end{figure}
+
+Proces logowania od strony uøytkownika polega na wprowadzeniu z poziomu klawiatury swojej nazwy konta sk≥adajπcej siÍ z imienia oraz nazwiska oddzielonych kropkπ oraz has≥a, ktÛre wybrano do zabezpieczenia swojego konta. Aplikacja na podstawie tych informacji przeprowadza operacjÍ ich weryfikacji, komunikujπc siÍ z bazπ danych i wyszukujπc w odpowiednich tabelach rekordy, ktÛre pasujπ do otrzymanego schematu. W zaleønoúci od rezultatu tej akcji, uøytkownikowi zwracana jest odpowiednia odpowiedü. 
+
+W sytuacji podania poprawnego loginu oraz has≥a, aplikacja ukrywa okno logowania oraz uruchamia odpowiednie dla posiadanych uprawnieÒ okno g≥Ûwne. Istniejπ jednak inne schematy przeprowadzenia operacji logowania, takie jak wpisanie b≥Ídnego  has≥a lub loginu, nie uzupe≥nienie nazwy uøytkownika lub pierwsze logowanie na konto, ktÛre zgodnie z ustalonymi przez zespÛ≥ za≥oøeniami projektowymi ma umoøliwiaÊ ustalenie has≥a przez logujπcego siÍ uøytkownika.
+
+Wpisanie b≥Ídnego has≥a lub nazwy konta wychwytywane jest przez mechanizm modu≥u logowania, ktÛry zwraca informacjÍ ukazanπ na rysunku \ref{rys:UzytkownikLogowanieZleDane} o problemie wraz z jego opisem. W celu zwiÍkszenia bezpieczeÒstwa wypisywana jest ogÛlna informacja o otrzymaniu b≥Ídnych danych, a nie wyszczegÛlniona, ktÛra informacja zosta≥a podana b≥Ídnie.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=1\textwidth]{UzytkownikLogowanieZleDane.jpg}
+    \caption{Informacja otrzymania b≥Ídnych danych podczas operacji logowania, èrÛd≥o: Opracowanie w≥asne.}
+    \label{rys:UzytkownikLogowanieZleDane}
+\end{figure}
+
+Pierwsze logowanie jest specyficznπ formπ logowania, w ktÛrym uøytkownik posiada obowiπzek wpisania has≥a, z ktÛrego bÍdzie korzysta≥ w pracy z aplikacjπ. W chwili wpisania nazwy uøytkownika, program w tle przeprowadza operacjÍ walidacji statusu konta i w sytuacji wykrycia, iø uøytkownik loguje siÍ pierwszy raz, wyúwietla stosownπ informacjÍ przedstawionπ na rysunku \ref{rys:UzytkownikLogowaniePierwsze}, ktÛra instruuje go o dalszych krokach. Ustalone przez uøytkownika has≥o ma obowiπzek spe≥niaÊ okreúlone jego zasady bezpieczeÒstwa dotyczπce posiadania przynajmniej oúmiu znakÛw, co najmniej jednej duøej oraz ma≥ej litery, a takøe cyfry. Uøytkownik w sytuacji wpisania has≥a, nie spe≥niajπcej powyøszej polityki bezpieczeÒstwa poinformowany zostanie stosownπ informacjπ, ktÛra przedstawiona zosta≥a na rysunku \ref{rys:UzytkownikLogowanieSilaHasla}.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=1\textwidth]{UzytkownikLogowaniePierwsze.jpg}
+    \caption{Okno informacji podczas pierwszego logowania, èrÛd≥o: Opracowanie w≥asne.}
+    \label{rys:UzytkownikLogowaniePierwsze}
+\end{figure}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=1\textwidth]{UzytkownikLogowanieSilaHasla.jpg}
+    \caption{Okno informujπce o polityce bezpieczeÒstwa hase≥, èrÛd≥o: Opracowanie w≥asne.}
+    \label{rys:UzytkownikLogowanieSilaHasla}
+\end{figure}
+
+\subsection{Tworzenie nowej propozycji cenowej}
+
+Modu≥ tworzenia nowej propozycji cenowej umoøliwia uøytkownikowi aplikacji przeprowadzenie procesu utworzenia schematu wymaganych przez klienta us≥ug wraz z ich zapisem do bazy danych. Tym sposobem wszelkie ustalenia dokonane z potencjalnym klientem zapisywane sπ na centralnym serwerze, z ktÛrego w razie potrzeby moøna wybranπ propozycjÍ pobraÊ i wygenerowaÊ jej plik w formacie PDF lub dokonaÊ jej edycji.
+
+W czasie kontaktu sprzedawcy z klientem, chcπc przedstawiÊ ofertÍ cenowπ dotyczπcπ organizowanego przez klienta wydarzenia, sprzedawca posiada w menu g≥Ûwnym aplikacji opcjÍ stworzenia nowej propozycji cenowej. W sytuacji wybrania przedstawionej opcji, oczom sprzedawcy ukazuje siÍ forma przeznaczona do wpisania wymaganych danych. Forma ta przez wzglπd na kilka typÛw us≥ug podzielona zosta≥a na piÍÊ zak≥adek, z ktÛrych kaøda zawiera odpowiednia pola, umoøliwiajπce ustalenie wszelkich elementÛw konkretnej us≥ugi.
+
+\subsubsection{Opis klienta}
+\label{dzial:OpisKlientaUzytkownik}
+
+Pierwsza zak≥adka, ktÛrej okno graficzne dostÍpnej jest do wglπdu przy rysunku \ref{rys:UzytkownikNowaPropozycjaTab1} zawiera wszelkie informacje dotyczπce danych osobowych sprzedawcy, klienta oraz ogÛlnych danych o organizowanym wydarzeniu. Dane osobowe sprzedawcy oraz informacje o firmie, ktÛrπ reprezentuje, pobierane sπ automatycznie z bazy danych. Operacja ta jest moøliwa do wykonania dziÍki przechowywaniu w programie informacji o tym, na jakie konto uøytkownik zosta≥ zalogowany. Wszelkie pozosta≥e dane sprzedawca ma obowiπzek uzupe≥niÊ samodzielnie bazujπc na potrzebach klienta.
+
+\begin{itemize}
+\item \textsl{NAZWA FIRMY} 
+
+\tab Przez wzglπd na moøliwoúÊ obs≥ugi klientÛw biznesowych wprowadzone zosta≥o pole umoøliwiajπce wpisanie nazwy firmy, ktÛrπ klient reprezentuje. W celu jednoznacznej identyfikacji kaødej propozycji cenowej, uznano iø pole to bÍdzie jednπ z kolumn listy propozycji okna g≥Ûwnego.
+
+\item \textsl{ADRES KLIENTA} 
+
+\tab Pole to przeznaczone jest do wpisania adresu klienta zarÛwno w przypadku osoby indywidualnej jak i firmy. Po analizie wszelkich za≥oøeÒ projektowych nie dostrzeøono koniecznoúci rozdzielenia danych adresowych - potrzebne sπ one tylko i wy≥πcznie do opisu klienta na wygenerowanym dokumencie PDF.
+
+\item \textsl{NIP} 
+
+\tab NIP jest kolejnym polem opcjonalnym, ktÛre przeznaczone jest do wpisania numeru identyfikacji podatkowej. Jego wype≥nienie konieczne jest wy≥πcznie w sytuacji obs≥ugi klienta reprezentujπcego firmÍ. W przypadku klienta prywatnego pole te naleøy pozostawiÊ puste.
+
+\item \textsl{TERMIN WAØNOåCI PROPOZYCJI}
+
+\tab Utworzona dla klienta propozycja cenowa posiada ustalony okres waønoúci, ktÛry domyúlnie wykosi cztery dni od sporzπdzenia i zapisania propozycji cenowej przez sprzedawcÍ. Spowodowane jest to czÍstymi zmianami cennikÛw i chÍciπ unikniÍcia sytuacji, w ktÛrej klient po d≥ugim okresie czasu bÍdzie chcia≥ z posiadanej propozycji cenowej skorzystaÊ. Sprzedawca dziÍki modu≥owi edycji propozycji posiada moøliwoúÊ aktualizacji terminu waønoúci propozycji, dziÍki czemu utworzona propozycja cenowa nie musi byÊ tworzona ponownie od podstaw. 
+
+\item \textsl{KONTAKT ZE STRONY ZAMAWIAJ•CEGO}
+
+\tab Jest to podkategoria zawierajπca cztery pola tekstowe, ktÛre przeznaczone sπ do wpisania imienia i nazwiska klienta, jego numeru telefonu oraz adresu e-mail. Ostatnie pole tekstowe (\textsl{Osoba decyzyjna}) umoøliwia wpisanie osoby, ktÛra posiadaÊ bÍdzie uprawnienie do dokupywania us≥ug nieuwzglÍdnionych w propozycji cenowej w czasie trwania wydarzenia. Zdarza siÍ, iø podczas jego trwania, organizator chce dobraÊ dla goúci dodatkowe us≥ugi, ktÛre nie sπ uwzglÍdnione w ofercie, na bazie ktÛrej wydarzenie jest przeprowadzane. W tej sytuacji w celu unikniÍcia pÛüniejszych problemÛw dotyczπcych zwiÍkszenia kwoty koÒcowej wydarzenia, wybierana jest osoba, ktÛra decyduje jakie elementy mogπ byÊ dokupione. Ilustrujπc tÍ sytuacjÍ moøna pos≥uøyÊ siÍ przyk≥adem imprezy weselnej do ktÛrej b≥Ídnie przewidziano liczbÍ dostÍpnych napoi. Osoba decyzyjna moøe tÍ wartoúÊ zwiÍkszyÊ z pe≥nπ odpowiedzialnoúciπ zwiÍkszenia kosztÛw. ZawartoúÊ pola tekstowego osoby decyzyjnej automatycznie wype≥niana jest zawartoúciπ pola tekstowego \textsl{ImiÍ i nazwisko}. Istnieje jednak moøliwoúÊ, aby sprzedawca zmieni≥ tπ wartoúÊ na innπ poniewaø nie zawsze osoba klienta jest osobπ decyzyjnπ w czasie trwania wydarzenia.
+
+\item \textsl{TERMIN (od - do)}
+
+\tab Pola te okreúlajπ datÍ rozpoczÍcia oraz datÍ zakoÒczenia organizowanego wydarzenia. Data rozpoczÍcia odgrywa istotnπ rolÍ w tworzonej propozycji przez fakt, iø ceny sal uzaleønione sπ w≥aúnie od miesiπca, w ktÛrym dane wydarzenie bÍdzie organizowane. Po wyborze daty, w polu \textsl{Miesiπc} ukazuje siÍ nazwa miesiπca na podstawie ktÛrego dobierana bÍdzie cena wybranej w pÛüniejszym etapie tworzenia propozycji cenowej sali.
+
+\item \textsl{CZAS TRWANIA (od - do)}
+
+\tab Czas trwania definiuje planowane godziny, w czasie ktÛrych przeprowadzone ma byÊ wydarzenie. Bezpoúrednio odwo≥ujπ siÍ one do wpisanej uprzednio daty rozpoczÍcia oraz zakoÒczenia. Na tej podstawie moøliwe jest dok≥adne okreúlenie okresu trwania wydarzenia.
+
+\item \textsl{ILOå∆ OS”B}
+
+\tab Pole to okreúla planowanπ liczbÍ osÛb, ktÛre majπ w danym wydarzeniu uczestniczyÊ. W celu weryfikacji, czy dana liczba osÛb fizycznie zmieúci siÍ na wybranej sali, sprzedawca ma moøliwoúÊ pos≥uøyÊ siÍ dostÍpnπ poniøej prezentowanych pÛl tabelπ pomocniczπ.
+
+\item \textsl{STATUS PROPOZYCJI}
+
+\tab Pole to jest polem informacyjnym, ktÛry opisuje status tworzonej propozycji. Domyúlnym statusem podczas stworzenia nowej propozycji jest \textsl{"Nowa"}, ktÛrπ sprzedawca w sytuacji oczekiwania na decyzjÍ klienta ma obowiπzek zmieniÊ na \textsl{"W trakcie realizacji"}, natomiast po sfinalizowaniu transakcji oznaczyÊ jako \textsl{"Zrealizowana"}. Status propozycji cenowej wyúwietlany jest na liúcie wszystkich propozycji w oknie g≥Ûwnym.
+
+\item \textsl{TABELA SAL}
+
+\tab W zaleønoúci od wybranej z listy rozwijanej sali oraz uprzednio wybranej dacie rozpoczÍcia wydarzenia, sprzedawca ma moøliwoúÊ otrzymania informacji o cenie sali, jej powierzchni oraz liczbie dostÍpnych miejsc. Informacje te w czasie ustalania szczegÛ≥Ûw transakcji umoøliwiajπ wybÛr optymalnego dla potrzeb klienta pomieszczenia, w ktÛrym przez wzglπd na liczbÍ dostÍpnych miejsc bÍdzie moøna rozlokowaÊ wszystkich uczestnikÛw. Wybrana z listy rozwijanej sala wraz z datπ rozpoczÍcia jednoznacznie identyfikuje cenÍ oraz nazwÍ pomieszczenia, ktÛrej rekord w sposÛb automatyczny dodawany jest jako pierwszy w kolejnej zak≥adce opisujπcej szczegÛ≥y rezerwacji.
+
+\end{itemize}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=1\textwidth]{UzytkownikNowaPropozycjaTab1.jpg}
+    \caption{Okno tworzenia propozycji cenowej. Zak≥adka opisu klienta, èrÛd≥o: Opracowanie w≥asne.}
+    \label{rys:UzytkownikNowaPropozycjaTab1}
+\end{figure}
+
+\subsubsection{Sala i jej wyposaøenie}
+\label{dzial:SalaIWyposazenieUzytkownik}
+
+Druga zak≥adka modu≥u tworzenia nowej propozycji cenowej widoczna pod rysunkiem \ref{rys:UzytkownikNowaPropozycjaTab2}, dotyczy szczegÛ≥Ûw rezerwacji dotyczπcych sali, jej dodatkowego wyposaøenia oraz cen poszczegÛlnych elementÛw. Na tym etapie negocjowany jest rÛwnieø rabat dotyczπcy finalnej ceny wybranej przez klienta sali.
+
+\begin{itemize}
+\item \textsl{WYB”R WYPOSAØENIA}
+
+\tab Dodanie elementÛw wyposaøenia dodatkowego sali umoøliwiajπ rozwijane listy, ktÛre zawierajπ dostÍpne dla hotelu elementy, z ktÛrych klient moøe skorzystaÊ. Po jego wybraniu, sprzedawca zobowiπzany jest na drodze negocjacji ustaliÊ z klientem \textsl{cenÍ jednostkowπ brutto}, podaÊ jego \textsl{iloúÊ} oraz \textsl{liczbÍ dni}, przez ktÛre bÍdzie uøywane. Tak wpisane informacje zostajπ przeliczane, a ich wynik wyúwietlany zostaje w polu \textsl{wartoúÊ brutto}. \textsl{Ceny jednostkowe netto} oraz ca≥kowite \textsl{wartoúci netto} sπ rÛwnieø obliczane automatycznie na podstawie podanych cen brutto oraz ustalonej rÛwnieø z poziomu rozwijanej listy stawki VAT.
+
+\item \textsl{RABATY}
+
+\tab Ceny tabelaryczne wynajmowanych sal sπ cenami umownymi, narzuconymi przez menadøera odgÛrnie. Sprzedawca ma jednak prawo ich obniøania na drodze negocjacji w celu przedstawienia klientowi korzystnej oferty na tle konkurencji. Po operacji wyboru sali, w polu \textsl{"Standardowa cena sali"} widoczna jest jej cena, ktÛrπ za pomocπ znajdujπcego siÍ poniøej pola moøna redukowaÊ. W chwili zmiany wartoúci rabatu, wszelkie wartoúci cenowe jego dotyczπce sπ w czasie rzeczywistym  odúwieøane, co u≥atwia ich kontrolÍ przez sprzedawcÍ.
+\end{itemize}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=1\textwidth]{UzytkownikNowaPropozycjaTab2.jpg}
+    \caption{Okno tworzenia propozycji cenowej. Zak≥adka sali i jej wyposaøenia, èrÛd≥o: Opracowanie w≥asne.}
+    \label{rys:UzytkownikNowaPropozycjaTab2}
+\end{figure}
+
+\subsubsection{Us≥ugi gastronomiczne}
+\label{dzial:UslugiGastronomiczneUzytkownik}
+
+\tab Kolejnym krokiem w czasie procesu tworzenia propozycji cenowej jest wybÛr us≥ug zwiπzanych z gastronomiπ. Zasada dzia≥ania us≥ug gastronomicznych, ktÛrych okno widoczne jest pod rysunkiem \ref{rys:UzytkownikNowaPropozycjaTab3}, podobna jest do poprzedniej zak≥adki, z tπ rÛønicπ iø wewnÍtrzne mechanizmy sprawdzajπce powiπzania sπ znacznie bardziej skomplikowane.
+
+\begin{itemize}
+\item \textsl{WYB”R ELEMENT”W GASTRONOMICZNYCH}
+
+\tab Wszelkie elementy gastronomiczne przez wzglπd na ich iloúÊ podzielone zosta≥y na kategorie, ktÛre umoøliwiajπ proste wyszukanie interesujπcego elementu. W celu dodania elementu gastronomicznego naleøy z pierwszej rozwijanej listy wybraÊ interesujπcπ kategoriÍ oraz z drugiej listy wybraÊ konkretny dla tej kategorii element. Po wykonaniu przedstawionych operacji, aktualne ceny jednostkowe wraz z podatkiem VAT zostajπ automatycznie uzupe≥niane, co usuwa ze sprzedawcy koniecznoúÊ ich manualnego sprawdzania. Po wyborze iloúci oraz liczby dni przez ktÛre produkt ma byÊ dostÍpny, z poziomu tabeli wyúwietlana zostaje jego zsumowana wartoúÊ.
+
+\item \textsl{MARØE}
+
+Pobierane z bazy danych ceny produktÛw sπ cenami przyjÍtymi jako minimalne ceny po ktÛrych produkt moøe zostaÊ sprzedany. W celu wygenerowania wiÍkszego przychodu sprzedawca ma moøliwoúÊ podwyøszenia ceny produktu poprzez ustalenie wielkoúci jego marøy, ktÛrych domyúlne wartoúci ustalone zosta≥y przez menadøera sprzedaøy. Przedstawiane marøe podzielone zosta≥y na piÍÊ kategorii przez wzglπd na ich specyfikÍ - dla przyk≥adu marøa na napoje alkoholowe jest z definicji znacznie wiÍksza niø na potrawy bufetowe lub produkty niskobudøetowe.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=1\textwidth]{UzytkownikNowaPropozycjaTab3.jpg}
+    \caption{Okno tworzenia propozycji cenowej. Zak≥adka elementÛw gastronomicznych, èrÛd≥o: Opracowanie w≥asne.}
+    \label{rys:UzytkownikNowaPropozycjaTab3}
+\end{figure}
+
+\end{itemize}
+
+\subsubsection{Us≥ugi noclegowe}
+\label{dzial:UslugiNoclegoweUzytkownik}
+
+Zak≥adka us≥ug noclegowych widoczna pod rysunkiem \ref{rys:UzytkownikNowaPropozycjaTab4} opisuje liczbÍ oraz rodzaj wybranych pokoi hotelowych. Lista dostÍpnych pokoi wraz z wyszczegÛlnionymi cenami automatycznie dostarczana jest do okna z bazy danych. Rolπ sprzedawcy jest wybÛr odpowiedniej ich iloúci oraz liczby dni. Jedynπ moøliwoúciπ obniøenia ustalonych przez menadøera cen jest ustalenie rabatu, ktÛry jednakowo obowiπzuje wszystkie rodzaje pokoi. Po wpisaniu odpowiednich wartoúci, wewnÍtrzne mechanizmy programu przeliczajπ wszystkie wartoúci umoøliwiajπc podglπd ich zsumowanych wartoúci netto i brutto.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=1\textwidth]{UzytkownikNowaPropozycjaTab4.jpg}
+    \caption{Okno tworzenia propozycji cenowej. Zak≥adka dotyczπca us≥ug noclegowych, èrÛd≥o: Opracowanie w≥asne.}
+    \label{rys:UzytkownikNowaPropozycjaTab4}
+\end{figure}
+
+\subsubsection{Us≥ugi dodatkowe i forma p≥atnoúci}
+\label{dzial:UslugiDodatkoweIPlatnoscUzytkownik}
+
+Ostatniπ zak≥adkπ procesu tworzenia nowej propozycji cenowej widocznπ pod rysunkiem \ref{rys:UzytkownikNowaPropozycjaTab5} jest zak≥adka umoøliwiajπca ustalenie finalnej formy w ktÛrej realizowana bÍdzie zap≥ata, dodanie indywidualnie ustalanych z klientem elementÛw, ktÛre nie sπ dostÍpne w zakresie standardowych us≥ug oferowanych przez sieÊ hotelowπ oraz rezerwacjÍ miejsc parkingowych dla uczestnikÛw organizowanego wydarzenia. Przez wzglπd, iø przedstawiana zak≥adka jest ostatniπ czÍúciπ tworzenia propozycji cenowej, zawiera takøe pola zawierajπce ca≥kowity koszt netto oraz brutto wszystkich wybranych wczeúniej us≥ug.
+
+\begin{itemize}
+\item \textsl{US£UGI DODATKOWE}
+
+\tab W celu realizacji procesu dodania us≥ugi niestandardowej, pracownik ma obowiπzek uzyskania od prze≥oøonego informacji dotyczπcej fizycznej moøliwoúci jej realizacji podczas organizowanego wydarzenia i w sytuacji akceptacji moøe zapisaÊ jej nazwÍ w polu \textsl{Rodzaj us≥ugi}, uzupe≥niÊ ustalonπ cenÍ brutto wraz z wartoúciπ VAT oraz wybraÊ jej iloúÊ oraz liczbÍ dni. Tak utworzony rekord us≥ugi zostanie, analogicznie jak w przypadku poprzednich zak≥adek odpowiednio przeliczony i wyúwietlony w polach dotyczπcych wartoúci.
+
+\tab Rezerwacja parkingu jest elementem nieco prostszym. Obowiπzkiem sprzedawcy jest ustalenie tylko i wy≥πcznie rodzaju wybranego parkingu, dostÍpnego z poziomu rozwijanej listy pierwszego wiersza okna oraz uzupe≥nienie jego iloúci oraz liczby dni.
+\end{itemize}
+
+\begin{itemize}
+\item \textsl{FORMA ZAP£ATY}
+
+\tab Podkategoria ta jest finalnym elementem tworzonej propozycji cenowej. Umoøliwia ona sprzedawcy wybÛr formy w jakiej klient chce dokonaÊ p≥atnoúci, nazwy us≥ugi zapisanej na fakturze oraz sposobu zap≥aty za zamÛwienia indywidualne oraz parking. Opcje wszystkich przedstawionych elementÛw dostÍpne sπ z poziomu rozwijanych list, umoøliwiajπc tym samym sprzedawcy bardzo szybkπ moøliwoúÊ ich wyboru.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.9\textwidth]{UzytkownikNowaPropozycjaTab5.jpg}
+    \caption{Okno tworzenia propozycji cenowej. Zak≥adka dotyczπca us≥ug dodatkowych oraz formÍ zap≥aty za organizowane wydarzenie, èrÛd≥o: Opracowanie w≥asne.}
+    \label{rys:UzytkownikNowaPropozycjaTab5}
+\end{figure}
+
+\end{itemize}
+
+\subsubsection{Zapis nowej propozycji cenowej}
+
+Operacja zapisu nowej propozycji cenowej moøliwa jest do wykonania w kaødej chwili tworzenia propozycji. Sprzedawca nie ma obowiπzku tworzenia pe≥nego dokumentu, ktÛry w sposÛb natychmiastowy przekazywany bÍdzie klientowi. DostÍpna z poziomu menu opcja edycji istniejπcej propozycji umoøliwia jej finalne zakoÒczenie w dowolnym czasie. W sytuacji chÍci zapisu tworzonej propozycji, sprzedawca zobowiπzany jest nacisnπÊ przycisk \textsl{Zapisz propozycjÍ}, ktÛry po odpowiedniej konwersji danych zapisze wszystkie wymagane do pÛüniejszej edycji elementy do bazy danych. Lokalizacja przycisku umiejscowiona jest w prawym gÛrnym rogu kaødej zak≥adki tworzenia nowej propozycji cenowej. Jej wyglπd dostÍpny jest do wglπdu w przywo≥anym juø rysunku \ref{rys:UzytkownikNowaPropozycjaTab5}.
+
+\subsection{Edycja istniejπcej propozycji cenowej}
+Edycja istniejπcej propozycji cenowej odbywa siÍ poprzez zaznaczenie w oknie g≥Ûwny programu wybranej propozycji cenowej, a nastÍpnie z menu wybrania "Edytuj" co moøna zaobserwowaÊ na rysunku \ref{rys:editProp}. Uøytkownik zostanie przeniesiony do okna tworzenia nowej propozycji, ale juø z wype≥nionymi wczeúniej polami. Sprzedawca ma moøliwoúÊ dodawania nowych produktÛw a usuwanie odbywa siÍ poprzez wybranie pustego pola na liúcie rozwijalnej. Zapis edytowalnej propozycji jest moøliwy w kaødym momencie edycji.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.95\textwidth]{editpro.jpg}
+    \caption{Edycja propozycji, èrÛd≥o: Opracowanie w≥asne.}
+	\label{rys:editProp}
+\end{figure}
+
+\subsection{Tworzenie pliku PDF istniejπcej propozycji cenowej}
+
+Jednπ z najwaøniejszych funkcjonalnoúci niniejszej aplikacji jest moøliwoúÊ zapisu propozycji cenowych do pliku PDF. W menu rozwijanym znajduje siÍ pozycja \textsl{Lista propozycji}, co zosta≥o przedstawione na rysunku \ref{rys:ListaPropozycji}.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.4\textwidth]{pdf.jpg}
+    \caption{Wyúwietlanie listy propozycji cenowych, èrÛd≥o: Opracowanie w≥asne.}
+	\label{rys:ListaPropozycji}
+\end{figure}
+
+\newpage
+Po klikniÍciu w opcjÍ \textsl{Lista propozycji} zostaje wyúwietlona lista istniejπcych propozycji cenowych. OprÛcz podstawowych parametrÛw propozycji cenowych, w ostatniej kolumnie listy pojawia siÍ przycisk \textsl{Zapisz do PDF} ktÛrego klikniÍcie otwiera dialog wyboru pliku. Uøytkownik wpisuje dowolnπ nazwÍ pliku, oraz wybiera lokalizacjÍ zapisu pliku co zosta≥o pokazane na rysunku \ref{rys:ZapisDoPdf}. Jeøeli proces generowania pliku PDF przebiegnie pomyúlnie, zostaje wyúwietlony komunikat z informacjπ o sukcesie, przedstawiony na rysunku \ref{rys:ZapisDoPdf2}.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.95\textwidth]{df2.jpg}
+    \caption{Zapis propozycji cenowej do pliku PDF, èrÛd≥o: Opracowanie w≥asne.}
+	\label{rys:ZapisDoPdf}
+\end{figure}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.8\textwidth]{pdf3.jpg}
+    \caption{Poprawny zapis propozycji cenowej do pliku PDF, èrÛd≥o: Opracowanie w≥asne.}
+	\label{rys:ZapisDoPdf2}
+\end{figure}
+
+\subsection{Modyfikacja kont uøytkownikÛw/sprzedawcÛw}
+
+Uøytkownicy z uprawnieniami administratora posiadajπ moøliwoúÊ wykonywania podstawowych operacji zwiπzanych z zarzπdzaniem kontami pracownikÛw. Rysunek \ref{rys:UserOpMenu} przedstawia menu \textsl{Uøytkownicy} w ktÛrym znajdujπ siÍ dostÍpne w tym module funkcjonalnoúci. Po klikniÍciu wybranej pozycji z menu, zostaje otwarte nowe okno w ktÛrym administrator moøe wykonaÊ operacje danego typu.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.6\textwidth]{UserOpMenu.jpg}
+    \caption{Menu rozwijane modu≥u s≥uøπcego do zarzπdzania kontami pracownikÛw, èrÛd≥o: Opracowanie w≥asne.}
+	\label{rys:UserOpMenu}
+\end{figure}
+
+\newpage
+\subsubsection{Dodawanie konta}
+
+Pierwszπ z funkcjonalnoúci zaimplementowanych w module, jest moøliwoúÊ utworzenia nowego konta. Rysunek \ref{rys:DodajUøytkownika2} przedstawia okno zawierajπce pola tekstowe do ktÛrych wpisywane sπ dane osobowe pracownika, oraz listÍ rozwijanπ z ktÛrej wybierany jest typ konta. 
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.5\textwidth]{dodaj2.jpg}
+    \caption{Dodawanie nowego konta uøytkownika, èrÛd≥o: Opracowanie w≥asne.}
+	\label{rys:DodajUøytkownika2}
+\end{figure}
+
+Po klikniÍciu przycisku \textsl{Dodaj} w przypadku poprawnego wykonania operacji dodawania konta, wyúwietlana jest informacja przedstawiona na rysunku \ref{rys:DodajUøytkownika3}. W sytuacji niepowodzenia, zostaje wyúwietlany komunikat o b≥Ídzie co moøna zaobserwowaÊ na rysunku \ref{rys:DodajUøytkownika4}.
+
+\newpage
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.7\textwidth]{dodaj3.jpg}
+    \caption{Komunikat o poprawnym zapisie konta uøytkownika w bazie danych, èrÛd≥o: Opracowanie w≥asne.}
+	\label{rys:DodajUøytkownika3}
+\end{figure}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.7\textwidth]{dodaj4.jpg}
+    \caption{Komunikat o b≥Ídzie podczas zapisu konta uøytkownika do bazy danych, èrÛd≥o: Opracowanie w≥asne.}
+	\label{rys:DodajUøytkownika4}
+\end{figure}
+
+\subsubsection{Edycja konta}
+
+Kolejnπ funkcjonalnoúciπ jest moøliwoúÊ edycji danych pracownikÛw. Informacje o kontach wyúwietlane sπ w formie tabeli. Edycja polega na zaznaczeniu wybranej komÛrki w tabeli i wpisaniu nowej wartoúci. Zapis nowej wartoúci do bazy danych potwierdzany jest klikniÍciem przycisku \textsl{Enter}, bπdü zaznaczeniem innej kolumny. Uøytkownik posiada moøliwoúÊ sortowania danych poprzez klikniÍcie w wybrany parametr taki jak imiÍ lub nazwisko pracownika. Rysunek \ref{rys:EdytujUzytkownika} zawiera wygenerowanπ dla potrzeb projektu, listÍ uøytkownikÛw. ZbieønoúÊ osÛb i nazwisk jest przypadkowa.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.95\textwidth]{edytujuz2.jpg}
+    \caption{Tabela zawierajπca dane uøytkowninkÛw, èrÛd≥o: Opracowanie w≥asne.}
+	\label{rys:EdytujUzytkownika}
+\end{figure}
+
+\newpage
+
+\subsubsection{Usuwanie konta}
+
+W przypadku zmian kadrowych, administrator posiada moøliwoúÊ usuwania kont uøytkownikÛw. Rysunek \ref{rys:UsunKonto} przedstawia okno obs≥ugujπce funkcjonalnoúÊ usuwania, ktÛre posiada listÍ rozwijanπ zawierajπca loginy imiona i nazwiska uøytkownikÛw. 
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.5\textwidth]{rm2.jpg}
+    \caption{Okno usuwania kont uøytkownikÛw, èrÛd≥o: Opracowanie w≥asne.}
+	\label{rys:UsunKonto}
+\end{figure}
+
+Po wybraniu z listy pracownika, ktÛrego konto ma zostaÊ usuniÍte naleøy kliknπÊ przycisk \textsl{UsuÒ}. Pomyúlne usuniÍcia konta z bazy danych jest potwierdzane komunikatem wyúwietlanym na rysunku \ref{rys:UsunKonto2}.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.7\textwidth]{rm3.jpg}
+    \caption{Komunikat o poprawnym usuniÍciu konta uøytkownika z bazy danych, èrÛd≥o: Opracowanie w≥asne.}
+	\label{rys:UsunKonto2}
+\end{figure}
+
+\newpage
+\subsubsection{Resetowanie hase≥}
+
+Istnieje moøliwoúÊ, iø uøytkownik nie pamiÍta swojego has≥a. W takim przypadku administrator korzysta z opcji resetowania has≥a, co umoøliwia uøytkownikowi ustawienie nowego has≥a podczas kolejnej prÛby logowania. Na rysunku \ref{rys:ResetujHaslo} przedstawiono okno w ktÛrym znajduje siÍ lista rozwijana, wype≥niona imionami i nazwiskami uøytkownikÛw tak samo jak w module s≥uøπcym do usuwania kont. 
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.5\textwidth]{reset2.jpg}
+    \caption{Okno resetowania hase≥ uøytkownikÛw, èrÛd≥o: Opracowanie w≥asne.}
+	\label{rys:ResetujHaslo}
+\end{figure}
+
+Po wybraniu pracownika z listy, naleøy kliknπÊ przycisk \textsl{Resetuj}. Komunikat o pomyúlnym usuniÍciu konta z bazy danych znajduje siÍ na rysunku \ref{rys:ResetujHaslo2}.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.7\textwidth]{reset3.jpg}
+    \caption{Komunikat o powodzeniu operacji usuwania konta uøytkownika z bazy danych, èrÛd≥o: Opracowanie w≥asne.}
+	\label{rys:ResetujHaslo2}
+\end{figure}
+
+\newpage
+\subsection{Modyfikacja s≥ownikÛw cenowych}
+ Modyfikacja s≥ownikÛw cenowych odbywaÊ siÍ moøe tylko z poziomu administratora. Z menu naleøy wybraÊ ÑEdytuj s≥ownik". Zostanie otwarte nowe okno, gdzie bÍdzie moøna wybraÊ typ s≥ownika, ktÛry bÍdzie edytowany. Niestety nie wszystkie s≥oniki sπ edytowalne wynika to z faktu, braku cen produktÛw ktÛre sπ ustawiane przez sprzedawce. Pierwsze klikniÍcie w komÛrkÍ powoduje jej zaznaczenie, drugie wybranie, dopiero po trzecim klikniÍciu jest moøliwa edycja komÛrki. Edycja nastÍpuje poprzez wpisywanie wartoúci w poszczegÛlnych komÛrkach tabeli w zaleønoúci, ktÛrπ pozycjÍ chce siÍ edytowaÊ. Wciskajπc przycisk ÑENTERî nastÍpuje zapis edytowanego wiersza do bazy danych. Istnieje rÛwnieø moøliwoúÊ dodawania nowych pozycji. W ostatnim pustym wierszu tabeli naleøy wype≥niÊ wszystkie komÛrki, by mÛc dodaÊ do bazy. W trakcie edycja jak i dodawania istnieje kontrola typÛw danych jeúli w komÛrce ma byÊ liczba a bÍdziemy chcieli wpisaÊ tekst komÛrka podúwietli siÍ na czerwono. Odúwieøenie tabeli w przypadku dodania nowego produktu nastÍpuje po ponownym uruchomieniu okna edycji s≥ownikÛw. 
+ \begin{itemize}
+	\item \textsl {Pokoje}
+	
+	\tab
+	Istnieje tylko moøliwoúÊ edytowania ceny pokoi
+			
+	\item \textsl {Gastronomia}
+	
+	
+	\tab
+	W s≥owniku tym istnieje moøliwoúÊ dodawania nowych pozycji. U≥atwieniem w przypadku tego s≥ownika jest podzia≥ ze wzglÍdu na kategorie produktÛw. Tego typu udogodnienie u≥atwia znajdowanie poszczegÛlnych pozycji w tym s≥owniku, przyspiesza jego edycje.   
+	
+	\item \textsl {Sale}
+	
+	\tab 
+	Ceny poszczegÛlnych sal sπ zaleøne on miesiÍcy, w ktÛrych dane wydarzenie ma siÍ odbyÊ. Nie ma moøliwoúci dodawania nowych sal. Okno przedstawiajπce graficznπ reprezentacjπ tabeli sal przedstawione jest na rysunku \ref{rys:Sale}.
+	
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=1\textwidth]{Sale.jpg}
+    \caption{Ceny sal w poszczegÛlnych miesiπcach, èrÛd≥o: Opracowanie w≥asne.}
+    \label{rys:Sale}
+\end{figure}
+	
+ \end{itemize}
+ 
+\section{Podsumowanie oraz perspektywy rozwoju \newlineTekst oprogramowania}
+
+Celem prezentowanego projektu by≥o wykonanie aplikacji bazodanowej wspierajπcej pracÍ wybranej sieci hotelowej, ktÛra umoøliwia zautomatyzowanie procesu tworzenia propozycji cenowej, uproszczenie sposobu aktualizacji wszelkich cennikÛw us≥ug dostÍpnych w hotelu oraz moøliwoúÊ kontroli pracownikÛw przez kierownictwo. Przedstawione cele zosta≥y w pe≥ni zrealizowane, czego efektem jest dzia≥ajπca aplikacja bazodanowa posiadajπca szereg modu≥Ûw umoøliwiajπcych ich osiπgniÍcie. 
+
+DziÍki zastosowaniu úrodowiska bazodanowego, pracownicy majπ pewnoúÊ, iø dane dotyczπce cen us≥ug na ktÛrych pracujπ sπ danymi aktualnymi, ktÛre aktualizowane sπ na bieøπco z poziomu konta menadøera sprzedaøy. Aspekt ten usprawnienia proces aktualizacji danych, niwelujπc potrzebÍ korzystania ze skrzynek elektronicznych. Menadøer sprzedaøy w sytuacji aktualizacji danej ceny ma obowiπzek edycji odpowiedniej tabeli z poziomu swojego uprzywilejowanego konta, a po≥πczenie aplikacji z bazπ danych automatycznie zapewni wprowadzenie zmiany na kontach wszystkich pracownikÛw. Baza danych oraz skategoryzowanie wszystkich produktÛw gastronomicznych, zwalnia natomiast z uøytkownika koniecznoúÊ manualnego wyszukiwania okreúlonego elementu w czasie tworzenia propozycji cenowej. Wprowadzona funkcja kategorii, umoøliwia wybÛr okreúlonego typu produktu oraz kolejno wybranie go z listy ktÛra pozbawiona jest wszystkich produktÛw, ktÛre do wybranej kategorii nie zosta≥y przypisane. Korzyúciπ p≥ynπcπ z przedstawionej funkcji jest oszczÍdnoúÊ czasu pracownika, ktÛra umoøliwia przyspieszenie procesu tworzenia nowej propozycji cenowej lub edycji juø istniejπcej. Kaøda propozycja cenowa, dziÍki przypisaniu do osoby, ktÛra jπ tworzy≥a moøliwa jest rÛwnieø do wglπdu z poziomu uprzywilejowanego konta. DziÍki temu kierownictwo ma moøliwoúÊ przeglπdania przygotowywanych przez pracownikÛw ofert, a co za tym idzie wzglπd we wszelkie ustalone z klientami ceny oraz zniøki.
+
+W fazie implementacji za≥oøonych modu≥Ûw prezentowanej aplikacji napotkano na wiele problemÛw zwiπzanych ze zmianπ wymagaÒ projektowych i sposobem realizacji ustalonych funkcjonalnoúci. Wraz z biegiem czasu powstawa≥y nowe pomys≥y dotyczπce usprawnienia istniejπcych rozwiπzaÒ, ktÛre niejednokrotnie zwiÍkszy≥yby ich wydajnoúÊ oraz efektywnoúÊ. Rozwiπzania te nie zawsze mog≥y byÊ jednak wprowadzone przez pryzmat czasu ktÛrego to wymaga≥y w celu ich implementacji, przetestowania oraz po≥πczenia z istniejπcym juø systemem. Proponowane zmiany wiπza≥y siÍ takøe z modyfikacjπ istniejπcej architektury systemu, co w znaczπcy sposÛb zmienia≥oby zaplanowany wczeúniej harmonogram prac i wyd≥uøa≥oby finalne ukoÒczenie projektu.
+
+Pierwszym pomys≥em rozbudowy prezentowanego systemu jest wprowadzenie funkcji tworzenia propozycji offline. Zgodnie z ustalonymi wymaganiami projektowymi, osoba korzystajπca z aplikacji zobowiπzana jest do posiadania dostÍpu do sieci Internet. W przypadku jego braku, praca z programem przez wzglπd na koniecznoúÊ weryfikacji toøsamoúci na podstawie bazy danych jest niemoøliwa. Wersja offline wprowadzi≥aby moøliwoúÊ stworzenia nowej propozycji cenowej w sytuacji braku po≥πczenia internetowego oraz zapis wszystkich jego elementÛw w postaci pliku na lokalnym dysku twardym. Implikuje to jednak szereg problemÛw do rozwiπzania na tle synchronizacji z bazπ danych oraz szablonu tworzonej propozycji. W sytuacji utworzenia nowej propozycji offline oraz pÛüniejszym uzyskaniu dostÍpu do sieci, wszystkie jej elementy synchronizowane byÊ powinny z bazπ danych oraz lokalnie usuwane. Komplikacja na tle schematu tworzenia propozycji dotyczy≥aby z kolei sposobu wype≥nienia pÛl, ktÛrych zawartoúÊ zaleøna jest od bazy danych.
+
+NastÍpnπ modyfikacjπ moøliwπ do wprowadzenia w przypadku rozwoju projektu jest modyfikacja obecnie zaimplementowanego szablonu wyboru elementÛw dostÍpnych us≥ug. W chwili obecnej liczba moøliwych do wyboru elementÛw kaødej us≥ugi jest z gÛry ustalona. Modyfikacja wprowadza≥aby dynamicznie rozwijane rekordy, ktÛrych liczba zaleøna by≥aby od liczby wybranych elementÛw. Zmiana ta g≥Íboko ingerowa≥aby w obecnπ architekturÍ modu≥u tworzenia propozycji i wymaga≥aby jej gruntownej przebudowy dotyczπcej zmiany stosowanych kontrolek graficznych, implementacji ich zachowaÒ oraz walidacji wprowadzanych danych.
+
+\begin{thebibliography}{12}
+
+%Seba wstÍp
+\bibitem{LiczbaHoteli} 
+http://www.wykresy.net/liniowe/liczba-hoteli-w-polsce-ostatnie-12-lat.html
+
+
+
+\bibitem {CRMList}
+http://www.capterra.com/customer-relationship-management-software/
+
+\bibitem {ProfitCRM}
+http://www.profitcrm.pl/crm
+
+\bibitem {AsystentCRM}
+http://meteoryt.pl/Asystent\_CRM-k54.html
+
+\bibitem {Gestor}
+https://www.insert.com.pl
+
+\bibitem{PDFCreator}
+Avery J., Holmes J.: \textsl{Windows Developer Power Tools: Turbocharge Windows development with more than 170 free and open source tools}, Wydawnictwo O'Reilly Media, Sebastopol 2006
+
+
+%ogi technologie
+\bibitem{Systemy} 
+http://www.ranking.pl/pl/rankings/operating-systems.html
+
+%ogi technologie
+\bibitem{SQLRanking} 
+http://db-engines.com/en/ranking
+
+%ogi technologie start
+\bibitem {Clr}
+https://msdn.microsoft.com/pl-pl/library/w0x726c2(v=vs.110).aspx
+
+\bibitem {Clr2}
+https://msdn.microsoft.com/pl-pl/vstudio/cc511286
+
+\bibitem {Bcl}
+Troelsen A.: \textsl{JÍzyk C\# 2010 i platforma .NET 4}, Wydawnictwo Naukowe PWN, Warszawa 2011
+
+\bibitem {Fcl}
+http://www.etechpulse.com/2013/04/difference-between-bcl-and-fcl-in-net.html
+
+\bibitem {Cts}
+https://msdn.microsoft.com/en-us/library/zcx1eb1e(v=vs.110).aspx
+
+\bibitem {Cls}
+https://msdn.microsoft.com/library/12a7a7h3(v=vs.100).aspx
+
+\bibitem {CRanking}
+http://www.tiobe.com/index.php/content/paperinfo/tpci/index.html
+
+\bibitem {chash}
+http://antyweb.pl/hello-world-czyli-krotka-historia-jezykow-programowania/
+
+\bibitem {cadv}
+http://urriellu.net/en/articles-software/csharp-advantages.html
+%ogi technologie koniec
+
+\bibitem {WPF}
+ Nathan  A.: \textsl{WPF 4.5. KsiÍga eksperta}, Wydawnictwo Helion, Gliwice 2015
+ 
+%Seba xml
+\bibitem{Xml}
+http://www.w3schools.com/xml/xml\_whatis.asp
+
+%Lis T_SQL
+\bibitem {T-SQL}
+ Itzik B.:  \textsl{Microsoft SQL Server 2012. Podstawy jÍzyka T-SQL}, Wydawnictwo Helion, Gliwice 2012
+
+\bibitem {bazy}
+Ullman J. D., Widom J.:
+\textsl{Podstawowy kurs systemÛw baz danych. Wydanie III}, Wydawnictwo Helion, Gliwice 2011 
+
+%LIS Visual Studio
+%Nazwisko I. \textsl{tytu≥}, miasto, rok
+\bibitem{bookVS}
+Matulewski J.: \textsl{Visual Studio 2013. PodrÍcznik programowania w C\# z zadaniami}, Wydawnictwo Helion, Gliwice 2014 
+
+\bibitem {VSlicencja}
+https://www.visualstudio.com/support/legal/dn877550
+
+\bibitem {VS}
+https://www.visualstudio.com/pl-pl/downloads/download-visual-studio-vs.aspx
+
+\bibitem {msdn}
+http://ms.polsl.pl/aktualnosci.php?news=149wid=22
+
+\bibitem {VSG}
+https://visualstudiogallery.msdn.microsoft.com
+
+%Lisu SQL Server Management Studio
+\bibitem{SQL Server Management Studio Express}
+https://www.microsoft.com/en-us/download/details.aspx?id=29062
+%Nazwisko I. \textsl{tytu≥}, miasto, rok
+
+%Seba trello
+\bibitem{Kanban}
+KrasiÒski M.: \textsl{Nauki o zarzπdzaniu}, Wydawnictwo Uniwersytetu Ekonomicznego we Wroc≥awiu, Wroc≥aw, 2013, str.24-32
+
+\bibitem{PlatformyTrello} 
+https://trello.com/platforms
+
+%ogi narzÍdzia start
+
+\bibitem{versionrodzaje}
+http://blog.undicom.pl/systemy-kontroli-wersji-ktore-wybrac/
+
+\bibitem{git0}
+https://git-scm.com/book/en/v2/Getting-Started-A-Short-History-of-Git
+
+\bibitem{gitadv}
+http://leniwy.eu/news,18,Git-poradnik-poczatkujacego.html
+
+\bibitem{useOfGit}
+Gajda W.: \textsl{Git. Rozproszony system kontroli wersji}, Wydawnictwo Helion, Gliwice 2013 
+
+\bibitem{treelic}
+https://answers.atlassian.com/questions/303753/sourcetree-free-license
+
+\bibitem{tree}
+https://www.atlassian.com/software/sourcetree/overview
+
+\bibitem{github}
+https://github.com/blog/40-we-launched
+
+%ogi narzedzia koniec
+
+%Seba ReSharper
+%znalesc ksiazke w ktorej jest opis .NET
+\bibitem{.NETOpis}
+Chappell D.: \textsl{Understanding .NET (2nd Edition)}, Wydawnictwo Addison-Wesley Professional, Boston 2006
+
+\bibitem{MartwyKod}
+Martin R.C.: \textsl{Czysty kod. PodrÍcznik dobrego programisty}, Wydawnictwo Helion, Gliwice 2014
+
+\bibitem{ReSharperFunkcje} 
+https://www.jetbrains.com/resharper/features/
+
+%ogi narzedzia i biblioteki start
+\bibitem{jenkins}
+https://wiki.jenkins-ci.org/display/JENKINS/Meet+Jenkins
+
+\bibitem{jenkins2}
+Berg A.: \textsl{Jenkins Continuous Integration Cookbook}, Wydawnictwo Packt Publishing, Birmingham 2012
+
+\bibitem{MicrosoftPublicLicence} 
+https://opensource.org/licenses/MS-PL
+
+\bibitem{DefinicjaPdf}
+https://acrobat.adobe.com/pl/pl/products/about-adobe-pdf.html
+
+\bibitem{PopularnoscPdf} 
+http://www.download.net.pl/jak-zapisac-dowolny-dokument-do-pliku-pdf/n/3662/
+
+\bibitem{PdfSharp} 
+http://www.pdfsharp.net/
+%ogi narzedzia i biblioteki koniec
+
+%Seba wpf extended - na razie brak
+
+%Seba wzorce architektoniczne oprogramowania
+\bibitem{FazyProdukcjiOprogramowania} 
+Jaszkiewicz A.: \textsl{Inøynieria oprogramowania}, Wydawnictwo Helion, 1997
+
+\bibitem{MvvmOpis} 
+Petzold C.: \textsl{Windows 8. Programowanie aplikacji z wykorzystaniem C\# i XAML}, Wydawnistwo Helion, Gliwice 2013
+
+\bibitem{LogikaBiznesowa}
+Borycki D., Matulewski J., Pakulski M., Grabek M.: \textsl{ASP.NET MVC. Kompletny przewodnik dla programistÛw interaktywnych aplikacji internetowych w Visual Studio}, Wydawnictwo Helion, Gliwice 2014
+
+\bibitem{DataBinding}
+MacDonald M.: \textsl{Pro WPF 4.5 in VB: Windows Presentation Foundation in .NET 4.5}, Wydawnictwo Apress, 2012
+
+%Lis MS-SQL
+\bibitem{MS-SQL}
+LeBlanc P.: \textsl{Microsoft SQL Server 2012. Krok po kroku} ,Wydawnictwo Helion, Gliwice 2012
+
+%Seba za lisa
+%Nazwisko I. \textsl{tytu≥}, miasto, rok
+\bibitem{RelacjeBazDanych}
+Yank K.: \textsl{PHP i MySQL. Od nowicjusza do wojownika ninja}, Wydawnictwo Helion, Gliwice 2013
+
+%Seba entity
+\bibitem{AdnotacjeCodeFirst}
+https://msdn.microsoft.com/en-us/data/jj591583
+
+\bibitem{LINQ}
+Magennis T.: \textsl{LINQ to Objects w C\# 4.0}, Wydawnictwo Helion, Gliwice 2012
+
+%ogi CI start
+\bibitem{dynamic}
+https://msdn.microsoft.com/pl-pl/library/dd264736.aspx
+
+\bibitem{ci}
+Fowler M.: \textsl{Continuous Integration}, http://www.martinfowler.com/articles/ \newline continuousIntegration.html
+
+\bibitem{cdel}
+http://www.infoq.com/articles/cd-benefits-challenges
+
+\bibitem{cdr}
+Caum C.: \textsl{Continuous Delivery Vs. Continuous Deployment: What's the Diff?}, https://puppetlabs.com/blog/continuous-delivery-vs-continuous-deployment-whats-diff
+\bibitem{SonarLang}
+http://docs.sonarqube.org/display/PLUG/Plugin+Library
+
+\bibitem{MsScaner}
+http://docs.sonarqube.org/display/SONARNEXT/Installing+and+ \newline Configuring+SonarQube+Scanner+for+Jenkins
+
+\bibitem{SQALE}
+http://www.sonarsource.com/products/plugins/governance/sqale/installation-and-usage/$\#$understandingSqaleRatings
+%ogi CI koniec
+
+
+
+%Nazwisko I. \textsl{tytu≥}, miasto, rok
+
+%---
+
+\end{thebibliography}
+
+\listoffigures
+
+\lstlistoflistings
+\end{document}
