@@ -17,7 +17,7 @@
           <ScalarProperty Name="MaxIterations" ColumnName="MaxIterations" />
           <ScalarProperty Name="MaxFunctionEvaluations" ColumnName="MaxFunctionEvaluations" />
           <ScalarProperty Name="SwarmSize" ColumnName="SwarmSize" />
-          <ScalarProperty Name="PopulationSize" ColumnName="PopulationSize" />
+          <ScalarProperty Name="PopulationSize" ColumnName="PopulationSwarmSize" />
           <ScalarProperty Name="MaxStallIterations" ColumnName="MaxStallIterations" />
         </MappingFragment>
       </EntityTypeMapping>

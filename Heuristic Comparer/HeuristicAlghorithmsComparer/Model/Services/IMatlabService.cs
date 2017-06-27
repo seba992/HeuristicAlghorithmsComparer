@@ -4,9 +4,13 @@ namespace HeuristicAlghorithmsComparer.Model.Services
 {
     public interface IMatlabService
     {
-        void CheckMatlabConnection();
-        void ExecuteGeneticAlghoritm();
-        void ExecuteParticleSwarmTest();
-        void ExecuteSimulatedAnnealing(TestFunction function, Alghoritm alghoritm, int maxTime, int maxIterations, int maxFunctionEvaluations, int maxStall);
+        void ExecuteParticleSwarmTest(TestFunction function, Alghoritm alghoritm, int maxTime, int maxGenerations,
+            int swarmSize, int maxStall);
+
+        void ExecuteGeneticAlghoritm(TestFunction function, Alghoritm alghoritm, int maxTime, int maxGenerations,
+            int populationSize, int maxStall);
+
+        void ExecuteSimulatedAnnealing(TestFunction function, Alghoritm alghoritm, int maxTime, int maxIterations,
+            int maxFunctionEvaluations, int maxStall);
     }
 }

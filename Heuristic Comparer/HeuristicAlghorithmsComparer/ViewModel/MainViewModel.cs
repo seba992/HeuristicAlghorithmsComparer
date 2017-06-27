@@ -18,6 +18,7 @@ namespace HeuristicAlghorithmsComparer.ViewModel
         private Alghoritm _selectedAlghoritm;
         private string _iterationGenerationName;
         private bool _isPopulationAlghoritm;
+        private string _populationSwarmSizeName;
 
         public MainViewModel(IMatlabService matlabService)
         {
@@ -56,6 +57,16 @@ namespace HeuristicAlghorithmsComparer.ViewModel
             }
         }
 
+        public string PopulationSwarmSizeName
+        {
+            get { return _populationSwarmSizeName; }
+            set
+            {
+                _populationSwarmSizeName = value; 
+                RaisePropertyChanged();
+            }
+        }
+
         public TestFunction SelectedTestFunction { get; set; }
 
         public bool IsPopulationAlghoritm
@@ -78,12 +89,15 @@ namespace HeuristicAlghorithmsComparer.ViewModel
 
         public int MaxStall { get; set; }
 
-        public int PopulationSize { get; set; }
+        public int PopulationSwarmSize { get; set; }
         private void ActivateButtonLogic(Alghoritm alghoritm)
         {
             IterationGenerationName = alghoritm == Alghoritm.SimulatedAnnealing
                 ? MetaheuristicResources.LiczbaIteracji
                 : MetaheuristicResources.LiczbaGeneracji;
+            PopulationSwarmSizeName = alghoritm == Alghoritm.GeneticAlghoritm
+                ? MetaheuristicResources.WielkoscPopulacji
+                : (alghoritm == Alghoritm.ParticleSwarmOptimization ? MetaheuristicResources.WielkoscRoju : "");
 
             IsPopulationAlghoritm = alghoritm != Alghoritm.SimulatedAnnealing;
         }
@@ -96,10 +110,10 @@ namespace HeuristicAlghorithmsComparer.ViewModel
                     ExecuteSimulatedAnnealingTest(SelectedTestFunction, SelectedAlghoritm, MaxTime, MaxIterations, MaxFunctionEvaluations, MaxStall, TestCount);
                     break;
                 case Alghoritm.ParticleSwarmOptimization:
-                    ExecuteParticleSwarmTest();
+                    ExecuteParticleSwarmTest(SelectedTestFunction, SelectedAlghoritm, MaxTime, MaxIterations, PopulationSwarmSize, MaxStall, TestCount);
                     break;
                 case Alghoritm.GeneticAlghoritm:
-                    ExecuteGeneticAlghoritmTest();
+                    ExecuteGeneticAlghoritmTest(SelectedTestFunction, SelectedAlghoritm, MaxTime, MaxIterations, PopulationSwarmSize, MaxStall, TestCount);
                     break;
                 default:
                     throw new InvalidEnumArgumentException();
@@ -114,19 +128,20 @@ namespace HeuristicAlghorithmsComparer.ViewModel
             }
         }
 
-        public void ExecuteSimulatedAnnealingTest()
+        private void ExecuteGeneticAlghoritmTest(TestFunction testFunction, Alghoritm alghoritm, int maxTime, int maxGenerations, int populationSize, int maxStall, int testCount)
         {
-
+            for (var i = 0; i < testCount; i++)
+            {
+                _matlabService.ExecuteSimulatedAnnealing(testFunction, alghoritm, maxTime, maxGenerations, populationSize, maxStall);
+            }
         }
 
-        public void ExecuteGeneticAlghoritmTest()
+        private void ExecuteParticleSwarmTest(TestFunction testFunction, Alghoritm alghoritm, int maxTime, int maxGenerations, int swarmSize, int maxStall, int testCount)
         {
-            _matlabService.ExecuteGeneticAlghoritm(); // TODO: add params from view
-        }
-
-        public void ExecuteParticleSwarmTest()
-        {
-            _matlabService.ExecuteParticleSwarmTest(); // TODO: add params from view
+            for (var i = 0; i < testCount; i++)
+            {
+                _matlabService.ExecuteSimulatedAnnealing(testFunction, alghoritm, maxTime, maxGenerations, swarmSize, maxStall);
+            }
         }
     }
 }

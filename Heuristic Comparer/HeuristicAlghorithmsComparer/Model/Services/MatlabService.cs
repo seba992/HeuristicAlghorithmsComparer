@@ -12,18 +12,13 @@ namespace HeuristicAlghorithmsComparer.Model.Services
     {
         private readonly IAlghoritmRequestManager _alghoritmRequestManager;
         private readonly IDatabaseService _databaseService;
-        private MLApp.MLApp _matlabContext;
+        private readonly MLApp.MLApp _matlabContext;
 
         public MatlabService(IAlghoritmRequestManager alghoritmRequestManager, IMatlabContextWrapper matlabContextWrapper, IDatabaseService databaseService)
         {
             _alghoritmRequestManager = alghoritmRequestManager;
             _databaseService = databaseService;
             _matlabContext = matlabContextWrapper.GetMatlabContext();
-        }
-
-        public void CheckMatlabConnection()
-        {
-            MessageBox.Show(_matlabContext.Execute("1+1"));
         }
 
         public void ExecuteSimulatedAnnealing(TestFunction function, Alghoritm alghoritm, int maxTime, int maxIterations,
@@ -61,21 +56,22 @@ namespace HeuristicAlghorithmsComparer.Model.Services
 
         }
 
-        public void ExecuteGeneticAlghoritm()
+        public void ExecuteGeneticAlghoritm(TestFunction function, Alghoritm alghoritm, int maxTime, int maxGenerations,
+            int populationSize, int maxStall)
         {
             try
             {
-                var testFunction = _databaseService.GetTestFunction(TestFunction.Bochachevsky);
-                var alghoritm = _databaseService.GetAlghoritm(Alghoritm.GeneticAlghoritm);
+                var testFunction = _databaseService.GetTestFunction(function);
+                var selectedAlghoritm = _databaseService.GetAlghoritm(alghoritm);
                 var inputParameter = new InputParameter()
                 {
-                    MaxTime = 5,
-                    MaxIterations = 1000, // MaxGenerations
-                    PopulationSize = 100,
-                    MaxStallIterations = 10000 // MaxStallGenerations
+                    MaxTime = maxTime,
+                    MaxIterations = maxGenerations, // MaxGenerations
+                    PopulationSize = populationSize,
+                    MaxStallIterations = maxStall // MaxStallGenerations
                 };
 
-                var geneticResultsDetails = _alghoritmRequestManager.ExecuteAlghoritm(alghoritm, testFunction,
+                var geneticResultsDetails = _alghoritmRequestManager.ExecuteAlghoritm(selectedAlghoritm, testFunction,
                     inputParameter);
 
                 var result = new Result()
@@ -83,7 +79,7 @@ namespace HeuristicAlghorithmsComparer.Model.Services
                     InputParameter = inputParameter,
                     ResultDetail = geneticResultsDetails,
                     TestFunctionId = testFunction.Id,
-                    Alghoritm = alghoritm
+                    Alghoritm = selectedAlghoritm
                 };
 
                 _databaseService.SaveResult(result);
@@ -94,21 +90,22 @@ namespace HeuristicAlghorithmsComparer.Model.Services
             }
         }
 
-        public void ExecuteParticleSwarmTest()
+        public void ExecuteParticleSwarmTest(TestFunction function, Alghoritm alghoritm, int maxTime, int maxGenerations,
+            int swarmSize, int maxStall)
         {
             try
             {
-                var testFunction = _databaseService.GetTestFunction(TestFunction.Bochachevsky);
-                var alghoritm = _databaseService.GetAlghoritm(Alghoritm.ParticleSwarmOptimization);
+                var testFunction = _databaseService.GetTestFunction(function);
+                var selectedAlghoritm = _databaseService.GetAlghoritm(alghoritm);
                 var inputParameter = new InputParameter()
                 {
-                    MaxTime = 5,
-                    MaxIterations = 1000, // MaxGenerations
-                    SwarmSize = 100,
-                    MaxStallIterations = 10000 // MaxStallGenerations
+                    MaxTime = maxTime,
+                    MaxIterations = maxGenerations, // MaxGenerations
+                    SwarmSize = swarmSize,
+                    MaxStallIterations = maxStall // MaxStallGenerations
                 };
 
-                var geneticResultsDetails = _alghoritmRequestManager.ExecuteAlghoritm(alghoritm, testFunction,
+                var geneticResultsDetails = _alghoritmRequestManager.ExecuteAlghoritm(selectedAlghoritm, testFunction,
                     inputParameter);
 
                 var result = new Result()
@@ -116,7 +113,7 @@ namespace HeuristicAlghorithmsComparer.Model.Services
                     InputParameter = inputParameter,
                     ResultDetail = geneticResultsDetails,
                     TestFunctionId = testFunction.Id,
-                    Alghoritm = alghoritm
+                    Alghoritm = selectedAlghoritm
                 };
 
                 _databaseService.SaveResult(result);

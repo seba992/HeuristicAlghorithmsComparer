@@ -158,5 +158,23 @@ namespace HeuristicAlghorithmsComparer {
                 return ResourceManager.GetString("SimulatedAnnealingFileName", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wielkość populacji:.
+        /// </summary>
+        internal static string WielkoscPopulacji {
+            get {
+                return ResourceManager.GetString("WielkoscPopulacji", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wielkość roju:.
+        /// </summary>
+        internal static string WielkoscRoju {
+            get {
+                return ResourceManager.GetString("WielkoscRoju", resourceCulture);
+            }
+        }
     }
 }

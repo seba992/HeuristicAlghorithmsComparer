@@ -150,4 +150,10 @@
   <data name="SimulatedAnnealingFileName" xml:space="preserve">
     <value>SimulatedAnnealingTestFun</value>
   </data>
+  <data name="WielkoscPopulacji" xml:space="preserve">
+    <value>Wielkość populacji:</value>
+  </data>
+  <data name="WielkoscRoju" xml:space="preserve">
+    <value>Wielkość roju:</value>
+  </data>
 </root>

@@ -57,10 +57,10 @@
         <TextBox Margin="2 2 2 2" Grid.Row="7" Grid.Column="1" PreviewTextInput="NumericOnly" Text="{Binding MaxIterations}"/>
         <Label Content="Max liczba odwołań funkcji:" HorizontalAlignment="Right" Grid.Row="8" Grid.Column="0" />
         <TextBox Margin="2 2 2 2" Grid.Row="8" Grid.Column="1" PreviewTextInput="NumericOnly" Text="{Binding MaxFunctionEvaluations}"/>
-        <Label Content="Wielkość populacji:" HorizontalAlignment="Right" Grid.Row="9" Grid.Column="0"
+        <Label Content="{Binding PopulationSwarmSizeName, Mode=OneWay}" HorizontalAlignment="Right" Grid.Row="9" Grid.Column="0"
                Visibility="{Binding IsPopulationAlghoritm, Converter={StaticResource BooleanToVisibilityConverter} }" />
         <TextBox Margin="2 2 2 2" Grid.Row="9" Grid.Column="1" PreviewTextInput="NumericOnly"
-                 Visibility="{Binding IsPopulationAlghoritm, Converter={StaticResource BooleanToVisibilityConverter} }" Text="{Binding PopulationSize}"/>
+                 Visibility="{Binding IsPopulationAlghoritm, Converter={StaticResource BooleanToVisibilityConverter} }" Text="{Binding PopulationSwarmSize}"/>
         <Label Content="Max liczba generacji bez poprawy wyniku:" HorizontalAlignment="Right" Grid.Row="10"
                Grid.Column="0" />
         <TextBox Margin="2 2 2 2" Grid.Row="10" Grid.Column="1" PreviewTextInput="NumericOnly" Text="{Binding MaxStall}"/>
