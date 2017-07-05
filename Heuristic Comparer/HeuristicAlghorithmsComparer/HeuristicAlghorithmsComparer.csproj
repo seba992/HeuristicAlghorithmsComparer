@@ -220,13 +220,20 @@
       <LastGenOutput>MetaheuristicsDbContext.cs</LastGenOutput>
       <DependentUpon>EntityDataModel.edmx</DependentUpon>
     </Content>
+    <Content Include="Matlab\BealeFun.m" />
+    <Content Include="Matlab\BochachevskyFun.m" />
+    <Content Include="Matlab\EasomFun.m" />
+    <Content Include="Matlab\EggholderFun.m" />
+    <Content Include="Matlab\GeneticAlghoritmTestFun.m" />
+    <Content Include="Matlab\GriewankFun.m" />
+    <Content Include="Matlab\ParticleSwarmOptimizationTestFun.m" />
+    <Content Include="Matlab\RosenbrockFun.m" />
+    <Content Include="Matlab\SimulatedAnnealingTestFun.m" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Matlab\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
