@@ -27,6 +27,11 @@
       <End Role="TestFunction" EntitySet="TestFunctions" />
       <End Role="Result" EntitySet="Results" />
     </AssociationSet>
+    <EntitySet Name="Points" EntityType="EntityDataModel.Point" />
+    <AssociationSet Name="ResultDetailPoint" Association="EntityDataModel.ResultDetailPoint">
+      <End Role="ResultDetail" EntitySet="ResultDetails" />
+      <End Role="Point" EntitySet="Points" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Alghoritm">
     <Key>
@@ -93,14 +98,11 @@
     <Property Name="Iterations" Type="Int32" Nullable="false" />
     <Property Name="FunctionEvaluations" Type="Int32" Nullable="false" />
     <Property Name="BestFunctionValue" Type="Decimal" Nullable="false" Scale="10" Precision="18" />
-    <Property Name="FinalPointX" Type="Decimal" Nullable="false" Precision="18" Scale="10" />
-    <Property Name="FinalPointY" Type="Decimal" Nullable="false" Precision="18" Scale="10" />
     <Property Name="TotalTime" Type="Decimal" Nullable="false" Precision="18" Scale="10" />
     <Property Name="TerminatedMessage" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
     <NavigationProperty Name="ExitFlag" Relationship="EntityDataModel.ExitFlagsResultDetails" FromRole="ResultDetails" ToRole="ExitFlags" />
     <Property Name="ExitFlagId" Type="Int32" Nullable="true" />
-    <Property Name="StartingPointX" Type="Decimal" Nullable="true" Precision="18" />
-    <Property Name="StartingPointY" Type="Decimal" Nullable="true" Precision="18" />
+    <NavigationProperty Name="Point" Relationship="EntityDataModel.ResultDetailPoint" FromRole="ResultDetail" ToRole="Point" />
   </EntityType>
   <EntityType Name="ExitFlag">
     <Key>
@@ -138,13 +140,11 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="String" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
     <Property Name="DifficultyLevel" Type="Int32" Nullable="false" />
-    <Property Name="FunctionGraphLink" Type="String" Nullable="false" />
-    <Property Name="LowerBoundX" Type="Double" Nullable="false" />
-    <Property Name="LowerBoundY" Type="Double" Nullable="false" />
-    <Property Name="UpperBoundX" Type="Double" Nullable="false" />
-    <Property Name="UpperBoundY" Type="Double" Nullable="false" />
+    <Property Name="FunctionGraphLink" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="BoundRange" Type="Int32" Nullable="false" />
+    <Property Name="Dimension" Type="Int32" Nullable="false" />
   </EntityType>
   <Association Name="TestFunctionResult">
     <End Type="EntityDataModel.TestFunction" Role="TestFunction" Multiplicity="1" />
@@ -155,6 +155,27 @@
       </Principal>
       <Dependent Role="Result">
         <PropertyRef Name="TestFunctionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Point">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ResultDetailId" Type="Int32" Nullable="false" />
+    <Property Name="PointValue" Type="Double" Nullable="false" />
+    <Property Name="ResultDimension" Type="Int32" Nullable="false" />
+  </EntityType>
+  <Association Name="ResultDetailPoint">
+    <End Type="EntityDataModel.ResultDetail" Role="ResultDetail" Multiplicity="1" />
+    <End Type="EntityDataModel.Point" Role="Point" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ResultDetail">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Point">
+        <PropertyRef Name="ResultDetailId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

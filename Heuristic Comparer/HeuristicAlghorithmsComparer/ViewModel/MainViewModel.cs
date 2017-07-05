@@ -29,6 +29,17 @@ namespace HeuristicAlghorithmsComparer.ViewModel
             ActivateButtonLogic(SelectedAlghoritm);
 
             SelectedTestFunction = TestFunction.Bochachevsky;
+
+            SetDefaultValues();
+        }
+
+        private void SetDefaultValues()
+        {
+            MaxTime = 5;
+            TestCount = 1;
+            MaxIterations = 1000;
+            MaxStall = 1000;
+            MaxFunctionEvaluations = 1000;
         }
 
         public ICommand ExecuteCommand { get; set; }

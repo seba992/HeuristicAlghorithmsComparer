@@ -14,18 +14,22 @@ namespace HeuristicAlghorithmsComparer.Database
     
     public partial class ResultDetail
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public ResultDetail()
+        {
+            this.Point = new HashSet<Point>();
+        }
+    
         public int Id { get; set; }
         public int Iterations { get; set; }
         public int FunctionEvaluations { get; set; }
         public decimal BestFunctionValue { get; set; }
-        public decimal FinalPointX { get; set; }
-        public decimal FinalPointY { get; set; }
         public decimal TotalTime { get; set; }
         public string TerminatedMessage { get; set; }
         public Nullable<int> ExitFlagId { get; set; }
-        public Nullable<decimal> StartingPointX { get; set; }
-        public Nullable<decimal> StartingPointY { get; set; }
     
         public virtual ExitFlag ExitFlag { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Point> Point { get; set; }
     }
 }

@@ -1,10 +1,10 @@
-function [x1,x2,fval,outIterations,outFunccount,outTotaltime,stX,stY] = SimulatedAnnealingTestFun( maxTime, maxIterations, maxFunctionEvaluations, maxStallIterations, funName, lowerBoundX, LowerBoundY, UpperBoundX, UpperBoundY )
+function [resultPointLoc,fval,outIterations,outFunccount,outTotaltime] = SimulatedAnnealingTestFun(maxTime, maxIterations, maxFunctionEvaluations, maxStallIterations, funName, boundRange, dimension)
 ObjectiveFunction = str2func(funName);
 
-lb = [lowerBoundX LowerBoundY];
-ub = [UpperBoundX UpperBoundY];
+lb(1,1:dimension) = -boundRange; % = [boundRange boundRange];
+ub(1,1:dimension) = boundRange; % = [boundRange boundRange];
 
-startingPoint = randi([lowerBoundX,UpperBoundX],1,2); %[79 79];
+startingPoint = randi([-boundRange,boundRange],1,dimension); %[79 79];
 
 options = optimoptions(@simulannealbnd, ...
     'AnnealingFcn', @annealingboltz, ... % or @annealingfast
@@ -15,10 +15,8 @@ options = optimoptions(@simulannealbnd, ...
                      'PlotFcn',{@saplotbestf,@saplottemperature,@saplotf,@saplotstopping}) 
                  
 [x,fval,exitflag,output] = simulannealbnd(ObjectiveFunction,startingPoint,lb,ub,options);
-x1 = x(1);
-x2 = x(2);
-stX = startingPoint(1);
-stY = startingPoint(2);
+resultPointLoc = x;
+%startLoc = startingPoint;
 outIterations = output.iterations;
 outFunccount = output.funccount;
 outTotaltime = output.totaltime;

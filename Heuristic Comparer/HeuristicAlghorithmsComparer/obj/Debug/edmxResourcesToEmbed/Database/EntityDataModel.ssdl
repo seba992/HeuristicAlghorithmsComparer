@@ -7,6 +7,7 @@
     <EntitySet Name="ResultDetails" EntityType="EntityDataModel.Store.ResultDetails" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="ExitFlags" EntityType="EntityDataModel.Store.ExitFlags" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="TestFunctions" EntityType="EntityDataModel.Store.TestFunctions" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Points" EntityType="EntityDataModel.Store.Points" store:Type="Tables" Schema="dbo" />
     <AssociationSet Name="AlghoritmsResults" Association="EntityDataModel.Store.AlghoritmsResults">
       <End Role="Alghoritms" EntitySet="Alghoritms" />
       <End Role="Results" EntitySet="Results" />
@@ -26,6 +27,10 @@
     <AssociationSet Name="TestFunctionResult" Association="EntityDataModel.Store.TestFunctionResult">
       <End Role="TestFunction" EntitySet="TestFunctions" />
       <End Role="Result" EntitySet="Results" />
+    </AssociationSet>
+    <AssociationSet Name="ResultDetailPoint" Association="EntityDataModel.Store.ResultDetailPoint">
+      <End Role="ResultDetail" EntitySet="ResultDetails" />
+      <End Role="Point" EntitySet="Points" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="Alghoritms">
@@ -65,13 +70,9 @@
     <Property Name="Iterations" Type="int" Nullable="false" />
     <Property Name="FunctionEvaluations" Type="int" Nullable="false" />
     <Property Name="BestFunctionValue" Type="decimal" Nullable="false" Precision="18" Scale="10" />
-    <Property Name="FinalPointX" Type="decimal" Nullable="false" Precision="18" Scale="10" />
-    <Property Name="FinalPointY" Type="decimal" Nullable="false" Precision="18" Scale="10" />
     <Property Name="TotalTime" Type="decimal" Nullable="false" Precision="18" Scale="10" />
     <Property Name="TerminatedMessage" Type="nvarchar(max)" Nullable="true" />
     <Property Name="ExitFlagId" Type="int" Nullable="true" />
-    <Property Name="StartingPointX" Type="decimal" Nullable="true" Precision="18" />
-    <Property Name="StartingPointY" Type="decimal" Nullable="true" Precision="18" />
   </EntityType>
   <EntityType Name="ExitFlags">
     <Key>
@@ -88,10 +89,17 @@
     <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
     <Property Name="DifficultyLevel" Type="int" Nullable="false" />
     <Property Name="FunctionGraphLink" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="LowerBoundX" Type="float" Nullable="false" />
-    <Property Name="LowerBoundY" Type="float" Nullable="false" />
-    <Property Name="UpperBoundX" Type="float" Nullable="false" />
-    <Property Name="UpperBoundY" Type="float" Nullable="false" />
+    <Property Name="BoundRange" Type="int" Nullable="false" />
+    <Property Name="Dimension" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Points">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ResultDetailId" Type="int" Nullable="false" />
+    <Property Name="PointValue" Type="float" Nullable="false" />
+    <Property Name="ResultDimension" Type="int" Nullable="false" />
   </EntityType>
   <Association Name="AlghoritmsResults">
     <End Role="Alghoritms" Type="EntityDataModel.Store.Alghoritms" Multiplicity="1" />
@@ -150,6 +158,18 @@
       </Principal>
       <Dependent Role="Result">
         <PropertyRef Name="TestFunctionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ResultDetailPoint">
+    <End Role="ResultDetail" Type="EntityDataModel.Store.ResultDetails" Multiplicity="1" />
+    <End Role="Point" Type="EntityDataModel.Store.Points" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ResultDetail">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Point">
+        <PropertyRef Name="ResultDetailId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

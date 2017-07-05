@@ -11,5 +11,14 @@
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("database/entitydatamodel.edmx.sql")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("database/metaheuristicsdbcontext.context.tt")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("database/metaheuristicsdbcontext.tt")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("matlab/bealefun.m")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("matlab/bochachevskyfun.m")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("matlab/easomfun.m")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("matlab/eggholderfun.m")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("matlab/geneticalghoritmtestfun.m")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("matlab/griewankfun.m")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("matlab/particleswarmoptimizationtestfun.m")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("matlab/rosenbrockfun.m")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("matlab/simulatedannealingtestfun.m")]
 
 

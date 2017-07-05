@@ -54,10 +54,8 @@ namespace HeuristicAlghorithmsComparer.Model.Managers
                     (double)inputParameter.SwarmSize,
                     (double)inputParameter.MaxStallIterations,
                     testFunctionFileName,
-                    testFunction.LowerBoundX,
-                    testFunction.LowerBoundY,
-                    testFunction.UpperBoundX,
-                    testFunction.UpperBoundY
+                    testFunction.BoundRange,
+                    testFunction.Dimension
                     );
 
 
@@ -89,10 +87,8 @@ namespace HeuristicAlghorithmsComparer.Model.Managers
                     (double)inputParameter.SwarmSize,
                     (double)inputParameter.MaxStallIterations,
                     testFunctionFileName,
-                    testFunction.LowerBoundX,
-                    testFunction.LowerBoundY,
-                    testFunction.UpperBoundX,
-                    testFunction.UpperBoundY
+                    testFunction.BoundRange,
+                    testFunction.Dimension
                     );
 
 
@@ -116,17 +112,15 @@ namespace HeuristicAlghorithmsComparer.Model.Managers
 
                 _matlabContext.Feval(
                     alghoritmFileName,
-                    8, // OutputParamsNumber
+                    6, // OutputParamsNumber
                     out _computedResult,
                     (double)inputParameter.MaxTime,
                     (double)inputParameter.MaxIterations,
                     (double)inputParameter.MaxFunctionEvaluations,
                     inputParameter.MaxStallIterations,
                     testFunctionFileName,
-                    testFunction.LowerBoundX,
-                    testFunction.LowerBoundY,
-                    testFunction.UpperBoundX,
-                    testFunction.UpperBoundY
+                    (double)testFunction.BoundRange,
+                    testFunction.Dimension
                     );
 
 

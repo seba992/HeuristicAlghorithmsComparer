@@ -31,5 +31,6 @@ namespace HeuristicAlghorithmsComparer.Database
         public virtual DbSet<ResultDetail> ResultDetails { get; set; }
         public virtual DbSet<ExitFlag> ExitFlags { get; set; }
         public virtual DbSet<TestFunction> TestFunctions { get; set; }
+        public virtual DbSet<Point> Points { get; set; }
     }
 }

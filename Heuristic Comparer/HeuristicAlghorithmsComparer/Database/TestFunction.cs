@@ -18,9 +18,7 @@ namespace HeuristicAlghorithmsComparer.Database
         public string Name { get; set; }
         public int DifficultyLevel { get; set; }
         public string FunctionGraphLink { get; set; }
-        public double LowerBoundX { get; set; }
-        public double LowerBoundY { get; set; }
-        public double UpperBoundX { get; set; }
-        public double UpperBoundY { get; set; }
+        public int BoundRange { get; set; }
+        public int Dimension { get; set; }
     }
 }

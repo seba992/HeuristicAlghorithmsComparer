@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="d88075bcbb0b451185867b71e3c9f409" Name="Diagram1" ZoomLevel="93" >
+      <Diagram DiagramId="d88075bcbb0b451185867b71e3c9f409" Name="Diagram1" ZoomLevel="89" >
         <EntityTypeShape EntityType="EntityDataModel.Alghoritm" Width="1.5" PointX="7.5" PointY="1.5" />
         <EntityTypeShape EntityType="EntityDataModel.InputParameter" Width="1.875" PointX="8.75" PointY="3.125" />
         <EntityTypeShape EntityType="EntityDataModel.Result" Width="2.625" PointX="12" PointY="1.625" />
@@ -16,6 +16,8 @@
         <AssociationConnector Association="EntityDataModel.ResultDetailsResults" />
         <EntityTypeShape EntityType="EntityDataModel.TestFunction" Width="1.5" PointX="6.125" PointY="3.25" />
         <AssociationConnector Association="EntityDataModel.TestFunctionResult" />
+        <EntityTypeShape EntityType="EntityDataModel.Point" Width="1.5" PointX="7.125" PointY="6.5" />
+        <AssociationConnector Association="EntityDataModel.ResultDetailPoint" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

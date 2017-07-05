@@ -110,6 +110,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MetaheuristicsDbContext.tt</DependentUpon>
     </Compile>
+    <Compile Include="Database\Point.cs">
+      <DependentUpon>MetaheuristicsDbContext.tt</DependentUpon>
+    </Compile>
     <Compile Include="Database\Result.cs">
       <DependentUpon>MetaheuristicsDbContext.tt</DependentUpon>
     </Compile>

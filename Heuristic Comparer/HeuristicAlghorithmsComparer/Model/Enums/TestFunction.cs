@@ -4,9 +4,10 @@
     {
         Bochachevsky = 1,
         Beale,
+        Colville,
         Rosenbrock,
         Easom,
         Eggholder,
-        Griewank = 6
+        Griewank = 7
     }
 }
