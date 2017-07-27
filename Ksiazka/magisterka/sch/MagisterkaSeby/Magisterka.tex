@@ -8,7 +8,7 @@
 
 %\drukJednostronny
 
-%% tytu³ promotor iautor (\title to komenda standardowa)
+%% tytu³ promotor i autor (\title to komenda standardowa)
 \title{Analiza porównawcza algorytmów metaheurystycznych do rozwi¹zywania wybranego problemu optymalizacyjnego}
 \promotor{dr in¿. Henryk Josiñski}
 
@@ -152,9 +152,28 @@ Drugim operatorem genetycznym jest mutacja, która umo¿liwia wprowadzenie nowego 
 \section{Automatyzacja przeprowadzanych badañ}
 \section{Wykorzystane rozwi¹zania technologiczne}
 
-Obecny rozdzia³ obejmuje opis wykorzystanych technologii, które umo¿liwi³y implementacjê aplikacji. Opis ten dotyczy jêzyka programowania, w którym napisany zosta³ backend aplikacji oraz silnika graficznego aplikacji i jêzyka zapytañ bazy danych
+TODO
+
+\subsection{Zastosowane technologie}
+
+Obecny rozdzia³ obejmuje opis wykorzystanych technologii, które umo¿liwi³y implementacjê aplikacji. Opis ten dotyczy jêzyka programowania, w którym napisany zosta³ backend aplikacji oraz silnika graficznego aplikacji wraz z jêzykiem zapytañ bazy danych.
+
+\subsubsection{.NET Framework/C\#}
+
+.NET Framework jest to platforma programistyczna wydana przez firmê Microsoft w 2002 roku. Przeznaczona ona jest do wytwarzania oprogramowania przeznaczonego dla systemów operacyjnych z rodziny Windows. G³ówn¹ sk³adow¹ przedstawianej platformy s¹ kompilatory jêzyków wysokiego poziomu, które umo¿liwiaj¹ przeprowadzenie operacji kompilacji programów napisanych w jêzykach Visual Basic, F\#, C++/CLI. Platforma .NET wspiera równie¿ jeden z najpopularniejszych jêzyków programowania na œwiecie - C\#, w którym napisana zosta³a aplikacja odnosz¹ca siê do prezentowanej pracy magisterskiej. Wed³ug rankingu TIOBE Software z grudnia 2015 roku, jêzyk C\# uplasowany jest na pi¹tym miejscu, spoœród piêædziesiêciu najpopularniejszych jêzyków, które zosta³y wziête pod uwagê.
+C\# jest to nowoczesny, zorientowany obiektowo jêzyk programowania stworzony przez firmê Microsoft. Jego pierwsza wersja wydana zosta³a ju¿ w po³owie 2000 roku, przy du¿ej zas³udze g³ównego projektanta jêzyka - duñskiego in¿yniera oprogramowania Andersa Hejlsberga. Jêzyk ten mo¿e zostaæ u¿yty w celu pisania aplikacji webowych, desktopowych oraz przeznaczonych na urz¹dzenia przenoœne. Programy w nim napisane, kompilowane s¹ do poœredniego kodu, który zapisany jest w CIL (ang. Common Intermediate Language) i wykonany w œrodowisku uruchomieniowym .NET Frameworka. Poziom trudnoœci nauki C\# uznawany jest za stosunkowo niski, g³ównie z powodu posiadania licznych udogodnieñ oraz modu³ów, które upraszczaj¹ pracê programistyczn¹. Do elementów tych mo¿na zaliczyæ brak koniecznoœci dodawania plików nag³ówkowych, które niezbêdne by³y w jêzyku C++, automatyczne zwalnianie dynamicznie przydzielonej pamiêci za które odpowiedzialny jest Garbage Collection, inicjalizowanie zmiennych ich domyœlnymi wartoœciami oraz wprowadzenie dodatkowych elementów sk³adowych klas, takich jak indeksery oraz w³aœciwoœci (ang. properties).
+
+\subsubsection{WPF / XAML}
+
+Windows Presentation Foundation (WPF) jest to silnik graficzny, który wprowadzony zosta³a wraz z trzeci¹ wersj¹ œrodowiska .NET. Okna w aplikacjach zaimplementowanych w WPF wyœwietlane s¹ za pomoc¹ grafiki wektorowej, która to wspomagana jest przez akceleratory grafiki 3D. API w technologi WPF opiera siê na jêzyku XML, a konkretniej jego odmianie - XAML. Extensible Application Markup Language (XAML) jest to deklaratywny jêzyk znaczników, którego przeznaczeniem jest opis interfejsu u¿ytkownika implementowanego w WPF. Pozwala on zaprojektowanie oraz rozmieszczenie wszelakich elementów wizualnych oraz umo¿liwia zrównoleglenie pracy programistów pracuj¹cych nad logik¹ biznesow¹ budowanej aplikacji oraz grafików, którzy odpowiedzialni s¹ za stworzenie graficznego interfejsu u¿ytkownika. Zdarza siê, i¿ graficy przez wzgl¹d na zakres swoich obowi¹zków nie znaj¹ ¿adnego jêzyka programowania. Problem ten zanika dziêki jêzykowi XAML, który pozwala na zrozumienie przez osoby nietechniczne zasady dzia³ania oraz powi¹zañ poszczególnych okien, a tak¿e umo¿liwia projektowanie GUI w prosty sposób z poziomu drzewiastej struktury lub dedykowanego programu graficznego Expression Blend. Aplikacja ta umo¿liwia przeprowadzenie wszelkich operacji z poziomu graficznego œrodowiska.
+
+\subsubsection{TSQL}
+
+Transaction-SQL (T-SQL) jest to rozwiniêcie standardowego jêzyka SQL, który to utworzony zosta³ w latach siedemdziesi¹tych specjalnie na potrzeby relacyjnych baz danych przez firmê IBM. T-SQL pozwala na tworzenie konstrukcji takich jak instrukcje warunkowe i pêtle oraz umo¿liwia stosowanie zmiennych. Aktualnie stosowany on jest do tworzenia zapytañ bazodanowych przez firmy, które potrzebuj¹ bardziej zaawansowanych struktur ni¿ tych, które dostêpne s¹ w SQL. T-SQL wprowadzi³ mo¿liwoœæ stosowania bazodanowych wyzwalaczy, procedur oraz funkcji sk³adowanych, które to przy rozbudowanej strukturze tabel u³atwiaj¹ i zwiêkszaj¹ efektywnoœæ podczas pracy bazy danych.
 
 \subsection{Zastosowane narzêdzia}
+
+W celu efektywnej pracy z technologiami, które opisane zosta³y w rozdziale 4.1 warto u¿yæ dedykowanych narzêdzi, które u³atwiaj¹ zastosowanie potencja³u wspomnianych technologii. W tym celu w trakcie pracy nad prezentowanych projektem magisterskim, u¿ytych zosta³o kilka narzêdzi, które pozwoli³y skróciæ czas potrzebny na implementacjê aplikacji, przeprowadzenie badañ oraz zagregowanie ich rezultatów.
 
 \subsubsection{Matlab}
 
@@ -168,11 +187,7 @@ W czasie pracy nad aplikacj¹ automatyzuj¹c¹ proces przeprowadzania testów wykorz
 \subsection{Wykorzystane biblioteki zewnêtrzne}
 \subsubsection{Matlab Application Type Library v.1.0}
 
-\subsection{Zastosowane technologie}
-\subsubsection{.NET Framework/C\#}
-\subsubsection{WPF}
-\subsubsection{XAML}
-\subsubsection{TSQL}
+
 
 \section{Architektura budowanej aplikacji}
 \subsection{Architektura aplikacji}
