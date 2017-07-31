@@ -150,9 +150,10 @@ Pierwszym z takich operatorów jest krzy¿owanie, które jest operacj¹ umo¿liwiaj¹c
 Drugim operatorem genetycznym jest mutacja, która umo¿liwia wprowadzenie nowego elementu do populacji poprzez tworzenie ró¿norodnoœci. Analogicznie jak w otaczaj¹cym nas œwiecie, tak i w algorytmie genetycznym, mutacje zdarzaj¹ siê rzadko. Ich skala zazwyczaj zale¿y od parametru, który przyjmuje niskie wartoœci. W odniesieniu do chromosomów w postaci binarnej, mutacja mo¿e polegaæ na losowej zamianie losowego genu na wartoœæ przeciwn¹. Tak utworzona nowa generacja ponownie przechodzi przez wszystkie punkty algorytmu. Dzieje siê tak a¿ do czasu, w którym spe³nione zostan¹ warunki zatrzymania, które w kontekœcie przedstawianego zagadnienia opisane zosta³y w rozdziale 6.1 opisuj¹cym metody porównawcze wybranych algorytmów obejmuj¹ce w swojej treœci warunki stopu opisanych trzech metaheurystyków.
 
 \section{Automatyzacja przeprowadzanych badañ}
-\section{Wykorzystane rozwi¹zania technologiczne}
 
-TODO
+Porównanie algorytmów metaheurystycznych w odniesieniu do problemu minimalizacji funkcji wielu zmiennych jest zadaniem bardzo skomplikowanym przez fakt iloœci doœwiadczeñ, które trzeba wykonaæ. Badania porównawcze przeprowadzane bêd¹ pod k¹tem kilku parametrów. Dla ka¿dego z nich nale¿y przeprowadziæ wielokrotne testy dla ka¿dego testowanego algorytmu. Ustalaj¹c próbkê testu na poziomie $10^4$ prób, z której bêdzie obliczana wartoœæ œrednia oraz bior¹c pod uwagê dwa parametry porównawcze, z których ka¿dy przyjmowaæ mo¿e dla przyk³adu dziesiêæ wartoœci, liczba testów dla jednego algorytmu oraz jednej funkcji testowej osi¹ga ju¿ wartoœæ $2*10^5$. Manualne przetwarzanie w œrodowisku Matlab przy ograniczonej funkcjonalnoœci agregowania wyników jest bardzo czasoch³onnym zadaniem. W tym celu zdecydowano siê zbudowaæ dedykowan¹ aplikacjê bazodanow¹, która bêdzie umo¿liwia³a automatyzacjê przedstawianej operacji. U¿ytkownik z poziomu aplikacji bêdzie mia³ mo¿liwoœæ wyboru funkcji testowej, algorytmu heurystycznego oraz jego parametrów a tak¿e liczby testów, która ma byæ przeprowadzona przy zadanych wartoœciach. Aplikacja automatycznie bêdzie wysy³a³a zapytania do œrodowiska obliczeniowego Matlab, obiera³a wyniki oraz umieszcza³a je w bazie danych, z której w prosty i efektywny sposób mo¿na bêdzie przeprowadziæ ich agregacjê w celu przedstawienia wyników i ich porównania. W ten sposób narzut pracy, który niezbêdny jest do implementacji przedstawionej aplikacji z ca³¹ pewnoœci¹ siê zwróci oraz umo¿liwi dalsz¹ analizê algorytmów w kontekœcie problemu funkcji wielu zmiennych poniewa¿ aplikacja napisana zostanie w sposób umo¿liwiaj¹cy proste dodanie kolejnych algorytmów funkcji testowych.
+
+\section{Wykorzystane rozwi¹zania technologiczne}
 
 \subsection{Zastosowane technologie}
 
@@ -177,17 +178,30 @@ W celu efektywnej pracy z technologiami, które opisane zosta³y w rozdziale 4.1 w
 
 \subsubsection{Matlab}
 
+TODO
+
 \subsubsection{SQL Server Management Studio 17}
 
 W czasie pracy nad aplikacj¹ automatyzuj¹c¹ proces przeprowadzania testów wykorzystano darmowe narzêdzie, którego przeznaczeniem jest zarz¹dzanie baz¹ danych - SQL Server Management Studio 17. Potrzeba u¿ycia narzêdzia wynik³a z istniej¹cej infrastruktury aplikacji, która opiera siê na rozwi¹zaniach Microsoftu. Zastosowane narzêdzie znacznie u³atwi³o pracê i wspomog³o proces projektowania bazy danych dziêki funkcjonalnoœci generowania diagramów, które umo¿liwi³y podgl¹d struktury bazy oraz relacji pomiêdzy poszczególnymi tabelami. Kolejn¹ olbrzymi¹ zalet¹ SQL Management Studio jest mo¿liwoœæ tworzenia zapytañ bazodanowych, które pozwalaj¹ w bardzo elastyczny sposób pogrupowaæ olbrzymie iloœci danych w wybrany przez u¿ytkownika sposób. Umo¿liwia to w szybkim tempie stworzenie statystyk zastosowanych algorytmów, które dynamicznie bêd¹ siê aktualizowa³y wraz z nap³ywem kolejnych danych do bazy.
 
 \subsubsection{Visual Studio 2015}
 
+Visual Studio jest to bardzo rozbudowane œrodowisko deweloperskie firmy Microsoft. Stosowane jest do procesu wytwarzania oprogramowania z graficznym interfejsem u¿ytkownika w technologii WPF, Win Forms, Web Sites oraz Xamarin. Visual Studio posiada zaawansowany edytor kodu, który wspiera mechanizm podpowiadania sk³adni kodu - IntelliSense, który mo¿e byæ dodatkowo rozbudowany poprzez dedykowane narzêdzia np. Resharper. Zintegrowany debbuger zawarty w œrodowisku Visual Studio umo¿liwia równie¿ analizê programu w czasie jego dzia³ania co w bardzo ³atwy sposób umo¿liwia odnalezienie potencjalnych b³êdów oraz sprawdzenie poprawnoœci zaimplementowanego rozwi¹zania. Funkcje te, wraz z wbudowanym designerem do tworzenia aplikacji WPF oraz narzêdziem do projektowania baz danych umo¿liwi³y skoncentrowanie pracy programistycznej przy jednym narzêdziu, dziêki czemu mo¿liwa by³a znaczna oszczêdnoœæ czasowa w temacie poszukiwañ niezbêdnych narzêdzi i ich integracji. Visual Studio, SQL Server Management Studio 17 oraz zastosowane technologie s¹ wytwarzane przez jedn¹ firmê - Microsoft. Dziêki temu aspektowi ich po³¹czenie i synchronizacja jest bezproblemowa i bardzo szybka.
+
+\subsubsection{Resharper}
+
+Wydajnoœæ pracy w temacie projektów programistycznych jest priorytetem, który bezpoœrednio przek³ada siê na oszczêdnoœæ czasow¹, a co za tym idzie na korzyœci finansowe. Dostêpne s¹ narzêdzia, których przeznaczeniem jest poprawienie efektywnoœci osoby implementuj¹cej aplikacjê poprzez kontrolê pisanego kodu wed³ug zdefiniowanych uprzednio zasad oraz zautomatyzowanie czêsto powtarzalnych czynnoœci. Resharper jest to dodatek do œrodowiska Visual Studio, który w znacznym stopniu rozbudowuje dostêpne jego funkcjonalnoœci, u³atwiaj¹c przy tym refaktoryzacjê oraz pisanie kodu. 
+Funkcje, które zastosowane byæ mog¹ z poziomu Resharpera mo¿na pogrupowaæ na kilkanaœcie grup, z których jedn¹ z najwa¿niejszych jest modu³, który zajmuje siê inspekcj¹ kodu. W trakcie pisania kodu z uruchomionym w tle Resharperem nastêpuje sprawdzanie w czasie rzeczywistym ponad 2000 zasad, które dotycz¹ jego poprawnoœci i w czasie znalezienia niespójnoœci, nastêpuje poinformowanie programisty  z poziomu interfejsu Visual Studio o zaistnia³ym b³êdzie wraz z jego szczegó³owym opisem i miejscem wyst¹pienia. Niespójnoœci te mog¹ dotyczyæ dla przyk³adu mo¿liwoœci zast¹pienia czêœci kodu jego wydajniejsz¹ wersj¹, ostrze¿eniem programisty przed fragmentem kodu, który potencjalnie mo¿e spowodowaæ b³êdne dzia³anie ca³ej aplikacji oraz fragmentami martwego kodu.
+Kolejn¹ bardzo wa¿n¹ grup¹ funkcji jest funkcja generowania kodu. W czasie pracy implementacyjnej, sporo czynnoœci takich jak edycja nazw czy pisanie nowych klas oraz metod notorycznie siê powtarza. Za pomoc¹ skrótów klawiaturowych, wszystkie powy¿sze akcje Resharper wykona za programistê. Wygeneruje on niezbêdne przy dziedziczeniu interfejsu wszystkie jego sk³adowe, przeniesie dan¹ klasê do odrêbnego pliku oraz automatycznie dokona zamiany wybranej nazwy na inn¹ w obrêbie ca³ej solucji. 
+Zaprezentowane funkcje Resharpera wraz z innymi, które dostêpne s¹ do wgl¹du w odnoœniku NUMER, umo¿liwi³y zmniejszenie czasu potrzebnego na implementacjê niezbêdnych w projekcie modu³ów poprzez zminimalizowanie liczby pojawiaj¹cych siê zagro¿eñ we wczesnej fazie implementacji oraz zautomatyzowanie powtarzalnych czynoœci.  
 
 \subsection{Wykorzystane biblioteki zewnêtrzne}
+
+W trakcie budowy systemu informatycznego zdarzaj¹ siê sytuacje, w których korzysta siê z aplikacji ró¿nych firm, które domyœlnie nie umo¿liwiaj¹ ich po³¹czenia. Problem taki wyst¹pi³ równie¿ w czasie pracy nad prezentowanym projektem magisterskim. U¿ycie narzêdzia innej firmy ni¿ Microsoft, jakim jest Matlab doprowdzi³o do koniecznoœci znalezienia metody jego po³¹czenia ze œrodowiskiem .NET
+
 \subsubsection{Matlab Application Type Library v.1.0}
 
-
+Matlab Application Type Library w wersji pierwszej jest to otwarta biblioteka przeznaczona dla œrodowiska .NET posiadaj¹ca API umo¿liwiaj¹ce wykonywanie opracji Matlabowych stosuj¹c sk³adniê C\#. Biblioteka ta umo¿liwia odwo³ywanie siê do uprzednio zdefiniowanych w Matlabie funkcji, dostarczaj¹c odpowiednie parametry oraz odbiera wynik obliczeñ, które mo¿e byæ dalej przetwarzane bez koniecznoœci manualnego kopiowania danych w aplikacji Matlab. Biblioteka posiada bardzo ogólnie zdefiniowane metody, do prawid³owego wykonania których niezbêdna jest szczegó³owa wiedza, która ograniczona jest jednak przez wzgl¹d na brak dokumentacji. Przy d³u¿szej pracy jest jednak mo¿liwe dojœcie do sposobu skorzystania z zaawansowanych funkcji które dostarcza œrodowisko Matlab. W rozdziale NUMER przedstawiono dok³adny sposób przekazywania i odbierania danych pomiêdzy œrodowiskiem Matlab oraz .NET.
 
 \section{Architektura budowanej aplikacji}
 \subsection{Architektura aplikacji}
