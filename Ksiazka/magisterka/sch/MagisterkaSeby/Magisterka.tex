@@ -204,8 +204,15 @@ W trakcie budowy systemu informatycznego zdarzaj¹ siê sytuacje, w których korzys
 Matlab Application Type Library w wersji pierwszej jest to otwarta biblioteka przeznaczona dla œrodowiska .NET posiadaj¹ca API umo¿liwiaj¹ce wykonywanie opracji Matlabowych stosuj¹c sk³adniê C\#. Biblioteka ta umo¿liwia odwo³ywanie siê do uprzednio zdefiniowanych w Matlabie funkcji, dostarczaj¹c odpowiednie parametry oraz odbiera wynik obliczeñ, które mo¿e byæ dalej przetwarzane bez koniecznoœci manualnego kopiowania danych w aplikacji Matlab. Biblioteka posiada bardzo ogólnie zdefiniowane metody, do prawid³owego wykonania których niezbêdna jest szczegó³owa wiedza, która ograniczona jest jednak przez wzgl¹d na brak dokumentacji. Przy d³u¿szej pracy jest jednak mo¿liwe dojœcie do sposobu skorzystania z zaawansowanych funkcji które dostarcza œrodowisko Matlab. W rozdziale NUMER przedstawiono dok³adny sposób przekazywania i odbierania danych pomiêdzy œrodowiskiem Matlab oraz .NET.
 
 \section{Architektura budowanej aplikacji}
+
+Budowanie bazodanowej aplikacji komputerowej ³¹cz¹cej siê z systemem trzecim wymaga szczegó³owej analizy wszystkich elementów, które maj¹ odniesienie do jej architektury. Przez koniecznoœæ budowy dwóch oddzielnych elementów - bazy danych oraz aplikacji desktopowej, analiza ta podzielona zosta³ na czêœæ odwo³uj¹c¹ siê do architektury aplikacji, modelowania bazy danych oraz komunikacji bazy danych z projektem programistycznym oraz komunikacji œrodowiska Matlab z implementowan¹ aplikacj¹. 
 \subsection{Architektura aplikacji}
+
+W aspekcie programowania, podobnie jak w innych dziedzinach, w których przeprowadzana jest operacja budowy zadanego elementu, trzeba dok³adnie zaplanowaæ jego proces. W przedstawianym rozdziale przedstawiony zosta³ opis metodologii, która pozwala na uporz¹dkowanie procesu budowania aplikacji komputerowej wraz z jej odmian¹, która zastosowana zosta³a podczas pracy nad niniejsz¹ prac¹ magistersk¹. W rozdziale XXXXX zosta³ równie¿ zawarty szczegó³owy opis poszczególnych elementów ze strony projektu programistycznego, który to jest efektem pracy implementacyjnej.
+ 
 \subsubsection{Wzorce architektoniczne oprogramowania}
+
+Bardzo dobr¹ praktyk¹ programistyczn¹ jest przeprowadzenie procesu budowy aplikacji w taki sposób, aby mo¿liwy by³ efektywny jej rozwój oraz dokonanie w ³atwy sposób zmian w istniej¹cych ju¿ funkcjonalnoœciach. W tym celu, budowê aplikacji nale¿y przeprowadzaæ zgodnie z ustalonymi etapami produkcji oprogramowania. Etapy te definiuj¹ obowi¹zek ustalenia wymagañ budowanego oprogramowania oraz okreœlenia jego ogólnej architektury. Czêœæ dotycz¹ca okreœlenia architektury jest niebywale wa¿na poniewa¿ zmiana architektury aplikacji podczas fazy implementacji jest niebywale problematyczna i w wielu przypadkach wrêcz niemo¿liwa bez koniecznoœci powtórnego rozpoczêcia pracy od pocz¹tku.0
 \subsubsection{Zastosowany wzorzec architektoniczny – MVVM}
 \subsubsection{Model aplikacji}
 \subsection{Architektura bazy danych}
@@ -215,7 +222,6 @@ Matlab Application Type Library w wersji pierwszej jest to otwarta biblioteka pr
 \subsubsection{Mapowanie obiektowo-relacyjne}
 \subsubsection{Zastosowane narzêdzie ORM – Entity Framework}
 \subsection{Komunikacja Matlaba z projektem programistycznym}
-\subsection{Opis okna u¿ytkownika}
 \section{Badania eksperymentalne}
 \subsection{Metody porównawcze wybranych algorytmów}
 \subsection{Opis przeprowadzonych badañ}
