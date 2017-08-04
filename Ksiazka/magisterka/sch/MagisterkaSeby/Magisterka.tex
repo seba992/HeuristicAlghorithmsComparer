@@ -266,7 +266,24 @@ potrzeb, które baza danych ma spe³niaæ oraz proces jej projektowania. Ju¿ na tym
 Umo¿liwienie kontaktu aplikacji z baz¹ dan¹ jest kluczow¹ kwesti¹, która odnosi siê do prawid³owego dzia³ania bazodanowego projektu programistycznego. Bezpieczne, stabilne oraz ci¹g³e po³¹czenie umo¿liwia pozbawione problemów przesy³anie danych z gwarancj¹ ich niezmiennoœci oraz odpowiedni¹ informacj¹ w momencie pojawienia siê b³êdu komunikacyjnego. W technologii .NET, w której implementowana jest aplikacja bazodanowa mo¿liwe jest kilka podejœæ do omawianego zagadnienia. Jednym z nich jest standardowe podejœcie udostêpniane przez ADO.NET oraz nowsze, które dotyczy komunikacji na poziomie obiektów.
 
 \subsubsection{Mapowanie obiektowo-relacyjne}
+
+Mapowanie obiektowo-relacyjne (ang. ORM - Object-Relational Mapping) jest to pojêcie, które dotyczy informatycznego terminu odnosz¹cego siê do wspó³pracy z baz¹ danych, przy wykorzystaniu programowania obiektowego. Dok³adnie chodzi tutaj o translacjê danych, które przechowywane s¹ w tabelach bazodanowych w relacyjnej bazie danych na postaæ obiektow¹, która dostêpna jest z poziomu projektu programistycznego. Przedstawiony sposób komunikacji jest sposobem bardzo u¿ytecznym przez wzgl¹d na brak koniecznoœci analizy struktury bazy danych przez programistê oraz umo¿liwienie pobierania oraz zapisu danych z poziomu kodu, unikaj¹c bazodanowego jêzyka zapytañ SQL.
+Aplikacje komputerowe, które u¿ywane s¹ przez wielu u¿ytkowników oraz wymagaj¹ pobierania i zapisywania du¿ych iloœci danych czêsto korzystaj¹ z serwerów bazodanowych. Serwery te pozwalaj¹ na przechowywanie danych bez ¿adnych przerw oraz ich szybkie wyszukiwanie, dodawanie oraz edytowanie. Aspekt ten jest bardzo trudny do osi¹gniêcia korzystaj¹c wy³¹cznie ze standardowych aplikacji. W technologii .NET, standardowa komunikacja z baz¹ danych przebiega za pomoc¹ protoko³u ADO.NET. Przy jego zastosowaniu, w celu pobrania danych, programista musi za ka¿dym razem po³¹czyæ siê z baz¹ danych, manualnie zapisaæ zapytanie SQL, odebraæ wynik, zapisaæ go w zmiennej oraz zamkn¹æ po³¹czenie. Schemat ten bardzo komplikuje kwestiê utrzymania aplikacji w sytuacji modyfikacji struktury bazy danych. Zapisane przez programistê zapytanie SQL nie jest w ogóle walidowane pod k¹tem poprawnoœci jego formy, a w sytuacji edycji kolumny bazodanowej, nastêpuje obowi¹zek uaktualnienia wszystkich zapytañ, które jej dotyczy³y. Przyk³adowy schemat pracy podczas korzystania z ADO.NET wraz z porównaniem analogicznej operacji w technologii ORM zaprezentowane zosta³o na poziomie kodu Ÿród³owego (TODO: dodaæ numer)
+
+tututu
+
+W implementowanej aplikacji dotycz¹cej prezentowanej pracy magisterskiej, zdecydowano siê przeciwdzia³aæ opisanym problemom, stosuj¹c framework, który w znacznym stopniu u³atwia programiœcie zastosowanie wszystkich operacji na poziomie komunikacji z baz¹ danych.
+
 \subsubsection{Zastosowane narzêdzie ORM – Entity Framework}
+
+Framework Entity Framework jest to dedykowane dla platformy .NET narzêdzie mapowania obiektowo-relacyjnego, którego zadaniem jest wspieranie budowy trójwarstwowych aplikacji bazodanowych. Budowa obiektowego modelu bazy danych w opisywanym narzêdziu mo¿e byæ wykonana na trzy sposoby.
+
+Pierwsz¹ metod¹ jest podejœcie \textit{Database First}, które jest u¿yteczne w sytuacji, w której dostêpna jest dzia³aj¹ca fizycznie baza danych. Korzystaj¹c z dostêpnego w frameworku kreatora, istnieje mo¿liwoœæ okreœlenia lokalizacji bazy oraz poddania jej automatycznemu mapowaniu, w wyniku którego wygenerowane zostaj¹ niezbêdne klasy obiektowego modelu bazy danych.
+
+Kolejnym sposobem jest \textit{Code First}, który pozwala na utworzenie fizycznego modelu bazy danych na podstawie klas napisanych w jêzyku C\# oraz ich odpowiednimi przypisami.
+
+Ostatni¹ metod¹ jest \textit{Model First}, które polega na utworzeniu fizycznego modelu bazy danych pos³uguj¹c siê wbudowanemu w Entity Framework Designerem, który w du¿ym stopniu upraszcza tworzenie w³aœciwoœci oraz encji bazodanowych. Œcie¿ka ta stosowana jest, gdy posiadany jest wy³¹cznie sam schemat bazy danych. Ze zbudowanego modelu nastêpuje wygenerowanie fizycznego modelu bazy danych jak i równie¿ klas, które reprezentuj¹ model obiektowy.
+
 \subsection{Komunikacja Matlaba z projektem programistycznym}
 
 \section{Badania eksperymentalne}
