@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Windows;
-using HeuristicAlghorithmsComparer.Database;
+using HeuristicAlghorithmsComparer.Model.Database;
 using HeuristicAlghorithmsComparer.Model.Parser;
 using HeuristicAlghorithmsComparer.Model.Utils;
 using HeuristicAlghorithmsComparer.Model.Wrappers;
@@ -46,26 +46,25 @@ namespace HeuristicAlghorithmsComparer.Model.Managers
 
                 _matlabContext.Feval(
                     alghoritmFileName,
-                    6, // OutputParamsNumber
+                    5, // OutputParamsNumber
                     out _computedResult,
                     (double)inputParameter.MaxTime,
                     (double)inputParameter.MaxIterations,
-                    (double)2, // Nvariables
                     (double)inputParameter.SwarmSize,
                     (double)inputParameter.MaxStallIterations,
                     testFunctionFileName,
-                    testFunction.BoundRange,
-                    testFunction.Dimension
+                    (double)testFunction.BoundRange,
+                    (double)testFunction.Dimension
                     );
 
 
-                return _resultParser.ParseParticleSwarmResult(_computedResult as object[]);
+                return _resultParser.ParseResult(_computedResult as object[]);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
+                throw;
             }
-            return null;
         }
 
         private ResultDetail ExecuteGeneticAlghoritmAlghoritm(Alghoritm alghoritm, TestFunction testFunction, InputParameter inputParameter)
@@ -79,26 +78,25 @@ namespace HeuristicAlghorithmsComparer.Model.Managers
 
                 _matlabContext.Feval(
                     alghoritmFileName,
-                    6, // OutputParamsNumber
+                    5, // OutputParamsNumber
                     out _computedResult,
                     (double)inputParameter.MaxTime,
                     (double)inputParameter.MaxIterations,
-                    (double)2, // Nvariables
-                    (double)inputParameter.SwarmSize,
+                    (double)inputParameter.PopulationSize,
                     (double)inputParameter.MaxStallIterations,
                     testFunctionFileName,
-                    testFunction.BoundRange,
-                    testFunction.Dimension
+                    (double)testFunction.BoundRange,
+                    (double)testFunction.Dimension
                     );
 
 
-                return _resultParser.ParseGeneticResult(_computedResult as object[]);
+                return _resultParser.ParseResult(_computedResult as object[]);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
+                throw;
             }
-            return null;
         }
 
         private ResultDetail ExecuteSimulatedAnnealingAlghoritm(Alghoritm alghoritm, TestFunction testFunction, InputParameter inputParameter)
@@ -112,7 +110,7 @@ namespace HeuristicAlghorithmsComparer.Model.Managers
 
                 _matlabContext.Feval(
                     alghoritmFileName,
-                    6, // OutputParamsNumber
+                    5, // OutputParamsNumber
                     out _computedResult,
                     (double)inputParameter.MaxTime,
                     (double)inputParameter.MaxIterations,
@@ -124,13 +122,13 @@ namespace HeuristicAlghorithmsComparer.Model.Managers
                     );
 
 
-                return _resultParser.ParseAnnealingResult(_computedResult as object[]);
+                return _resultParser.ParseResult(_computedResult as object[]);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
+                throw;
             }
-            return null;
         }
     }
 }

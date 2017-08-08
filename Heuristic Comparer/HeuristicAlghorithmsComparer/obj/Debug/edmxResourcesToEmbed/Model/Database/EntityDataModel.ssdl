@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EntityDataModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="EntityDataModelStoreContainer">
+    <EntitySet Name="Alghoritms" EntityType="EntityDataModel.Store.Alghoritms" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="InputParameters" EntityType="EntityDataModel.Store.InputParameters" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Results" EntityType="EntityDataModel.Store.Results" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ResultDetails" EntityType="EntityDataModel.Store.ResultDetails" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ExitFlags" EntityType="EntityDataModel.Store.ExitFlags" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TestFunctions" EntityType="EntityDataModel.Store.TestFunctions" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Points" EntityType="EntityDataModel.Store.Points" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="AlghoritmsResults" Association="EntityDataModel.Store.AlghoritmsResults">
+      <End Role="Alghoritms" EntitySet="Alghoritms" />
+      <End Role="Results" EntitySet="Results" />
+    </AssociationSet>
+    <AssociationSet Name="InputParametersResults" Association="EntityDataModel.Store.InputParametersResults">
+      <End Role="InputParameters" EntitySet="InputParameters" />
+      <End Role="Results" EntitySet="Results" />
+    </AssociationSet>
+    <AssociationSet Name="ExitFlagsResultDetails" Association="EntityDataModel.Store.ExitFlagsResultDetails">
+      <End Role="ExitFlags" EntitySet="ExitFlags" />
+      <End Role="ResultDetails" EntitySet="ResultDetails" />
+    </AssociationSet>
+    <AssociationSet Name="ResultDetailsResults" Association="EntityDataModel.Store.ResultDetailsResults">
+      <End Role="ResultDetails" EntitySet="ResultDetails" />
+      <End Role="Results" EntitySet="Results" />
+    </AssociationSet>
+    <AssociationSet Name="TestFunctionResult" Association="EntityDataModel.Store.TestFunctionResult">
+      <End Role="TestFunction" EntitySet="TestFunctions" />
+      <End Role="Result" EntitySet="Results" />
+    </AssociationSet>
+    <AssociationSet Name="ResultDetailPoint" Association="EntityDataModel.Store.ResultDetailPoint">
+      <End Role="ResultDetail" EntitySet="ResultDetails" />
+      <End Role="Point" EntitySet="Points" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Alghoritms">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="InputParameters">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaxTime" Type="int" Nullable="false" />
+    <Property Name="MaxIterations" Type="int" Nullable="false" />
+    <Property Name="MaxFunctionEvaluations" Type="int" Nullable="false" />
+    <Property Name="SwarmSize" Type="int" Nullable="true" />
+    <Property Name="PopulationSize" Type="int" Nullable="true" />
+    <Property Name="MaxStallIterations" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Results">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AlghoritmId" Type="int" Nullable="false" />
+    <Property Name="InputParametersId" Type="int" Nullable="false" />
+    <Property Name="ResultDetailsId" Type="int" Nullable="false" />
+    <Property Name="TestFunctionId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ResultDetails">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Iterations" Type="int" Nullable="false" />
+    <Property Name="FunctionEvaluations" Type="int" Nullable="false" />
+    <Property Name="BestFunctionValue" Type="decimal" Nullable="false" Precision="18" Scale="10" />
+    <Property Name="TotalTime" Type="decimal" Nullable="false" Precision="18" Scale="10" />
+    <Property Name="TerminatedMessage" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="ExitFlagId" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="ExitFlags">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TestFunctions">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DifficultyLevel" Type="int" Nullable="false" />
+    <Property Name="FunctionGraphLink" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="BoundRange" Type="int" Nullable="false" />
+    <Property Name="Dimension" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Points">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ResultDetailId" Type="int" Nullable="false" />
+    <Property Name="PointValue" Type="float" Nullable="false" />
+    <Property Name="ResultDimension" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="AlghoritmsResults">
+    <End Role="Alghoritms" Type="EntityDataModel.Store.Alghoritms" Multiplicity="1" />
+    <End Role="Results" Type="EntityDataModel.Store.Results" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Alghoritms">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Results">
+        <PropertyRef Name="AlghoritmId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="InputParametersResults">
+    <End Role="InputParameters" Type="EntityDataModel.Store.InputParameters" Multiplicity="1" />
+    <End Role="Results" Type="EntityDataModel.Store.Results" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="InputParameters">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Results">
+        <PropertyRef Name="InputParametersId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ExitFlagsResultDetails">
+    <End Role="ExitFlags" Type="EntityDataModel.Store.ExitFlags" Multiplicity="0..1" />
+    <End Role="ResultDetails" Type="EntityDataModel.Store.ResultDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ExitFlags">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ResultDetails">
+        <PropertyRef Name="ExitFlagId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ResultDetailsResults">
+    <End Role="ResultDetails" Type="EntityDataModel.Store.ResultDetails" Multiplicity="1" />
+    <End Role="Results" Type="EntityDataModel.Store.Results" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ResultDetails">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Results">
+        <PropertyRef Name="ResultDetailsId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TestFunctionResult">
+    <End Role="TestFunction" Type="EntityDataModel.Store.TestFunctions" Multiplicity="1" />
+    <End Role="Result" Type="EntityDataModel.Store.Results" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TestFunction">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Result">
+        <PropertyRef Name="TestFunctionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ResultDetailPoint">
+    <End Role="ResultDetail" Type="EntityDataModel.Store.ResultDetails" Multiplicity="1" />
+    <End Role="Point" Type="EntityDataModel.Store.Points" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ResultDetail">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Point">
+        <PropertyRef Name="ResultDetailId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

@@ -1,6 +1,4 @@
-﻿using System;
-using HeuristicAlghorithmsComparer.Model.Enums;
-using TestFunction = HeuristicAlghorithmsComparer.Database.TestFunction;
+﻿using HeuristicAlghorithmsComparer.Model.Database;
 
 namespace HeuristicAlghorithmsComparer.Model.Utils
 {

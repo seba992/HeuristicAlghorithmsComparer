@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Windows;
-using HeuristicAlghorithmsComparer.Database;
+using HeuristicAlghorithmsComparer.Model.Database;
 using HeuristicAlghorithmsComparer.Model.Managers;
 using HeuristicAlghorithmsComparer.Model.Wrappers;
 using Alghoritm = HeuristicAlghorithmsComparer.Model.Enums.Alghoritm;
@@ -68,7 +68,7 @@ namespace HeuristicAlghorithmsComparer.Model.Services
                     MaxTime = maxTime,
                     MaxIterations = maxGenerations, // MaxGenerations
                     PopulationSize = populationSize,
-                    MaxStallIterations = maxStall // MaxStallGenerations
+                    MaxStallIterations = maxStall, // MaxStallGenerations
                 };
 
                 var geneticResultsDetails = _alghoritmRequestManager.ExecuteAlghoritm(selectedAlghoritm, testFunction,

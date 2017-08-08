@@ -7,16 +7,14 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace HeuristicAlghorithmsComparer.Database
+namespace HeuristicAlghorithmsComparer.Model.Database
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Point
+    public partial class ExitFlag
     {
         public int Id { get; set; }
-        public int ResultDetailId { get; set; }
-        public double PointValue { get; set; }
-        public int ResultDimension { get; set; }
+        public string Description { get; set; }
     }
 }

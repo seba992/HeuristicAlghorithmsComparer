@@ -1,8 +1,5 @@
 ﻿using System;
-using HeuristicAlghorithmsComparer.Database;
-using HeuristicAlghorithmsComparer.Model.Enums;
-using Alghoritm = HeuristicAlghorithmsComparer.Database.Alghoritm;
-using TestFunction = HeuristicAlghorithmsComparer.Database.TestFunction;
+using HeuristicAlghorithmsComparer.Model.Database;
 
 namespace HeuristicAlghorithmsComparer.Model.Services
 {

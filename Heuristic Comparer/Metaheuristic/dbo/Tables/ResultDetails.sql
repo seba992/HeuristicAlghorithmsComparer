@@ -3,12 +3,14 @@
     [Iterations]          INT              NOT NULL,
     [FunctionEvaluations] INT              NOT NULL,
     [BestFunctionValue]   DECIMAL (18, 10) NOT NULL,
-    [TotalTime]           DECIMAL (10)     NOT NULL,
+    [TotalTime]           DECIMAL (18, 10) NOT NULL,
     [TerminatedMessage]   NVARCHAR (MAX)   NULL,
     [ExitFlagId]          INT              NULL,
     CONSTRAINT [PK_ResultDetails] PRIMARY KEY CLUSTERED ([Id] ASC),
     CONSTRAINT [FK_ExitFlagsResultDetails] FOREIGN KEY ([ExitFlagId]) REFERENCES [dbo].[ExitFlags] ([Id])
 );
+
+
 
 
 GO

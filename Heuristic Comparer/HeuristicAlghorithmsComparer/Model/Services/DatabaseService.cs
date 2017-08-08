@@ -2,7 +2,7 @@
 using System.Data.Entity.Validation;
 using System.Linq;
 using System.Windows;
-using HeuristicAlghorithmsComparer.Database;
+using HeuristicAlghorithmsComparer.Model.Database;
 using Alghoritm = HeuristicAlghorithmsComparer.Model.Enums.Alghoritm;
 
 namespace HeuristicAlghorithmsComparer.Model.Services

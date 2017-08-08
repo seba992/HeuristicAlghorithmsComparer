@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:ignore="http://www.galasoft.ch/ignore"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         mc:Ignorable="d ignore"
         Height="441"
         Width="534.5"
@@ -15,7 +16,32 @@
         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
     </Window.Resources>
 
-    <Grid x:Name="LayoutRoot">
+    <xctk:BusyIndicator IsBusy="{Binding IsIndicatorBusy}" BusyContent="{Binding}">
+        <xctk:BusyIndicator.BusyContentTemplate>
+            <DataTemplate>
+                <StackPanel Margin="4">
+                    <TextBlock Text="{Binding SelectedAlghoritm, StringFormat='Executing {0} tests'}" FontWeight="Bold" HorizontalAlignment="Center"/>
+                    <StackPanel Margin="4">
+                        <TextBlock>
+                            <TextBlock.Text>
+                                <MultiBinding StringFormat="Processing {0}/{1}">
+                                    <Binding Path="CurrentProgress"/>
+                                    <Binding Path="TestCount"/>
+                                </MultiBinding>
+                            </TextBlock.Text>
+                        </TextBlock>
+                        <ProgressBar Value="{Binding CurrentProgressPercentage}" Maximum="100" Height="15"/>
+                    </StackPanel>
+                </StackPanel>
+            </DataTemplate>
+        </xctk:BusyIndicator.BusyContentTemplate>
+        <xctk:BusyIndicator.ProgressBarStyle>
+            <Style TargetType="ProgressBar">
+                <Setter Property="Visibility" Value="Collapsed"/>
+            </Style>
+        </xctk:BusyIndicator.ProgressBarStyle>
+        
+        <Grid x:Name="LayoutRoot">
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
@@ -50,7 +76,7 @@
         <Label Content="Max czas działania:" HorizontalAlignment="Right" Grid.Row="4" Grid.Column="0"/>
         <TextBox Margin="2 2 2 2" Grid.Row="4" Grid.Column="1" PreviewTextInput="NumericOnly" Text="{Binding MaxTime}"/>
         <Label Content="Liczba testów:" HorizontalAlignment="Right" Grid.Row="5" Grid.Column="0" />
-        <TextBox Margin="2 2 2 2" Grid.Row="5" Grid.Column="1" PreviewTextInput="NumericOnly" Text="{Binding TestCount}"/>
+        <TextBox Margin="2 2 2 2" Grid.Row="5" Grid.Column="1" PreviewTextInput="NumericOnly" Text="{Binding TestCount, Mode=TwoWay}"/>
 
         <Label Content="{Binding IterationGenerationName, Mode=OneWay}" HorizontalAlignment="Right" Grid.Row="7"
                Grid.Column="0" />
@@ -64,6 +90,9 @@
         <Label Content="Max liczba generacji bez poprawy wyniku:" HorizontalAlignment="Right" Grid.Row="10"
                Grid.Column="0" />
         <TextBox Margin="2 2 2 2" Grid.Row="10" Grid.Column="1" PreviewTextInput="NumericOnly" Text="{Binding MaxStall}"/>
-        <Button Margin="2 2 2 2" Content="Uruchom" Grid.Column="2" Grid.Row="12" Command="{Binding ExecuteCommand}"/>
+        <Button Margin="2 2 2 2" Content="Uruchom" Grid.Column="2" Grid.Row="12" Command="{Binding ProgressBarCommand}"/>
+
+<!--        <ProgressBar Grid.Row="1" Grid.Column="1" Value="{Binding CurrentProgress}" Visibility="{Binding ProgressVisibility, Converter={StaticResource BooleanToVisibilityConverter}}"/>-->
     </Grid>
+        </xctk:BusyIndicator>
 </Window>

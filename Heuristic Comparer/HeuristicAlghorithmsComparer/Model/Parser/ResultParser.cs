@@ -1,12 +1,11 @@
 ﻿using System;
-using HeuristicAlghorithmsComparer.Database;
-using HeuristicAlghorithmsComparer.Model.Managers;
+using HeuristicAlghorithmsComparer.Model.Database;
 
 namespace HeuristicAlghorithmsComparer.Model.Parser
 {
     public class ResultParser : IResultParser
     {
-        public ResultDetail ParseAnnealingResult(object[] result)
+        public ResultDetail ParseResult(object[] result)
         {
             var resultDetails = new ResultDetail
             {
@@ -27,32 +26,6 @@ namespace HeuristicAlghorithmsComparer.Model.Parser
             }
 
             return resultDetails;
-        }
-
-        public ResultDetail ParseParticleSwarmResult(object[] result)
-        {
-            return new ResultDetail()
-            {
-            /*    FinalPointX = Convert.ToDecimal(result[0]),
-                FinalPointY = Convert.ToDecimal(result[1]),*/
-                BestFunctionValue = Convert.ToDecimal(result[2]),
-                Iterations = Convert.ToInt32(result[3]),
-                FunctionEvaluations = Convert.ToInt32(result[4]),
-                TotalTime = Convert.ToInt32(result[5])
-            };
-        }
-
-        public ResultDetail ParseGeneticResult(object[] result)
-        {
-            return new ResultDetail()
-            {
-               /* FinalPointX = Convert.ToDecimal(result[0]),
-                FinalPointY = Convert.ToDecimal(result[1]),*/
-                BestFunctionValue = Convert.ToDecimal(result[2]),
-                Iterations = Convert.ToInt32(result[3]),
-                FunctionEvaluations = Convert.ToInt32(result[4]),
-                TotalTime = Convert.ToInt32(result[5])
-            };
         }
     }
 }

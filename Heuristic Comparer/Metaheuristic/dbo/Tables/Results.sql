@@ -4,6 +4,7 @@
     [InputParametersId] INT NOT NULL,
     [ResultDetailsId]   INT NOT NULL,
     [TestFunctionId]    INT NOT NULL,
+	[CreatedOn]			DATETIME2 NOT NULL DEFAULT GETDATE(),
     CONSTRAINT [PK_Results] PRIMARY KEY CLUSTERED ([Id] ASC),
     CONSTRAINT [FK_AlghoritmsResults] FOREIGN KEY ([AlghoritmId]) REFERENCES [dbo].[Alghoritms] ([Id]),
     CONSTRAINT [FK_InputParametersResults] FOREIGN KEY ([InputParametersId]) REFERENCES [dbo].[InputParameters] ([Id]),

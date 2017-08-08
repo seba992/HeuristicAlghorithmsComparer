@@ -11,9 +11,8 @@
 
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
-using HeuristicAlghorithmsComparer.Database;
+using HeuristicAlghorithmsComparer.Model.Database;
 using Microsoft.Practices.ServiceLocation;
-using HeuristicAlghorithmsComparer.Model;
 using HeuristicAlghorithmsComparer.Model.Managers;
 using HeuristicAlghorithmsComparer.Model.Parser;
 using HeuristicAlghorithmsComparer.Model.Services;

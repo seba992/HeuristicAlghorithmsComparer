@@ -1,11 +1,9 @@
-﻿using HeuristicAlghorithmsComparer.Database;
+﻿using HeuristicAlghorithmsComparer.Model.Database;
 
 namespace HeuristicAlghorithmsComparer.Model.Parser
 {
     public interface IResultParser
     {
-        ResultDetail ParseAnnealingResult(object[] result);
-        ResultDetail ParseParticleSwarmResult(object[] result);
-        ResultDetail ParseGeneticResult(object[] result);
+        ResultDetail ParseResult(object[] result);
     }
 }

@@ -24,9 +24,4 @@
             return _matlabContext;
         }
     }
-
-    public interface IMatlabContextWrapper
-    {
-        MLApp.MLApp GetMatlabContext();
-    }
 }

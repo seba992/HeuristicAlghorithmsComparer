@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Windows.Input;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.CommandWpf;
-using HeuristicAlghorithmsComparer.Model;
 using HeuristicAlghorithmsComparer.Model.Enums;
 using HeuristicAlghorithmsComparer.Model.Services;
 
@@ -15,38 +13,46 @@ namespace HeuristicAlghorithmsComparer.ViewModel
     public class MainViewModel : ViewModelBase
     {
         private readonly IMatlabService _matlabService;
-        private Alghoritm _selectedAlghoritm;
-        private string _iterationGenerationName;
+        private int _currentProgress;
+        private bool _isIndicatorBusy;
         private bool _isPopulationAlghoritm;
+        private string _iterationGenerationName;
         private string _populationSwarmSizeName;
+        private Alghoritm _selectedAlghoritm;
+        private BackgroundWorker _worker;
+        private int _currentProgressPercentage;
+        private int _testCount;
 
         public MainViewModel(IMatlabService matlabService)
         {
             _matlabService = matlabService;
-            ExecuteCommand = new RelayCommand(ExecuteAction);
-
-            SelectedAlghoritm = Alghoritm.SimulatedAnnealing;
             ActivateButtonLogic(SelectedAlghoritm);
-
-            SelectedTestFunction = TestFunction.Bochachevsky;
-
-            SetDefaultValues();
-        }
-
-        private void SetDefaultValues()
-        {
-            MaxTime = 5;
-            TestCount = 1;
-            MaxIterations = 1000;
-            MaxStall = 1000;
-            MaxFunctionEvaluations = 1000;
+            SetDefaultWindowValues();
+            InitializeBackgroundWorker();
+            ProgressBarCommand = new RelayCommand(() => { _worker.RunWorkerAsync(); });
         }
 
         public ICommand ExecuteCommand { get; set; }
 
+        public ICommand ProgressBarCommand { get; set; }
+
+        public TestFunction SelectedTestFunction { get; set; }
+
         public IList<Alghoritm> AlghoritmTypes => Enum.GetValues(typeof(Alghoritm)).Cast<Alghoritm>().ToList();
 
         public IList<TestFunction> TestFunctions => Enum.GetValues(typeof(TestFunction)).Cast<TestFunction>().ToList();
+
+        public int MaxTime { get; set; }
+
+        public int MaxIterations { get; set; }
+
+        public int MaxFunctionEvaluations { get; set; }
+
+        public int MaxStall { get; set; }
+
+        public int PopulationSwarmSize { get; set; }
+
+        public bool ProgressVisibility { get; set; }
 
         public Alghoritm SelectedAlghoritm
         {
@@ -73,34 +79,88 @@ namespace HeuristicAlghorithmsComparer.ViewModel
             get { return _populationSwarmSizeName; }
             set
             {
-                _populationSwarmSizeName = value; 
+                _populationSwarmSizeName = value;
                 RaisePropertyChanged();
             }
         }
-
-        public TestFunction SelectedTestFunction { get; set; }
 
         public bool IsPopulationAlghoritm
         {
             get { return _isPopulationAlghoritm; }
             set
             {
-                _isPopulationAlghoritm = value; 
+                _isPopulationAlghoritm = value;
                 RaisePropertyChanged();
             }
         }
 
-        public int TestCount { get; set; }
+        public int CurrentProgress
+        {
+            get { return _currentProgress; }
+            set
+            {
+                if (_currentProgress == value) return;
+                _currentProgress = value;
+                CurrentProgressPercentage = GetPercentageProcessValue(value);
+                RaisePropertyChanged();
+            }
+        }
 
-        public int MaxTime { get; set; }
+        public int CurrentProgressPercentage
+        {
+            get { return _currentProgressPercentage; }
+            set
+            {
+                _currentProgressPercentage = value;
+                RaisePropertyChanged();
+            }
+        }
 
-        public int MaxIterations { get; set; }
+        public bool IsIndicatorBusy
+        {
+            get { return _isIndicatorBusy; }
+            set
+            {
+                _isIndicatorBusy = value;
+                RaisePropertyChanged();
+            }
+        }
 
-        public int MaxFunctionEvaluations { get; set; }
+        public int TestCount
+        {
+            get { return _testCount; }
+            set
+            {
+                _testCount = value;
+                RaisePropertyChanged();
+            }
+        }
 
-        public int MaxStall { get; set; }
+        private int GetPercentageProcessValue(int value)
+        {
+            return (int)Math.Floor((double)(value * 100 / TestCount));
+        }
 
-        public int PopulationSwarmSize { get; set; }
+        private void InitializeBackgroundWorker()
+        {
+            _worker = new BackgroundWorker {WorkerReportsProgress = true};
+            _worker.DoWork += ExecuteAction;
+            _worker.ProgressChanged += ProgressChanged;
+            _worker.RunWorkerCompleted += (sender, args) => IsIndicatorBusy = false;
+        }
+
+        private void SetDefaultWindowValues()
+        {
+            MaxTime = 5;
+            TestCount = 1;
+            MaxIterations = 1000;
+            MaxStall = 1000;
+            MaxFunctionEvaluations = 1000;
+            PopulationSwarmSize = 1000;
+            SelectedAlghoritm = Alghoritm.SimulatedAnnealing;
+            SelectedTestFunction = TestFunction.Bochachevsky;
+        }
+
         private void ActivateButtonLogic(Alghoritm alghoritm)
         {
             IterationGenerationName = alghoritm == Alghoritm.SimulatedAnnealing
@@ -113,45 +173,64 @@ namespace HeuristicAlghorithmsComparer.ViewModel
             IsPopulationAlghoritm = alghoritm != Alghoritm.SimulatedAnnealing;
         }
 
-        private void ExecuteAction()
+        private void ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
+            CurrentProgress = e.ProgressPercentage;
+        }
+
+        private void ExecuteAction(object sender, DoWorkEventArgs e)
+        {
+            IsIndicatorBusy = true;
+
             switch (SelectedAlghoritm)
             {
                 case Alghoritm.SimulatedAnnealing:
-                    ExecuteSimulatedAnnealingTest(SelectedTestFunction, SelectedAlghoritm, MaxTime, MaxIterations, MaxFunctionEvaluations, MaxStall, TestCount);
+                    ExecuteSimulatedAnnealingTest(SelectedTestFunction, SelectedAlghoritm, MaxTime, MaxIterations,
+                        MaxFunctionEvaluations, MaxStall, TestCount);
                     break;
                 case Alghoritm.ParticleSwarmOptimization:
-                    ExecuteParticleSwarmTest(SelectedTestFunction, SelectedAlghoritm, MaxTime, MaxIterations, PopulationSwarmSize, MaxStall, TestCount);
+                    ExecuteParticleSwarmTest(SelectedTestFunction, SelectedAlghoritm, MaxTime, MaxIterations,
+                        PopulationSwarmSize, MaxStall, TestCount);
                     break;
                 case Alghoritm.GeneticAlghoritm:
-                    ExecuteGeneticAlghoritmTest(SelectedTestFunction, SelectedAlghoritm, MaxTime, MaxIterations, PopulationSwarmSize, MaxStall, TestCount);
+                    ExecuteGeneticAlghoritmTest(SelectedTestFunction, SelectedAlghoritm, MaxTime, MaxIterations,
+                        PopulationSwarmSize, MaxStall, TestCount);
                     break;
                 default:
                     throw new InvalidEnumArgumentException();
             }
         }
 
-        private void ExecuteSimulatedAnnealingTest(TestFunction testFunction, Alghoritm alghoritm, int maxTime, int maxIterations, int maxFunctionEvaluations, int maxStall, int testCount)
+        private void ExecuteSimulatedAnnealingTest(TestFunction testFunction, Alghoritm alghoritm, int maxTime,
+            int maxIterations, int maxFunctionEvaluations, int maxStall, int testCount)
         {
             for (var i = 0; i < testCount; i++)
             {
-                _matlabService.ExecuteSimulatedAnnealing(testFunction,alghoritm,maxTime,maxIterations,maxFunctionEvaluations,maxStall);
+                _matlabService.ExecuteSimulatedAnnealing(testFunction, alghoritm, maxTime, maxIterations,
+                    maxFunctionEvaluations, maxStall);
+                _worker.ReportProgress(i);
             }
         }
 
-        private void ExecuteGeneticAlghoritmTest(TestFunction testFunction, Alghoritm alghoritm, int maxTime, int maxGenerations, int populationSize, int maxStall, int testCount)
+        private void ExecuteGeneticAlghoritmTest(TestFunction testFunction, Alghoritm alghoritm, int maxTime,
+            int maxGenerations, int populationSize, int maxStall, int testCount)
         {
             for (var i = 0; i < testCount; i++)
             {
-                _matlabService.ExecuteSimulatedAnnealing(testFunction, alghoritm, maxTime, maxGenerations, populationSize, maxStall);
+                _matlabService.ExecuteGeneticAlghoritm(testFunction, alghoritm, maxTime, maxGenerations, populationSize,
+                    maxStall);
+                _worker.ReportProgress(i);
             }
         }
 
-        private void ExecuteParticleSwarmTest(TestFunction testFunction, Alghoritm alghoritm, int maxTime, int maxGenerations, int swarmSize, int maxStall, int testCount)
+        private void ExecuteParticleSwarmTest(TestFunction testFunction, Alghoritm alghoritm, int maxTime,
+            int maxGenerations, int swarmSize, int maxStall, int testCount)
         {
             for (var i = 0; i < testCount; i++)
             {
-                _matlabService.ExecuteSimulatedAnnealing(testFunction, alghoritm, maxTime, maxGenerations, swarmSize, maxStall);
+                _matlabService.ExecuteParticleSwarmTest(testFunction, alghoritm, maxTime, maxGenerations, swarmSize,
+                    maxStall);
+                _worker.ReportProgress(i);
             }
         }
     }

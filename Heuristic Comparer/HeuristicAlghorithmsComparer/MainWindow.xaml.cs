@@ -19,18 +19,17 @@ namespace HeuristicAlghorithmsComparer
 
         private void NumericOnly(System.Object sender, System.Windows.Input.TextCompositionEventArgs e)
         {
-            e.Handled = IsTextNumeric(e.Text);
-
+            e.Handled = IsTextPositiveNumeric(e.Text);
         }
 
 
-        private static bool IsTextNumeric(string str)
+        private static bool IsTextPositiveNumeric(string str)
         {
             int num;
             int.TryParse(str, out num);
 
             System.Text.RegularExpressions.Regex reg = new System.Text.RegularExpressions.Regex("[^0-9]");
-            return reg.IsMatch(str) && num != 0;
+            return reg.IsMatch(str) && num > 0;
 
         }
     }

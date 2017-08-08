@@ -1,4 +1,4 @@
-﻿using HeuristicAlghorithmsComparer.Database;
+﻿using HeuristicAlghorithmsComparer.Model.Database;
 
 namespace HeuristicAlghorithmsComparer.Model
 {

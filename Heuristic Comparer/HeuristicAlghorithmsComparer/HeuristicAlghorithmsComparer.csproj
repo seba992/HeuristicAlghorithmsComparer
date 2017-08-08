@@ -80,46 +80,70 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="Xceed.Wpf.AvalonDock, Version=3.1.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.1\lib\net40\Xceed.Wpf.AvalonDock.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Aero, Version=3.1.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.1\lib\net40\Xceed.Wpf.AvalonDock.Themes.Aero.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Metro, Version=3.1.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.1\lib\net40\Xceed.Wpf.AvalonDock.Themes.Metro.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.VS2010, Version=3.1.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.1\lib\net40\Xceed.Wpf.AvalonDock.Themes.VS2010.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xceed.Wpf.DataGrid, Version=3.1.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.1\lib\net40\Xceed.Wpf.DataGrid.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xceed.Wpf.Toolkit, Version=3.1.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.1\lib\net40\Xceed.Wpf.Toolkit.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Database\Alghoritm.cs">
+    <Compile Include="Model\Database\Alghoritm.cs">
       <DependentUpon>MetaheuristicsDbContext.tt</DependentUpon>
     </Compile>
-    <Compile Include="Database\EntityDataModel.Designer.cs">
+    <Compile Include="Model\Database\EntityDataModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>EntityDataModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Database\ExitFlag.cs">
+    <Compile Include="Model\Database\ExitFlag.cs">
       <DependentUpon>MetaheuristicsDbContext.tt</DependentUpon>
     </Compile>
-    <Compile Include="Database\InputParameter.cs">
+    <Compile Include="Model\Database\InputParameter.cs">
       <DependentUpon>MetaheuristicsDbContext.tt</DependentUpon>
     </Compile>
-    <Compile Include="Database\MetaheuristicsDbContext.Context.cs">
+    <Compile Include="Model\Database\MetaheuristicsDbContext.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>MetaheuristicsDbContext.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Database\MetaheuristicsDbContext.cs">
+    <Compile Include="Model\Database\MetaheuristicsDbContext.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>MetaheuristicsDbContext.tt</DependentUpon>
     </Compile>
-    <Compile Include="Database\Point.cs">
+    <Compile Include="Model\Database\Point.cs">
       <DependentUpon>MetaheuristicsDbContext.tt</DependentUpon>
     </Compile>
-    <Compile Include="Database\Result.cs">
+    <Compile Include="Model\Database\Result.cs">
       <DependentUpon>MetaheuristicsDbContext.tt</DependentUpon>
     </Compile>
-    <Compile Include="Database\ResultDetail.cs">
+    <Compile Include="Model\Database\ResultDetail.cs">
       <DependentUpon>MetaheuristicsDbContext.tt</DependentUpon>
     </Compile>
-    <Compile Include="Database\TestFunction.cs">
+    <Compile Include="Model\Database\TestFunction.cs">
       <DependentUpon>MetaheuristicsDbContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Design\DesignDataService.cs" />
@@ -141,6 +165,7 @@
     <Compile Include="Model\Services\IDatabaseService.cs" />
     <Compile Include="Model\Enums\TestFunction.cs" />
     <Compile Include="Model\Utils\FunctionNameMatcher.cs" />
+    <Compile Include="Model\Wrappers\IMatlabContextWrapper.cs" />
     <Compile Include="Model\Wrappers\MatlabContextWrapper.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
@@ -183,11 +208,11 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="Database\EntityDataModel.edmx">
+    <EntityDeploy Include="Model\Database\EntityDataModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>EntityDataModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Database\EntityDataModel.edmx.diagram">
+    <None Include="Model\Database\EntityDataModel.edmx.diagram">
       <DependentUpon>EntityDataModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
@@ -212,13 +237,13 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Database\EntityDataModel.edmx.sql" />
-    <Content Include="Database\MetaheuristicsDbContext.Context.tt">
+    <Content Include="Model\Database\EntityDataModel.edmx.sql" />
+    <Content Include="Model\Database\MetaheuristicsDbContext.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>MetaheuristicsDbContext.Context.cs</LastGenOutput>
       <DependentUpon>EntityDataModel.edmx</DependentUpon>
     </Content>
-    <Content Include="Database\MetaheuristicsDbContext.tt">
+    <Content Include="Model\Database\MetaheuristicsDbContext.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>MetaheuristicsDbContext.cs</LastGenOutput>
       <DependentUpon>EntityDataModel.edmx</DependentUpon>

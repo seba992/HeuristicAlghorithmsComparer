@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="EntityDataModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+  <EntityContainer Name="EntityDataModelContainer" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Alghoritms" EntityType="EntityDataModel.Alghoritm" />
+    <EntitySet Name="InputParameters" EntityType="EntityDataModel.InputParameter" />
+    <EntitySet Name="Results" EntityType="EntityDataModel.Result" />
+    <AssociationSet Name="AlghoritmsResults" Association="EntityDataModel.AlghoritmsResults">
+      <End Role="Alghoritms" EntitySet="Alghoritms" />
+      <End Role="Results" EntitySet="Results" />
+    </AssociationSet>
+    <AssociationSet Name="InputParametersResults" Association="EntityDataModel.InputParametersResults">
+      <End Role="InputParameters" EntitySet="InputParameters" />
+      <End Role="Results" EntitySet="Results" />
+    </AssociationSet>
+    <EntitySet Name="ResultDetails" EntityType="EntityDataModel.ResultDetail" />
+    <EntitySet Name="ExitFlags" EntityType="EntityDataModel.ExitFlag" />
+    <AssociationSet Name="ExitFlagsResultDetails" Association="EntityDataModel.ExitFlagsResultDetails">
+      <End Role="ExitFlags" EntitySet="ExitFlags" />
+      <End Role="ResultDetails" EntitySet="ResultDetails" />
+    </AssociationSet>
+    <AssociationSet Name="ResultDetailsResults" Association="EntityDataModel.ResultDetailsResults">
+      <End Role="ResultDetails" EntitySet="ResultDetails" />
+      <End Role="Results" EntitySet="Results" />
+    </AssociationSet>
+    <EntitySet Name="TestFunctions" EntityType="EntityDataModel.TestFunction" />
+    <AssociationSet Name="TestFunctionResult" Association="EntityDataModel.TestFunctionResult">
+      <End Role="TestFunction" EntitySet="TestFunctions" />
+      <End Role="Result" EntitySet="Results" />
+    </AssociationSet>
+    <EntitySet Name="Points" EntityType="EntityDataModel.Point" />
+    <AssociationSet Name="ResultDetailPoint" Association="EntityDataModel.ResultDetailPoint">
+      <End Role="ResultDetail" EntitySet="ResultDetails" />
+      <End Role="Point" EntitySet="Points" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Alghoritm">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="InputParameter">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaxTime" Type="Int32" Nullable="false" />
+    <Property Name="MaxIterations" Type="Int32" Nullable="false" />
+    <Property Name="MaxFunctionEvaluations" Type="Int32" Nullable="false" />
+    <Property Name="SwarmSize" Type="Int32" Nullable="true" />
+    <Property Name="PopulationSize" Type="Int32" Nullable="true" />
+    <Property Name="MaxStallIterations" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Result">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Alghoritm" Relationship="EntityDataModel.AlghoritmsResults" FromRole="Results" ToRole="Alghoritms" />
+    <Property Name="AlghoritmId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="InputParameter" Relationship="EntityDataModel.InputParametersResults" FromRole="Results" ToRole="InputParameters" />
+    <Property Name="InputParametersId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="ResultDetail" Relationship="EntityDataModel.ResultDetailsResults" FromRole="Results" ToRole="ResultDetails" />
+    <Property Name="ResultDetailsId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="TestFunction" Relationship="EntityDataModel.TestFunctionResult" FromRole="Result" ToRole="TestFunction" />
+    <Property Name="TestFunctionId" Type="Int32" Nullable="false" />
+  </EntityType>
+  <Association Name="AlghoritmsResults">
+    <End Type="EntityDataModel.Alghoritm" Role="Alghoritms" Multiplicity="1" />
+    <End Type="EntityDataModel.Result" Role="Results" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Alghoritms">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Results">
+        <PropertyRef Name="AlghoritmId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="InputParametersResults">
+    <End Type="EntityDataModel.InputParameter" Role="InputParameters" Multiplicity="1" />
+    <End Type="EntityDataModel.Result" Role="Results" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="InputParameters">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Results">
+        <PropertyRef Name="InputParametersId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="ResultDetail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Iterations" Type="Int32" Nullable="false" />
+    <Property Name="FunctionEvaluations" Type="Int32" Nullable="false" />
+    <Property Name="BestFunctionValue" Type="Decimal" Nullable="false" Scale="10" Precision="18" />
+    <Property Name="TotalTime" Type="Decimal" Nullable="false" Precision="18" Scale="10" />
+    <Property Name="TerminatedMessage" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="ExitFlag" Relationship="EntityDataModel.ExitFlagsResultDetails" FromRole="ResultDetails" ToRole="ExitFlags" />
+    <Property Name="ExitFlagId" Type="Int32" Nullable="true" />
+    <NavigationProperty Name="Point" Relationship="EntityDataModel.ResultDetailPoint" FromRole="ResultDetail" ToRole="Point" />
+  </EntityType>
+  <EntityType Name="ExitFlag">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <Association Name="ExitFlagsResultDetails">
+    <End Type="EntityDataModel.ExitFlag" Role="ExitFlags" Multiplicity="0..1" />
+    <End Type="EntityDataModel.ResultDetail" Role="ResultDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ExitFlags">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ResultDetails">
+        <PropertyRef Name="ExitFlagId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ResultDetailsResults">
+    <End Type="EntityDataModel.ResultDetail" Role="ResultDetails" Multiplicity="1" />
+    <End Type="EntityDataModel.Result" Role="Results" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ResultDetails">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Results">
+        <PropertyRef Name="ResultDetailsId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="TestFunction">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="DifficultyLevel" Type="Int32" Nullable="false" />
+    <Property Name="FunctionGraphLink" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="BoundRange" Type="Int32" Nullable="false" />
+    <Property Name="Dimension" Type="Int32" Nullable="false" />
+  </EntityType>
+  <Association Name="TestFunctionResult">
+    <End Type="EntityDataModel.TestFunction" Role="TestFunction" Multiplicity="1" />
+    <End Type="EntityDataModel.Result" Role="Result" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TestFunction">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Result">
+        <PropertyRef Name="TestFunctionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Point">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ResultDetailId" Type="Int32" Nullable="false" />
+    <Property Name="PointValue" Type="Double" Nullable="false" />
+    <Property Name="ResultDimension" Type="Int32" Nullable="false" />
+  </EntityType>
+  <Association Name="ResultDetailPoint">
+    <End Type="EntityDataModel.ResultDetail" Role="ResultDetail" Multiplicity="1" />
+    <End Type="EntityDataModel.Point" Role="Point" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ResultDetail">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Point">
+        <PropertyRef Name="ResultDetailId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

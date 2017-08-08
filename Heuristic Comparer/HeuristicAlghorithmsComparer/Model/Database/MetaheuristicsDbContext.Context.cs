@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace HeuristicAlghorithmsComparer.Database
+namespace HeuristicAlghorithmsComparer.Model.Database
 {
     using System;
     using System.Data.Entity;

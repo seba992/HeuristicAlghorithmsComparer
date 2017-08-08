@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="EntityDataModelStoreContainer" CdmEntityContainer="EntityDataModelContainer">
+    <EntitySetMapping Name="Alghoritms">
+      <EntityTypeMapping TypeName="IsTypeOf(EntityDataModel.Alghoritm)">
+        <MappingFragment StoreEntitySet="Alghoritms">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InputParameters">
+      <EntityTypeMapping TypeName="IsTypeOf(EntityDataModel.InputParameter)">
+        <MappingFragment StoreEntitySet="InputParameters">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="MaxTime" ColumnName="MaxTime" />
+          <ScalarProperty Name="MaxIterations" ColumnName="MaxIterations" />
+          <ScalarProperty Name="MaxFunctionEvaluations" ColumnName="MaxFunctionEvaluations" />
+          <ScalarProperty Name="SwarmSize" ColumnName="SwarmSize" />
+          <ScalarProperty Name="PopulationSize" ColumnName="PopulationSize" />
+          <ScalarProperty Name="MaxStallIterations" ColumnName="MaxStallIterations" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Results">
+      <EntityTypeMapping TypeName="IsTypeOf(EntityDataModel.Result)">
+        <MappingFragment StoreEntitySet="Results">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="AlghoritmId" ColumnName="AlghoritmId" />
+          <ScalarProperty Name="InputParametersId" ColumnName="InputParametersId" />
+          <ScalarProperty Name="ResultDetailsId" ColumnName="ResultDetailsId" />
+          <ScalarProperty Name="TestFunctionId" ColumnName="TestFunctionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ResultDetails">
+      <EntityTypeMapping TypeName="IsTypeOf(EntityDataModel.ResultDetail)">
+        <MappingFragment StoreEntitySet="ResultDetails">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Iterations" ColumnName="Iterations" />
+          <ScalarProperty Name="FunctionEvaluations" ColumnName="FunctionEvaluations" />
+          <ScalarProperty Name="BestFunctionValue" ColumnName="BestFunctionValue" />
+          <ScalarProperty Name="TotalTime" ColumnName="TotalTime" />
+          <ScalarProperty Name="TerminatedMessage" ColumnName="TerminatedMessage" />
+          <ScalarProperty Name="ExitFlagId" ColumnName="ExitFlagId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ExitFlags">
+      <EntityTypeMapping TypeName="IsTypeOf(EntityDataModel.ExitFlag)">
+        <MappingFragment StoreEntitySet="ExitFlags">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TestFunctions">
+      <EntityTypeMapping TypeName="IsTypeOf(EntityDataModel.TestFunction)">
+        <MappingFragment StoreEntitySet="TestFunctions">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="DifficultyLevel" ColumnName="DifficultyLevel" />
+          <ScalarProperty Name="FunctionGraphLink" ColumnName="FunctionGraphLink" />
+          <ScalarProperty Name="BoundRange" ColumnName="BoundRange" />
+          <ScalarProperty Name="Dimension" ColumnName="Dimension" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Points">
+      <EntityTypeMapping TypeName="IsTypeOf(EntityDataModel.Point)">
+        <MappingFragment StoreEntitySet="Points">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ResultDetailId" ColumnName="ResultDetailId" />
+          <ScalarProperty Name="PointValue" ColumnName="PointValue" />
+          <ScalarProperty Name="ResultDimension" ColumnName="ResultDimension" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

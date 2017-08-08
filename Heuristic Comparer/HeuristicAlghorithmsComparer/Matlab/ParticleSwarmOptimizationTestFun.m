@@ -1,8 +1,8 @@
-function [x1,x2,fval,outIterations,outFunccount,outTotaltime] = ParticleSwarmTestFun( maxTime, maxIterations, Nvariables, swarmSize, maxStallIterations, funName, lowerBoundX, LowerBoundY, UpperBoundX, UpperBoundY )
+function [resultPointLoc,fval,outIterations,outFunccount,outTotaltime] = ParticleSwarmOptimizationTestFun( maxTime, maxIterations, swarmSize, maxStallIterations, funName, boundRange, dimension)
 ObjectiveFunction = str2func(funName);
 
-lb = [lowerBoundX LowerBoundY];
-ub = [UpperBoundX UpperBoundY];
+lb(1,1:dimension) = -boundRange; % = [boundRange boundRange];
+ub(1,1:dimension) = boundRange; % = [boundRange boundRange];
 
 options = optimoptions(@particleswarm, ...
     'MaxTime', maxTime, ...
@@ -11,10 +11,10 @@ options = optimoptions(@particleswarm, ...
     'MaxStallIterations', maxStallIterations);
                      %'PlotFcn',{@saplotbestf,@saplottemperature,@saplotf,@saplotstopping}) %
 tic              
-[x,fval,exitflag,output] = particleswarm(ObjectiveFunction,Nvariables,lb,ub,options);
+[x,fval,exitflag,output] = particleswarm(ObjectiveFunction,dimension,lb,ub,options);
 elapsedTime = toc;
-x1 = x(1);
-x2 = x(2);
+resultPointLoc = x;
+
 outIterations  = output.iterations;
 outFunccount = output.funccount;
 outTotaltime = elapsedTime;

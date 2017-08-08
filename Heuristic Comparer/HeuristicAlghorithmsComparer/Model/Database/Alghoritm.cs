@@ -7,19 +7,14 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace HeuristicAlghorithmsComparer.Database
+namespace HeuristicAlghorithmsComparer.Model.Database
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class InputParameter
+    public partial class Alghoritm
     {
         public int Id { get; set; }
-        public int MaxTime { get; set; }
-        public int MaxIterations { get; set; }
-        public int MaxFunctionEvaluations { get; set; }
-        public Nullable<int> SwarmSize { get; set; }
-        public Nullable<int> PopulationSize { get; set; }
-        public int MaxStallIterations { get; set; }
+        public string Name { get; set; }
     }
 }
