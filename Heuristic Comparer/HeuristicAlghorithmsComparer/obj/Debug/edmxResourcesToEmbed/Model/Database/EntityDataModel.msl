@@ -30,6 +30,7 @@
           <ScalarProperty Name="InputParametersId" ColumnName="InputParametersId" />
           <ScalarProperty Name="ResultDetailsId" ColumnName="ResultDetailsId" />
           <ScalarProperty Name="TestFunctionId" ColumnName="TestFunctionId" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

@@ -66,6 +66,7 @@
     <Property Name="InputParametersId" Type="int" Nullable="false" />
     <Property Name="ResultDetailsId" Type="int" Nullable="false" />
     <Property Name="TestFunctionId" Type="int" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="true" />
   </EntityType>
   <EntityType Name="ResultDetails">
     <Key>
@@ -397,6 +398,7 @@
           <ScalarProperty Name="InputParametersId" ColumnName="InputParametersId" />
           <ScalarProperty Name="ResultDetailsId" ColumnName="ResultDetailsId" />
           <ScalarProperty Name="TestFunctionId" ColumnName="TestFunctionId" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
