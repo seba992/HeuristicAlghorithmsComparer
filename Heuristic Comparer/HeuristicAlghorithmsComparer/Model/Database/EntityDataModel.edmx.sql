@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 07/05/2017 23:16:42
--- Generated from EDMX file: C:\Users\Sebastian Nalepka\Documents\HeuristicAlghorithmsComparer\Heuristic Comparer\HeuristicAlghorithmsComparer\Database\EntityDataModel.edmx
+-- Date Created: 08/10/2017 23:12:32
+-- Generated from EDMX file: C:\Users\Sebastian Nalepka\Documents\HeuristicAlghorithmsComparer\Heuristic Comparer\HeuristicAlghorithmsComparer\Model\Database\EntityDataModel.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -91,7 +91,8 @@ CREATE TABLE [dbo].[Results] (
     [AlghoritmId] int  NOT NULL,
     [InputParametersId] int  NOT NULL,
     [ResultDetailsId] int  NOT NULL,
-    [TestFunctionId] int  NOT NULL
+    [TestFunctionId] int  NOT NULL,
+    [CreatedOn] datetime  NULL
 );
 GO
 

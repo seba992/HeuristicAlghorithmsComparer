@@ -1,5 +1,5 @@
 % Eggholder function
-% https://www.sfu.ca/~ssurjano/egg.html, 18.92%, min=[512,404.2319]
+% https://www.sfu.ca/~ssurjano/egg.html, 18.92%, min=-959.6407 at [512,404.2319]
 function res = EggholderFun(x)
 % fprintf('Eggholder function 18.92%%, min=[512,404.2319]')
 x1 = x(1);

@@ -134,6 +134,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MetaheuristicsDbContext.tt</DependentUpon>
     </Compile>
+    <Compile Include="Design\DesignDataService.cs" />
+    <Compile Include="MetaheuristicResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MetaheuristicResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AlghoritmRequest.cs" />
     <Compile Include="Model\Database\Point.cs">
       <DependentUpon>MetaheuristicsDbContext.tt</DependentUpon>
     </Compile>
@@ -146,13 +153,6 @@
     <Compile Include="Model\Database\TestFunction.cs">
       <DependentUpon>MetaheuristicsDbContext.tt</DependentUpon>
     </Compile>
-    <Compile Include="Design\DesignDataService.cs" />
-    <Compile Include="MetaheuristicResources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MetaheuristicResources.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Model\AlghoritmRequest.cs" />
     <Compile Include="Model\Enums\Alghoritm.cs" />
     <Compile Include="Model\Managers\AlghoritmRequestManager.cs" />
     <Compile Include="Model\Managers\IAlghoritmRequestManager.cs" />
@@ -237,6 +237,8 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Matlab\AckleyFun.m" />
+    <Content Include="Matlab\ColvilleFun.m" />
     <Content Include="Model\Database\EntityDataModel.edmx.sql" />
     <Content Include="Model\Database\MetaheuristicsDbContext.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -248,9 +250,9 @@
       <LastGenOutput>MetaheuristicsDbContext.cs</LastGenOutput>
       <DependentUpon>EntityDataModel.edmx</DependentUpon>
     </Content>
-    <Content Include="Matlab\BealeFun.m" />
+    <Content Include="Matlab\zBealeFunOld.m" />
     <Content Include="Matlab\BochachevskyFun.m" />
-    <Content Include="Matlab\EasomFun.m" />
+    <Content Include="Matlab\zEasomFunOld.m" />
     <Content Include="Matlab\EggholderFun.m" />
     <Content Include="Matlab\GeneticAlghoritmTestFun.m" />
     <Content Include="Matlab\GriewankFun.m" />

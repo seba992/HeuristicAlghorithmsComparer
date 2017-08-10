@@ -19,6 +19,7 @@ namespace HeuristicAlghorithmsComparer.Model.Database
         public int InputParametersId { get; set; }
         public int ResultDetailsId { get; set; }
         public int TestFunctionId { get; set; }
+        public Nullable<System.DateTime> CreatedOn { get; set; }
     
         public virtual Alghoritm Alghoritm { get; set; }
         public virtual InputParameter InputParameter { get; set; }

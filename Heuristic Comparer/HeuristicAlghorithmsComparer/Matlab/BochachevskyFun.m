@@ -1,4 +1,4 @@
-% Bochachevsky function
+% Bochachevsky function - minimum=0 at 0,0
 % https://www.sfu.ca/~ssurjano/boha.html, 81.75%,  min=[0,0]
 function res = BochachevskyFun(x)
 % fprintf('Bochachevsky function 81.75%% min=[0,0]')

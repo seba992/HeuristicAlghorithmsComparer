@@ -1,5 +1,5 @@
 % Colville function
-% https://www.sfu.ca/~ssurjano/colville.html, 72.00%, min=[1,1,1,1], dim =4
+% https://www.sfu.ca/~ssurjano/colville.html, 72.00%, min=0 at [1,1,1,1], dim =4
 function res = ColvilleFun(x)
 % fprintf('Colville function 72.00%%, min=[1,1,1,1]')
 x1 = x(1);

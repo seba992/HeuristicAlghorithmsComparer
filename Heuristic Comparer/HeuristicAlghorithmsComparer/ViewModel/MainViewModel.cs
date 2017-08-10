@@ -61,6 +61,7 @@ namespace HeuristicAlghorithmsComparer.ViewModel
             {
                 _selectedAlghoritm = value;
                 ActivateButtonLogic(value);
+                RaisePropertyChanged();
             }
         }
 

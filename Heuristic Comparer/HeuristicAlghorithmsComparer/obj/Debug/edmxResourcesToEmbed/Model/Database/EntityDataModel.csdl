@@ -65,6 +65,7 @@
     <Property Name="ResultDetailsId" Type="Int32" Nullable="false" />
     <NavigationProperty Name="TestFunction" Relationship="EntityDataModel.TestFunctionResult" FromRole="Result" ToRole="TestFunction" />
     <Property Name="TestFunctionId" Type="Int32" Nullable="false" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="true" annotation:StoreGeneratedPattern="None" />
   </EntityType>
   <Association Name="AlghoritmsResults">
     <End Type="EntityDataModel.Alghoritm" Role="Alghoritms" Multiplicity="1" />
