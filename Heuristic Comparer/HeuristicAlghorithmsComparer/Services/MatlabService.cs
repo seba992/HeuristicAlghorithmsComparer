@@ -12,13 +12,11 @@ namespace HeuristicAlghorithmsComparer.Model.Services
     {
         private readonly IAlghoritmRequestManager _alghoritmRequestManager;
         private readonly IDatabaseService _databaseService;
-        private readonly MLApp.MLApp _matlabContext;
 
-        public MatlabService(IAlghoritmRequestManager alghoritmRequestManager, IMatlabContextWrapper matlabContextWrapper, IDatabaseService databaseService)
+        public MatlabService(IAlghoritmRequestManager alghoritmRequestManager, IDatabaseService databaseService)
         {
             _alghoritmRequestManager = alghoritmRequestManager;
             _databaseService = databaseService;
-            _matlabContext = matlabContextWrapper.GetMatlabContext();
         }
 
         public void ExecuteSimulatedAnnealing(TestFunction function, Alghoritm alghoritm, int maxTime, int maxIterations,

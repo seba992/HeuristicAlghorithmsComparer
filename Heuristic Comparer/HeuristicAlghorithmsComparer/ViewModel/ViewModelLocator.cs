@@ -36,7 +36,6 @@ namespace HeuristicAlghorithmsComparer.ViewModel
             if (ViewModelBase.IsInDesignModeStatic)
             {
                 
-                SimpleIoc.Default.Register<IDatabaseService, Design.DesignDataService>();
             }
             else
             {

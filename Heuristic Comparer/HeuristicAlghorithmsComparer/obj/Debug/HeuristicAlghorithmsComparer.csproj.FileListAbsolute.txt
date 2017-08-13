@@ -38,9 +38,6 @@ C:\Users\Sebastian Nalepka\Desktop\praca magisterska\HeuristicAlghorithmsCompare
 C:\Users\Sebastian Nalepka\Desktop\praca magisterska\HeuristicAlghorithmsComparerMvvm\HeuristicAlghorithmsComparer\HeuristicAlghorithmsComparer\obj\Debug\HeuristicAlghorithmsComparer.csproj.ResolveComReference.cache
 C:\Users\Sebastian Nalepka\Documents\HeuristicAlghorithmsComparer\Heuristic Comparer\HeuristicAlghorithmsComparer\obj\Debug\Interop.MLApp.dll
 C:\Users\Sebastian Nalepka\Documents\HeuristicAlghorithmsComparer\Heuristic Comparer\HeuristicAlghorithmsComparer\obj\Debug\HeuristicAlghorithmsComparer.csproj.ResolveComReference.cache
-C:\Users\Sebastian Nalepka\Documents\HeuristicAlghorithmsComparer\Heuristic Comparer\HeuristicAlghorithmsComparer\obj\Debug\MainWindow.baml
-C:\Users\Sebastian Nalepka\Documents\HeuristicAlghorithmsComparer\Heuristic Comparer\HeuristicAlghorithmsComparer\obj\Debug\Skins\MainSkin.baml
-C:\Users\Sebastian Nalepka\Documents\HeuristicAlghorithmsComparer\Heuristic Comparer\HeuristicAlghorithmsComparer\obj\Debug\MainWindow.g.cs
 C:\Users\Sebastian Nalepka\Documents\HeuristicAlghorithmsComparer\Heuristic Comparer\HeuristicAlghorithmsComparer\obj\Debug\App.g.cs
 C:\Users\Sebastian Nalepka\Documents\HeuristicAlghorithmsComparer\Heuristic Comparer\HeuristicAlghorithmsComparer\obj\Debug\HeuristicAlghorithmsComparer_Content.g.cs
 C:\Users\Sebastian Nalepka\Documents\HeuristicAlghorithmsComparer\Heuristic Comparer\HeuristicAlghorithmsComparer\obj\Debug\GeneratedInternalTypeHelper.g.cs
@@ -86,8 +83,11 @@ C:\Users\Sebastian Nalepka\Documents\HeuristicAlghorithmsComparer\Heuristic Comp
 C:\Users\Sebastian Nalepka\Documents\HeuristicAlghorithmsComparer\Heuristic Comparer\HeuristicAlghorithmsComparer\bin\Debug\zh-Hans\Xceed.Wpf.AvalonDock.resources.dll
 C:\Users\Sebastian Nalepka\Documents\HeuristicAlghorithmsComparer\Heuristic Comparer\HeuristicAlghorithmsComparer\obj\Debug\App.baml
 C:\Users\Sebastian Nalepka\Documents\HeuristicAlghorithmsComparer\Heuristic Comparer\HeuristicAlghorithmsComparer\obj\Debug\HeuristicAlghorithmsComparer.g.resources
-C:\Users\Sebastian Nalepka\Documents\HeuristicAlghorithmsComparer\Heuristic Comparer\HeuristicAlghorithmsComparer\obj\Debug\HeuristicAlghorithmsComparer.MetaheuristicResources.resources
 C:\Users\Sebastian Nalepka\Documents\HeuristicAlghorithmsComparer\Heuristic Comparer\HeuristicAlghorithmsComparer\obj\Debug\HeuristicAlghorithmsComparer.Properties.Resources.resources
 C:\Users\Sebastian Nalepka\Documents\HeuristicAlghorithmsComparer\Heuristic Comparer\HeuristicAlghorithmsComparer\obj\Debug\HeuristicAlghorithmsComparer.csproj.GenerateResource.Cache
 C:\Users\Sebastian Nalepka\Documents\HeuristicAlghorithmsComparer\Heuristic Comparer\HeuristicAlghorithmsComparer\obj\Debug\HeuristicAlghorithmsComparer.exe
 C:\Users\Sebastian Nalepka\Documents\HeuristicAlghorithmsComparer\Heuristic Comparer\HeuristicAlghorithmsComparer\obj\Debug\HeuristicAlghorithmsComparer.pdb
+C:\Users\Sebastian Nalepka\Documents\HeuristicAlghorithmsComparer\Heuristic Comparer\HeuristicAlghorithmsComparer\obj\Debug\HeuristicAlghorithmsComparer.csprojResolveAssemblyReference.cache
+C:\Users\Sebastian Nalepka\Documents\HeuristicAlghorithmsComparer\Heuristic Comparer\HeuristicAlghorithmsComparer\obj\Debug\View\MainWindow.baml
+C:\Users\Sebastian Nalepka\Documents\HeuristicAlghorithmsComparer\Heuristic Comparer\HeuristicAlghorithmsComparer\obj\Debug\View\MainWindow.g.cs
+C:\Users\Sebastian Nalepka\Documents\HeuristicAlghorithmsComparer\Heuristic Comparer\HeuristicAlghorithmsComparer\obj\Debug\HeuristicAlghorithmsComparer.MetaheuristicResources.resources

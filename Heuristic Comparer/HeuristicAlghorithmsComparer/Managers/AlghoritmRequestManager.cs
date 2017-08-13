@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Windows;
 using HeuristicAlghorithmsComparer.Model.Database;
 using HeuristicAlghorithmsComparer.Model.Parser;
@@ -30,9 +31,8 @@ namespace HeuristicAlghorithmsComparer.Model.Managers
                 case Enums.Alghoritm.GeneticAlghoritm:
                     return ExecuteGeneticAlghoritmAlghoritm(alghoritm, testFunction, inputParameter);
                 default:
-                    throw new ArgumentOutOfRangeException();
+                    throw new InvalidEnumArgumentException();
             }
-            
         }
 
         private ResultDetail ExecuteParticleSwarmAlghoritm(Alghoritm alghoritm, TestFunction testFunction, InputParameter inputParameter)
@@ -56,7 +56,6 @@ namespace HeuristicAlghorithmsComparer.Model.Managers
                     (double)testFunction.BoundRange,
                     (double)testFunction.Dimension
                     );
-
 
                 return _resultParser.ParseResult(_computedResult as object[]);
             }
@@ -89,7 +88,6 @@ namespace HeuristicAlghorithmsComparer.Model.Managers
                     (double)testFunction.Dimension
                     );
 
-
                 return _resultParser.ParseResult(_computedResult as object[]);
             }
             catch (Exception ex)
@@ -120,7 +118,6 @@ namespace HeuristicAlghorithmsComparer.Model.Managers
                     (double)testFunction.BoundRange,
                     testFunction.Dimension
                     );
-
 
                 return _resultParser.ParseResult(_computedResult as object[]);
             }

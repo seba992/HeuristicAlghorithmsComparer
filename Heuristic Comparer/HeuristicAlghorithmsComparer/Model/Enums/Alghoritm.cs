@@ -2,8 +2,8 @@
 {
     public enum Alghoritm
     {
-        SimulatedAnnealing =1,
+        SimulatedAnnealing = 1,
         ParticleSwarmOptimization,
-        GeneticAlghoritm =3
+        GeneticAlghoritm = 3
     }
 }

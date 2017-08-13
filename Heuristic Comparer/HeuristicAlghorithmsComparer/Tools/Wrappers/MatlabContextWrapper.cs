@@ -1,4 +1,8 @@
-﻿namespace HeuristicAlghorithmsComparer.Model.Wrappers
+﻿using System.IO;
+using System.Linq;
+using System.Reflection;
+
+namespace HeuristicAlghorithmsComparer.Model.Wrappers
 {
 
     public class MatlabContextWrapper : IMatlabContextWrapper
@@ -15,8 +19,7 @@
             if (_matlabContext != null) return;
 
             _matlabContext = new MLApp.MLApp();
-            _matlabContext.Execute(@"cd 'C:\Users\Sebastian Nalepka\Documents\HeuristicAlghorithmsComparer\Heuristic Comparer\HeuristicAlghorithmsComparer\Matlab'");
-            //TODO: replace hardcoded path : Directory.GetParent(Path.GetDirectoryName(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)));    
+            _matlabContext.Execute(string.Concat(Directory.GetParent(Path.GetDirectoryName(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location))), "\\Matlab"));
         }
 
         public MLApp.MLApp GetMatlabContext()

@@ -92,7 +92,7 @@ CREATE TABLE [dbo].[Results] (
     [InputParametersId] int  NOT NULL,
     [ResultDetailsId] int  NOT NULL,
     [TestFunctionId] int  NOT NULL,
-    [CreatedOn] datetime  NULL
+    [CreatedOn] datetime  NULL default getdate()
 );
 GO
 

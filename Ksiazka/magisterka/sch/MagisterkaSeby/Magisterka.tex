@@ -179,7 +179,8 @@ W celu efektywnej pracy z technologiami, które opisane zosta³y w rozdziale 4.1 (
 \subsubsection{Matlab}
 
 Matlab jest to œrodowisko przeznaczone do wykonywania obliczeñ numerycznych, matematycznych oraz symulacyjnych. Pocz¹tkowo Nazwa œrodowiska odnosi siê do s³ów MATrix LABoratory, gdy¿ Matlab przeznaczony by³ pocz¹tkowo do numerycznych obliczeñ macierzowych. Aktualnie aplikacja ta ma zdecydowanie szersze mo¿liwoœci - posiada wiele funkcji bibliotecznych, umo¿liwia ich rozbudowê, a tak¿e definiowanie nowych przez u¿ytkownika. Matlab posiada równie¿ dedykowany jêzyk programowania, czego konsekwencj¹ jest mo¿liwoœæ pisania w pe³ni funkcjonalnych aplikacji pracuj¹cych w opisywanym œrodowisku.
-W aspekcie grafiki, Matlab pozwala na rysowanie dwu oraz trójwymiarowych wykresów, a tak¿e wizualizacjê rezultatu obliczeñ w postaci animacji. 
+W aspekcie grafiki, Matlab pozwala na rysowanie dwu oraz trójwymiarowych wykresów, a tak¿e wizualizacjê rezultatu obliczeñ w postaci animacji. Istotn¹ kwesti¹ w kontekœcie prezentowanej pracy magisterskiej jest posiadanie przez œrodowisko Matlab terminala, który pozwala na wprowadzanie komend i wykonywanie funkcji. Istnieje mo¿liwoœæ jego samodzielnego uruchomienia oraz po³¹czenia z innymi systemami za poœrednictwem dedykowanych bibliotek, które umo¿liwiaj¹ synchronizacjê Matlaba z aplikacjami napisanymi w technologii .NET, Java czy C++.
+
 \subsubsection{SQL Server Management Studio 17}
 
 W czasie pracy nad aplikacj¹ automatyzuj¹c¹ proces przeprowadzania testów wykorzystano darmowe narzêdzie, którego przeznaczeniem jest zarz¹dzanie baz¹ danych - SQL Server Management Studio 17. Potrzeba u¿ycia narzêdzia wynik³a z istniej¹cej infrastruktury aplikacji, która opiera siê na rozwi¹zaniach Microsoftu. Zastosowane narzêdzie znacznie u³atwi³o pracê i wspomog³o proces projektowania bazy danych dziêki funkcjonalnoœci generowania diagramów, które umo¿liwi³y podgl¹d struktury bazy oraz relacji pomiêdzy poszczególnymi tabelami. Kolejn¹ olbrzymi¹ zalet¹ SQL Management Studio jest mo¿liwoœæ tworzenia zapytañ bazodanowych, które pozwalaj¹ w bardzo elastyczny sposób pogrupowaæ olbrzymie iloœci danych w wybrany przez u¿ytkownika sposób. Umo¿liwia to w krótkim czasie stworzenie statystyk zastosowanych algorytmów, które dynamicznie bêd¹ siê aktualizowa³y wraz z nap³ywem kolejnych danych do bazy.
@@ -226,9 +227,35 @@ Ostatni¹ warstw¹ modelu MVVM jest warstwa ViewModelu, której przeznaczeniem jest
 
 \subsubsection{Model aplikacji}
 
-U¿ycie wzorca MVVM w aplikacji implementowanej na potrzeby prezentowanej pracy magisterskiej poskutkowa³o w projekcie programistycznym do powstania obszernej solucji, która sk³ada siê z ponad siedemdziesiêciu plików. Dziêki zaplanowanej strukturze podzia³u elementów na foldery, zachowano porz¹dek, który umo¿liwia szybkie oraz intuicyjne wyszukiwanie potrzebnych sk³adowych aplikacji. Wszelkie pliki klas zosta³y umiejscowione w katalogach nazwanych w sposób adekwatny do ich, przez co odnalezienie przez programistê szukanego elementu nie przysparza ¿adnych problemów.
+U¿ycie wzorca MVVM w aplikacji implementowanej na potrzeby prezentowanej pracy magisterskiej poskutkowa³o w projekcie programistycznym do powstania obszernej solucji, która sk³ada siê z ponad siedemdziesiêciu plików. Dziêki zaplanowanej strukturze podzia³u elementów na foldery, zachowano porz¹dek, który umo¿liwia szybkie oraz intuicyjne wyszukiwanie potrzebnych sk³adowych aplikacji. Wszelkie pliki klas zosta³y umiejscowione w katalogach nazwanych w sposób adekwatny do ich przeznaczenia, przez co odnalezienie przez programistê szukanego elementu nie przysparza ¿adnych problemów.
 
-TODO opis solucji z katalogami
+\subsubsection*{Managers}
+
+\textit{Managers} jest to katalog zawieraj¹cy klasê menad¿era tworz¹cego i wysy³aj¹cego ¿¹danie przeprowadzenia doœwiadczenia do œrodowiska Matlab. Menad¿er ten za poœrednictwem klas dopasowuj¹cych tworzy ¿¹danie zgodne ze standardem zastosowanej biblioteki opisanej w (TODO dodac alias 4.3.1), wysy³a je do œrodowiska obliczeniowego oraz odbiera rezultaty.
+
+\subsubsection*{Matlab}
+
+Folder \textit{Matlab} ukazany na rysunku (TODO: dodaj rysunek) zawiera pliki funkcji zapisanych w œrodowisku Matlab. Pliki te zawieraj¹ definicjê trzech algorytmów metaheurystycznych oraz wybranych funkcji testowych. Przez fakt na ograniczon¹ funkcjonalnoœæ zastosowanego API, ³¹cz¹cego œrodowisko .NET ze œrodowiskiem Matlab, definicje funkcji testowych oraz algorytmów musia³y znaleŸæ siê w jednym katalogu z powodu braku wsparcia przechodzenia pomiêdzy ró¿nymi katalogami.
+
+\subsubsection*{Model}
+
+Katalog Modelu przedstawiony na obrazu (TODO: dodaæ odnoœnik) zawiera utworzon¹ przez Entity Framework strukturê obiektow¹ relacyjnej bazy danych. Liczba plików, które zawiera uzale¿niona jest bezpoœrednio od liczby tabel, która zastosowana zosta³a w bazie danych. W czasie dzia³añ implementacyjnych nie jest konieczna wiedza o dok³adnej strukturze przedstawianego folderu, a tylko która bazodanowa tabela zawiera jakie dane.
+
+\subsubsection*{Services}
+
+Katalog \textit{Servies} zawiera dwa serwisy stosowane w prezentowanej aplikacji. Pierwszym z nich jest serwis bazy danych który umo¿liwia po³¹czenie siê z fizycznie istniej¹c¹ baz¹ danych. Za pomoc¹ dedykowanych obiektów Entity Frameworka umo¿liwia on zapisywanie do bazy danych rezultatów przeprowadzonych doœwiadczeñ oraz pobieranie niezbêdnych danych dotycz¹cych stosowanych algorytmów oraz funkcji testowych.
+Drugim z kolei serwisem jest serwis Matlaba, który przezchowuje obiekty umo¿liwiaj¹ce dwukierunkow¹ komunikacjê ze œrodowiskiem obliczeniowym.
+
+\subsubsection*{Tools}
+
+Katalog narzêdzi, którego graficzna reprezentacja dostêpna jest do zobaczenia na rysunku (TODO: dodaj alias rysunku) jest najbardziej rozbudowanym katalogiem w drzewie solucji. Przez wzgl¹d na jego szerokie zastosowanie posiada on trzy podfoldery, które uœciœlaj¹ definicjê elementów w nich siê znajduj¹cych. Pierwsyzm z nich jest \textit{Parser}, który zawiera t³umacza rezultatów otrzymanych ze œrodowiska obliczeniowego. Przez wzgl¹d na nieuporz¹dkowan¹ formê danych otrzymywanych z Matlaba pojawi³a siê koniecznoœæ ich uporz¹dkowania, bior¹c jednoczeœnie pod wzgl¹d, i¿ rezultaty doœwiadczeñ dla ró¿nych algorytmów oraz ró¿nych funkcji testowych mog¹ posiadaæ inne struktury. Drugi podkatalog to \textit{Utils}, który zawiera dwie bardzo wa¿ne metody dopasowuj¹ce nazwy Matlabowych plików na podstawie wybranego algorytmu metaheurystycznego oraz funkcji testowej. Ostatnim podkatalogiem jest \textit{MatlabContextWrapper}, który zawiera metody u³atwiaj¹ce odwo³anie siê do obiektów komunikacyjnych, które poœrednicz¹ w dwukierunkowym przekazywaniu informacji pomiêdzy œrodowiskami .NET oraz Matlab.
+
+\subsubsection*{View}
+
+Katalog widoku jest katalogiem najwa¿niejszym ze strony u¿ytkownika poniewa¿ zawiera definicjê budowy g³ównego okna aplikacji oraz umiejscowienia wszystkich kontrolek jakie ono zawiera. W tym w³aœnie miejscu wykorzystywany jest opisany w rozdziale (TODO: dodaæ alias 4.1.2 xaml) jêzyk XAML, który pozwala na przeprowadzenie operacji wi¹zañ oraz stosowanie komend.
+
+\subsubsection*{ViewModel}
+TODO opis viewmodel katalogu z solucji
 
 \subsection{Architektura bazy danych}
 
