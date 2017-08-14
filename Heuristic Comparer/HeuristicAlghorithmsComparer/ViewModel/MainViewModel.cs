@@ -159,7 +159,7 @@ namespace HeuristicAlghorithmsComparer.ViewModel
             MaxFunctionEvaluations = 1000;
             PopulationSwarmSize = 1000;
             SelectedAlghoritm = Alghoritm.SimulatedAnnealing;
-            SelectedTestFunction = TestFunction.Bochachevsky;
+            SelectedTestFunction = TestFunction.Bohachevsky;
         }
 
         private void ActivateButtonLogic(Alghoritm alghoritm)
@@ -182,7 +182,40 @@ namespace HeuristicAlghorithmsComparer.ViewModel
         private void ExecuteAction(object sender, DoWorkEventArgs e)
         {
             IsIndicatorBusy = true;
-
+            
+            SelectedTestFunction = TestFunction.Griewank;
+            
+            MaxIterations = 999999;
+            TestCount = 5;
+            MaxStall = 999999;
+            MaxFunctionEvaluations = 999999;
+            PopulationSwarmSize = 20;
+            
+            foreach (var alghoritmType in AlghoritmTypes)
+            {
+                for (int i = 1; i <= 3; i++)
+                {
+                    switch (alghoritmType)
+                    {
+                        case Alghoritm.SimulatedAnnealing:
+                            MaxIterations = 999999;
+                            ExecuteSimulatedAnnealingTest(SelectedTestFunction, alghoritmType, i, MaxIterations,
+                                MaxFunctionEvaluations, MaxStall, TestCount);
+                            break;
+                        case Alghoritm.ParticleSwarmOptimization:
+                            ExecuteParticleSwarmTest(SelectedTestFunction, alghoritmType, i, MaxIterations,
+                                PopulationSwarmSize, MaxStall, TestCount);
+                            break;
+                        case Alghoritm.GeneticAlghoritm:
+                            ExecuteGeneticAlghoritmTest(SelectedTestFunction, alghoritmType, i, MaxIterations,
+                                PopulationSwarmSize, MaxStall, TestCount);
+                            break;
+                        default:
+                            throw new InvalidEnumArgumentException();
+                    }
+                }
+            }
+            /*
             switch (SelectedAlghoritm)
             {
                 case Alghoritm.SimulatedAnnealing:
@@ -199,7 +232,7 @@ namespace HeuristicAlghorithmsComparer.ViewModel
                     break;
                 default:
                     throw new InvalidEnumArgumentException();
-            }
+            }*/
         }
 
         private void ExecuteSimulatedAnnealingTest(TestFunction testFunction, Alghoritm alghoritm, int maxTime,

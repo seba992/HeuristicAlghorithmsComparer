@@ -113,7 +113,7 @@ namespace HeuristicAlghorithmsComparer.Model.Managers
                     (double)inputParameter.MaxTime,
                     (double)inputParameter.MaxIterations,
                     (double)inputParameter.MaxFunctionEvaluations,
-                    inputParameter.MaxStallIterations,
+                    (double)inputParameter.MaxStallIterations,
                     testFunctionFileName,
                     (double)testFunction.BoundRange,
                     testFunction.Dimension

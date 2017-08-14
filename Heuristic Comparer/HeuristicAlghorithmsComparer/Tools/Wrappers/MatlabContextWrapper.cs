@@ -19,7 +19,7 @@ namespace HeuristicAlghorithmsComparer.Model.Wrappers
             if (_matlabContext != null) return;
 
             _matlabContext = new MLApp.MLApp();
-            _matlabContext.Execute(string.Concat(Directory.GetParent(Path.GetDirectoryName(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location))), "\\Matlab"));
+            _matlabContext.Execute(string.Concat("cd ", Directory.GetParent(Path.GetDirectoryName(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location))), "\\Matlab"));
         }
 
         public MLApp.MLApp GetMatlabContext()
