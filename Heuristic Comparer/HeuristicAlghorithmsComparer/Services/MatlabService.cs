@@ -19,7 +19,7 @@ namespace HeuristicAlghorithmsComparer.Model.Services
             _databaseService = databaseService;
         }
 
-        public void ExecuteSimulatedAnnealing(TestFunction function, Alghoritm alghoritm, int maxTime, int maxIterations,
+        public void ExecuteSimulatedAnnealing(TestFunction function, Alghoritm alghoritm, double maxTime, int maxIterations,
             int maxFunctionEvaluations, int maxStall)
         {
             try
@@ -54,7 +54,7 @@ namespace HeuristicAlghorithmsComparer.Model.Services
 
         }
 
-        public void ExecuteGeneticAlghoritm(TestFunction function, Alghoritm alghoritm, int maxTime, int maxGenerations,
+        public void ExecuteGeneticAlghoritm(TestFunction function, Alghoritm alghoritm, double maxTime, int maxGenerations,
             int populationSize, int maxStall)
         {
             try
@@ -88,7 +88,7 @@ namespace HeuristicAlghorithmsComparer.Model.Services
             }
         }
 
-        public void ExecuteParticleSwarmTest(TestFunction function, Alghoritm alghoritm, int maxTime, int maxGenerations,
+        public void ExecuteParticleSwarmTest(TestFunction function, Alghoritm alghoritm, double maxTime, int maxGenerations,
             int swarmSize, int maxStall)
         {
             try

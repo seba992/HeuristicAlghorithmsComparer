@@ -22,6 +22,7 @@ namespace HeuristicAlghorithmsComparer.ViewModel
         private BackgroundWorker _worker;
         private int _currentProgressPercentage;
         private int _testCount;
+        private int _testCount2;
 
         public MainViewModel(IMatlabService matlabService)
         {
@@ -102,7 +103,7 @@ namespace HeuristicAlghorithmsComparer.ViewModel
             {
                 if (_currentProgress == value) return;
                 _currentProgress = value;
-                CurrentProgressPercentage = GetPercentageProcessValue(value);
+                CurrentProgressPercentage = value;//GetPercentageProcessValue(value);
                 RaisePropertyChanged();
             }
         }
@@ -179,43 +180,63 @@ namespace HeuristicAlghorithmsComparer.ViewModel
             CurrentProgress = e.ProgressPercentage;
         }
 
+        public int TestCount2
+        {
+            get { return _testCount2; }
+            set
+            {
+                _testCount2 = value;
+                RaisePropertyChanged();
+            }
+        }
+
         private void ExecuteAction(object sender, DoWorkEventArgs e)
         {
             IsIndicatorBusy = true;
+
+            SelectedTestFunction = TestFunction.Ackley;
             
-            SelectedTestFunction = TestFunction.Griewank;
-            
-            MaxIterations = 999999;
-            TestCount = 5;
+            MaxIterations = 1000;
+            TestCount = 10;
             MaxStall = 999999;
-            MaxFunctionEvaluations = 999999;
-            PopulationSwarmSize = 20;
-            
-            foreach (var alghoritmType in AlghoritmTypes)
+            MaxFunctionEvaluations = 999;
+            PopulationSwarmSize = 10;
+            MaxTime = 11;
+            TestCount2 = 6*1*6*TestCount;
+            int it = 0;
+            foreach (var testFunction in TestFunctions)
             {
-                for (int i = 1; i <= 3; i++)
+                foreach (var alghoritmType in AlghoritmTypes)
                 {
-                    switch (alghoritmType)
+                    if (alghoritmType == Alghoritm.SimulatedAnnealing) continue;
+
+                    for (int i = 99; i <= 599; i += 100)
                     {
-                        case Alghoritm.SimulatedAnnealing:
-                            MaxIterations = 999999;
-                            ExecuteSimulatedAnnealingTest(SelectedTestFunction, alghoritmType, i, MaxIterations,
-                                MaxFunctionEvaluations, MaxStall, TestCount);
-                            break;
-                        case Alghoritm.ParticleSwarmOptimization:
-                            ExecuteParticleSwarmTest(SelectedTestFunction, alghoritmType, i, MaxIterations,
-                                PopulationSwarmSize, MaxStall, TestCount);
-                            break;
-                        case Alghoritm.GeneticAlghoritm:
-                            ExecuteGeneticAlghoritmTest(SelectedTestFunction, alghoritmType, i, MaxIterations,
-                                PopulationSwarmSize, MaxStall, TestCount);
-                            break;
-                        default:
-                            throw new InvalidEnumArgumentException();
+                        switch (alghoritmType)
+                        {
+                            case Alghoritm.SimulatedAnnealing:
+                                ExecuteSimulatedAnnealingTest(testFunction, alghoritmType, MaxTime, i,
+                                    MaxFunctionEvaluations, MaxStall, TestCount);
+
+                                break;
+                            case Alghoritm.ParticleSwarmOptimization:
+                                ExecuteParticleSwarmTest(testFunction, alghoritmType, MaxTime, i,
+                                    PopulationSwarmSize, MaxStall, TestCount);
+                                break;
+                            case Alghoritm.GeneticAlghoritm:
+                                ExecuteGeneticAlghoritmTest(testFunction, alghoritmType, MaxTime, i,
+                                    PopulationSwarmSize, MaxStall, TestCount);
+                                break;
+                            default:
+                                throw new InvalidEnumArgumentException();
+                        }
+                        it+= TestCount;
+                        _worker.ReportProgress(it);
                     }
                 }
             }
             /*
+            
             switch (SelectedAlghoritm)
             {
                 case Alghoritm.SimulatedAnnealing:
@@ -232,39 +253,40 @@ namespace HeuristicAlghorithmsComparer.ViewModel
                     break;
                 default:
                     throw new InvalidEnumArgumentException();
-            }*/
+            }
+            */
         }
 
-        private void ExecuteSimulatedAnnealingTest(TestFunction testFunction, Alghoritm alghoritm, int maxTime,
+        private void ExecuteSimulatedAnnealingTest(TestFunction testFunction, Alghoritm alghoritm, double maxTime,
             int maxIterations, int maxFunctionEvaluations, int maxStall, int testCount)
         {
             for (var i = 0; i < testCount; i++)
             {
                 _matlabService.ExecuteSimulatedAnnealing(testFunction, alghoritm, maxTime, maxIterations,
                     maxFunctionEvaluations, maxStall);
-                _worker.ReportProgress(i);
+                //_worker.ReportProgress(i);
             }
         }
 
-        private void ExecuteGeneticAlghoritmTest(TestFunction testFunction, Alghoritm alghoritm, int maxTime,
+        private void ExecuteGeneticAlghoritmTest(TestFunction testFunction, Alghoritm alghoritm, double maxTime,
             int maxGenerations, int populationSize, int maxStall, int testCount)
         {
             for (var i = 0; i < testCount; i++)
             {
                 _matlabService.ExecuteGeneticAlghoritm(testFunction, alghoritm, maxTime, maxGenerations, populationSize,
                     maxStall);
-                _worker.ReportProgress(i);
+                //_worker.ReportProgress(i);
             }
         }
 
-        private void ExecuteParticleSwarmTest(TestFunction testFunction, Alghoritm alghoritm, int maxTime,
+        private void ExecuteParticleSwarmTest(TestFunction testFunction, Alghoritm alghoritm, double maxTime,
             int maxGenerations, int swarmSize, int maxStall, int testCount)
         {
             for (var i = 0; i < testCount; i++)
             {
                 _matlabService.ExecuteParticleSwarmTest(testFunction, alghoritm, maxTime, maxGenerations, swarmSize,
                     maxStall);
-                _worker.ReportProgress(i);
+                //_worker.ReportProgress(i);
             }
         }
     }

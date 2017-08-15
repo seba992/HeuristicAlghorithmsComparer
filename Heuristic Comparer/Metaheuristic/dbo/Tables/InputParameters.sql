@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [dbo].[InputParameters] (
     [Id]                     INT IDENTITY (1, 1) NOT NULL,
-    [MaxTime]                INT NOT NULL,
+    [MaxTime]                FLOAT NOT NULL,
     [MaxIterations]          INT NOT NULL,
     [MaxFunctionEvaluations] INT NOT NULL,
     [SwarmSize]              INT NULL,

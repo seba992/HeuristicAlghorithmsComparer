@@ -14,5 +14,5 @@ INSERT INTO dbo.TestFunctions (Id, Name, DifficultyLevel, FunctionGraphLink, Bou
 INSERT INTO dbo.TestFunctions (Id, Name, DifficultyLevel, FunctionGraphLink, BoundRange, Dimension) VALUES (3,'Rosenbrock'	,4,'https://www.sfu.ca/~ssurjano/rosen.html'	,10	,4); -- 44.17% dla 2(tu 4) (zakres -5,10)
 INSERT INTO dbo.TestFunctions (Id, Name, DifficultyLevel, FunctionGraphLink, BoundRange, Dimension) VALUES (4,'Eggholder'	,6,'https://www.sfu.ca/~ssurjano/egg.html'		,600,2); -- 18.92%
 INSERT INTO dbo.TestFunctions (Id, Name, DifficultyLevel, FunctionGraphLink, BoundRange, Dimension) VALUES (5,'Griewank'	,7,'https://www.sfu.ca/~ssurjano/griewank.html'	,600,3); -- 6.08%
-INSERT INTO dbo.TestFunctions (Id, Name, DifficultyLevel, FunctionGraphLink, BoundRange, Dimension) VALUES (6,'Ackley'		,8,'https://www.sfu.ca/~ssurjano/ackley.html'	,32,3); -- 48.25% dla 2(tu 3)
+INSERT INTO dbo.TestFunctions (Id, Name, DifficultyLevel, FunctionGraphLink, BoundRange, Dimension) VALUES (6,'Ackley'		,8,'https://www.sfu.ca/~ssurjano/ackley.html'	,100,4); -- 48.25% dla 2(tu 3)
 SET IDENTITY_INSERT dbo.TestFunctions OFF 

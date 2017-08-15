@@ -72,9 +72,9 @@ namespace HeuristicAlghorithmsComparer {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
-        internal static string BochachevskyFunctionFileName {
+        internal static string BohachevskyFunctionFileName {
             get {
-                return ResourceManager.GetString("BochachevskyFunctionFileName", resourceCulture);
+                return ResourceManager.GetString("BohahevskyFunctionFileName", resourceCulture);
             }
         }
         

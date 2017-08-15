@@ -33,17 +33,17 @@
 \contentsline {subsubsection}{\numberline {5.1.2}\kernsubsubsekcyjny Zastosowany wzorzec architektoniczny \IeC {\textendash } MVVM}{24}
 \contentsline {subsubsection}{\numberline {5.1.3}\kernsubsubsekcyjny Model aplikacji}{25}
 \contentsline {subsection}{\numberline {5.2}\kernsubsekcyjny Architektura bazy danych}{27}
-\contentsline {subsubsection}{\numberline {5.2.1}\kernsubsubsekcyjny Microsoft SQL Server \IeC {\textendash } u\.zyty system zarz\k adzania baz\k a danych}{27}
+\contentsline {subsubsection}{\numberline {5.2.1}\kernsubsubsekcyjny Microsoft SQL Server \IeC {\textendash } u\.zyty system zarz\k adzania baz\k a danych}{28}
 \contentsline {subsubsection}{\numberline {5.2.2}\kernsubsubsekcyjny Budowa bazy danych u\.zytej w projekcie}{28}
-\contentsline {subsection}{\numberline {5.3}\kernsubsekcyjny Komunikacja bazy danych z projektem programistycznym}{30}
+\contentsline {subsection}{\numberline {5.3}\kernsubsekcyjny Komunikacja bazy danych z projektem programistycznym}{31}
 \contentsline {subsubsection}{\numberline {5.3.1}\kernsubsubsekcyjny Mapowanie obiektowo-relacyjne}{31}
 \contentsline {subsubsection}{\numberline {5.3.2}\kernsubsubsekcyjny Zastosowane narz\k edzie ORM \IeC {\textendash } Entity Framework}{32}
-\contentsline {subsection}{\numberline {5.4}\kernsubsekcyjny Komunikacja Matlaba z projektem programistycznym}{32}
+\contentsline {subsection}{\numberline {5.4}\kernsubsekcyjny Komunikacja Matlaba z projektem programistycznym}{33}
 \contentsline {section}{\numberline {6}\kernsekcyjny Badania eksperymentalne}{35}
 \contentsline {subsection}{\numberline {6.1}\kernsubsekcyjny Metody por\'ownawcze wybranych algorytm\'ow}{35}
 \contentsline {subsection}{\numberline {6.2}\kernsubsekcyjny Opis przeprowadzonych bada\'n}{35}
-\contentsline {subsection}{\numberline {6.3}\kernsubsekcyjny Wyniki do\'swiadcze\'n dla zadanych funkcji testowych}{35}
-\contentsline {subsubsection}{\numberline {6.3.1}\kernsubsubsekcyjny Funkcja Bochachevsky\IeC {\textquoteright }ego}{35}
+\contentsline {subsection}{\numberline {6.3}\kernsubsekcyjny Wyniki do\'swiadcze\'n dla zadanych funkcji testowych}{36}
+\contentsline {subsubsection}{\numberline {6.3.1}\kernsubsubsekcyjny Funkcja Bochachevsky\IeC {\textquoteright }ego}{36}
 \contentsline {subsubsection}{\numberline {6.3.2}\kernsubsubsekcyjny Funkcja Beale\IeC {\textquoteright }a}{36}
 \contentsline {subsubsection}{\numberline {6.3.3}\kernsubsubsekcyjny Funkcja Rosenbrocka}{36}
 \contentsline {subsubsection}{\numberline {6.3.4}\kernsubsubsekcyjny Funkcja Easoma }{36}

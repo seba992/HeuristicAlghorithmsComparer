@@ -50,7 +50,7 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="MaxTime" Type="int" Nullable="false" />
+    <Property Name="MaxTime" Type="float" Nullable="false" />
     <Property Name="MaxIterations" Type="int" Nullable="false" />
     <Property Name="MaxFunctionEvaluations" Type="int" Nullable="false" />
     <Property Name="SwarmSize" Type="int" Nullable="true" />
@@ -228,7 +228,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="MaxTime" Type="Int32" Nullable="false" />
+          <Property Name="MaxTime" Type="Double" Nullable="false" />
           <Property Name="MaxIterations" Type="Int32" Nullable="false" />
           <Property Name="MaxFunctionEvaluations" Type="Int32" Nullable="false" />
           <Property Name="SwarmSize" Type="Int32" Nullable="true" />

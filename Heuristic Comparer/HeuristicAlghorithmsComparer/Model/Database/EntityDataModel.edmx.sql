@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 08/10/2017 23:12:32
+-- Date Created: 08/15/2017 16:03:52
 -- Generated from EDMX file: C:\Users\Sebastian Nalepka\Documents\HeuristicAlghorithmsComparer\Heuristic Comparer\HeuristicAlghorithmsComparer\Model\Database\EntityDataModel.edmx
 -- --------------------------------------------------
 
@@ -76,7 +76,7 @@ GO
 -- Creating table 'InputParameters'
 CREATE TABLE [dbo].[InputParameters] (
     [Id] int IDENTITY(1,1) NOT NULL,
-    [MaxTime] int  NOT NULL,
+    [MaxTime] float  NOT NULL,
     [MaxIterations] int  NOT NULL,
     [MaxFunctionEvaluations] int  NOT NULL,
     [SwarmSize] int  NULL,
@@ -92,7 +92,7 @@ CREATE TABLE [dbo].[Results] (
     [InputParametersId] int  NOT NULL,
     [ResultDetailsId] int  NOT NULL,
     [TestFunctionId] int  NOT NULL,
-    [CreatedOn] datetime  NULL default getdate()
+    [CreatedOn] datetime  NULL
 );
 GO
 

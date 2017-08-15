@@ -255,7 +255,8 @@ Katalog narzêdzi, którego graficzna reprezentacja dostêpna jest do zobaczenia na
 Katalog widoku jest katalogiem najwa¿niejszym ze strony u¿ytkownika poniewa¿ zawiera definicjê budowy g³ównego okna aplikacji oraz umiejscowienia wszystkich kontrolek jakie ono zawiera. W tym w³aœnie miejscu wykorzystywany jest opisany w rozdziale (TODO: dodaæ alias 4.1.2 xaml) jêzyk XAML, który pozwala na przeprowadzenie operacji wi¹zañ oraz stosowanie komend.
 
 \subsubsection*{ViewModel}
-TODO opis viewmodel katalogu z solucji
+
+Ostatni opisywany katalog - \textit{ViewModel} - zawiera pliki dostosowane do pracy ze wzorcem MVVM. Odpowiadaj¹ one na interakcjê u¿ytkownika oraz realizuj¹ akcje dostêpne z poziomu okna aplikacji, w którym pracuje u¿ytkownik. Wa¿nym elementem ze strony programistycznej jest plik \textit{ViewModelLocator}, w którym przeprowadzana jest operacja rejestrowania wszelkich typów zastosowanych w aplikacji. Dziêki temu, mo¿liwe jest skorzystanie ze wzorca wstrzykiwania zale¿noœci, który pozwala na pisanie kodu o luŸniejszych powi¹zaniach, prostszego w testowaniu oraz modyfikacji. (TODO: dodaj odnosnik do di)
 
 \subsection{Architektura bazy danych}
 
@@ -321,11 +322,13 @@ Ca³y proces pocz¹wszy od pomys³u automatyzacji przeprowadzanych badañ zawarty w 
 
 \subsection{Metody porównawcze wybranych algorytmów}
 
-W celu zrównania szans ka¿dego z porównywanych algorytmów, wszystkie przeprowadzane testy dokonywane bêd¹ na tej samej maszynie obliczeniowej przy tych samych warunkach obci¹¿eniowych systemu. Pierwszym kryterium porównawczym bêdzie maksymalny czas, w którym algorytm bêdzie poszukiwa³ najlepszego rezultatu. Parametr ten bêdzie bra³ pod uwagê kilka ró¿nych ustalonych wartoœci (TODO: podaæ czasy doœwiadczeñ) dla których przeprowadzona zostanie próbka doœwiadczeñ, z których wartoœci œrednie zostan¹ zestawione i porównane w obrêbie wszystkich algorytmów oraz funkcji testowych. Drugie kryterium porównawcze to liczba odwo³añ algorytmu do zadanej funkcji testowej. W kryterium tym porównane zostan¹, w sposób analogiczny jak w pierwszym kryterium, rezultaty otrzymane przez algorytmy przy takim za³o¿eniu, i¿ bêd¹ one mog³y wyliczyæ wartoœæ funkcji testowej okreœlon¹ liczbê razy.
+W celu zrównania szans ka¿dego z porównywanych algorytmów, wszystkie przeprowadzane testy dokonane zosta³y na tej samej maszynie obliczeniowej przy tych samych warunkach obci¹¿eniowych systemu. Pierwszym kryterium porównawczym by³ maksymalny czas, w którym algorytm poszukuje najlepszego rezultatu. Parametr ten bierze pod uwagê kilka ró¿nych ustalonych wartoœci (TODO: podaæ czasy doœwiadczeñ) dla których przeprowadzana zosta³a próbka doœwiadczeñ, z których wartoœci œrednie zosta³y zestawione i porównane w obrêbie wszystkich algorytmów oraz funkcji testowych. Drugim kryterium porównawczym by³a liczba odwo³añ algorytmu do zadanej funkcji testowej. W kryterium tym porównane zosta³y, w sposób analogiczny jak w kryterium pierwszym, rezultaty otrzymane przez algorytmy przy takim za³o¿eniu, i¿ mog³y one wyliczyæ wartoœæ funkcji testowej okreœlon¹ liczbê razy.
 
 \subsection{Opis przeprowadzonych badañ}
 
-
+W zaimplementowanej aplikacji dla ka¿dego opisanego w (TODO: alias rozdzialu wyzej) kryterium, umieszczane zosta³y ustalone wartoœci parametrów, po czym przeprowadzana by³a operacja uruchomienia systemu. Dla kryterium maksymalnego czasu, w którym algorytmy poszukuj¹ globalnego minimum funkcji, doœwiadczenia wykonywane zosta³y dla zakresu od jednej do piêciu sekund, z jednosekundowym interwa³em. Liczba testów dla ka¿dej wartoœci z ustalonego zakresu ustalona zosta³a na poziomie stu prób. Pozosta³e parametry, takie jak maksymalna liczba iteracji oraz odwo³añ do funkcji wraz z maksymaln¹ liczb¹ iteracji bez poprawy wyniku, ustalone zosta³y na niemo¿liw¹ do osi¹gniêcia wartoœæ 999999. Spowodowane jest to tym, i¿ jednym warunkiem stopu w przedstawianej metodzie porównawczej jest maksymalny ustalony czas dzia³ania algorytmu.
+W przypadku algorytmu genetycznego oraz roju cz¹stek dodatkowo przeprowadzone zosta³y doœwiadczenia dla ró¿nych wielkoœci populacji i roju, dziêki czemu mo¿liwa do wykonania by³a analiza wp³ywu tych parametrów na otrzymane rezultaty.
+Przeprowadzenie badañ dotycz¹cych kryterium maksymalnej liczby odwo³añ do funkcji testowej przebiega³o w sposób analogiczny, z t¹ ró¿nic¹, i¿ niemo¿liw¹ do osi¹gniêcia wartoœci¹ 999999 zosta³ objêty maksymalny czas poszukiwañ, który w opisywanym kryterium nie jest brany pod uwagê. Dla kryterium tego maksymalna liczba odwo³añ do funkcji ustalona zosta³a na wartoœci: 1000, 2000, 3000, 4000, 5000, 6000.
 
 \subsection{Wyniki doœwiadczeñ dla zadanych funkcji testowych}
 \subsubsection{Funkcja Bochachevsky’ego}

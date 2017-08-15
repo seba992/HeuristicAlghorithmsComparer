@@ -15,7 +15,7 @@ namespace HeuristicAlghorithmsComparer.Model.Database
     public partial class InputParameter
     {
         public int Id { get; set; }
-        public int MaxTime { get; set; }
+        public double MaxTime { get; set; }
         public int MaxIterations { get; set; }
         public int MaxFunctionEvaluations { get; set; }
         public Nullable<int> SwarmSize { get; set; }

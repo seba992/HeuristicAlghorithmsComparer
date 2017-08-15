@@ -3,3 +3,7 @@ C:\Users\Sebastian Nalepka\Documents\HeuristicAlghorithmsComparer\Heuristic Comp
 C:\Users\Sebastian Nalepka\Documents\HeuristicAlghorithmsComparer\Heuristic Comparer\Metaheuristic\bin\Debug\Metaheuristic.pdb
 C:\Users\Sebastian Nalepka\Documents\HeuristicAlghorithmsComparer\Heuristic Comparer\Metaheuristic\obj\Debug\Metaheuristic.dll
 C:\Users\Sebastian Nalepka\Documents\HeuristicAlghorithmsComparer\Heuristic Comparer\Metaheuristic\obj\Debug\Metaheuristic.pdb
+C:\Users\Sebastian Nalepka\Documents\HeuristicAlghorithmsComparer\Heuristic Comparer\Metaheuristic\obj\Debug\Model.xml
+C:\Users\Sebastian Nalepka\Documents\HeuristicAlghorithmsComparer\Heuristic Comparer\Metaheuristic\obj\Debug\refactor.xml
+C:\Users\Sebastian Nalepka\Documents\HeuristicAlghorithmsComparer\Heuristic Comparer\Metaheuristic\obj\Debug\postdeploy.sql
+C:\Users\Sebastian Nalepka\Documents\HeuristicAlghorithmsComparer\Heuristic Comparer\Metaheuristic\obj\Debug\predeploy.sql
