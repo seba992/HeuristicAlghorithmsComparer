@@ -15,7 +15,8 @@ join ResultDetails as rd on rd.id = r.ResultDetailsId
 join InputParameters as i on i.id = r.InputParametersId
 join Alghoritms as a on a.id = r.AlghoritmId
 join TestFunctions as tf on tf.id = r.TestFunctionId
-where i.MaxTime <> 11 and tf.name = 'Colville'-- and ISNULL(i.SwarmSize,i.PopulationSize) IS not NULL
+where i.MaxTime <> 11 and tf.name = 'Eggholder'-- and ISNULL(i.SwarmSize,i.PopulationSize) IS not NULL
+and rd.id > 5393 -- validation for fixed eggholder
 group by tf.name, a.name, i.MaxTime, ISNULL(i.SwarmSize,i.PopulationSize)
 order by tf.name, ISNULL(i.SwarmSize,i.PopulationSize)
 
@@ -27,6 +28,7 @@ join ResultDetails as rd on rd.id = r.ResultDetailsId
 join InputParameters as i on i.id = r.InputParametersId
 join Alghoritms as a on a.id = r.AlghoritmId
 join TestFunctions as tf on tf.id = r.TestFunctionId
-where i.MaxTime = 11 and tf.name = 'Colville' --and ISNULL(i.SwarmSize,i.PopulationSize) IS not NULL
+where i.MaxTime = 11 and tf.name = 'Eggholder' --and ISNULL(i.SwarmSize,i.PopulationSize) IS not NULL
+and rd.id > 5393 -- validation for fixed eggholder
 group by tf.name, a.name, i.MaxIterations, ISNULL(i.SwarmSize,i.PopulationSize)
 order by tf.name, ISNULL(i.SwarmSize,i.PopulationSize)
