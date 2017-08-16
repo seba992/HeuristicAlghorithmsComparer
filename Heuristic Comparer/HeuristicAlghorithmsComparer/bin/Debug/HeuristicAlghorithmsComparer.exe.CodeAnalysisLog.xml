@@ -12,7 +12,7 @@
          <Members>
           <Member Name="#.ctor(HeuristicAlghorithmsComparer.Model.Services.IMatlabService)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
            <Messages>
-            <Message TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214" Status="Active" Created="2017-08-16 20:53:26Z" FixCategory="NonBreaking">
+            <Message TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214" Status="Active" Created="2017-08-16 21:01:35Z" FixCategory="NonBreaking">
              <Issue Certainty="95" Level="CriticalWarning" Path="C:\Users\Sebastian Nalepka\Documents\HeuristicAlghorithmsComparer\Heuristic Comparer\HeuristicAlghorithmsComparer\ViewModel" File="MainViewModel.cs" Line="27">'MainViewModel.MainViewModel(IMatlabService)' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;MainViewModel..ctor(IMatlabService)&#xD;&#xA;MainViewModel.ActivateButtonLogic(Alghoritm):Void&#xD;&#xA;MainViewModel.set_IsPopulationAlghoritm(Boolean):Void&#xD;&#xA;ObservableObject.RaisePropertyChanged(String):Void</Issue>
             </Message>
            </Messages>

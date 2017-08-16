@@ -200,7 +200,7 @@ namespace HeuristicAlghorithmsComparer.ViewModel
             TestCount = 10;
             MaxStall = 999999;
             MaxFunctionEvaluations = 999999;
-            PopulationSwarmSize = 50;
+            PopulationSwarmSize = 10;
             MaxTime = 11;
             TestCount2 = 6*1*6*TestCount;
             int it = 0;
