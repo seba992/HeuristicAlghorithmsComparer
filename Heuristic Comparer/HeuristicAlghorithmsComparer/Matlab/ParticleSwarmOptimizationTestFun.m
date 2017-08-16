@@ -11,7 +11,7 @@ options = optimoptions(@particleswarm, ...
     'MaxStallIterations', maxStallIterations)
                      %'PlotFcn',{@saplotbestf,@saplottemperature,@saplotf,@saplotstopping}) %
 tic              
-[x,fval,exitflag,output] = particleswarm(ObjectiveFunction,dimension,lb,ub,options);
+[x,fval,exitflag,output] = particleswarm(ObjectiveFunction,dimension,lb,ub,options)
 elapsedTime = toc;
 resultPointLoc = x;
 

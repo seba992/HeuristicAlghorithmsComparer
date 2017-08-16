@@ -194,37 +194,37 @@ namespace HeuristicAlghorithmsComparer.ViewModel
         {
             IsIndicatorBusy = true;
 
-            SelectedTestFunction = TestFunction.Ackley;
+            SelectedTestFunction = TestFunction.Eggholder;
             
-            MaxIterations = 1000;
+            MaxIterations = 999999;
             TestCount = 10;
             MaxStall = 999999;
-            MaxFunctionEvaluations = 999;
-            PopulationSwarmSize = 10;
+            MaxFunctionEvaluations = 999999;
+            PopulationSwarmSize = 50;
             MaxTime = 11;
             TestCount2 = 6*1*6*TestCount;
             int it = 0;
-            foreach (var testFunction in TestFunctions)
-            {
+            //foreach (var testFunction in TestFunctions)
+            //{
                 foreach (var alghoritmType in AlghoritmTypes)
                 {
                     if (alghoritmType == Alghoritm.SimulatedAnnealing) continue;
 
-                    for (int i = 99; i <= 599; i += 100)
+                    for (double i = 0.5; i <= 3; i += 0.5)
                     {
                         switch (alghoritmType)
                         {
                             case Alghoritm.SimulatedAnnealing:
-                                ExecuteSimulatedAnnealingTest(testFunction, alghoritmType, MaxTime, i,
+                                ExecuteSimulatedAnnealingTest(SelectedTestFunction, alghoritmType, i, MaxIterations,
                                     MaxFunctionEvaluations, MaxStall, TestCount);
 
                                 break;
                             case Alghoritm.ParticleSwarmOptimization:
-                                ExecuteParticleSwarmTest(testFunction, alghoritmType, MaxTime, i,
+                                ExecuteParticleSwarmTest(SelectedTestFunction, alghoritmType, i, MaxIterations,
                                     PopulationSwarmSize, MaxStall, TestCount);
                                 break;
                             case Alghoritm.GeneticAlghoritm:
-                                ExecuteGeneticAlghoritmTest(testFunction, alghoritmType, MaxTime, i,
+                                ExecuteGeneticAlghoritmTest(SelectedTestFunction, alghoritmType, i, MaxIterations,
                                     PopulationSwarmSize, MaxStall, TestCount);
                                 break;
                             default:
@@ -234,7 +234,7 @@ namespace HeuristicAlghorithmsComparer.ViewModel
                         _worker.ReportProgress(it);
                     }
                 }
-            }
+            //}
             /*
             
             switch (SelectedAlghoritm)

@@ -60,12 +60,36 @@ W prezentowanej pracy dokonano porównania algorytmów metaheurystycznych odnosz¹c
 Problem minimalizacji funkcji ci¹g³ych bardzo dobrze nadaje siê do porównania algorytmów metaheurystycznych przez wzgl¹d na powszechnie dostêpne funkcje testowe. Funkcje te posiadaj¹ pewny specyficzny element, dziêki któremu mo¿liwe jest porównanie wyników otrzymanych przez dany algorytm. Element ten to znajomoœæ minimum globalnego dla danej funkcji testowej. Dziêki znajomoœci wartoœci najlepszej (najmniejszej) dla danej funkcji, wiadomo jak szybko oraz czy w ogóle badany algorytm znalaz³ rozwi¹zanie. Posiadaj¹c ten punkt odniesienia mo¿na zestawiæ otrzymane rezultaty wszystkich algorytmów pod k¹tem czasowym lub liczby wyliczeñ wartoœci funkcji dla ustalonych przez algorytm punktów.
 Do analizy wybranych zosta³o (TODO: wpisac ilosc) funkcji testowych, których dobór bra³ pod uwagê stopieñ ich skomplikowania. Funkcje te zosta³y wybrane z listy zawartej w (TODO: link do strony z lista funkcji) uwzglêdniaj¹c ró¿n¹ liczbê wymiarów oraz skalê ich trudnoœci. Ka¿da z funkcji posiada specyficzne w³aœciwoœci, które zostan¹ wziête pod uwagê podczas porównania rezultatów algorytmów heurystycznych.
 
-\subsubsection{Funkcja Bochachevsky’ego N. 1}
+\subsubsection{Funkcja Bohachevsky’ego 1}
+
+Funkcja Bohachevsky'ego 1 jest stosunkowo prost¹ do minimalizacji funkcja dwóch zmiennych, której wykres przybiera kszta³t ³uku. Z regu³y jest ona badana w zakresie $x_i \in[-100,100]$ dla $i=1,2$. W przedstawianej pracy magisterskiej granice to zosta³y jednak dwukrotnie powiêkszone i wynosz¹ $[-200,200]$. Wed³ug doœwiadczeñ przeprowadzonych w (TODO: link to strony z rankingiem), $81.75\%$ doœwiadczeñ zakoñczonych zosta³o znalezieniem minimum globalnego, które dla funkcji Bohachevsky'ego wynosi 0, dla punktu $x=(0,0)$.
+
+TODO: obrazek + wzór
+
+\subsubsection{Funkcja Colville'a}
+
+Jest to funkcja czterech zmiennych, która posiada jedno minimum globalne o wartoœci 0 dla punktu $x=(1,1,1,1)$ oraz analizowana jest zazwyczaj na hiperszeœcianie $x_i\in[-200,200]$ dla $i=1,2,3,4$. Wed³ug danych zawartych(TODO: link do rank) jest to funkcja trudniejsza w minimalizacji od funkcji Bohachevsky'ego, której procentowy sukces dotycz¹cy znalezienie minimum globalnego wyniós³ $72.00\%$.
+ 
+ TODO: obrazek + wzór
+
+\subsubsection{Funkcja Ackley'a}
+
+Funkcja Ackley'a jest popularn¹ funkcj¹ dla testów optymalizacyjnych algorytmów. W swojej dwuwymiarowej postaci, któr¹ ukazano na obrazku (TODO: rys odnos), charakteryzuje siê prawie p³askim obszarem zewnêtrznym i du¿ym otworem w centrum. Funkcja stwarza ryzyko dla algorytmów optymalizacyjnych poprzez mo¿liwoœæ zatrzymania siê w jednym z licznych lokalnych minimów. Istnieje mo¿liwoœæ rozszerzenia funkcji Ackley'a na wiele wymiarów co te¿ uczyniono w prezentowanej pracy magisterskiej, w której rozpatrywana jest ona dla czterech zmiennych. Minimum globalne umiejscowione jest w punkcie $x=(0,0,0,0)$ i jego wartoœæ wynosi 0. Dziedzina funkcji z kolei analizowana bêdzie w przedziale $x_i\in[-150,150]$ dla $i=1,2,3,4$. Dla wspomnianych ju¿ testów, których wyniki dostêpne s¹ do wgl¹du w odnoœniku (TODO: odn do rank), procentowy sukces znalezienia minimum globalnego wyniós³ $48.25\%$.
+ 
+  TODO: obrazek + wzór
+  
+\subsubsection{Funkcja Eggholdera }
+
+Kolejn¹ wybran¹ funkcj¹ zosta³a dwuwymiarowa funkcja Eggholdera. Jest to funkcja, której graficzna reprezentacja zawarta w rysunku(TODO: dodaj rys i alias) przypomina pasmo górskie z licznymi dolinami. Jest to funkcja trudna do optymalizacji przez wzgl¹d na licznie wystêpuj¹ce minima lokalne. Dziedzina funkcji powszechnie rozpatrywana jest w przedziale $x_i\in[-512,512]$ dla $i=1,2$. Minimum globalne znajduje siê w punkcie $x=(512,404.2319)$ i wynosi $-959.6407$. Przez wzgl¹d na jego nietypowe po³o¿enie i wspomniane ju¿ liczne minima lokalne, wy³¹cznie $18.92\%$ testów zawartych w (TODO: odnosnik do rank) zakoñczy³o siê jego znalezieniem.
+
 \subsubsection{Funkcja Rosenbrocka}
-\subsubsection{Funkcja Easoma}
-\subsubsection{Funkcja Eggholdera}
-\subsubsection{Funkcje Griewanka}
-\subsubsection{Funkcje testowe}
+
+Funkcja Rosenbrocka jest to niewypuk³a funkcja, która jest bardzo popularna w kontekœcie optymalizacji jako test dla algorytmów optymalizacyjnych. Nazywana jest równie¿ przez wzgl¹d na swój kszta³t "Funkcj¹ Bananow¹ Rosenbrocka" albo "Dolin¹ Rosenbrocka". Funkcja Rosenbrocka powszechnie jest stosowana w kontekœcie optymalizacji funkcji dwóch zmiennych. Istnieje jednak mo¿liwoœæ rozszerzenia jej do wielu wymiarów. W prezentowanej pracy magisterskiej rozpatrywana jest funkcja Rosenbrocka czterech zmiennych, której minimum globalne mieœci siê w punkcie $x=(1,1,1,1)$ i wynosi 0. Ustalon¹ dziedzin¹ funkcji jest $x_i\in[-200,200]$ dla $i=1,2,3,4$. Opisywana funkcja Rosenbrocka jest funkcj¹ trudn¹ do minimalizacji i wed³ug wyników testów zawartych w (TODO: link do rank) procentowy sukces znalezienia minimum globalnego wyniós³ tylko $8,42\%$.
+
+TODO: obrazek + wzor 2 i 4zm
+
+\subsubsection{Funkcja Griewanka}
+6.08%
 
 \textcolor{brown}{Opis funkcji wraz z ich w³aœciwoœciami opisaæ po definitywnym ich wyborze (poczekaæ na fazê testów)}
 
@@ -143,7 +167,7 @@ p_i = \frac{f_i-f_{min}}{\sum_{j=1}^{N}f_j-f_{min}}
 \end{equation} 
 
 gdzie $f_{min}$ jest wartoœci¹ funkcji przystosowania najgorszego chromosomu. \newline
- 
+
 Po etapie selekcji pozostaje do zdefiniowania kwestia wymiany pokoleñ. W implementacjach czêsto stosowana jest metoda ca³kowitego zastêpowania, w której ca³a aktualna populacja, podlega operacjom krzy¿owania i mutacji. Innym sposobem jest metoda zastêpowania czêœciowego, w której czêœæ najlepszych chromosomów obecnej populacji przechodzi do populacji potomnej bez ¿adnych zmian, a pozosta³e elementy z kolei bior¹ udzia³ w operacji krzy¿owania i mutacji. Czêsto stosowan¹ praktyk¹ jest zastosowanie zastêpowania elitarnego, w którym na podstawie parametru okreœlaj¹cego wielkoœæ elity, czêœæ najlepszych osobników jest kopiowana do nowej generacji ju¿ na samym pocz¹tku. Umo¿liwia to zapamiêtanie najlepszych chromosomów które mog³y byæ zmienione poprzez dzia³anie operatorów genetycznych.
 
 Pierwszym z takich operatorów jest krzy¿owanie, które jest operacj¹ umo¿liwiaj¹c¹ tworzenie nowych rozwi¹zañ. Jego koncept bazuje na procesie rozmna¿ania organizmów, w czasie trwania których dziecko dziedziczy czêœæ genów rodziców. W kontekœcie omawianego algorytmu genetycznego, krzy¿owanie polega na przeciêciu chromosomów w ustalonym punkcie i ich wzajemnego zamienienia. 
@@ -326,17 +350,33 @@ W celu zrównania szans ka¿dego z porównywanych algorytmów, wszystkie przeprowadz
 
 \subsection{Opis przeprowadzonych badañ}
 
+\subsubsection{Skalowanie algorytmów}
+
+Przez wzgl¹d na du¿¹ liczbê parametrów ka¿dego porównywanego algorytmu heurystycznego, zdecydowano siê dokonaæ ich dostrojenia przed przeprowadzeniem zaplanowanych badañ. Na bazie wybranych funkcji testowych wykonano liczne testy, na bazie których wybrano parametry, dla których uzyskano najlepsze rezultaty. Dla algorytmu symulowanego wy¿arzania jako metoda sch³adzaj¹ca, wybrana zosta³a standardowa funkcja
+\begin{equation}
+NowaTemperatura = ObecnaTemperatura * 0.95^k
+\end{equation}
+, gdzie \textit{k} jest numerem iteracji od wy¿arzenia. Uwzglêdniaj¹c fakt du¿ej liczby iteracji, któr¹ algorytm mo¿e wykonaæ podczas testów, zdecydowano siê wprowadziæ mo¿liwoœæ wyst¹pienia operacji ponownego wy¿arzenia (ang. reannealing), w czasie której algorytm ponownie ustala temperaturê na domyœln¹ wartoœæ 100 i kontynuuje pracê. Wartoœæ parametru ponownego wy¿arzania ustalona zosta³a na poziomie 40 i definiuje liczbê punktów, które algorytm ma obowi¹zek zaakceptowaæ przed wyst¹pieniem ponownego wy¿arzenia.
+W metodzie roju cz¹stek domyœlne parametry wzoru (TODO: numer wzoru 1) zawartego w rozdziale (todo: alias 2.2.1) ustalone zosta³y na nastêpuj¹ce wartoœci:
+$W = 0.6$, $c_1 = c_2 = 0.75$.
+Algorytm genetyczny z kolei wymaga³ najwiêkszej iloœci testów skaluj¹cych przez fakt posiadania najwiêkszej liczby parametrów. Na ich postawie wybrano metodê ruletki jako metodê selekcji, zastêpowanie elitarne o wielkoœci elity równej $0.05*WielkoœæPopulacji$ jako metodê wymiany pokoleñ oraz metodê krzy¿owania dwudzielnego.
+
+\subsubsection{Przeprowadzenie doœwiadczeñ w zaimplementowanym œrodowisku testowym}
+
 W zaimplementowanej aplikacji dla ka¿dego opisanego w (TODO: alias rozdzialu wyzej) kryterium, umieszczane zosta³y ustalone wartoœci parametrów, po czym przeprowadzana by³a operacja uruchomienia systemu. Dla kryterium maksymalnego czasu, w którym algorytmy poszukuj¹ globalnego minimum funkcji, doœwiadczenia wykonywane zosta³y dla zakresu od jednej do piêciu sekund, z jednosekundowym interwa³em. Liczba testów dla ka¿dej wartoœci z ustalonego zakresu ustalona zosta³a na poziomie stu prób. Pozosta³e parametry, takie jak maksymalna liczba iteracji oraz odwo³añ do funkcji wraz z maksymaln¹ liczb¹ iteracji bez poprawy wyniku, ustalone zosta³y na niemo¿liw¹ do osi¹gniêcia wartoœæ 999999. Spowodowane jest to tym, i¿ jednym warunkiem stopu w przedstawianej metodzie porównawczej jest maksymalny ustalony czas dzia³ania algorytmu.
 W przypadku algorytmu genetycznego oraz roju cz¹stek dodatkowo przeprowadzone zosta³y doœwiadczenia dla ró¿nych wielkoœci populacji i roju, dziêki czemu mo¿liwa do wykonania by³a analiza wp³ywu tych parametrów na otrzymane rezultaty.
 Przeprowadzenie badañ dotycz¹cych kryterium maksymalnej liczby odwo³añ do funkcji testowej przebiega³o w sposób analogiczny, z t¹ ró¿nic¹, i¿ niemo¿liw¹ do osi¹gniêcia wartoœci¹ 999999 zosta³ objêty maksymalny czas poszukiwañ, który w opisywanym kryterium nie jest brany pod uwagê. Dla kryterium tego maksymalna liczba odwo³añ do funkcji ustalona zosta³a na wartoœci: 1000, 2000, 3000, 4000, 5000, 6000.
 
 \subsection{Wyniki doœwiadczeñ dla zadanych funkcji testowych}
-\subsubsection{Funkcja Bochachevsky’ego}
-\subsubsection{Funkcja Beale’a}
+
+
+
+\subsubsection{Funkcja Bohachevsky’ego 1}
+\subsubsection{Funkcja Colville'a}
 \subsubsection{Funkcja Rosenbrocka}
-\subsubsection{Funkcja Easoma }
-\subsubsection{Funkcja Eggholdera}
+\subsubsection{Funkcja Eggholdera }
 \subsubsection{Funkcja Griewanka}
+\subsubsection{Funkcja Ackley'a}
 \section{Wnioski}
 \section*{Podsumowanie}
 
