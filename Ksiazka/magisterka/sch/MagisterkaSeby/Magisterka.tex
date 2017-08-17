@@ -8,12 +8,10 @@
 
 %\drukJednostronny
 
-%% tytu³ promotor i autor (\title to komenda standardowa)
 \title{Analiza porównawcza algorytmów metaheurystycznych do rozwi¹zywania wybranego problemu optymalizacyjnego}
 \promotor{dr in¿. Henryk Josiñski}
 
 
-%% ka¿dy autor musi mieæ 3 argumenty: imiê nazwisko, nr albumu, opis wk³adu
 \autor{Sebastian Nalepka}{111111}
 	
 
@@ -25,17 +23,11 @@
 
 %\rozdzialy
 
-
-%\literowaNumeracjaDodatkow %% w³¹czy numeracjê dodatków literami
-%\rzymskaNumeracjaDodatkow  %%w³¹czy numeracjê dodatków liczbami rzymskimi
-
 %% wy³¹czenie wyjaœnieñ:
 \bezWyjasnien
 
 %% standardowe komendy \newtheorem  dzia³aj¹ jak woryginale
-\newtheorem{tw}{Twierdzenie}%[subsection]
-\newtheorem{twa}{Twierdzenie}%[section]
-\newtheorem{dd}{Definicja}%[subsection]
+
 
 \begin{document}
 
@@ -52,13 +44,14 @@ Dla osi¹gniêcia wy¿ej wymienionego celu zrealizowana zosta³a praca sk³adaj¹ca si
 \section{Wybór badanego problemu optymalizacji}
 
 \subsection{Opis minimalizacji funkcji ci¹g³ych wielu zmiennych}
+\label{dzial:OpisMinimalizacjiFunkcjiCiaglych}
 
 W prezentowanej pracy dokonano porównania algorytmów metaheurystycznych odnosz¹c siê do problemu minimalizacji funkcji wielu zmiennych. Problem ten polega na znalezieniu minimum globalnego rzeczywistej funkcji poprzez systematyczne wybieranie parametrów wejœciowych z dozwolonego zakresu i obliczaniu ich wartoœci funkcji. Trudnoœæ problemu sprowadza siê do wielkoœci przestrzeni przeszukiwania. Traktuj¹c problem jako czysto matematyczny, funkcja \textit{n} zmiennych posiada nieskoñczenie wiele wartoœci w ka¿dym wymiarze. Mamy wiêc nieskoñczenie wielk¹ przestrzeñ poszukiwañ. Bior¹c jednak pod wzgl¹d aspekt technologiczny i to, i¿ komputery bazuj¹ na danych skoñczonych, mo¿na w prosty sposób przedstawiæ skalê trudnoœci. W czasie implementacji algorytmu, którego celem jest znalezienie minimum globalnego funkcji, nale¿y wzi¹æ pod uwagê dostêpn¹ dok³adnoœæ obliczeniow¹ maszyny. Zak³adaj¹c, i¿ dok³adnoœæ ta wynosi osiem miejsc po przecinku, ka¿da zmienna, ograniczona w przedziale $[0,100]$ mo¿e przyj¹æ $100*10^8$ ró¿nych wartoœci. Ju¿ dla funkcji dwóch zmiennych, wielkoœæ przestrzeni przeszukiwania wynosi $(100*10^8)^2 = 10^{20}$.
 
 \subsection{Funkcje testowe}
 
 Problem minimalizacji funkcji ci¹g³ych bardzo dobrze nadaje siê do porównania algorytmów metaheurystycznych przez wzgl¹d na powszechnie dostêpne funkcje testowe. Funkcje te posiadaj¹ pewny specyficzny element, dziêki któremu mo¿liwe jest porównanie wyników otrzymanych przez dany algorytm. Element ten to znajomoœæ minimum globalnego dla danej funkcji testowej. Dziêki znajomoœci wartoœci najlepszej (najmniejszej) dla danej funkcji, wiadomo jak szybko oraz czy w ogóle badany algorytm znalaz³ rozwi¹zanie. Posiadaj¹c ten punkt odniesienia mo¿na zestawiæ otrzymane rezultaty wszystkich algorytmów pod k¹tem czasowym lub liczby wyliczeñ wartoœci funkcji dla ustalonych przez algorytm punktów.
-Do analizy wybranych zosta³o (TODO: wpisac ilosc) funkcji testowych, których dobór bra³ pod uwagê stopieñ ich skomplikowania. Funkcje te zosta³y wybrane z listy zawartej w (TODO: link do strony z lista funkcji) uwzglêdniaj¹c ró¿n¹ liczbê wymiarów oraz skalê ich trudnoœci. Ka¿da z funkcji posiada specyficzne w³aœciwoœci, które zostan¹ wziête pod uwagê podczas porównania rezultatów algorytmów heurystycznych.
+Do analizy wybranych zosta³o szeœæ funkcji testowych, których dobór bra³ pod uwagê stopieñ ich skomplikowania. Funkcje te zosta³y wybrane z listy zawartej w (TODO: link do strony z lista funkcji) uwzglêdniaj¹c ró¿n¹ liczbê wymiarów oraz skalê ich trudnoœci. Ka¿da z funkcji posiada specyficzne w³aœciwoœci, które zostan¹ wziête pod uwagê podczas porównania rezultatów algorytmów heurystycznych.
 
 \subsubsection{Funkcja Bohachevsky’ego 1}
 
@@ -96,15 +89,17 @@ TODO: obrazek + wzor 2 i 4zm
 \section{Metody rozwi¹zania wybranego problemu optymalizacji}
 
 \subsection{Algorytmy dok³adne}
+\label{dzial:AlgorytmyDokladne}
 
-Klasycznym podejœciem do znalezienia minimalnej wartoœci zadanej funkcji testowej jest próba porównania wartoœci funkcji dla ka¿dych mo¿liwych parametrów wejœciowych i wybrania w ten sposób optymalnego rozwi¹zania. W rzeczywistoœci jednak takie rozwi¹zanie nie jest praktyczne przez wzgl¹d na olbrzymi¹ mo¿liw¹ liczbê takich parametrów. Jak ju¿ wspomniano w rozdziale 1.1 (TODO: zmieniæ na alias rozdzia³u) liczba rozwi¹zañ dla funkcji ograniczonej ju¿ do dwóch zmiennych mo¿e wynieœæ $10^{20}$, a w przypadku trzech zmiennych – $10^{30}$. Zak³adaj¹c, i¿ mo¿liwe by by³o wyliczenie miliarda wartoœci funkcji na sekundê, to w godzinê wartoœæ ta wynosi³aby  $3.6*10^{12}$, a w rok – $3.2*10^{16}$. Prowadz¹c dalej obliczenia wychodzi, i¿ wyliczenie $10^{20}$ wartoœci funkcji trwa³oby oko³o 3125 lat. Widaæ wiêc, ¿e liczba kombinacji jest tak du¿a, i¿ podejœcie to jest niemo¿liwe do wykonania w akceptowalnym czasie.
+Klasycznym podejœciem do znalezienia minimalnej wartoœci zadanej funkcji testowej jest próba porównania wartoœci funkcji dla ka¿dych mo¿liwych parametrów wejœciowych i wybrania w ten sposób optymalnego rozwi¹zania. W rzeczywistoœci jednak takie rozwi¹zanie nie jest praktyczne przez wzgl¹d na olbrzymi¹ mo¿liw¹ liczbê takich parametrów. Jak ju¿ wspomniano w rozdziale \ref{dzial:OpisMinimalizacjiFunkcjiCiaglych}, liczba rozwi¹zañ dla funkcji ograniczonej ju¿ do dwóch zmiennych mo¿e wynieœæ $10^{20}$, a w przypadku trzech zmiennych – $10^{30}$. Zak³adaj¹c, i¿ mo¿liwe by by³o wyliczenie miliarda wartoœci funkcji na sekundê, to w godzinê wartoœæ ta wynosi³aby  $3.6*10^{12}$, a w rok – $3.2*10^{16}$. Prowadz¹c dalej obliczenia wychodzi, i¿ wyliczenie $10^{20}$ wartoœci funkcji trwa³oby oko³o 3125 lat. Widaæ wiêc, ¿e liczba kombinacji jest tak du¿a, i¿ podejœcie to jest niemo¿liwe do wykonania w akceptowalnym czasie.
 
 \subsection{Metaheurystyki optymalizacyjne}
 
-Analizuj¹c podejœcie z rozdzia³u 2.1 (TODO: dodaæ alias rozdzia³u) mo¿e przyjœæ na myœl sposób, który polegaæ bêdzie na wyliczaniu wartoœci funkcji dla wyrywkowych parametrów. Sk¹d jednak wiadomo które punkty wybraæ? Na podstawie czego bazowaæ? W przypadku problemów, w których przez wzgl¹d na czas niemo¿liwe jest dojœcie do rozwi¹zania na ratunek przychodz¹ algorytmy heurystyczne, które umo¿liwiaj¹ skrócenie czasu obliczeñ. Cen¹ któr¹ trzeba jednak za to zap³aciæ jest mo¿liwoœæ otrzymania gorszego rozwi¹zania od rozwi¹zania najlepszego. Samo pojêcie heurystyki pochodzi od greckiego s³owa heuresis, które znaczy ‘odnaleŸæ’. Metody heurystyczne polegaj¹ na u¿yciu regu³ oraz faktów, które uzyskane na drodze badania danego problemu umo¿liwiaj¹ jego rozwi¹zanie lub zbli¿enie siê do poprawnej odpowiedzi. Podejœcie heurystyczne stosowane mo¿e byæ w sposób piêtrowy, tworz¹c metaheurystyki. Metaheurystyka jest to ogólny algorytm do rozwi¹zywania problemów obliczeniowych, który inspiracjê czêsto bierze z mechanizmów biologicznych lub fizycznych. Okreœlenie to oznacza tak zwan¹ heurystykê wy¿szego poziomu, co wynika z faktu, i¿ algorytmy tego typu bezpoœrednio nie rozwi¹zuj¹ ¿adnego problemu, a wy³¹cznie podaj¹ metodê na utworzenie odpowiedniego algorytmu. 
+Analizuj¹c podejœcie z rozdzia³u \ref{dzial:AlgorytmyDokladne} mo¿e przyjœæ na myœl sposób, który polegaæ bêdzie na wyliczaniu wartoœci funkcji dla wyrywkowych parametrów. Sk¹d jednak wiadomo które punkty wybraæ? Na podstawie czego bazowaæ? W przypadku problemów, w których przez wzgl¹d na czas niemo¿liwe jest dojœcie do rozwi¹zania na ratunek przychodz¹ algorytmy heurystyczne, które umo¿liwiaj¹ skrócenie czasu obliczeñ. Cen¹ któr¹ trzeba jednak za to zap³aciæ jest mo¿liwoœæ otrzymania gorszego rozwi¹zania od rozwi¹zania najlepszego. Samo pojêcie heurystyki pochodzi od greckiego s³owa \textit{heuresis}, które znaczy ‘odnaleŸæ’. Metody heurystyczne polegaj¹ na u¿yciu regu³ oraz faktów, które uzyskane na drodze badania danego problemu umo¿liwiaj¹ jego rozwi¹zanie lub zbli¿enie siê do poprawnej odpowiedzi. Podejœcie heurystyczne stosowane mo¿e byæ w sposób piêtrowy, tworz¹c metaheurystyki. Metaheurystyka jest to ogólny algorytm do rozwi¹zywania problemów obliczeniowych, który inspiracjê czêsto bierze z mechanizmów biologicznych lub fizycznych. Okreœlenie to oznacza tak zwan¹ heurystykê wy¿szego poziomu, co wynika z faktu, i¿ algorytmy tego typu bezpoœrednio nie rozwi¹zuj¹ ¿adnego problemu, a wy³¹cznie podaj¹ metodê na utworzenie odpowiedniego algorytmu. 
 
 
 \subsubsection{Metoda optymalizacji rojem cz¹stek}
+\label{dzial:MetodaOptymalizacjiRojemCzastek}
 
 Metoda roju cz¹stek (PSO – Particle Swarm Optimization) jest przyk³adem optymalizacji z kategorii metod inteligencji stadnej. Powsta³a ona w wyniku inspiracji biologicznej, której Ÿród³em by³ uk³ad lotu stada ptaków tworzony w celu znalezienia po¿ywienia lub gniazda oraz unikniêcia drapie¿ników. Zastosowanie prostych zasad umo¿liwia ptakom zsynchronizowany oraz bezkolizyjnych ruch, który daje efekt zachowania jednego organizmu. Ruch stada ptaków, czy ³awicy ryb jest wypadkow¹ dzia³ania wszystkich osobników i koncentruje siê na utrzymaniu optymalnego dystansu od swoich s¹siadów, przy jednoczesnym pod¹¿aniem za liderem. Badania nad optymalizacj¹ roju cz¹stek zapocz¹tkowano od próby graficznej symulacji zachowañ takich grup. Bardzo szybko okaza³o siê, i¿ stworzony matematyczny model mo¿e byæ równie¿ zastosowany jako metoda optymalizacyjna.
 W optymalizacji rojem cz¹stek, rozwi¹zania (cz¹stki) wspó³pracuj¹ ze sob¹ w celu odnalezienia cz¹stki optymalnej. W czasie procesu optymalizacji nastêpuje zmiana po³o¿enia ka¿dej cz¹stki w przestrzeni rozwi¹zañ poprzez wyznaczenie wektora prêdkoœci. Wektor ten jest modyfikowany przy u¿yciu informacji o historii poszukiwañ danej cz¹stki oraz jej cz¹stek s¹siednich. Metoda PSO w problemie optymalizacji funkcji wielowymiarowych d¹¿y do otrzymania cz¹steczki, która reprezentuje jak najmniejsz¹ wartoœæ funkcji i mo¿e byæ opisana dwoma równaniami:
@@ -171,15 +166,18 @@ gdzie $f_{min}$ jest wartoœci¹ funkcji przystosowania najgorszego chromosomu. \n
 Po etapie selekcji pozostaje do zdefiniowania kwestia wymiany pokoleñ. W implementacjach czêsto stosowana jest metoda ca³kowitego zastêpowania, w której ca³a aktualna populacja, podlega operacjom krzy¿owania i mutacji. Innym sposobem jest metoda zastêpowania czêœciowego, w której czêœæ najlepszych chromosomów obecnej populacji przechodzi do populacji potomnej bez ¿adnych zmian, a pozosta³e elementy z kolei bior¹ udzia³ w operacji krzy¿owania i mutacji. Czêsto stosowan¹ praktyk¹ jest zastosowanie zastêpowania elitarnego, w którym na podstawie parametru okreœlaj¹cego wielkoœæ elity, czêœæ najlepszych osobników jest kopiowana do nowej generacji ju¿ na samym pocz¹tku. Umo¿liwia to zapamiêtanie najlepszych chromosomów które mog³y byæ zmienione poprzez dzia³anie operatorów genetycznych.
 
 Pierwszym z takich operatorów jest krzy¿owanie, które jest operacj¹ umo¿liwiaj¹c¹ tworzenie nowych rozwi¹zañ. Jego koncept bazuje na procesie rozmna¿ania organizmów, w czasie trwania których dziecko dziedziczy czêœæ genów rodziców. W kontekœcie omawianego algorytmu genetycznego, krzy¿owanie polega na przeciêciu chromosomów w ustalonym punkcie i ich wzajemnego zamienienia. 
-Drugim operatorem genetycznym jest mutacja, która umo¿liwia wprowadzenie nowego elementu do populacji poprzez tworzenie ró¿norodnoœci. Analogicznie jak w otaczaj¹cym nas œwiecie, w algorytmie genetycznym, mutacje zdarzaj¹ siê rzadko. Ich skala zazwyczaj zale¿y od parametru, który przyjmuje niskie wartoœci. W odniesieniu do chromosomów w postaci binarnej, mutacja mo¿e polegaæ na zamianie losowego genu na wartoœæ przeciwn¹. Tak utworzona nowa generacja ponownie przechodzi przez wszystkie punkty algorytmu. Dzieje siê tak a¿ do czasu, w którym spe³nione zostan¹ warunki zatrzymania, które w kontekœcie przedstawianego zagadnienia opisane zosta³y w rozdziale 6.1 (TODO: dodac alias rozdzialu) opisuj¹cym metody porównawcze wybranych algorytmów obejmuj¹ce w swojej treœci warunki stopu opisanych trzech metaheurystyków.
+Drugim operatorem genetycznym jest mutacja, która umo¿liwia wprowadzenie nowego elementu do populacji poprzez tworzenie ró¿norodnoœci. Analogicznie jak w otaczaj¹cym nas œwiecie, w algorytmie genetycznym, mutacje zdarzaj¹ siê rzadko. Ich skala zazwyczaj zale¿y od parametru, który przyjmuje niskie wartoœci. W odniesieniu do chromosomów w postaci binarnej, mutacja mo¿e polegaæ na zamianie losowego genu na wartoœæ przeciwn¹. Tak utworzona nowa generacja ponownie przechodzi przez wszystkie punkty algorytmu. Dzieje siê tak a¿ do czasu, w którym spe³nione zostan¹ warunki zatrzymania, które w kontekœcie przedstawianego zagadnienia opisane zosta³y w rozdziale \ref{dzial:MetodyPorownawczeWybranychAlgorytmow} opisuj¹cym metody porównawcze wybranych algorytmów obejmuj¹ce w swojej treœci warunki stopu opisanych trzech metaheurystyków.
 
 \section{Automatyzacja przeprowadzanych badañ}
+\label{dzial:AutomatyzacjaPrzeprowadzanychBadan}
 
 Porównanie algorytmów metaheurystycznych w odniesieniu do problemu minimalizacji funkcji wielu zmiennych jest zadaniem bardzo skomplikowanym przez fakt iloœci doœwiadczeñ, które trzeba wykonaæ. Badania porównawcze przeprowadzane bêd¹ pod k¹tem kilku parametrów. Dla ka¿dego z nich nale¿y przeprowadziæ wielokrotne testy dla ka¿dego testowanego algorytmu. Ustalaj¹c próbkê testu na poziomie $10^4$ prób, z której bêdzie obliczana wartoœæ œrednia oraz bior¹c pod uwagê dwa parametry porównawcze, z których ka¿dy przyjmowaæ mo¿e dla przyk³adu dziesiêæ wartoœci, liczba testów dla jednego algorytmu oraz jednej funkcji testowej osi¹ga ju¿ wartoœæ $2*10^5$. Manualne przetwarzanie w œrodowisku Matlab przy ograniczonej funkcjonalnoœci agregowania wyników jest bardzo czasoch³onnym zadaniem. W tym celu zdecydowano siê zbudowaæ dedykowan¹ aplikacjê bazodanow¹, która bêdzie umo¿liwia³a automatyzacjê przedstawianej operacji. U¿ytkownik z poziomu aplikacji bêdzie mia³ mo¿liwoœæ wyboru funkcji testowej, algorytmu metaheurystycznego oraz jego parametrów, a tak¿e liczby testów, która ma byæ przeprowadzona przy zadanych wartoœciach. Aplikacja automatycznie bêdzie wysy³a³a zapytania do œrodowiska obliczeniowego Matlab, obiera³a wyniki oraz umieszcza³a je w bazie danych, z której w prosty i efektywny sposób mo¿na bêdzie przeprowadziæ ich agregacjê w celu przedstawienia wyników i ich porównania. W ten sposób narzut pracy, który niezbêdny jest do implementacji przedstawionej aplikacji z ca³¹ pewnoœci¹ siê zwróci oraz umo¿liwi dalsz¹ analizê algorytmów w kontekœcie problemu funkcji wielu zmiennych poniewa¿ aplikacja umo¿liwiaæ bêdzie równie¿ proste dodanie do niej kolejnych algorytmów funkcji testowych.
 
 \section{Wykorzystane rozwi¹zania technologiczne}
+\label{dzial:WykorzystaneRozwiazaniaTechnologiczne}
 
 \subsection{Zastosowane technologie}
+\label{dzial:ZastosowaneTechnologie}
 
 Obecny rozdzia³ obejmuje opis wykorzystanych technologii, które umo¿liwi³y implementacjê aplikacji. Opis ten dotyczy jêzyka programowania, w którym napisany zosta³ backend(TODO: dodaæ przypis) aplikacji oraz silnika graficznego aplikacji wraz z jêzykiem zapytañ bazy danych.
 
@@ -189,7 +187,7 @@ Obecny rozdzia³ obejmuje opis wykorzystanych technologii, które umo¿liwi³y imple
 C\# jest to nowoczesny, zorientowany obiektowo jêzyk programowania stworzony przez firmê Microsoft. Jego pierwsza wersja wydana zosta³a ju¿ w po³owie 2000 roku, przy du¿ej zas³udze g³ównego projektanta jêzyka - duñskiego in¿yniera oprogramowania Andersa Hejlsberga. Jêzyk ten mo¿e zostaæ u¿yty w celu pisania aplikacji webowych, desktopowych oraz przeznaczonych na urz¹dzenia przenoœne. Programy w nim napisane, kompilowane s¹ do poœredniego kodu, który zapisany jest w CIL (ang. Common Intermediate Language) i wykonany w œrodowisku uruchomieniowym .NET Frameworka. Poziom trudnoœci nauki C\# uznawany jest za stosunkowo niski, g³ównie z powodu posiadania licznych udogodnieñ oraz modu³ów, które upraszczaj¹ pracê programistyczn¹. Do elementów tych mo¿na zaliczyæ brak koniecznoœci dodawania plików nag³ówkowych, które niezbêdne by³y w jêzyku C++, automatyczne zwalnianie dynamicznie przydzielonej pamiêci za które odpowiedzialny jest Garbage Collection, inicjalizowanie zmiennych ich domyœlnymi wartoœciami oraz wprowadzenie dodatkowych elementów sk³adowych klas, takich jak indeksery oraz w³aœciwoœci (ang. properties).
 
 \subsubsection{WPF / XAML}
-
+\label{dzial:WpfXaml}
 Windows Presentation Foundation (WPF) jest to silnik graficzny, który wprowadzony zosta³ wraz z trzeci¹ wersj¹ œrodowiska .NET. Okna w aplikacjach zaimplementowanych w WPF wyœwietlane s¹ za pomoc¹ grafiki wektorowej, która to wspomagana jest przez akceleratory grafiki 3D. API w technologi WPF opiera siê na jêzyku XML, a konkretniej jego odmianie - XAML. Extensible Application Markup Language (XAML) jest to deklaratywny jêzyk znaczników, którego przeznaczeniem jest opis interfejsu u¿ytkownika implementowanego w WPF. Pozwala on zaprojektowanie oraz rozmieszczenie wszelakich elementów wizualnych oraz umo¿liwia zrównoleglenie pracy programistów pracuj¹cych nad logik¹ biznesow¹ budowanej aplikacji oraz grafików, którzy odpowiedzialni s¹ za stworzenie graficznego interfejsu u¿ytkownika. Zdarza siê, i¿ graficy przez wzgl¹d na zakres swoich obowi¹zków nie znaj¹ ¿adnego jêzyka programowania. Problem ten zniwelowany dziêki jêzykowi XAML, który pozwala na zrozumienie przez osoby nietechniczne zasady dzia³ania oraz powi¹zañ poszczególnych okien, a tak¿e umo¿liwia projektowanie GUI w prosty sposób z poziomu drzewiastej struktury lub dedykowanego programu graficznego Expression Blend. Aplikacja ta umo¿liwia przeprowadzenie wszelkich operacji z poziomu graficznego œrodowiska.
 
 \subsubsection{TSQL}
@@ -198,7 +196,7 @@ Transaction-SQL (T-SQL) jest to rozwiniêcie standardowego jêzyka SQL, który to u
 
 \subsection{Zastosowane narzêdzia}
 
-W celu efektywnej pracy z technologiami, które opisane zosta³y w rozdziale 4.1 (TODO: dodaæ alias rozdzia³u) warto u¿yæ dedykowanych narzêdzi, które u³atwiaj¹ zastosowanie funkcjonalnoœci wspomnianych technologii. W tym celu w trakcie pracy nad prezentowanych projektem magisterskim, u¿ytych zosta³o kilka narzêdzi, które pozwoli³y skróciæ czas potrzebny na implementacjê aplikacji, przeprowadzenie badañ oraz zagregowanie ich rezultatów.
+W celu efektywnej pracy z technologiami, które opisane zosta³y w rozdziale \ref{dzial:ZastosowaneTechnologie} warto u¿yæ dedykowanych narzêdzi, które u³atwiaj¹ zastosowanie funkcjonalnoœci wspomnianych technologii. W tym celu w trakcie pracy nad prezentowanych projektem magisterskim, u¿ytych zosta³o kilka narzêdzi, które pozwoli³y skróciæ czas potrzebny na implementacjê aplikacji, przeprowadzenie badañ oraz zagregowanie ich rezultatów.
 
 \subsubsection{Matlab}
 
@@ -225,16 +223,18 @@ Zaprezentowane funkcje Resharpera wraz z innymi, które dostêpne s¹ do wgl¹du w o
 W trakcie budowy systemu informatycznego zdarzaj¹ siê sytuacje, w których korzysta siê z aplikacji ró¿nych firm, które domyœlnie nie umo¿liwiaj¹ ich po³¹czenia. Problem taki wyst¹pi³ równie¿ w czasie pracy nad prezentowanym projektem magisterskim. U¿ycie narzêdzia innej firmy ni¿ Microsoft, jakim jest Matlab doprowdzi³o do koniecznoœci znalezienia metody jego po³¹czenia ze œrodowiskiem .NET
 
 \subsubsection{Matlab Application Type Library v.1.0}
+\label{dzial:MatlabApplicationLibrary}
 
-Matlab Application Type Library w wersji pierwszej jest to otwarta biblioteka przeznaczona dla œrodowiska .NET posiadaj¹ca API umo¿liwiaj¹ce wykonywanie operacji Matlabowych stosuj¹c sk³adniê C\#. Biblioteka ta umo¿liwia odwo³ywanie siê do uprzednio zdefiniowanych w Matlabie funkcji, dostarczaj¹c odpowiednich parametrów oraz odbiera wyniki obliczeñ, które mog¹ byæ dalej przetwarzane bez koniecznoœci manualnego kopiowania danych z aplikacji Matlab. Biblioteka posiada bardzo ogólnie zdefiniowane metody, do prawid³owego wykonania których niezbêdna jest szczegó³owa wiedza, która ograniczona jest jednak przez wzgl¹d na brak dokumentacji. Przy d³u¿szej pracy jest jednak mo¿liwe dojœcie do sposobu skorzystania z zaawansowanych funkcji które dostarcza œrodowisko Matlab. W rozdziale (TODO: dodaj numer rozdzialu) przedstawiono dok³adny sposób przekazywania i odbierania danych pomiêdzy œrodowiskiem Matlab oraz .NET.
+Matlab Application Type Library w wersji pierwszej jest to otwarta biblioteka przeznaczona dla œrodowiska .NET posiadaj¹ca API umo¿liwiaj¹ce wykonywanie operacji Matlabowych stosuj¹c sk³adniê C\#. Biblioteka ta umo¿liwia odwo³ywanie siê do uprzednio zdefiniowanych w Matlabie funkcji, dostarczaj¹c odpowiednich parametrów oraz odbiera wyniki obliczeñ, które mog¹ byæ dalej przetwarzane bez koniecznoœci manualnego kopiowania danych z aplikacji Matlab. Biblioteka posiada bardzo ogólnie zdefiniowane metody, do prawid³owego wykonania których niezbêdna jest szczegó³owa wiedza, która ograniczona jest jednak przez wzgl¹d na brak dokumentacji. Przy d³u¿szej pracy jest jednak mo¿liwe dojœcie do sposobu skorzystania z zaawansowanych funkcji które dostarcza œrodowisko Matlab. W rozdziale \ref{dzial:KomunikacjaMatlabaZProjektem} przedstawiono dok³adny sposób przekazywania i odbierania danych pomiêdzy œrodowiskiem Matlab oraz .NET.
 
 \section{Architektura budowanej aplikacji}
+\label{dzial:ArchitekturaBudowanejApl}
 
 Budowanie bazodanowej aplikacji komputerowej ³¹cz¹cej siê z systemem trzecim wymaga szczegó³owej analizy wszystkich elementów, które maj¹ odniesienie do jej architektury. Przez koniecznoœæ budowy dwóch oddzielnych elementów - bazy danych oraz aplikacji desktopowej, analiza ta podzielona zosta³ na czêœæ odwo³uj¹c¹ siê do architektury aplikacji, modelowania bazy danych oraz komunikacji bazy danych z projektem programistycznym oraz komunikacji œrodowiska Matlab z implementowan¹ aplikacj¹. 
 
 \subsection{Architektura aplikacji}
 
-W aspekcie programowania, podobnie jak w innych dziedzinach, w których przeprowadzana jest operacja budowy zadanego elementu, nale¿y dok³adnie zaplanowaæ jego proces. W przedstawianym rozdziale przedstawiony zosta³ opis metodologii, która pozwala na uporz¹dkowanie procesu budowania aplikacji komputerowej wraz z jej odmian¹, która zastosowana zosta³a podczas pracy nad niniejsz¹ prac¹ magistersk¹. W rozdziale (TODO: dodaæ numer) zosta³ równie¿ zawarty szczegó³owy opis poszczególnych elementów ze strony projektu programistycznego, który to jest efektem pracy implementacyjnej.
+W aspekcie programowania, podobnie jak w innych dziedzinach, w których przeprowadzana jest operacja budowy zadanego elementu, nale¿y dok³adnie zaplanowaæ jego proces. W przedstawianym rozdziale przedstawiony zosta³ opis metodologii, która pozwala na uporz¹dkowanie procesu budowania aplikacji komputerowej wraz z jej odmian¹, która zastosowana zosta³a podczas pracy nad niniejsz¹ prac¹ magistersk¹. W rozdziale \ref{dzial:ModelAplikacji} zosta³ równie¿ zawarty szczegó³owy opis poszczególnych elementów ze strony projektu programistycznego, który to jest efektem pracy implementacyjnej.
  
 \subsubsection{Wzorce architektoniczne oprogramowania}
 
@@ -250,12 +250,13 @@ Drug¹ z kolei warstw¹ jest warstwa widoku, której odpowiedzialnoœæ sprowadza siê
 Ostatni¹ warstw¹ modelu MVVM jest warstwa ViewModelu, której przeznaczeniem jest poœredniczenie w wymianie danych pomiêdzy modelem oraz widokiem, do którego nie posiada jednak ¿adnej referencji. Elementy widoku odnosz¹ siê do ViewModelu dziêki wspomnianym ju¿ komendom oraz bindingowi. Taki mechanizm zapewnia w pe³ni separacjê warstwy ViewModelu, a co za tym idzie, umo¿liwia pe³ne jego przetestowanie bez ¿adnej zale¿noœci od rzeczywistej warstwy widoku oraz modelu.
 
 \subsubsection{Model aplikacji}
+\label{dzial:ModelAplikacji}
 
 U¿ycie wzorca MVVM w aplikacji implementowanej na potrzeby prezentowanej pracy magisterskiej poskutkowa³o w projekcie programistycznym do powstania obszernej solucji, która sk³ada siê z ponad siedemdziesiêciu plików. Dziêki zaplanowanej strukturze podzia³u elementów na foldery, zachowano porz¹dek, który umo¿liwia szybkie oraz intuicyjne wyszukiwanie potrzebnych sk³adowych aplikacji. Wszelkie pliki klas zosta³y umiejscowione w katalogach nazwanych w sposób adekwatny do ich przeznaczenia, przez co odnalezienie przez programistê szukanego elementu nie przysparza ¿adnych problemów.
 
 \subsubsection*{Managers}
 
-\textit{Managers} jest to katalog zawieraj¹cy klasê menad¿era tworz¹cego i wysy³aj¹cego ¿¹danie przeprowadzenia doœwiadczenia do œrodowiska Matlab. Menad¿er ten za poœrednictwem klas dopasowuj¹cych tworzy ¿¹danie zgodne ze standardem zastosowanej biblioteki opisanej w (TODO dodac alias 4.3.1), wysy³a je do œrodowiska obliczeniowego oraz odbiera rezultaty.
+\textit{Managers} jest to katalog zawieraj¹cy klasê menad¿era tworz¹cego i wysy³aj¹cego ¿¹danie przeprowadzenia doœwiadczenia do œrodowiska Matlab. Menad¿er ten za poœrednictwem klas dopasowuj¹cych tworzy ¿¹danie zgodne ze standardem zastosowanej biblioteki opisanej w \ref{dzial:MatlabApplicationLibrary}, wysy³a je do œrodowiska obliczeniowego oraz odbiera rezultaty.
 
 \subsubsection*{Matlab}
 
@@ -276,7 +277,7 @@ Katalog narzêdzi, którego graficzna reprezentacja dostêpna jest do zobaczenia na
 
 \subsubsection*{View}
 
-Katalog widoku jest katalogiem najwa¿niejszym ze strony u¿ytkownika poniewa¿ zawiera definicjê budowy g³ównego okna aplikacji oraz umiejscowienia wszystkich kontrolek jakie ono zawiera. W tym w³aœnie miejscu wykorzystywany jest opisany w rozdziale (TODO: dodaæ alias 4.1.2 xaml) jêzyk XAML, który pozwala na przeprowadzenie operacji wi¹zañ oraz stosowanie komend.
+Katalog widoku jest katalogiem najwa¿niejszym ze strony u¿ytkownika poniewa¿ zawiera definicjê budowy g³ównego okna aplikacji oraz umiejscowienia wszystkich kontrolek jakie ono zawiera. W tym w³aœnie miejscu wykorzystywany jest opisany w rozdziale \ref{dzial:WpfXaml} jêzyk XAML, który pozwala na przeprowadzenie operacji wi¹zañ oraz stosowanie komend.
 
 \subsubsection*{ViewModel}
 
@@ -288,7 +289,7 @@ Tematyka projektu dotycz¹ca analizy porównawczej algorytmów metaheurystycznych d
 
 \subsubsection{Microsoft SQL Server – u¿yty system zarz¹dzania baz¹ danych}
 
-Zastosowanie w projekcie bazy danych wymusi³o obowi¹zek utworzenia oraz uruchomienia serwera bazodanowego. Przez fakt na zastosowane technologie, których opis znajduje siê w rozdziale 4(TODO: dodaæ alias rozdzia³u), u¿yty zosta³ Microsoft SQL Server. Jest to relacyjny system zarz¹dzania baz¹ danych, którego podstawow¹ funkcj¹ jest przechowywanie i przetwarzanie danych na ¿¹danie innych aplikacji, które mog¹ dzia³aæ na tym samym komputerze lub na innym komputerze w sieci LAN czy te¿ WAN. Przydatnym narzêdziem przy pracy z Microsoft SQL Serverem jest dedykowane narzêdzie z graficznym interfejsem u¿ytkownika, który w znacznym stopniu upraszcza korzystanie z funkcji SQL serwera.
+Zastosowanie w projekcie bazy danych wymusi³o obowi¹zek utworzenia oraz uruchomienia serwera bazodanowego. Przez fakt na zastosowane technologie, których opis znajduje siê w rozdziale \ref{dzial:ZastosowaneTechnologie}, u¿yty zosta³ Microsoft SQL Server. Jest to relacyjny system zarz¹dzania baz¹ danych, którego podstawow¹ funkcj¹ jest przechowywanie i przetwarzanie danych na ¿¹danie innych aplikacji, które mog¹ dzia³aæ na tym samym komputerze lub na innym komputerze w sieci LAN czy te¿ WAN. Przydatnym narzêdziem przy pracy z Microsoft SQL Serverem jest dedykowane narzêdzie z graficznym interfejsem u¿ytkownika, który w znacznym stopniu upraszcza korzystanie z funkcji SQL serwera.
 W przypadku budowanej aplikacji serwer bazodanowy zosta³ utworzony na maszynie lokalnej, na której dzia³a równie¿ aplikacja automatyzuj¹ca testy. Na potrzeby przeprowadzanych doœwiadczeñ rozwi¹zanie to jest wystarczaj¹ce przez fakt braku koniecznoœci posiadania bardzo szybkiego œrodowiska, które wymaga uiszczenia op³at adekwatnych do rodzaju wykupywanego serwera.
 
 \subsubsection{Budowa bazy danych u¿ytej w projekcie}
@@ -337,16 +338,16 @@ Kolejnym sposobem jest \textit{Code First}, który pozwala na utworzenie fizyczne
 Ostatni¹ metod¹ jest \textit{Model First}, które polega na utworzeniu fizycznego modelu bazy danych pos³uguj¹c siê wbudowanemu w Entity Framework Designerem, który w du¿ym stopniu upraszcza tworzenie w³aœciwoœci oraz encji bazodanowych. Œcie¿ka ta stosowana jest, gdy posiadany jest wy³¹cznie sam schemat bazy danych. Ze zbudowanego modelu nastêpuje wygenerowanie fizycznego modelu bazy danych jak i równie¿ klas, które reprezentuj¹ model obiektowy. Sposób ten zosta³ zastosowany w prezentowanej pracy magisterskiej. Po analizie wymagañ i utworzeniu schematu bazy danych, zosta³ on przeniesiony na poziom Designera opisywanego frameworka, który automatycznie stworzy³ skrypt napisany w jêzyku SQL po wykonaniu którego utworzony zosta³ fizyczny model bazy danych, a tak¿e wygenerowa³ wszystkie niezbêdne klasy reprezentuj¹ce model obiektowy zadanego schematu bazy.
 
 \subsection{Komunikacja Matlaba z projektem programistycznym}
-
-Poprawne skomunikowanie aplikacji bazodanowej ze œrodowiskiem obliczeniowym Matlab by³o najtrudniejsz¹ czêœci¹ podczas ca³ej pracy implementacyjnej. Podczas tworzenia architektury budowanej aplikacji, poszukiwany by³ efektywny sposób komunikacji œrodowiska .NET ze œrodowiskiem obliczeniowym Matlab. Przez fakt tego, i¿ systemy te utworzone zosta³y przez ró¿nych producentów, nie ma prostego sposobu na ich sprzê¿enie. Poszukiwania doprowadzi³y do zastosowania biblioteki dedykowanej dla œrodowiska .NET opisanej w rozdziale (TODO: dodaj alias rozdzia³u), która ³¹czy siê z poœrednicz¹cym serwerem Matlaba. Serwer ten nie jest domyœlnie dodawany przy instalacji œrodowiska obliczeniowego, dlatego te¿ nachodzi koniecznoœæ jego dodatkowego doinstalowania. Biblioteka umo¿liwia stworzenie ¿¹dania na poziomie C\#, które nastêpnie przekazywane jest do serwera poœrednicz¹cego t³umacz¹cego ¿¹danie na jêzyk Matlaba. ¯¹danie te jest  wykonywane przez œrodowisko obliczeniowe, a jego rezultat analogiczn¹ œcie¿k¹ jest przekazywany do aplikacji bazodanowej. Sporym problemem okaza³o siê prawid³owe tworzenie ¿¹dañ przez fakt na bardzo ograniczon¹ dokumentacjê biblioteki i ma³¹ liczbê przyk³adów. Na podstawie metody prób i b³êdów uda³o siê jednak utworzyæ prawid³owy typ ¿¹dañ oraz w sposób w³aœciwy dokonywaæ odbioru ich odpowiedzi. ¯¹danie w kodzie Ÿród³owym numer (TODO: dodaæ alias kodu oraz kod metody wykonujacej ¿¹danie) prezentuje sposób wykonania pojedynczego doœwiadczenia dotycz¹cego algorytmu symulowanego wy¿arzania, natomiast kod Ÿród³owy numer (TODO: dodaæ alias kodu oraz kod metody parsujacej wynik) ukazuje sposób przetwarzania otrzymanej odpowiedzi.
+\label{dzial:KomunikacjaMatlabaZProjektem}
+Poprawne skomunikowanie aplikacji bazodanowej ze œrodowiskiem obliczeniowym Matlab by³o najtrudniejsz¹ czêœci¹ podczas ca³ej pracy implementacyjnej. Podczas tworzenia architektury budowanej aplikacji, poszukiwany by³ efektywny sposób komunikacji œrodowiska .NET ze œrodowiskiem obliczeniowym Matlab. Przez fakt tego, i¿ systemy te utworzone zosta³y przez ró¿nych producentów, nie ma prostego sposobu na ich sprzê¿enie. Poszukiwania doprowadzi³y do zastosowania biblioteki dedykowanej dla œrodowiska .NET opisanej w rozdziale \ref{dzial:MatlabApplicationLibrary}, która ³¹czy siê z poœrednicz¹cym serwerem Matlaba. Serwer ten nie jest domyœlnie dodawany przy instalacji œrodowiska obliczeniowego, dlatego te¿ nachodzi koniecznoœæ jego dodatkowego doinstalowania. Biblioteka umo¿liwia stworzenie ¿¹dania na poziomie C\#, które nastêpnie przekazywane jest do serwera poœrednicz¹cego t³umacz¹cego ¿¹danie na jêzyk Matlaba. ¯¹danie te jest  wykonywane przez œrodowisko obliczeniowe, a jego rezultat analogiczn¹ œcie¿k¹ jest przekazywany do aplikacji bazodanowej. Sporym problemem okaza³o siê prawid³owe tworzenie ¿¹dañ przez fakt na bardzo ograniczon¹ dokumentacjê biblioteki i ma³¹ liczbê przyk³adów. Na podstawie metody prób i b³êdów uda³o siê jednak utworzyæ prawid³owy typ ¿¹dañ oraz w sposób w³aœciwy dokonywaæ odbioru ich odpowiedzi. ¯¹danie w kodzie Ÿród³owym numer (TODO: dodaæ alias kodu oraz kod metody wykonujacej ¿¹danie) prezentuje sposób wykonania pojedynczego doœwiadczenia dotycz¹cego algorytmu symulowanego wy¿arzania, natomiast kod Ÿród³owy numer (TODO: dodaæ alias kodu oraz kod metody parsujacej wynik) ukazuje sposób przetwarzania otrzymanej odpowiedzi.
 
 \section{Badania eksperymentalne}
 
-Ca³y proces pocz¹wszy od pomys³u automatyzacji przeprowadzanych badañ zawarty w rozdziale (TODO: rozdz 3), przez analizê rozwi¹zañ technologicznych opisanych w rozdziale (TODO: dodac alias rozdzialu 4), po budowê architektury oraz samej aplikacji bazodanowej ujêty w rozdziale (TODO: dodac rozdz 5) mia³ za zadanie u³atwiæ przeprowadzenie eksperymentalnych badañ porównawczych wybranych algorytmów metaheurystycznych. W obecnym rozdziale przedstawiony zosta³ opis metod porównawczych, a tak¿e  samych badañ doœwiadczalnych wraz z ich zagregowanymi wynikami zawartymi w (TODO: dodac alias 6.3)
+Ca³y proces pocz¹wszy od pomys³u automatyzacji przeprowadzanych badañ zawarty w rozdziale \ref{dzial:AutomatyzacjaPrzeprowadzanychBadan}, przez analizê rozwi¹zañ technologicznych opisanych w rozdziale \ref{dzial:WykorzystaneRozwiazaniaTechnologiczne}, po budowê architektury oraz samej aplikacji bazodanowej ujêty w rozdziale \ref{dzial:ArchitekturaBudowanejApl} mia³ za zadanie u³atwiæ przeprowadzenie eksperymentalnych badañ porównawczych wybranych algorytmów metaheurystycznych. W obecnym rozdziale przedstawiony zosta³ opis metod porównawczych, a tak¿e samych badañ doœwiadczalnych wraz z ich zagregowanymi wynikami zawartymi w \ref{dzial:WynikiDoswiadczenDlaZadanychFun}.
 
 \subsection{Metody porównawcze wybranych algorytmów}
-
-W celu zrównania szans ka¿dego z porównywanych algorytmów, wszystkie przeprowadzane testy dokonane zosta³y na tej samej maszynie obliczeniowej przy tych samych warunkach obci¹¿eniowych systemu. Pierwszym kryterium porównawczym by³ maksymalny czas, w którym algorytm poszukuje najlepszego rezultatu. Parametr ten bierze pod uwagê kilka ró¿nych ustalonych wartoœci (TODO: podaæ czasy doœwiadczeñ) dla których przeprowadzana zosta³a próbka doœwiadczeñ, z których wartoœci œrednie zosta³y zestawione i porównane w obrêbie wszystkich algorytmów oraz funkcji testowych. Drugim kryterium porównawczym by³a liczba odwo³añ algorytmu do zadanej funkcji testowej. W kryterium tym porównane zosta³y, w sposób analogiczny jak w kryterium pierwszym, rezultaty otrzymane przez algorytmy przy takim za³o¿eniu, i¿ mog³y one wyliczyæ wartoœæ funkcji testowej okreœlon¹ liczbê razy.
+\label{dzial:MetodyPorownawczeWybranychAlgorytmow}
+W celu zrównania szans ka¿dego z porównywanych algorytmów, wszystkie przeprowadzane testy dokonane zosta³y na tej samej maszynie obliczeniowej przy tych samych warunkach obci¹¿eniowych systemu. Pierwszym kryterium porównawczym by³ maksymalny czas, w którym algorytm poszukuje najlepszego rezultatu. Parametr ten bierze pod uwagê kilka ró¿nych ustalonych wartoœci dla których przeprowadzana zosta³a próbka doœwiadczeñ, z których wartoœci œrednie zosta³y zestawione i porównane w obrêbie wszystkich algorytmów oraz funkcji testowych. Drugim kryterium porównawczym by³a liczba odwo³añ algorytmu do zadanej funkcji testowej. W kryterium tym porównane zosta³y, w sposób analogiczny jak w kryterium pierwszym, rezultaty otrzymane przez algorytmy przy takim za³o¿eniu, i¿ mog³y one wyliczyæ wartoœæ funkcji testowej okreœlon¹ liczbê razy.
 
 \subsection{Opis przeprowadzonych badañ}
 
@@ -357,26 +358,26 @@ Przez wzgl¹d na du¿¹ liczbê parametrów ka¿dego porównywanego algorytmu heurystyc
 NowaTemperatura = ObecnaTemperatura * 0.95^k
 \end{equation}
 , gdzie \textit{k} jest numerem iteracji od wy¿arzenia. Uwzglêdniaj¹c fakt du¿ej liczby iteracji, któr¹ algorytm mo¿e wykonaæ podczas testów, zdecydowano siê wprowadziæ mo¿liwoœæ wyst¹pienia operacji ponownego wy¿arzenia (ang. reannealing), w czasie której algorytm ponownie ustala temperaturê na domyœln¹ wartoœæ 100 i kontynuuje pracê. Wartoœæ parametru ponownego wy¿arzania ustalona zosta³a na poziomie 40 i definiuje liczbê punktów, które algorytm ma obowi¹zek zaakceptowaæ przed wyst¹pieniem ponownego wy¿arzenia.
-W metodzie roju cz¹stek domyœlne parametry wzoru (TODO: numer wzoru 1) zawartego w rozdziale (todo: alias 2.2.1) ustalone zosta³y na nastêpuj¹ce wartoœci:
+W metodzie roju cz¹stek domyœlne parametry wzoru (TODO: numer wzoru 1) zawartego w rozdziale \ref{dzial:MetodaOptymalizacjiRojemCzastek} ustalone zosta³y na nastêpuj¹ce wartoœci:
 $W = 0.6$, $c_1 = c_2 = 0.75$.
-Algorytm genetyczny z kolei wymaga³ najwiêkszej iloœci testów skaluj¹cych przez fakt posiadania najwiêkszej liczby parametrów. Na ich postawie wybrano metodê ruletki jako metodê selekcji, zastêpowanie elitarne o wielkoœci elity równej $0.05*WielkoœæPopulacji$ jako metodê wymiany pokoleñ oraz metodê krzy¿owania dwudzielnego.
+Algorytm genetyczny z kolei wymaga³ najwiêkszej iloœci testów skaluj¹cych przez fakt posiadania najwiêkszej liczby mo¿liwych kombinacji parametrów. Na ich postawie wybrano metodê ruletki jako metodê selekcji, zastêpowanie elitarne o wielkoœci elity równej $0.05*WielkoscPopulacji$ jako metodê wymiany pokoleñ oraz metodê krzy¿owania dwudzielnego.
 
 \subsubsection{Przeprowadzenie doœwiadczeñ w zaimplementowanym œrodowisku testowym}
 
-W zaimplementowanej aplikacji dla ka¿dego opisanego w (TODO: alias rozdzialu wyzej) kryterium, umieszczane zosta³y ustalone wartoœci parametrów, po czym przeprowadzana by³a operacja uruchomienia systemu. Dla kryterium maksymalnego czasu, w którym algorytmy poszukuj¹ globalnego minimum funkcji, doœwiadczenia wykonywane zosta³y dla zakresu od jednej do piêciu sekund, z jednosekundowym interwa³em. Liczba testów dla ka¿dej wartoœci z ustalonego zakresu ustalona zosta³a na poziomie stu prób. Pozosta³e parametry, takie jak maksymalna liczba iteracji oraz odwo³añ do funkcji wraz z maksymaln¹ liczb¹ iteracji bez poprawy wyniku, ustalone zosta³y na niemo¿liw¹ do osi¹gniêcia wartoœæ 999999. Spowodowane jest to tym, i¿ jednym warunkiem stopu w przedstawianej metodzie porównawczej jest maksymalny ustalony czas dzia³ania algorytmu.
+W zaimplementowanej aplikacji dla ka¿dego opisanego w \ref{dzial:MetodyPorownawczeWybranychAlgorytmow} kryterium, umieszczane zosta³y ustalone wartoœci parametrów, po czym przeprowadzana by³a operacja uruchomienia systemu. Dla kryterium maksymalnego czasu, w którym algorytmy poszukuj¹ globalnego minimum funkcji, doœwiadczenia wykonywane zosta³y dla zakresu od jednej do piêciu sekund, z jednosekundowym interwa³em. Liczba testów dla ka¿dej wartoœci z ustalonego zakresu ustalona zosta³a na poziomie stu prób. Pozosta³e parametry, takie jak maksymalna liczba iteracji oraz odwo³añ do funkcji wraz z maksymaln¹ liczb¹ iteracji bez poprawy wyniku, ustalone zosta³y na niemo¿liw¹ do osi¹gniêcia wartoœæ 999999. Spowodowane jest to tym, i¿ jednym warunkiem stopu w przedstawianej metodzie porównawczej jest maksymalny ustalony czas dzia³ania algorytmu.
 W przypadku algorytmu genetycznego oraz roju cz¹stek dodatkowo przeprowadzone zosta³y doœwiadczenia dla ró¿nych wielkoœci populacji i roju, dziêki czemu mo¿liwa do wykonania by³a analiza wp³ywu tych parametrów na otrzymane rezultaty.
 Przeprowadzenie badañ dotycz¹cych kryterium maksymalnej liczby odwo³añ do funkcji testowej przebiega³o w sposób analogiczny, z t¹ ró¿nic¹, i¿ niemo¿liw¹ do osi¹gniêcia wartoœci¹ 999999 zosta³ objêty maksymalny czas poszukiwañ, który w opisywanym kryterium nie jest brany pod uwagê. Dla kryterium tego maksymalna liczba odwo³añ do funkcji ustalona zosta³a na wartoœci: 1000, 2000, 3000, 4000, 5000, 6000.
 
 \subsection{Wyniki doœwiadczeñ dla zadanych funkcji testowych}
-
-
+\label{dzial:WynikiDoswiadczenDlaZadanychFun}
 
 \subsubsection{Funkcja Bohachevsky’ego 1}
 \subsubsection{Funkcja Colville'a}
-\subsubsection{Funkcja Rosenbrocka}
-\subsubsection{Funkcja Eggholdera }
-\subsubsection{Funkcja Griewanka}
 \subsubsection{Funkcja Ackley'a}
+\subsubsection{Funkcja Eggholdera }
+\subsubsection{Funkcja Rosenbrocka}
+\subsubsection{Funkcja Griewanka}
+
 \section{Wnioski}
 \section*{Podsumowanie}
 

@@ -42,7 +42,7 @@
 \contentsline {section}{\numberline {6}\kernsekcyjny Badania eksperymentalne}{37}
 \contentsline {subsection}{\numberline {6.1}\kernsubsekcyjny Metody por\'ownawcze wybranych algorytm\'ow}{37}
 \contentsline {subsection}{\numberline {6.2}\kernsubsekcyjny Opis przeprowadzonych bada\'n}{37}
-\contentsline {subsubsection}{\numberline {6.2.1}\kernsubsubsekcyjny Skalowanie algorytm\'ow}{38}
+\contentsline {subsubsection}{\numberline {6.2.1}\kernsubsubsekcyjny Skalowanie algorytm\'ow}{37}
 \contentsline {subsubsection}{\numberline {6.2.2}\kernsubsubsekcyjny Przeprowadzenie do\'swiadcze\'n w zaimplementowanym \'srodowisku testowym}{38}
 \contentsline {subsection}{\numberline {6.3}\kernsubsekcyjny Wyniki do\'swiadcze\'n dla zadanych funkcji testowych}{39}
 \contentsline {subsubsection}{\numberline {6.3.1}\kernsubsubsekcyjny Funkcja Bohachevsky\IeC {\textquoteright }ego 1}{39}
