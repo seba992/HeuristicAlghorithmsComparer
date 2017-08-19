@@ -3,8 +3,19 @@
 \usepackage[cp1250]{inputenc}
 \usepackage{amsmath}
 \usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{xcolor, colortbl}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{float}
+\restylefloat{table}
+\definecolor{red}{rgb}{0.98,0.65,0.65}
+\definecolor{green}{rgb}{0.92,0.94,0.87}
+\usepackage{array}
+\usepackage{tabulary}
+\newcolumntype{k}[1]{>{\centering\arraybackslash}p{#1}}
+\setlength{\arrayrulewidth}{1.5\arrayrulewidth}% 50% thicker
 
-\definecolor{red}{rgb}{0.95,0,0}
 
 %\drukJednostronny
 
@@ -31,6 +42,7 @@
 
 \begin{document}
 
+
 W otaczaj¹cym nas œwiecie obecnych jest wiele problemów, z którymi zmagaj¹ siê ludzie. Czêœæ z nich jest problemami prostymi, do rozwi¹zania których wystarczy wy³¹cznie niedu¿y nak³ad czasu. Istniej¹ jednak problemy trudniejsze, które wymagaj¹ d³ugotrwa³ych przemyœleñ i obliczeñ po których nie zawsze otrzymujemy najlepsze rozwi¹zanie. Do prostych problemów mo¿emy zaliczyæ codzienne decyzje podejmowane przez ka¿dego cz³owieka. Dla przyk³adu jeœli chcemy dojechaæ z punktu A do punktu B komunikacj¹ miejsk¹, wystarczy, ¿e sprawdzimy rozk³ad jazdy i wybierzemy po³¹czenie, które bêdzie pasowa³o nam w kontekœcie godziny przyjazdu na dane miejsce. Przedstawiony problem posiada z go³a inn¹ skalê trudnoœci ze strony przewoŸnika. Wyznaczenie optymalnych tras przewozowych dla okreœlonej liczby œrodków transportu, w celu obs³u¿enia danego zbioru klientów, którzy rozlokowani s¹ w ró¿nych punktach jest kwesti¹ bardzo skomplikowan¹. Znalezienie optymalnych tras, które umo¿liwi¹ przetransportowanie jak najwiêkszej iloœci osób w celu zmaksymalizowania zysku, przy zachowaniu mo¿liwie najkrótszych tras, których zamys³em jest minimalizowanie kosztów poniesionych z transportem jest z³o¿onym problemem, znanym jako jedna z odmian problemu marszrutyzacji, który jest z kolei rozwiniêciem bardzo popularnego problemu komiwoja¿era. Problem ten polega na znalezieniu najkrótszej drogi ³¹cz¹cej wszystkie zdefiniowane uprzednio punkty, zaczynaj¹c i koñcz¹c w tym samym miejscu. Problemy, do rozwi¹zania których potrzebne s¹ ogromne nak³ady obliczeniowe definiowane s¹ jako problemy optymalizacyjne. W problemach takich liczba mo¿liwych rozwi¹zañ w przestrzeni poszukiwañ z regu³y jest tak du¿a, ¿e niemo¿liwe jest przeszukiwanie wyczerpuj¹ce w celu znalezienia najlepszego z nich. 
 
 \subsection*{Cel pracy}
@@ -49,6 +61,7 @@ Dla osi¹gniêcia wy¿ej wymienionego celu zrealizowana zosta³a praca sk³adaj¹ca si
 W prezentowanej pracy dokonano porównania algorytmów metaheurystycznych odnosz¹c siê do problemu minimalizacji funkcji wielu zmiennych. Problem ten polega na znalezieniu minimum globalnego rzeczywistej funkcji poprzez systematyczne wybieranie parametrów wejœciowych z dozwolonego zakresu i obliczaniu ich wartoœci funkcji. Trudnoœæ problemu sprowadza siê do wielkoœci przestrzeni przeszukiwania. Traktuj¹c problem jako czysto matematyczny, funkcja \textit{n} zmiennych posiada nieskoñczenie wiele wartoœci w ka¿dym wymiarze. Mamy wiêc nieskoñczenie wielk¹ przestrzeñ poszukiwañ. Bior¹c jednak pod wzgl¹d aspekt technologiczny i to, i¿ komputery bazuj¹ na danych skoñczonych, mo¿na w prosty sposób przedstawiæ skalê trudnoœci. W czasie implementacji algorytmu, którego celem jest znalezienie minimum globalnego funkcji, nale¿y wzi¹æ pod uwagê dostêpn¹ dok³adnoœæ obliczeniow¹ maszyny. Zak³adaj¹c, i¿ dok³adnoœæ ta wynosi osiem miejsc po przecinku, ka¿da zmienna, ograniczona w przedziale $[0,100]$ mo¿e przyj¹æ $100*10^8$ ró¿nych wartoœci. Ju¿ dla funkcji dwóch zmiennych, wielkoœæ przestrzeni przeszukiwania wynosi $(100*10^8)^2 = 10^{20}$.
 
 \subsection{Funkcje testowe}
+\label{dzial:FunkcjeTestowe}
 
 Problem minimalizacji funkcji ci¹g³ych bardzo dobrze nadaje siê do porównania algorytmów metaheurystycznych przez wzgl¹d na powszechnie dostêpne funkcje testowe. Funkcje te posiadaj¹ pewny specyficzny element, dziêki któremu mo¿liwe jest porównanie wyników otrzymanych przez dany algorytm. Element ten to znajomoœæ minimum globalnego dla danej funkcji testowej. Dziêki znajomoœci wartoœci najlepszej (najmniejszej) dla danej funkcji, wiadomo jak szybko oraz czy w ogóle badany algorytm znalaz³ rozwi¹zanie. Posiadaj¹c ten punkt odniesienia mo¿na zestawiæ otrzymane rezultaty wszystkich algorytmów pod k¹tem czasowym lub liczby wyliczeñ wartoœci funkcji dla ustalonych przez algorytm punktów.
 Do analizy wybranych zosta³o szeœæ funkcji testowych, których dobór bra³ pod uwagê stopieñ ich skomplikowania. Funkcje te zosta³y wybrane z listy zawartej w (TODO: link do strony z lista funkcji) uwzglêdniaj¹c ró¿n¹ liczbê wymiarów oraz skalê ich trudnoœci. Ka¿da z funkcji posiada specyficzne w³aœciwoœci, które zostan¹ wziête pod uwagê podczas porównania rezultatów algorytmów heurystycznych.
@@ -82,9 +95,8 @@ Funkcja Rosenbrocka jest to niewypuk³a funkcja, która jest bardzo popularna w ko
 TODO: obrazek + wzor 2 i 4zm
 
 \subsubsection{Funkcja Griewanka}
-6.08%
 
-\textcolor{brown}{Opis funkcji wraz z ich w³aœciwoœciami opisaæ po definitywnym ich wyborze (poczekaæ na fazê testów)}
+Ostatni¹ wybran¹ do testów funkcj¹ jest funkcja Greiwanka, której minimum globalne znalezione zosta³o w tylko $6.08\%$ testów zawartych w (TODO: link do rank). Jest to funkcja posiadaj¹ca bardzo du¿o regularnie rozmieszczonych minimów lokalnych które utrudniaj¹ znalezienie globalnego minimum znajduj¹cego siê w punkcie $x=(0,...,0)$, dla którego wartoœæ funkcji wynosi 0. Opisywana funkcja jest funkcj¹ wielowymiarow¹, która prezentowanej pracy magisterskiej sprowadzona zosta³a do funkcji trzech zmiennych o dziedzinie $x_i\in[-200,200]$ dla $i=1,2,3$. Poni¿ej na rysunku (todo odnosnik rysunek) zaprezentowano opisywan¹ funkcjê w postaci dwuwymiarowej na której mo¿na dostrzec liczne minima globalne oraz ich regularne rozmieszczenie.
 
 \section{Metody rozwi¹zania wybranego problemu optymalizacji}
 
@@ -347,6 +359,7 @@ Ca³y proces pocz¹wszy od pomys³u automatyzacji przeprowadzanych badañ zawarty w 
 
 \subsection{Metody porównawcze wybranych algorytmów}
 \label{dzial:MetodyPorownawczeWybranychAlgorytmow}
+
 W celu zrównania szans ka¿dego z porównywanych algorytmów, wszystkie przeprowadzane testy dokonane zosta³y na tej samej maszynie obliczeniowej przy tych samych warunkach obci¹¿eniowych systemu. Pierwszym kryterium porównawczym by³ maksymalny czas, w którym algorytm poszukuje najlepszego rezultatu. Parametr ten bierze pod uwagê kilka ró¿nych ustalonych wartoœci dla których przeprowadzana zosta³a próbka doœwiadczeñ, z których wartoœci œrednie zosta³y zestawione i porównane w obrêbie wszystkich algorytmów oraz funkcji testowych. Drugim kryterium porównawczym by³a liczba odwo³añ algorytmu do zadanej funkcji testowej. W kryterium tym porównane zosta³y, w sposób analogiczny jak w kryterium pierwszym, rezultaty otrzymane przez algorytmy przy takim za³o¿eniu, i¿ mog³y one wyliczyæ wartoœæ funkcji testowej okreœlon¹ liczbê razy.
 
 \subsection{Opis przeprowadzonych badañ}
@@ -371,11 +384,68 @@ Przeprowadzenie badañ dotycz¹cych kryterium maksymalnej liczby odwo³añ do funkcj
 \subsection{Wyniki doœwiadczeñ dla zadanych funkcji testowych}
 \label{dzial:WynikiDoswiadczenDlaZadanychFun}
 
+Aktualny rozdzia³ prezentuje zagregowane wyniki przeprowadzanych doœwiadczeñ dla funkcji testowych opisanych w rozdziale \ref{dzial:FunkcjeTestowe}. Prezentacja wyników dla ka¿dej funkcji testowej podzielona zosta³a na dwie czêœci przez wzgl¹d na dwa kryteria porównawcze algorytmów zdefiniowane w rozdziale \ref{dzial:MetodyPorownawczeWybranychAlgorytmow}. Wartym wspomnienia jest znaczenie kolorów tabel zawartych w poni¿szych podrozdzia³ach. Zielony kolor definiuje najlepsze otrzymane rezultaty w obrêbie jednego testu, czerwony natomiast wyniki gorsze.
+
 \subsubsection{Funkcja Bohachevsky’ego 1}
+
+W tabeli \ref{tab:boh_ga_1} przedstawione zosta³y wyniki otrzymane przez algorytm genetyczny dla kryterium czasowego. Wynika z niej, i¿ najlepsze rezultaty uzyskane zosta³y dla wielkoœci populacji równej 100. 
+Dla metody roju cz¹stek otrzymane rezultaty zaprezentowane zosta³y w tabeli \ref{tab:boh_pso_1}, z której wynika, i¿ najlepsze wyniki uzyskane zosta³y dla wielkoœci roju równej 50 oraz 100. W tym jednak przypadku, jako najlepsze rezultaty wybrane zosta³y wyniki z wielkoœci¹ roju równ¹ 100, z powodu mniejszej liczby odwo³añ do funkcji testowej ni¿ w przypadku roju o wielkoœci 50.
+
+Najlepsze rezultaty algorytmu genetycznego oraz roju cz¹stek zosta³y zestawione wraz z rezultatami symulowanego wy¿arzania w tabeli \ref{tab:boh_all_1}. Wynika z niej, i¿ najlepsze wyniki dla ka¿dej wartoœci parametru maksymalnego czasu uzyska³a metoda roju cz¹stek, która w ka¿dym przypadku znalaz³a minimum globalne dla funkcji Bohachevsky'ego, które wynosi 0. Na drugim miejscu uplasowa³ siê algorytm genetyczny, którego wyniki oscylowa³y wokó³ minimum globalnego jednak w ani jednym przypadku go nie osi¹gnê³y. Algorytm symulowanego wy¿arzania uzyska³ lepszy rezultat od algorytmu genetycznego tylko w przypadku testów dotycz¹cych maksymalnego czasu dzia³ania algorytmu równego 1. W pozosta³ych przypadkach uzyska³ najgorsze rezultaty ze wszystkich porównywanych algorytmów metaheurystycznych.
+
+\begin{table}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{boh_ga_1.png}
+    \caption{Zestawienie wyników algorytmu genetycznego dla funkcji Bohachevsky’ego - kryterium czasowe, ród³o: Opracowanie w³asne.}
+    \label{tab:boh_ga_1}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{boh_pso_1.png}
+    \caption{Zestawienie wyników metody roju cz¹stek dla funkcji Bohachevsky’ego - kryterium czasowe, ród³o: Opracowanie w³asne.}
+    \label{tab:boh_pso_1}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \includegraphics[height=1\textwidth]{boh_all_1.png}
+    \caption{Zestawienie najlepszych wyników wszystkich trzech porównywanych algorytmów metaheurystycznych dla funkcji Bohachevsky’ego - kryterium czasowe, ród³o: Opracowanie w³asne.}
+    \label{tab:boh_all_1}
+\end{table}
+
+W przypadku kryterium dotycz¹cym okreœlonej maksymalnej liczby odwo³añ algorytmu do funkcji testowej, otrzymane rezultaty s¹ bardzo podobne do rezultatów poprzedniego kryterium. Algorytm genetyczny najlepsze wyniki uzyska³ dla wielkoœci populacji równej 100, co mo¿na zaobserwowaæ na wykresie \ref{tab:boh_ga_2}. Metoda roju cz¹stek, wed³ug wykresu \ref{tab:boh_pso_2}, najlepsze rezultaty zanotowa³a dla wielkoœci roju równego 50, co jest inn¹ wartoœci¹ ni¿ w przypadku kryterium czasowego. Wyniki te zosta³y zestawione w tabeli \ref{tab:boh_all_2} z rezultatami otrzymanymi przez algorytm symulowanego wy¿arzania, z której wynika i¿ ponownie dla ka¿dej wartoœci zadanego kryterium, najlepsza okaza³a siê metoda roju cz¹stek.
+
+\begin{table}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{boh_ga_2.png}
+    \caption{opis, ród³o: Opracowanie w³asne.}
+    \label{tab:boh_ga_2}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{boh_pso_2.png}
+    \caption{opis, ród³o: Opracowanie w³asne.}
+    \label{tab:boh_pso_2}
+\end{table}
+
+
+\begin{table}[H]
+    \centering
+    \includegraphics[height=1\textwidth]{boh_all_2.png}
+    \caption{opis, ród³o: Opracowanie w³asne.}
+    \label{tab:boh_all_2}
+\end{table}
+
 \subsubsection{Funkcja Colville'a}
+test
 \subsubsection{Funkcja Ackley'a}
+
 \subsubsection{Funkcja Eggholdera }
+
 \subsubsection{Funkcja Rosenbrocka}
+
 \subsubsection{Funkcja Griewanka}
 
 \section{Wnioski}

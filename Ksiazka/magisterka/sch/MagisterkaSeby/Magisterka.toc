@@ -46,9 +46,9 @@
 \contentsline {subsubsection}{\numberline {6.2.2}\kernsubsubsekcyjny Przeprowadzenie do\'swiadcze\'n w zaimplementowanym \'srodowisku testowym}{38}
 \contentsline {subsection}{\numberline {6.3}\kernsubsekcyjny Wyniki do\'swiadcze\'n dla zadanych funkcji testowych}{39}
 \contentsline {subsubsection}{\numberline {6.3.1}\kernsubsubsekcyjny Funkcja Bohachevsky\IeC {\textquoteright }ego 1}{39}
-\contentsline {subsubsection}{\numberline {6.3.2}\kernsubsubsekcyjny Funkcja Colville'a}{39}
-\contentsline {subsubsection}{\numberline {6.3.3}\kernsubsubsekcyjny Funkcja Rosenbrocka}{39}
-\contentsline {subsubsection}{\numberline {6.3.4}\kernsubsubsekcyjny Funkcja Eggholdera }{39}
-\contentsline {subsubsection}{\numberline {6.3.5}\kernsubsubsekcyjny Funkcja Griewanka}{39}
-\contentsline {subsubsection}{\numberline {6.3.6}\kernsubsubsekcyjny Funkcja Ackley'a}{39}
-\contentsline {section}{\numberline {7}\kernsekcyjny Wnioski}{41}
+\contentsline {subsubsection}{\numberline {6.3.2}\kernsubsubsekcyjny Funkcja Colville'a}{45}
+\contentsline {subsubsection}{\numberline {6.3.3}\kernsubsubsekcyjny Funkcja Ackley'a}{45}
+\contentsline {subsubsection}{\numberline {6.3.4}\kernsubsubsekcyjny Funkcja Eggholdera }{45}
+\contentsline {subsubsection}{\numberline {6.3.5}\kernsubsubsekcyjny Funkcja Rosenbrocka}{45}
+\contentsline {subsubsection}{\numberline {6.3.6}\kernsubsubsekcyjny Funkcja Griewanka}{45}
+\contentsline {section}{\numberline {7}\kernsekcyjny Wnioski}{47}
