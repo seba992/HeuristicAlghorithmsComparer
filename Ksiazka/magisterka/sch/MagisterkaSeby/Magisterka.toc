@@ -5,8 +5,8 @@
 \contentsline {subsubsection}{\numberline {1.2.1}\kernsubsubsekcyjny Funkcja Bohachevsky\IeC {\textquoteright }ego 1}{6}
 \contentsline {subsubsection}{\numberline {1.2.2}\kernsubsubsekcyjny Funkcja Colville'a}{6}
 \contentsline {subsubsection}{\numberline {1.2.3}\kernsubsubsekcyjny Funkcja Ackley'a}{6}
-\contentsline {subsubsection}{\numberline {1.2.4}\kernsubsubsekcyjny Funkcja Eggholdera }{7}
-\contentsline {subsubsection}{\numberline {1.2.5}\kernsubsubsekcyjny Funkcja Rosenbrocka}{7}
+\contentsline {subsubsection}{\numberline {1.2.4}\kernsubsubsekcyjny Funkcja Rosenbrocka}{7}
+\contentsline {subsubsection}{\numberline {1.2.5}\kernsubsubsekcyjny Funkcja Eggholdera }{7}
 \contentsline {subsubsection}{\numberline {1.2.6}\kernsubsubsekcyjny Funkcja Griewanka}{7}
 \contentsline {section}{\numberline {2}\kernsekcyjny Metody rozwi\k azania wybranego problemu optymalizacji}{9}
 \contentsline {subsection}{\numberline {2.1}\kernsubsekcyjny Algorytmy dok\IeC {\l }adne}{9}
@@ -47,8 +47,9 @@
 \contentsline {subsection}{\numberline {6.3}\kernsubsekcyjny Wyniki do\'swiadcze\'n dla zadanych funkcji testowych}{39}
 \contentsline {subsubsection}{\numberline {6.3.1}\kernsubsubsekcyjny Funkcja Bohachevsky\IeC {\textquoteright }ego 1}{39}
 \contentsline {subsubsection}{\numberline {6.3.2}\kernsubsubsekcyjny Funkcja Colville'a}{45}
-\contentsline {subsubsection}{\numberline {6.3.3}\kernsubsubsekcyjny Funkcja Ackley'a}{45}
-\contentsline {subsubsection}{\numberline {6.3.4}\kernsubsubsekcyjny Funkcja Eggholdera }{45}
-\contentsline {subsubsection}{\numberline {6.3.5}\kernsubsubsekcyjny Funkcja Rosenbrocka}{45}
-\contentsline {subsubsection}{\numberline {6.3.6}\kernsubsubsekcyjny Funkcja Griewanka}{45}
-\contentsline {section}{\numberline {7}\kernsekcyjny Wnioski}{47}
+\contentsline {subsubsection}{\numberline {6.3.3}\kernsubsubsekcyjny Funkcja Ackley'a}{51}
+\contentsline {subsubsection}{\numberline {6.3.4}\kernsubsubsekcyjny Funkcja Rosenbrocka}{57}
+\contentsline {subsubsection}{\numberline {6.3.5}\kernsubsubsekcyjny Funkcja Eggholdera}{63}
+\contentsline {subsubsection}{\numberline {6.3.6}\kernsubsubsekcyjny Funkcja Griewanka}{69}
+\contentsline {subsection}{\numberline {6.4}\kernsubsekcyjny Podsumowanie do\'swiadcze\'n}{75}
+\contentsline {section}{\numberline {7}\kernsekcyjny Wnioski}{77}

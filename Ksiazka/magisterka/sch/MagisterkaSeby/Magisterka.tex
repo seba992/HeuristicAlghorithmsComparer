@@ -51,7 +51,7 @@ Celem pracy jest dokonanie analizy porÛwnawczej algorytmu symulowanego wyøarzani
 
 \subsection*{ZawartoúÊ pracy}
 
-Dla osiπgniÍcia wyøej wymienionego celu zrealizowana zosta≥a praca sk≥adajπca siÍ z szeúciu rozdzia≥Ûw oraz wnioskÛw przeprowadzonych doúwiadczeÒ wraz z podsumowaniem. W rozdziale pierwszym przedstawiony zosta≥ wybÛr problemu optymalizacyjnego wraz z jego opisem oraz listπ funkcji testowych, ktÛre uøyte zosta≥y do przeprowadzenia badaÒ. Rozdzia≥ drugi przedstawia moøliwe sposoby rozwiπzania wybranego problemu optymalizacyjnego wraz z opisem uøytych algorytmÛw metaheurystycznych. Na bazie dwÛch pierwszych rozdzia≥Ûw utworzony zosta≥ w rozdziale trzecim projekt automatyzacji przeprowadzanych doúwiadczeÒ, na podstawie ktÛrego bazowa≥a budowana aplikacja. Kolejny rozdzia≥ to zastosowane rozwiπzania technologiczne oraz opis wykorzystanych technologii, bibliotek zewnÍtrznych, a takøe narzÍdzi. Na ich podstawie utworzona zosta≥a architektura aplikacji bazodanowej, ktÛrej specyfikacja umiejscowiona zosta≥a w rozdziale piπtym. Kolejny rozdzia≥ prezentuje juø úciúle aspekt badawczy, ktÛry zawiera  opis metod porÛwnawczych zastosowanych algorytmÛw oraz wyniki doúwiadczeÒ dla uøytych funkcji testowych, ktÛrych analiza przeprowadzona zosta≥a w rozdziale siÛdmym zawierajπcym wnioski.
+Dla osiπgniÍcia wyøej wymienionego celu zrealizowana zosta≥a praca sk≥adajπca siÍ z szeúciu rozdzia≥Ûw oraz wnioskÛw przeprowadzonych doúwiadczeÒ. W rozdziale pierwszym przedstawiony zosta≥ wybÛr problemu optymalizacyjnego wraz z jego opisem oraz listπ funkcji testowych, ktÛre uøyte zosta≥y do przeprowadzenia badaÒ. Rozdzia≥ drugi przedstawia moøliwe sposoby rozwiπzania wybranego problemu optymalizacyjnego wraz z opisem uøytych algorytmÛw metaheurystycznych. Na bazie dwÛch pierwszych rozdzia≥Ûw utworzony zosta≥ w rozdziale trzecim projekt automatyzacji przeprowadzanych doúwiadczeÒ, na podstawie ktÛrego bazowa≥a budowana aplikacja. Kolejny rozdzia≥ to zastosowane rozwiπzania technologiczne oraz opis wykorzystanych technologii, bibliotek zewnÍtrznych, a takøe narzÍdzi. Na ich podstawie utworzona zosta≥a architektura aplikacji bazodanowej, ktÛrej specyfikacja umiejscowiona zosta≥a w rozdziale piπtym. Kolejny rozdzia≥ prezentuje juø úciúle aspekt badawczy, ktÛry zawiera  opis metod porÛwnawczych zastosowanych algorytmÛw oraz wyniki doúwiadczeÒ dla uøytych funkcji testowych, ktÛrych analiza przeprowadzona zosta≥a w rozdziale siÛdmym zawierajπcym wnioski.
 
 \section{WybÛr badanego problemu optymalizacji}
 
@@ -84,15 +84,15 @@ Funkcja Ackley'a jest popularnπ funkcjπ dla testÛw optymalizacyjnych algorytmÛw.
  
   TODO: obrazek + wzÛr
   
-\subsubsection{Funkcja Eggholdera }
-
-Kolejnπ wybranπ funkcjπ zosta≥a dwuwymiarowa funkcja Eggholdera. Jest to funkcja, ktÛrej graficzna reprezentacja zawarta w rysunku(TODO: dodaj rys i alias) przypomina pasmo gÛrskie z licznymi dolinami. Jest to funkcja trudna do optymalizacji przez wzglπd na licznie wystÍpujπce minima lokalne. Dziedzina funkcji powszechnie rozpatrywana jest w przedziale $x_i\in[-512,512]$ dla $i=1,2$. Minimum globalne znajduje siÍ w punkcie $x=(512,404.2319)$ i wynosi $-959.6407$. Przez wzglπd na jego nietypowe po≥oøenie i wspomniane juø liczne minima lokalne, wy≥πcznie $18.92\%$ testÛw zawartych w (TODO: odnosnik do rank) zakoÒczy≥o siÍ jego znalezieniem.
-
 \subsubsection{Funkcja Rosenbrocka}
 
 Funkcja Rosenbrocka jest to niewypuk≥a funkcja, ktÛra jest bardzo popularna w kontekúcie optymalizacji jako test dla algorytmÛw optymalizacyjnych. Nazywana jest rÛwnieø przez wzglπd na swÛj kszta≥t "Funkcjπ Bananowπ Rosenbrocka" albo "Dolinπ Rosenbrocka". Funkcja Rosenbrocka powszechnie jest stosowana w kontekúcie optymalizacji funkcji dwÛch zmiennych. Istnieje jednak moøliwoúÊ rozszerzenia jej do wielu wymiarÛw. W prezentowanej pracy magisterskiej rozpatrywana jest funkcja Rosenbrocka czterech zmiennych, ktÛrej minimum globalne mieúci siÍ w punkcie $x=(1,1,1,1)$ i wynosi 0. Ustalonπ dziedzinπ funkcji jest $x_i\in[-200,200]$ dla $i=1,2,3,4$. Opisywana funkcja Rosenbrocka jest funkcjπ trudnπ do minimalizacji i wed≥ug wynikÛw testÛw zawartych w (TODO: link do rank) procentowy sukces znalezienia minimum globalnego wyniÛs≥ tylko $8,42\%$.
 
 TODO: obrazek + wzor 2 i 4zm
+  
+\subsubsection{Funkcja Eggholdera }
+
+Kolejnπ wybranπ funkcjπ zosta≥a dwuwymiarowa funkcja Eggholdera. Jest to funkcja, ktÛrej graficzna reprezentacja zawarta w rysunku(TODO: dodaj rys i alias) przypomina pasmo gÛrskie z licznymi dolinami. Jest to funkcja trudna do optymalizacji przez wzglπd na licznie wystÍpujπce minima lokalne. Dziedzina funkcji powszechnie rozpatrywana jest w przedziale $x_i\in[-512,512]$ dla $i=1,2$. Minimum globalne znajduje siÍ w punkcie $x=(512,404.2319)$ i wynosi $-959.6407$. Przez wzglπd na jego nietypowe po≥oøenie i wspomniane juø liczne minima lokalne, wy≥πcznie $18.92\%$ testÛw zawartych w (TODO: odnosnik do rank) zakoÒczy≥o siÍ jego znalezieniem.
 
 \subsubsection{Funkcja Griewanka}
 
@@ -391,7 +391,7 @@ Aktualny rozdzia≥ prezentuje zagregowane wyniki przeprowadzanych doúwiadczeÒ dla
 W tabeli \ref{tab:boh_ga_1} przedstawione zosta≥y wyniki otrzymane przez algorytm genetyczny dla kryterium czasowego. Wynika z niej, iø najlepsze rezultaty uzyskane zosta≥y dla wielkoúci populacji rÛwnej 100. 
 Dla metody roju czπstek otrzymane rezultaty zaprezentowane zosta≥y w tabeli \ref{tab:boh_pso_1}, z ktÛrej wynika, iø najlepsze wyniki uzyskane zosta≥y dla wielkoúci roju rÛwnej 50 oraz 100. W tym jednak przypadku, jako najlepsze rezultaty wybrane zosta≥y wyniki z wielkoúciπ roju rÛwnπ 100, z powodu mniejszej liczby odwo≥aÒ do funkcji testowej niø w przypadku roju o wielkoúci 50.
 
-Najlepsze rezultaty algorytmu genetycznego oraz roju czπstek zosta≥y zestawione wraz z rezultatami symulowanego wyøarzania w tabeli \ref{tab:boh_all_1}. Wynika z niej, iø najlepsze wyniki dla kaødej wartoúci parametru maksymalnego czasu uzyska≥a metoda roju czπstek, ktÛra w kaødym przypadku znalaz≥a minimum globalne dla funkcji Bohachevsky'ego, ktÛre wynosi 0. Na drugim miejscu uplasowa≥ siÍ algorytm genetyczny, ktÛrego wyniki oscylowa≥y wokÛ≥ minimum globalnego jednak w ani jednym przypadku go nie osiπgnÍ≥y. Algorytm symulowanego wyøarzania uzyska≥ lepszy rezultat od algorytmu genetycznego tylko w przypadku testÛw dotyczπcych maksymalnego czasu dzia≥ania algorytmu rÛwnego 1. W pozosta≥ych przypadkach uzyska≥ najgorsze rezultaty ze wszystkich porÛwnywanych algorytmÛw metaheurystycznych.
+Najlepsze rezultaty algorytmu genetycznego oraz roju czπstek zosta≥y zestawione wraz z rezultatami symulowanego wyøarzania w tabeli \ref{tab:boh_all_1}. Wynika z niej, iø najlepsze wyniki dla kaødej wartoúci parametru maksymalnego czasu uzyska≥a metoda roju czπstek, ktÛra w kaødym przypadku znalaz≥a minimum globalne dla funkcji Bohachevsky'ego, ktÛrego wartoúÊ wynosi 0. Na drugim miejscu uplasowa≥ siÍ algorytm genetyczny, ktÛrego wyniki oscylowa≥y wokÛ≥ minimum globalnego, jednak w ani jednym przypadku go nie osiπgnÍ≥y. Algorytm symulowanego wyøarzania uzyska≥ lepszy rezultat od algorytmu genetycznego tylko w przypadku testÛw dotyczπcych maksymalnego czasu dzia≥ania algorytmu rÛwnego jednej sekundzie. W pozosta≥ych przypadkach uzyska≥ najgorsze rezultaty ze wszystkich porÛwnywanych algorytmÛw metaheurystycznych.
 
 \begin{table}[H]
     \centering
@@ -409,46 +409,282 @@ Najlepsze rezultaty algorytmu genetycznego oraz roju czπstek zosta≥y zestawione 
 
 \begin{table}[H]
     \centering
-    \includegraphics[height=1\textwidth]{boh_all_1.png}
+    \includegraphics[height=0.75\textwidth]{boh_all_1.png}
     \caption{Zestawienie najlepszych wynikÛw wszystkich trzech porÛwnywanych algorytmÛw metaheurystycznych dla funkcji Bohachevskyíego - kryterium czasowe, èrÛd≥o: Opracowanie w≥asne.}
     \label{tab:boh_all_1}
 \end{table}
 
-W przypadku kryterium dotyczπcym okreúlonej maksymalnej liczby odwo≥aÒ algorytmu do funkcji testowej, otrzymane rezultaty sπ bardzo podobne do rezultatÛw poprzedniego kryterium. Algorytm genetyczny najlepsze wyniki uzyska≥ dla wielkoúci populacji rÛwnej 100, co moøna zaobserwowaÊ na wykresie \ref{tab:boh_ga_2}. Metoda roju czπstek, wed≥ug wykresu \ref{tab:boh_pso_2}, najlepsze rezultaty zanotowa≥a dla wielkoúci roju rÛwnego 50, co jest innπ wartoúciπ niø w przypadku kryterium czasowego. Wyniki te zosta≥y zestawione w tabeli \ref{tab:boh_all_2} z rezultatami otrzymanymi przez algorytm symulowanego wyøarzania, z ktÛrej wynika iø ponownie dla kaødej wartoúci zadanego kryterium, najlepsza okaza≥a siÍ metoda roju czπstek.
+W przypadku kryterium dotyczπcym okreúlonej maksymalnej liczby odwo≥aÒ algorytmu do funkcji testowej, otrzymane rezultaty sπ bardzo zbliøone do rezultatÛw poprzedniego kryterium. Algorytm genetyczny najlepsze wyniki uzyska≥ dla wielkoúci populacji rÛwnej 100, co moøna zaobserwowaÊ na wykresie \ref{tab:boh_ga_2}. Metoda roju czπstek, wed≥ug wykresu \ref{tab:boh_pso_2}, najlepsze rezultaty zanotowa≥a dla wielkoúci roju rÛwnego 50, co jest innπ wartoúciπ niø w przypadku kryterium czasowego. Wyniki te zosta≥y zestawione w tabeli \ref{tab:boh_all_2} z rezultatami otrzymanymi przez algorytm symulowanego wyøarzania, z ktÛrej wynika iø ponownie dla kaødej wartoúci zadanego kryterium, najlepsza okaza≥a siÍ metoda roju czπstek.
 
 \begin{table}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{boh_ga_2.png}
-    \caption{opis, èrÛd≥o: Opracowanie w≥asne.}
+    \caption{Zestawienie wynikÛw algorytmu genetycznego dla funkcji Bohachevskyíego - kryterium liczby odwo≥aÒ do funkcji testowej, èrÛd≥o: Opracowanie w≥asne., èrÛd≥o: Opracowanie w≥asne.}
     \label{tab:boh_ga_2}
 \end{table}
 
 \begin{table}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{boh_pso_2.png}
-    \caption{opis, èrÛd≥o: Opracowanie w≥asne.}
+    \caption{Zestawienie wynikÛw metody roju czπstek dla funkcji Bohachevskyíego - kryterium liczby odwo≥aÒ do funkcji testowej, èrÛd≥o: Opracowanie w≥asne.}
     \label{tab:boh_pso_2}
 \end{table}
-
 
 \begin{table}[H]
     \centering
     \includegraphics[height=1\textwidth]{boh_all_2.png}
-    \caption{opis, èrÛd≥o: Opracowanie w≥asne.}
+    \caption{Zestawienie najlepszych wynikÛw wszystkich trzech porÛwnywanych algorytmÛw metaheurystycznych dla funkcji Bohachevskyíego - kryterium liczby odwo≥aÒ do funkcji testowej, èrÛd≥o: Opracowanie w≥asne.}
     \label{tab:boh_all_2}
 \end{table}
 
 \subsubsection{Funkcja Colville'a}
-test
+
+Dla funkcji Colville'a, wyniki testÛw sprawdzajπcych optymalnπ wielkoúÊ populacji dla algorytu genetycznego przedstawione zosta≥y w tabeli \ref{tab:col_ga_1}, z ktÛrej wynika, iø najbliøej minimum globalnego dla kryterium czasowego uplasowa≥y siÍ rezultaty z wielkoúciπ populacji rÛwnπ 100. Taka sama wartoúÊ zosta≥a ustalona dla analogicznego testu sprawdzajπcego optymalnπ wielkoúÊ roju dla metody roju czπstek widocznego na wykresie \ref{tab:col_pso_1}. Wyniki obu testÛw zosta≥y zestawione z rezultatami otrzymanymi przez algorytm symulowanego wyøarzania na wykresie \ref{tab:col_all_1}. Z wykresu tego wynika, iø najbliøej wartoúci 0, ktÛra jest minimum globalnym badanej funkcji, uplasowa≥y siÍ rezultaty otrzymane przez metodÍ roju czπstek. Wyniki otrzymane przez algorytm genetyczny uplasowa≥y go na drugim miejscu, przed algorytmem symulowanego wyøarzania, ktÛrego rezultaty by≥y bardzo odleg≥e od poszukiwanego minimum globalnego.
+
+\begin{table}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{col_ga_1.png}
+    \caption{Zestawienie wynikÛw algorytmu genetycznego dla funkcji Colville'a - kryterium czasowe, èrÛd≥o: Opracowanie w≥asne.}
+    \label{tab:col_ga_1}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{col_pso_1.png}
+    \caption{Zestawienie wynikÛw metody roju czπstek dla funkcji Colville'a - kryterium czasowe, èrÛd≥o: Opracowanie w≥asne.}
+    \label{tab:col_pso_1}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \includegraphics[height=0.75\textwidth]{col_all_1.png}
+    \caption{Zestawienie najlepszych wynikÛw wszystkich trzech porÛwnywanych algorytmÛw metaheurystycznych dla funkcji Colville'a - kryterium czasowe, èrÛd≥o: Opracowanie w≥asne.}
+    \label{tab:col_all_1}
+\end{table}
+
+Rezultaty dotyczπce testÛw dla kryterium odnoszπcego siÍ do maksymalnej liczby odwo≥aÒ algorytmu do funkcji testowej okaza≥y siÍ bardzo ciekawe przez wzglπd na uzyskanie najlepszych rezultatÛw przez inny algorytm niø w kryterium poprzednim. Do podsumowujπcego testu wszystkich trzech algorytmÛw metaheurystycznych zosta≥y wybrane dla algorytmu genetycznego rezultaty przedstawione w tabeli \ref{tab:col_ga_2} z wielkoúciπ populacji rÛwnπ 100, natomiast dla metody roju czπstek wyniki z wielkoúciπ roju rÛwnπ 10, ktÛre dostÍpne sπ do wglπdu w tabli \ref{tab:col_pso_2}. Podsumowanie widoczne w tabeli \ref{tab:col_all_2} pozwala dostrzec, iø najlepsze wyniki uzyska≥ algorytm genetyczny, ktÛry w testach pierwszego kryterium uzyska≥ drugi rezultat. PorÛwnujπc wyniki dla obu kryteriÛw porÛwnawczych z tabel \ref{tab:col_all_1} oraz \ref{tab:col_all_2}, widoczna jest zaleønoúÊ wyjaúniajπca taki efekt. Metoda roju czπstek przeprowadza znacznie wiÍcej odwo≥aÒ do badanej funkcji Colville'a niø algorytm genetyczny dla tego samego czasu pracy algorytmÛw. Z tego powodu przy limicie owych odwo≥aÒ w kryterium drugim, wyniki otrzymane przez algorytm genetyczny sπ lepsze. Wartym wspomnienia jest takøe to, iø w analizowanym przyk≥adzie wyniki uzyskane przez metodÍ roju czπstek sπ nie tylko gorsze od wynikÛw uzyskanych przez algorytm genetyczny, lecz takøe przez symulowane wyøarzanie, ktÛre to uzyska≥o drugi rezultat dla kaødego badanego parametru maksymalnej liczby odwo≥aÒ do funkcji testowej.
+
+\begin{table}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{col_ga_2.png}
+    \caption{Zestawienie wynikÛw algorytmu genetycznego dla funkcji Colville'a - kryterium liczby odwo≥aÒ do funkcji testowej, èrÛd≥o: Opracowanie w≥asne., èrÛd≥o: Opracowanie w≥asne.}
+    \label{tab:col_ga_2}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{col_pso_2.png}
+    \caption{Zestawienie wynikÛw metody roju czπstek dla funkcji Colville'a - kryterium liczby odwo≥aÒ do funkcji testowej, èrÛd≥o: Opracowanie w≥asne.}
+    \label{tab:col_pso_2}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \includegraphics[height=1\textwidth]{col_all_2.png}
+    \caption{Zestawienie najlepszych wynikÛw wszystkich trzech porÛwnywanych algorytmÛw metaheurystycznych dla funkcji Colville'a - kryterium liczby odwo≥aÒ do funkcji testowej, èrÛd≥o: Opracowanie w≥asne.}
+    \label{tab:col_all_2}
+\end{table}
+
 \subsubsection{Funkcja Ackley'a}
 
-\subsubsection{Funkcja Eggholdera }
+Kolejnπ funkcjπ, ktÛra poddana zosta≥a testom jest funkcja Ackleya, dla ktÛrej algorytm genetyczny oraz metoda roju czπstek dla kryterium czasowego uzyska≥a najlepsze rezultaty dla wielkoúci populacji oraz roju wynoszπcej 50. Wyniki te, dostÍpne do wglπdu w tabeli \ref{tab:ack_ga_1} oraz \ref{tab:ack_pso_1}, zestawione zosta≥y w tabeli \ref{tab:ack_all_1} z wynikami otrzymanymi przez algorytm symulowanego wyøarzania. Z podsumowania tego jednoznacznie wynika, iø dla kaødego badanego parametru maksymalnego czasu algorytm genetyczny zwrÛci≥ najlepsze rezultaty, ktÛre to sπ bardzo zbliøone do minimum globalnego wynoszπcego 0. Pozosta≥e algorytmy nawet nie zbliøy≥y siÍ do tych rezultatÛw i utknÍ≥y minimach lokalnych funkcji.
+
+\begin{table}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{ack_ga_1.png}
+    \caption{Zestawienie wynikÛw algorytmu genetycznego dla funkcji Ackley'a - kryterium czasowe, èrÛd≥o: Opracowanie w≥asne.}
+    \label{tab:ack_ga_1}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{ack_pso_1.png}
+    \caption{Zestawienie wynikÛw metody roju czπstek dla funkcji Ackley'a - kryterium czasowe, èrÛd≥o: Opracowanie w≥asne.}
+    \label{tab:ack_pso_1}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \includegraphics[height=0.75\textwidth]{ack_all_1.png}
+    \caption{Zestawienie najlepszych wynikÛw wszystkich trzech porÛwnywanych algorytmÛw metaheurystycznych dla funkcji Ackley'a - kryterium czasowe, èrÛd≥o: Opracowanie w≥asne.}
+    \label{tab:ack_all_1}
+\end{table}
+
+Wyniki dotyczπce kryterium limitu odwo≥aÒ do funkcji testowej sπ analogiczne jak w przypadku pierwszego kryterium. Jedynπ rÛønicπ sπ wielkoúci populacji oraz roju, ktÛrych wyniki zosta≥y wziÍte do testu podsumowujπcego widocznego w tabeli \ref{tab:ack_all_2}. Funkcja Ackley'a jest pierwszπ testowanπ funkcjπ, do ktÛrej minimum globalnego w obu badanych kryteriach zbliøy≥ siÍ tylko jeden porÛwnywany algorytm metaheurystyczny - algorytm genetyczny.
+
+\begin{table}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{ack_ga_2.png}
+    \caption{Zestawienie wynikÛw algorytmu genetycznego dla funkcji Ackley'a - kryterium liczby odwo≥aÒ do funkcji testowej, èrÛd≥o: Opracowanie w≥asne., èrÛd≥o: Opracowanie w≥asne.}
+    \label{tab:ack_ga_2}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{ack_pso_2.png}
+    \caption{Zestawienie wynikÛw metody roju czπstek dla funkcji Ackley'a - kryterium liczby odwo≥aÒ do funkcji testowej, èrÛd≥o: Opracowanie w≥asne.}
+    \label{tab:ack_pso_2}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \includegraphics[height=1\textwidth]{ack_all_2.png}
+    \caption{Zestawienie najlepszych wynikÛw wszystkich trzech porÛwnywanych algorytmÛw metaheurystycznych dla funkcji Ackley'a - kryterium liczby odwo≥aÒ do funkcji testowej, èrÛd≥o: Opracowanie w≥asne.}
+    \label{tab:ack_all_2}
+\end{table}
 
 \subsubsection{Funkcja Rosenbrocka}
 
+Funkcja Rosenbrocka jest pierwszπ funkcjπ w ktÛrej analizujπc ustalone kryterium, otrzymane najlepsze rezultaty nie naleøπ do jednego algorytmu heurystycznego. Po wyborze optymalnych wielkoúci populacji oraz roju dla kryterium czasowego, ktÛrych testy dostÍpne sπ do wglπdu w tabeli \ref{tab:ros_ga_1} oraz \ref{tab:ros_pso_1}, dokonano zestawienia najlepszych rezultatÛw wszystkich trzech algorytmÛw w tabeli \ref{tab:ros_all_1}. Wynika z niej, iø dla wartoúci maksymalnego czasu od 1 do 3, najlepszy rezultaty uzyska≥a metoda roju czπstek, podczas gdy dla wyøszych z zakresu 4 do 6 - algorytm genetyczny.
+
+\begin{table}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{ros_ga_1.png}
+    \caption{Zestawienie wynikÛw algorytmu genetycznego dla funkcji Rosenbrocka - kryterium czasowe, èrÛd≥o: Opracowanie w≥asne.}
+    \label{tab:ros_ga_1}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{ros_pso_1.png}
+    \caption{Zestawienie wynikÛw metody roju czπstek dla funkcji Rosenbrocka - kryterium czasowe, èrÛd≥o: Opracowanie w≥asne.}
+    \label{tab:ros_pso_1}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \includegraphics[height=0.75\textwidth]{ros_all_1.png}
+    \caption{Zestawienie najlepszych wynikÛw wszystkich trzech porÛwnywanych algorytmÛw metaheurystycznych dla funkcji Rosenbrocka - kryterium czasowe, èrÛd≥o: Opracowanie w≥asne.}
+    \label{tab:ros_all_1}
+\end{table}
+
+Dla drugiego analizowanego kryterium dotyczπcego ustalonej maksymalnej liczby odwo≥aÒ do funkcji testowej, rezultaty, ktÛre dostÍpne sπ do wglπdu w tabeli \ref{tab:ros_all_2} okaza≥y siÍ juø bardziej jednolite. Algorytm genetyczny dla wielkoúci populacji rÛwnej 50 (tabela \ref{tab:ros_ga_2}) osiπgnπ≥ lepsze rezultaty od metody roju czπstek z wielkoúciπ roju rÛwnπ 10 (tabela \ref{tab:ros_pso_2})dla kaødego przeprowadzonego testu.
+
+\begin{table}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{ros_ga_2.png}
+    \caption{Zestawienie wynikÛw algorytmu genetycznego dla funkcji Rosenbrocka - kryterium liczby odwo≥aÒ do funkcji testowej, èrÛd≥o: Opracowanie w≥asne., èrÛd≥o: Opracowanie w≥asne.}
+    \label{tab:ros_ga_2}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{ros_pso_2.png}
+    \caption{Zestawienie wynikÛw metody roju czπstek dla funkcji Rosenbrocka - kryterium liczby odwo≥aÒ do funkcji testowej, èrÛd≥o: Opracowanie w≥asne.}
+    \label{tab:ros_pso_2}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \includegraphics[height=1\textwidth]{ros_all_2.png}
+    \caption{Zestawienie najlepszych wynikÛw wszystkich trzech porÛwnywanych algorytmÛw metaheurystycznych dla funkcji Rosenbrocka - kryterium liczby odwo≥aÒ do funkcji testowej, èrÛd≥o: Opracowanie w≥asne.}
+    \label{tab:ros_all_2}
+\end{table}
+
+\subsubsection{Funkcja Eggholdera}
+
+Czwartπ z kolei funkcjπ jest funkcja Eggholdera, dla ktÛrej rezultaty testÛw weryfikujπcych optymalnπ wartoúÊ populacji oraz roju czπstek zaprezentowane zosta≥y na wykresach \ref{tab:egg_ga_1} oraz \ref{tab:egg_pso_1}. Dla obu algorytmÛw w kontekúcie testÛw dotyczπcych kryterium maksymalnego czasu, wartoúci te zosta≥y ustalone na poziomie 100. Ich rezultaty, wraz z rezultatami otrzymanymi dla algorytmu symulowanego wyøarzania zgrupowane zosta≥y na wykresie \ref{tab:egg_all_1}. Analizujπc wykres moøna dostrzec, iø metoda roju czπstek poradzi≥a sobie najlepiej, oscylujπc bardzo blisko minimum globalnego funkcji Eggholdera, ktÛre wynosi $-959,6407$. Tuø za rojem czπstek uplasowa≥ siÍ algorytm genetyczny, ktÛrego rezultaty osiπga≥y úrednio wartoúÊ bliskπ wartoúci -900. Wynik ten jest wciπø duøo lepszy od wynikÛw zwrÛconych przez algorytm symulowanego wyøarzania, ktÛry zatrzymywa≥ siÍ na poziomie wartoúci oko≥o $-500$.
+
+\begin{table}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{egg_ga_1.png}
+    \caption{Zestawienie wynikÛw algorytmu genetycznego dla funkcji Eggholdera - kryterium czasowe, èrÛd≥o: Opracowanie w≥asne.}
+    \label{tab:egg_ga_1}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{egg_pso_1.png}
+    \caption{Zestawienie wynikÛw metody roju czπstek dla funkcji Eggholdera - kryterium czasowe, èrÛd≥o: Opracowanie w≥asne.}
+    \label{tab:egg_pso_1}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \includegraphics[height=0.75\textwidth]{egg_all_1.png}
+    \caption{Zestawienie najlepszych wynikÛw wszystkich trzech porÛwnywanych algorytmÛw metaheurystycznych dla funkcji Eggholdera - kryterium czasowe, èrÛd≥o: Opracowanie w≥asne.}
+    \label{tab:egg_all_1}
+\end{table}
+
+Przechodzπc do drugiego analizowanego kryterium - maksymalnej liczby odwo≥aÒ do funkcji - moøna zaobserowaÊ, iø wyniki sπ bardzo zbliøone do wynikÛw otrzymanych w kryterium pierwszym. Testy badajπce optymalnπ wielkoúÊ populacji dla algorytmu genetycznego oraz wielkoúci roju dla metody roju czπstek dostÍpne sπ do wglπdu na wykresie \ref{tab:egg_ga_2} oraz \ref{tab:egg_pso_2}, natomiast testy porÛwnujπce wszystkie trzy badane algorytmy heurystyczne na wykresie \ref{tab:egg_all_2}. 
+
+\begin{table}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{egg_ga_2.png}
+    \caption{Zestawienie wynikÛw algorytmu genetycznego dla funkcji Eggholdera - kryterium liczby odwo≥aÒ do funkcji testowej, èrÛd≥o: Opracowanie w≥asne., èrÛd≥o: Opracowanie w≥asne.}
+    \label{tab:egg_ga_2}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{egg_pso_2.png}
+    \caption{Zestawienie wynikÛw metody roju czπstek dla funkcji Eggholdera - kryterium liczby odwo≥aÒ do funkcji testowej, èrÛd≥o: Opracowanie w≥asne.}
+    \label{tab:egg_pso_2}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \includegraphics[height=1\textwidth]{egg_all_2.png}
+    \caption{Zestawienie najlepszych wynikÛw wszystkich trzech porÛwnywanych algorytmÛw metaheurystycznych dla funkcji Eggholdera - kryterium liczby odwo≥aÒ do funkcji testowej, èrÛd≥o: Opracowanie w≥asne.}
+    \label{tab:egg_all_2}
+\end{table}
+
 \subsubsection{Funkcja Griewanka}
 
+Ostatniπ uøytπ funkcjπ testowπ by≥a funkcja Griewanka, dla ktÛrej podobnie jak w przypadku funkcji Rosenbrocka rezultaty otrzymane dla kryterium maksymalnego czasu nie sπ jednoznaczne. PorÛwnujπc najlepsze wyniki otrzymane dla algorytmu genetycznego z tabeli \ref{tab:gri_ga_1} oraz dla metody roju czπstek z tabeli \ref{tab:gri_pso_1} z wynikami otrzymanymi przez algorytm symulowanego wyøarzania, moøna dostrzec w tabeli \ref{tab:gri_all_1}, iø lepszy rezultat otrzymany w teúcie 1 oraz 3 sekund naleøy do algorytmu genetycznego, a dla pozosta≥ych wartoúci maksymalnego czasu dla metody roju czπstek. Otrzymane przez algorytm genetyczny oraz metodÍ roju czπstek rezultaty sπ jednak bardzo do siebie zbliøone i nie mogπ jednoznacznie determinowaÊ lepszego algorytmu do zastosowania. 
+
+\begin{table}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{gri_ga_1.png}
+    \caption{Zestawienie wynikÛw algorytmu genetycznego dla funkcji Griewanka - kryterium czasowe, èrÛd≥o: Opracowanie w≥asne.}
+    \label{tab:gri_ga_1}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{gri_pso_1.png}
+    \caption{Zestawienie wynikÛw metody roju czπstek dla funkcji Griewanka - kryterium czasowe, èrÛd≥o: Opracowanie w≥asne.}
+    \label{tab:gri_pso_1}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \includegraphics[height=0.75\textwidth]{gri_all_1.png}
+    \caption{Zestawienie najlepszych wynikÛw wszystkich trzech porÛwnywanych algorytmÛw metaheurystycznych dla funkcji Griewanka - kryterium czasowe, èrÛd≥o: Opracowanie w≥asne.}
+    \label{tab:gri_all_1}
+\end{table}
+
+Drugie kryterium, pod kπtem ktÛrego przeprowadzone zosta≥y testy wskazuje juø jednak w tabeli \ref{tab:gri_all_2} jednoznacznie, iø lepsze rezultaty uzyska≥ algorytm genetyczny. Ponad dwukrotnie wiÍksza liczba odwo≥aÒ metody roju czπstek do funkcji testowej w pierwszym kryterium, w kryterium drugim zosta≥a zrÛwnana. W tym przypadku przy takiej samej liczbie obliczeÒ funkcji testowej, algorytm genetyczny uzyska≥ wyniki bliøsze minimum globalnemu niø metoda roju czπstek. Algorytm symulowanego wyøarzania w testach dotyczπcych obu kryteriÛw odniÛs≥ najgorsze rezultaty ze wszystkich porÛwnywanych algorytmÛw heurystycznych. Warto jednak nadmieniÊ, iø wyniki przez niego uzyskane oscylowa≥y rÛwnieø blisko minimum globalnego.
+
+\begin{table}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{gri_ga_2.png}
+    \caption{Zestawienie wynikÛw algorytmu genetycznego dla funkcji Griewanka - kryterium liczby odwo≥aÒ do funkcji testowej, èrÛd≥o: Opracowanie w≥asne., èrÛd≥o: Opracowanie w≥asne.}
+    \label{tab:gri_ga_2}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{gri_pso_2.png}
+    \caption{Zestawienie wynikÛw metody roju czπstek dla funkcji Griewanka - kryterium liczby odwo≥aÒ do funkcji testowej, èrÛd≥o: Opracowanie w≥asne.}
+    \label{tab:gri_pso_2}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \includegraphics[height=1\textwidth]{gri_all_2.png}
+    \caption{Zestawienie najlepszych wynikÛw wszystkich trzech porÛwnywanych algorytmÛw metaheurystycznych dla funkcji Griewanka - kryterium liczby odwo≥aÒ do funkcji testowej, èrÛd≥o: Opracowanie w≥asne.}
+    \label{tab:gri_all_2}
+\end{table}
+
+\subsection{Podsumowanie doúwiadczeÒ}
+
+Przeprowadzone doúwiadczenia wykonane zosta≥y z myúlπ o wyrÛwnaniu szans kaødego z badanych algorytmÛw heurystycznych. Metody porÛwnawcze opisane w \ref{dzial:MetodyPorownawczeWybranychAlgorytmow} umoøliwi≥y na podstawie ustalonych kryteriÛw, jednakowych dla wszystkich algorytmÛw, sprawdziÊ rezultaty przez nie uzyskane. Przez fakt rÛønπ specyfikÍ algorytmÛw oraz posiadanie przez nich rÛønych parametrÛw, trudnπ kwestiπ by≥o zrÛwnanie ich szans oraz ich wyskalowanie. 
+Podsumowujπc przeprowadzone doúwiadczenia w kontekúcie kryterium ustalonego czasu pracy, w obrÍbie ktÛrego algorytm za zadanie mia≥ znaleüÊ najmniejszπ wartoúÊ badanej funkcji, algorytm genetyczny w trzech na szeúÊ funkcji testowych uzyska≥ najlepszy rezultat dla kaødej wartoúci maksymalnego czasu. W dwÛch kolejnych funkcjach - Rosenbrocka oraz Griewanka - uzyska≥ najlepszy rezultat dla kolejno trzech z szeúciu oraz czterech z szeúciu wartoúci parametru. Funkcja Bohachevsky'ego by≥a jedynπ funkcjπ w ktÛrej algorytm genetyczny uplasowa≥ siÍ na drugim miejscu, za metodπ roju czπstek, ktÛra zwrÛci≥a najlepsze rezultaty. 
+Metoda ta uzyska≥a rÛwnieø najlepsze wyniki dla trzech z szeúciu oraz dwÛch z szeúciu parametrÛw dla funkcji Rosenbrocka oraz Griewanka. Dla wszystkich pozosta≥ych funkcji testowych, metoda roju czπstek znalaz≥a siÍ na drugim miejscu. Najgorzej w zestawieniu wypad≥ algorytm symulowanego wyøarzania, ktÛry dla kaødej funkcji testowej ulokowa≥ siÍ na miejscu trzecim. Algorytm ten, choÊ zwraca≥ wyniki bliskie minimum globalnemu, by≥y one gorsze od rezultatÛw zwrÛconych przez GA oraz PSO.
+
+Przy analizie wynikÛw dotyczπcych prÛby czasowe, zauwaøalna by≥a rÛønica w iloúci wyliczeÒ funkcji testowej dokonywana przez porÛwnywane algorytmy. Metoda roju czπstek odwo≥ywa≥a siÍ do funkcji testowych úrednio $2,59$ raza wiÍcej niø algorytm genetyczny oraz $25.58$ raza wiÍcej niø algorytm symulowanego wyøarzania. RÛønice te zosta≥y zrÛwnane w wynikach testÛw odnoszπcych siÍ do drugiego kryterium porÛwnawczego jakim by≥a ustalona maksymalna moøliwa liczba odwo≥aÒ do funkcji testowej. (todo: dokoncz)
 \section{Wnioski}
-\section*{Podsumowanie}
 
 \end{document}
+%Silberholz, J., Golden, B., 2010, Comparison of metaheuristics. In: Gendreau, M., Potvin, J.-V. (eds) ENTER Handbook of Metaheuristics, 2nd edn, Springer, Heidelberg. POROWNANIE METAHEUR
