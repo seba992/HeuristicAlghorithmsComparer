@@ -90,7 +90,7 @@ Funkcja Rosenbrocka jest to niewypuk³a funkcja, która jest bardzo popularna w ko
 
 TODO: obrazek + wzor 2 i 4zm
   
-\subsubsection{Funkcja Eggholdera }
+\subsubsection{Funkcja Eggholdera}
 
 Kolejn¹ wybran¹ funkcj¹ zosta³a dwuwymiarowa funkcja Eggholdera. Jest to funkcja, której graficzna reprezentacja zawarta w rysunku(TODO: dodaj rys i alias) przypomina pasmo górskie z licznymi dolinami. Jest to funkcja trudna do optymalizacji przez wzgl¹d na licznie wystêpuj¹ce minima lokalne. Dziedzina funkcji powszechnie rozpatrywana jest w przedziale $x_i\in[-512,512]$ dla $i=1,2$. Minimum globalne znajduje siê w punkcie $x=(512,404.2319)$ i wynosi $-959.6407$. Przez wzgl¹d na jego nietypowe po³o¿enie i wspomniane ju¿ liczne minima lokalne, wy³¹cznie $18.92\%$ testów zawartych w (TODO: odnosnik do rank) zakoñczy³o siê jego znalezieniem.
 
@@ -672,19 +672,43 @@ Drugie kryterium, pod k¹tem którego przeprowadzone zosta³y testy wskazuje ju¿ je
 
 \begin{table}[H]
     \centering
-    \includegraphics[height=1\textwidth]{gri_all_2.png}
+    \includegraphics[width=0.75\textwidth]{gri_all_2.png}
     \caption{Zestawienie najlepszych wyników wszystkich trzech porównywanych algorytmów metaheurystycznych dla funkcji Griewanka - kryterium liczby odwo³añ do funkcji testowej, ród³o: Opracowanie w³asne.}
     \label{tab:gri_all_2}
 \end{table}
 
-\subsection{Podsumowanie doœwiadczeñ}
+\subsection{Wnioski z przeprowadzonych doœwiadczeñ}
 
-Przeprowadzone doœwiadczenia wykonane zosta³y z myœl¹ o wyrównaniu szans ka¿dego z badanych algorytmów heurystycznych. Metody porównawcze opisane w \ref{dzial:MetodyPorownawczeWybranychAlgorytmow} umo¿liwi³y na podstawie ustalonych kryteriów, jednakowych dla wszystkich algorytmów, sprawdziæ rezultaty przez nie uzyskane. Przez fakt ró¿n¹ specyfikê algorytmów oraz posiadanie przez nich ró¿nych parametrów, trudn¹ kwesti¹ by³o zrównanie ich szans oraz ich wyskalowanie. 
-Podsumowuj¹c przeprowadzone doœwiadczenia w kontekœcie kryterium ustalonego czasu pracy, w obrêbie którego algorytm za zadanie mia³ znaleŸæ najmniejsz¹ wartoœæ badanej funkcji, algorytm genetyczny w trzech na szeœæ funkcji testowych uzyska³ najlepszy rezultat dla ka¿dej wartoœci maksymalnego czasu. W dwóch kolejnych funkcjach - Rosenbrocka oraz Griewanka - uzyska³ najlepszy rezultat dla kolejno trzech z szeœciu oraz czterech z szeœciu wartoœci parametru. Funkcja Bohachevsky'ego by³a jedyn¹ funkcj¹ w której algorytm genetyczny uplasowa³ siê na drugim miejscu, za metod¹ roju cz¹stek, która zwróci³a najlepsze rezultaty. 
-Metoda ta uzyska³a równie¿ najlepsze wyniki dla trzech z szeœciu oraz dwóch z szeœciu parametrów dla funkcji Rosenbrocka oraz Griewanka. Dla wszystkich pozosta³ych funkcji testowych, metoda roju cz¹stek znalaz³a siê na drugim miejscu. Najgorzej w zestawieniu wypad³ algorytm symulowanego wy¿arzania, który dla ka¿dej funkcji testowej ulokowa³ siê na miejscu trzecim. Algorytm ten, choæ zwraca³ wyniki bliskie minimum globalnemu, by³y one gorsze od rezultatów zwróconych przez GA oraz PSO.
+Przeprowadzone doœwiadczenia wykonane zosta³y z myœl¹ o wyrównaniu szans ka¿dego z badanych algorytmów heurystycznych. Metody porównawcze opisane w \ref{dzial:MetodyPorownawczeWybranychAlgorytmow} umo¿liwi³y na podstawie ustalonych kryteriów, jednakowych dla wszystkich algorytmów, sprawdziæ rezultaty przez nie uzyskane. Przez fakt ró¿n¹ specyfikê algorytmów oraz posiadanie przez nich ró¿nych parametrów, czasoch³onn¹ kwesti¹ okaza³o siê zrównanie ich szans oraz ich wyskalowanie. 
+Podsumowuj¹c przeprowadzone doœwiadczenia w kontekœcie kryterium ustalonego czasu pracy, w obrêbie którego algorytm za zadanie mia³ znaleŸæ najmniejsz¹ wartoœæ badanej funkcji, algorytm genetyczny w jednej na szeœæ funkcji testowych - funkcji Ackley'a - uzyska³ najlepszy rezultat dla ka¿dej wartoœci maksymalnego czasu. W dwóch kolejnych funkcjach - Rosenbrocka oraz Griewanka - uzyska³ najlepszy wynik dla kolejno trzech z szeœciu oraz czterech z szeœciu wartoœci parametru. Funkcja Bohachevsky'ego, Colville'a oraz Eggholdera by³y funkcjami w której algorytm genetyczny uplasowa³ siê na drugim miejscu, za metod¹ roju cz¹stek, która zwróci³a najlepsze rezultaty. 
+Metoda ta uzyska³a równie¿ najlepsze wyniki dla trzech z szeœciu oraz dwóch z szeœciu parametrów dla funkcji Rosenbrocka oraz Griewanka. Najgorzej w zestawieniu wypad³ algorytm symulowanego wy¿arzania, który dla ka¿dej funkcji testowej ulokowa³ siê na miejscu trzecim. Algorytm ten, choæ zwraca³ wyniki bliskie minimum globalnemu, by³y one gorsze od rezultatów zwróconych przez GA oraz PSO.
 
-Przy analizie wyników dotycz¹cych próby czasowe, zauwa¿alna by³a ró¿nica w iloœci wyliczeñ funkcji testowej dokonywana przez porównywane algorytmy. Metoda roju cz¹stek odwo³ywa³a siê do funkcji testowych œrednio $2,59$ raza wiêcej ni¿ algorytm genetyczny oraz $25.58$ raza wiêcej ni¿ algorytm symulowanego wy¿arzania. Ró¿nice te zosta³y zrównane w wynikach testów odnosz¹cych siê do drugiego kryterium porównawczego jakim by³a ustalona maksymalna mo¿liwa liczba odwo³añ do funkcji testowej. (todo: dokoncz)
-\section{Wnioski}
+Przy analizie wyników dotycz¹cych próby czasowej, zauwa¿alna by³a ró¿nica w iloœci wyliczeñ funkcji testowej dokonywana przez porównywane algorytmy. Metoda roju cz¹stek odwo³ywa³a siê do funkcji testowych œrednio $2,59$ raza wiêcej ni¿ algorytm genetyczny oraz $25.58$ raza wiêcej ni¿ algorytm symulowanego wy¿arzania. Ró¿nice te zosta³y zrównane w wynikach testów odnosz¹cych siê do drugiego kryterium porównawczego jakim by³a ustalona maksymalna liczba odwo³añ do funkcji testowej.
+
+Przy za³o¿eniu jednakowej liczby odwo³añ do funkcji testowych, klasyfikacja algorytmów uleg³a du¿emu przetasowaniu w porównaniu do kryterium pierwszego. Bez zmiany wyników zachowa³y siê wy³¹cznie testowane funkcje dwuwymiarowe - Bohachevsky'ego oraz Eggholdera, w której metoda roju cz¹stek uplasowa³a siê przed algorytmem genetycznym oraz algorytmem symulowanego wy¿arzenia. W pozosta³ych czterech funkcjach najlepsze rezultaty uzyska³ algorytm genetyczny, który dla funkcji Rosenbrocka oraz Griewanka zaj¹³ pierwsze miejsce przed metod¹ roju cz¹stek oraz symulowanym wy¿arzaniem. Ciekawe wyniki dostarczy³a funkcja Colville'a, dla której w pierwszym kryterium najlepsze wyniki uzyska³¹ metoda roju cz¹stek. W drugim kryterium osi¹gnê³a ona najgorszy rezultat, plasuj¹c siê za algorytmem symulowanego wy¿arzania, który dla funkcji Colville'a oraz Ackley'a uzyska³ wyniki pozwalaj¹ce umiejscowiæ go na drugiej pozycji.
+
+Ranking algorytmów odnosz¹cy siê do wyników przeprowadzonych testów dla kryterium czasowego oraz kryterium maksymalnej liczby odwo³añ do funkcji testowej za³¹czone zosta³y do wgl¹du w tabeli \ref{tab:results_1} oraz \ref{tab:results_2}
+
+\begin{table}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{results_1.png}
+    \caption{Ranking porównanych algorytmów heurystycznych (Algorytm genetyczny - GA; Metoda roju cz¹stek - PSO; Algorytm symulowanego wy¿arzania - SA) dla wyników dotycz¹cych kryterium maksymalnego czasu, ród³o: Opracowanie w³asne.}
+    \label{tab:results_1}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{results_2.png}
+    \caption{Ranking porównanych algorytmów heurystycznych (Algorytm genetyczny - GA; Metoda roju cz¹stek - PSO; Algorytm symulowanego wy¿arzania - SA) dla wyników dotycz¹cych maksymalnej liczby odwo³añ do funkcji testowej, ród³o: Opracowanie w³asne.}
+    \label{tab:results_2}
+\end{table}
+
+\section{Podsumowanie}
+
+Celem prezentowanej pracy magisterskiej by³o dokonanie analizy porównawczej algorytmu symulowanego wy¿arzania, algorytmu genetycznego oraz roju cz¹stek, która przeprowadzona zosta³a dziêki zaimplementowanej dedykowanej aplikacji bazodanowej, której przeznaczeniem by³o zautomatyzowanie procesu szukania minimum globalnego zadanych dla funkcji testowych.
+Zastosowanie œrodowiska bazodanowego umo¿liwi³o bardzo szybkie zapisywanie du¿ych iloœci danych dostarczanej z zaimplementowanej aplikacji, a nastêpnie przy pomocy jêzyka SQL agregowaæ je wed³ug uznanych kryteriów.
+W fazie implementacji za³o¿onych modu³ów prezentowanej aplikacji napotkano na kilka problemów dotycz¹cych zmiany wymagañ projektowych, sposobem realizacji ustalonych funkcji oraz integracji systemów. Wraz z biegiem czasu powstawa³y nowe pomys³y, które dotyczy³y usprawnienia istniej¹cych rozwi¹zañ, które nie zawsze jednak mog³y byæ wprowadzone przez pryzmat czasu którego to wymaga³y do ich implementacji, przetestowania oraz po³¹czenia z istniej¹cym ju¿ systemem. Powstaj¹ce propozycje zmian wi¹za³y siê tak¿e z modyfikacj¹ istniej¹cej architektury systemu, co w znacznym stopniu zmienia³oby zaplanowany wczeœniej harmonogram prac i wyd³u¿a³oby finalne ukoñczenie projektu. 
+Pomimo tych elementów, przedstawiony cel prezentowanej pracy magisterskiej zosta³ zrealizowany, czego efektem jest dzia³aj¹ca aplikacja bazodanowa posiadaj¹ca funkcjonalnoœci umo¿liwiaj¹ce jego osi¹gniêcie oraz wyniki testów które namacalnie prezentuj¹ uzyskane rezultaty otrzymane przez porównywane algorytmy metaheurystyczne.
 
 \end{document}
 %Silberholz, J., Golden, B., 2010, Comparison of metaheuristics. In: Gendreau, M., Potvin, J.-V. (eds) ENTER Handbook of Metaheuristics, 2nd edn, Springer, Heidelberg. POROWNANIE METAHEUR
