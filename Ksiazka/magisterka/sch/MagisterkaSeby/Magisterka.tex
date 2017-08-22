@@ -16,6 +16,26 @@
 \newcolumntype{k}[1]{>{\centering\arraybackslash}p{#1}}
 \setlength{\arrayrulewidth}{1.5\arrayrulewidth}% 50% thicker
 
+\usepackage{listings}
+
+\renewcommand{\lstlistingname}{Kod Ÿród³owy}
+\renewcommand\lstlistlistingname{Kody Ÿród³owe}
+\renewcommand*{\refname}{Bibliografia}
+
+
+\lstset{language=[Sharp]C,
+captionpos=b,
+showtabs=false,
+breaklines=true,
+showstringspaces=false,
+breakatwhitespace=true,
+escapeinside={(*@}{@*)},
+commentstyle=\color{greencomments},
+morekeywords={partial, var, value, get, set},
+keywordstyle=\color{bluekeywords},
+stringstyle=\color{redstrings},
+basicstyle=\ttfamily\small
+}
 
 %\drukJednostronny
 
@@ -42,86 +62,127 @@
 
 \begin{document}
 
-
-W otaczaj¹cym nas œwiecie obecnych jest wiele problemów, z którymi zmagaj¹ siê ludzie. Czêœæ z nich jest problemami prostymi, do rozwi¹zania których wystarczy wy³¹cznie niedu¿y nak³ad czasu. Istniej¹ jednak problemy trudniejsze, które wymagaj¹ d³ugotrwa³ych przemyœleñ i obliczeñ po których nie zawsze otrzymujemy najlepsze rozwi¹zanie. Do prostych problemów mo¿emy zaliczyæ codzienne decyzje podejmowane przez ka¿dego cz³owieka. Dla przyk³adu jeœli chcemy dojechaæ z punktu A do punktu B komunikacj¹ miejsk¹, wystarczy, ¿e sprawdzimy rozk³ad jazdy i wybierzemy po³¹czenie, które bêdzie pasowa³o nam w kontekœcie godziny przyjazdu na dane miejsce. Przedstawiony problem posiada z go³a inn¹ skalê trudnoœci ze strony przewoŸnika. Wyznaczenie optymalnych tras przewozowych dla okreœlonej liczby œrodków transportu, w celu obs³u¿enia danego zbioru klientów, którzy rozlokowani s¹ w ró¿nych punktach jest kwesti¹ bardzo skomplikowan¹. Znalezienie optymalnych tras, które umo¿liwi¹ przetransportowanie jak najwiêkszej iloœci osób w celu zmaksymalizowania zysku, przy zachowaniu mo¿liwie najkrótszych tras, których zamys³em jest minimalizowanie kosztów poniesionych z transportem jest z³o¿onym problemem, znanym jako jedna z odmian problemu marszrutyzacji, który jest z kolei rozwiniêciem bardzo popularnego problemu komiwoja¿era. Problem ten polega na znalezieniu najkrótszej drogi ³¹cz¹cej wszystkie zdefiniowane uprzednio punkty, zaczynaj¹c i koñcz¹c w tym samym miejscu. Problemy, do rozwi¹zania których potrzebne s¹ ogromne nak³ady obliczeniowe definiowane s¹ jako problemy optymalizacyjne. W problemach takich liczba mo¿liwych rozwi¹zañ w przestrzeni poszukiwañ z regu³y jest tak du¿a, ¿e niemo¿liwe jest przeszukiwanie wyczerpuj¹ce w celu znalezienia najlepszego z nich. 
+W otaczaj¹cym nas œwiecie obecnych jest wiele problemów, z którymi zmagaj¹ siê ludzie. Czêœæ z nich jest problemami prostymi, do rozwi¹zania których wystarczy wy³¹cznie niedu¿y nak³ad czasu. Istniej¹ jednak problemy trudniejsze, które wymagaj¹ d³ugotrwa³ych przemyœleñ i obliczeñ pomimo których nie zawsze otrzymujemy najlepsze rozwi¹zanie. Do prostych problemów mo¿emy zaliczyæ codzienne decyzje podejmowane przez ka¿dego cz³owieka. Dla przyk³adu, jeœli chcemy dojechaæ z punktu $A$ do punktu $B$ komunikacj¹ miejsk¹, wystarczaj¹ce bêdzie sprawdzenie rozk³adu jazdy i wybranie po³¹czenia, które bêdzie pasowa³o nam w kontekœcie godziny przyjazdu na dane miejsce. Przedstawiony problem posiada inn¹ skalê trudnoœci ze strony przewoŸnika. Wyznaczenie optymalnych tras przewozowych dla okreœlonej liczby œrodków transportu, w celu obs³u¿enia danego zbioru klientów, którzy rozlokowani s¹ w ró¿nych punktach jest kwesti¹ bardzo skomplikowan¹. Znalezienie optymalnych tras, które umo¿liwi¹ przetransportowanie jak najwiêkszej iloœci osób w celu zmaksymalizowania zysku, przy zachowaniu mo¿liwie najkrótszych tras, których zamys³em jest minimalizowanie kosztów poniesionych z transportem jest z³o¿onym problemem, znanym jako jedna z odmian problemu marszrutyzacji, który jest z kolei rozwiniêciem bardzo popularnego problemu komiwoja¿era \cite{ProblemKomiwojazera}. Problem ten polega na znalezieniu najkrótszej drogi ³¹cz¹cej wszystkie zdefiniowane uprzednio punkty, zaczynaj¹c i koñcz¹c w tym samym miejscu. Problemy, do rozwi¹zania których potrzebne s¹ ogromne nak³ady obliczeniowe definiowane s¹ jako problemy optymalizacyjne. W problemach takich liczba mo¿liwych rozwi¹zañ w przestrzeni poszukiwañ z regu³y jest tak du¿a, ¿e niemo¿liwe jest w skoñczonym czasie zastosowanie przeszukiwania wyczerpuj¹cego w celu znalezienia najlepszego z nich. 
 
 \subsection*{Cel pracy}
 
-Celem pracy jest dokonanie analizy porównawczej algorytmu symulowanego wy¿arzania, algorytmu genetycznego oraz roju cz¹stek, która przeprowadzona bêdzie dziêki zaimplementowanej dedykowanej aplikacji bazodanowej, której przeznaczeniem jest zautomatyzowanie procesu szukania minimum globalnego zadanych dla funkcji testowych.
+Celem pracy jest dokonanie analizy porównawczej algorytmu symulowanego wy¿arzania, algorytmu genetycznego oraz metody roju cz¹stek za pomoc¹ zaimplementowanej dedykowanej aplikacji bazodanowej, której przeznaczeniem jest zautomatyzowanie procesu szukania minimum globalnego dla zadanych funkcji testowych.
 
 \subsection*{Zawartoœæ pracy}
 
-Dla osi¹gniêcia wy¿ej wymienionego celu zrealizowana zosta³a praca sk³adaj¹ca siê z szeœciu rozdzia³ów oraz wniosków przeprowadzonych doœwiadczeñ. W rozdziale pierwszym przedstawiony zosta³ wybór problemu optymalizacyjnego wraz z jego opisem oraz list¹ funkcji testowych, które u¿yte zosta³y do przeprowadzenia badañ. Rozdzia³ drugi przedstawia mo¿liwe sposoby rozwi¹zania wybranego problemu optymalizacyjnego wraz z opisem u¿ytych algorytmów metaheurystycznych. Na bazie dwóch pierwszych rozdzia³ów utworzony zosta³ w rozdziale trzecim projekt automatyzacji przeprowadzanych doœwiadczeñ, na podstawie którego bazowa³a budowana aplikacja. Kolejny rozdzia³ to zastosowane rozwi¹zania technologiczne oraz opis wykorzystanych technologii, bibliotek zewnêtrznych, a tak¿e narzêdzi. Na ich podstawie utworzona zosta³a architektura aplikacji bazodanowej, której specyfikacja umiejscowiona zosta³a w rozdziale pi¹tym. Kolejny rozdzia³ prezentuje ju¿ œciœle aspekt badawczy, który zawiera  opis metod porównawczych zastosowanych algorytmów oraz wyniki doœwiadczeñ dla u¿ytych funkcji testowych, których analiza przeprowadzona zosta³a w rozdziale siódmym zawieraj¹cym wnioski.
+Dla osi¹gniêcia wy¿ej wymienionego celu zrealizowana zosta³a praca sk³adaj¹ca siê ze wstêpu, szeœciu rozdzia³ów oraz podsumowania. W rozdziale pierwszym przedstawiony zosta³ wybór problemu optymalizacyjnego wraz z jego opisem oraz list¹ funkcji testowych, które u¿yte zosta³y do przeprowadzenia badañ. Rozdzia³ drugi przedstawia mo¿liwe sposoby rozwi¹zania wybranego problemu optymalizacyjnego wraz z opisem u¿ytych algorytmów metaheurystycznych. Na bazie dwóch pierwszych rozdzia³ów utworzony zosta³ w rozdziale trzecim projekt automatyzacji przeprowadzanych doœwiadczeñ, na podstawie którego bazowa³a budowana aplikacja. Kolejny rozdzia³ to zastosowane rozwi¹zania technologiczne oraz opis wykorzystanych technologii, bibliotek zewnêtrznych, a tak¿e narzêdzi. Na ich podstawie utworzona zosta³a architektura aplikacji bazodanowej, której specyfikacja umiejscowiona zosta³a w rozdziale pi¹tym. Kolejny rozdzia³ prezentuje ju¿ œciœle aspekt badawczy. Zawiera on opis metod porównawczych oraz przeprowadzonych badañ, a tak¿e wyniki doœwiadczeñ dla u¿ytych funkcji testowych wraz z ich podsumowaniem.
 
 \section{Wybór badanego problemu optymalizacji}
 
 \subsection{Opis minimalizacji funkcji ci¹g³ych wielu zmiennych}
 \label{dzial:OpisMinimalizacjiFunkcjiCiaglych}
 
-W prezentowanej pracy dokonano porównania algorytmów metaheurystycznych odnosz¹c siê do problemu minimalizacji funkcji wielu zmiennych. Problem ten polega na znalezieniu minimum globalnego rzeczywistej funkcji poprzez systematyczne wybieranie parametrów wejœciowych z dozwolonego zakresu i obliczaniu ich wartoœci funkcji. Trudnoœæ problemu sprowadza siê do wielkoœci przestrzeni przeszukiwania. Traktuj¹c problem jako czysto matematyczny, funkcja \textit{n} zmiennych posiada nieskoñczenie wiele wartoœci w ka¿dym wymiarze. Mamy wiêc nieskoñczenie wielk¹ przestrzeñ poszukiwañ. Bior¹c jednak pod wzgl¹d aspekt technologiczny i to, i¿ komputery bazuj¹ na danych skoñczonych, mo¿na w prosty sposób przedstawiæ skalê trudnoœci. W czasie implementacji algorytmu, którego celem jest znalezienie minimum globalnego funkcji, nale¿y wzi¹æ pod uwagê dostêpn¹ dok³adnoœæ obliczeniow¹ maszyny. Zak³adaj¹c, i¿ dok³adnoœæ ta wynosi osiem miejsc po przecinku, ka¿da zmienna, ograniczona w przedziale $[0,100]$ mo¿e przyj¹æ $100*10^8$ ró¿nych wartoœci. Ju¿ dla funkcji dwóch zmiennych, wielkoœæ przestrzeni przeszukiwania wynosi $(100*10^8)^2 = 10^{20}$.
+W prezentowanej pracy dokonano porównania algorytmów metaheurystycznych odnosz¹c siê do problemu minimalizacji funkcji wielu zmiennych. Problem ten polega na znalezieniu minimum globalnego rzeczywistej funkcji poprzez systematyczne wybieranie parametrów wejœciowych z dozwolonego zakresu i obliczaniu ich wartoœci funkcji. Trudnoœæ problemu sprowadza siê do wielkoœci przestrzeni przeszukiwania. Traktuj¹c problem jako czysto matematyczny, funkcja \textit{n} zmiennych posiada nieskoñczenie wiele wartoœci w ka¿dym wymiarze. Mamy wiêc nieskoñczenie wielk¹ przestrzeñ poszukiwañ. Bior¹c jednak pod wzgl¹d aspekt technologiczny i to, i¿ komputery bazuj¹ na danych skoñczonych, mo¿na w prosty sposób przedstawiæ skalê trudnoœci. W czasie implementacji algorytmu, którego celem jest znalezienie minimum globalnego funkcji, nale¿y wzi¹æ pod uwagê dostêpn¹ dok³adnoœæ obliczeniow¹ maszyny. Zak³adaj¹c, i¿ dok³adnoœæ ta wynosi osiem miejsc po przecinku, ka¿da zmienna ograniczona w przedziale $[0,100]$ mo¿e przyj¹æ $100*10^8$ ró¿nych wartoœci. Ju¿ dla funkcji dwóch zmiennych, wielkoœæ przestrzeni przeszukiwania wynosi $(100*10^8)^2 = 10^{20}$.
 
 \subsection{Funkcje testowe}
 \label{dzial:FunkcjeTestowe}
 
-Problem minimalizacji funkcji ci¹g³ych bardzo dobrze nadaje siê do porównania algorytmów metaheurystycznych przez wzgl¹d na powszechnie dostêpne funkcje testowe. Funkcje te posiadaj¹ pewny specyficzny element, dziêki któremu mo¿liwe jest porównanie wyników otrzymanych przez dany algorytm. Element ten to znajomoœæ minimum globalnego dla danej funkcji testowej. Dziêki znajomoœci wartoœci najlepszej (najmniejszej) dla danej funkcji, wiadomo jak szybko oraz czy w ogóle badany algorytm znalaz³ rozwi¹zanie. Posiadaj¹c ten punkt odniesienia mo¿na zestawiæ otrzymane rezultaty wszystkich algorytmów pod k¹tem czasowym lub liczby wyliczeñ wartoœci funkcji dla ustalonych przez algorytm punktów.
-Do analizy wybranych zosta³o szeœæ funkcji testowych, których dobór bra³ pod uwagê stopieñ ich skomplikowania. Funkcje te zosta³y wybrane z listy zawartej w (TODO: link do strony z lista funkcji) uwzglêdniaj¹c ró¿n¹ liczbê wymiarów oraz skalê ich trudnoœci. Ka¿da z funkcji posiada specyficzne w³aœciwoœci, które zostan¹ wziête pod uwagê podczas porównania rezultatów algorytmów heurystycznych.
+Problem minimalizacji funkcji ci¹g³ych bardzo dobrze nadaje siê do porównania algorytmów metaheurystycznych przez wzgl¹d na powszechnie dostêpne funkcje testowe. Funkcje te posiadaj¹ pewny specyficzny element, dziêki któremu mo¿liwe jest porównanie wyników otrzymanych przez dany algorytm. Element ten to znajomoœæ minimum globalnego dla danej funkcji testowej. Dziêki znajomoœci wartoœci najlepszej (najmniejszej) dla danej funkcji, wiadomo jak szybko oraz czy w ogóle badany algorytm znalaz³ najlepsze mo¿liwe rozwi¹zanie. Posiadaj¹c ten punkt odniesienia mo¿na zestawiæ otrzymane rezultaty wszystkich algorytmów pod k¹tem czasowym lub liczby wyliczeñ wartoœci funkcji dla ustalonych przez algorytm punktów.
 
-\subsubsection{Funkcja Bohachevsky’ego 1}
+Do analizy wybranych zosta³o szeœæ funkcji testowych, których dobór bra³ pod uwagê stopieñ ich skomplikowania. Funkcje te zosta³y wybrane z listy zawartej w \cite{RankingFunkcjiTestowych} uwzglêdniaj¹c ró¿n¹ liczbê wymiarów oraz skalê ich trudnoœci. Ka¿da z funkcji posiada specyficzne w³aœciwoœci, które zostan¹ wziête pod uwagê podczas porównania rezultatów algorytmów heurystycznych.
 
-Funkcja Bohachevsky'ego 1 jest stosunkowo prost¹ do minimalizacji funkcja dwóch zmiennych, której wykres przybiera kszta³t ³uku. Z regu³y jest ona badana w zakresie $x_i \in[-100,100]$ dla $i=1,2$. W przedstawianej pracy magisterskiej granice to zosta³y jednak dwukrotnie powiêkszone i wynosz¹ $[-200,200]$. Wed³ug doœwiadczeñ przeprowadzonych w (TODO: link to strony z rankingiem), $81.75\%$ doœwiadczeñ zakoñczonych zosta³o znalezieniem minimum globalnego, które dla funkcji Bohachevsky'ego wynosi 0, dla punktu $x=(0,0)$.
+\subsubsection{Funkcja Bohachevsky’ego I}
 
-TODO: obrazek + wzór
+Funkcja Bohachevsky'ego 1 jest stosunkowo prost¹ do minimalizacji funkcja dwóch zmiennych, której wykres przedstawiony na wykresie \ref{wykres:img_boha} przybiera kszta³t ³uku. Z regu³y jest ona badana w zakresie $x_i \in[-100,100]$ dla $i=1,2$. W przedstawianej pracy magisterskiej granice to zosta³y jednak dwukrotnie powiêkszone i wynosz¹ $[-200,200]$. Wed³ug doœwiadczeñ przeprowadzonych w \cite{RankingFunkcjiTestowych}, $81.75\%$ doœwiadczeñ zakoñczonych zosta³o znalezieniem minimum globalnego, które dla funkcji Bohachevsky'ego I wynosi $0$, dla punktu $x=(0,0)$.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.9\textwidth]{img_boha1.png}
+    $f(x)=x^{2}_1+2x^{2}_2-0.3cos(3\pi x_1)-0.4cos(4\pi x_2)+0.7$
+    \caption{Wykres oraz wzór funkcji Bohachevsky'ego I dwóch zmiennych, ród³o: https://www.sfu.ca/\textasciitilde ssurjano/boha.html}
+    \label{wykres:img_boha}
+\end{figure} 
 
 \subsubsection{Funkcja Colville'a}
 
-Jest to funkcja czterech zmiennych, która posiada jedno minimum globalne o wartoœci 0 dla punktu $x=(1,1,1,1)$ oraz analizowana jest zazwyczaj na hiperszeœcianie $x_i\in[-200,200]$ dla $i=1,2,3,4$. Wed³ug danych zawartych(TODO: link do rank) jest to funkcja trudniejsza w minimalizacji od funkcji Bohachevsky'ego, której procentowy sukces dotycz¹cy znalezienie minimum globalnego wyniós³ $72.00\%$.
- 
- TODO: obrazek + wzór
+Jest to funkcja czterech zmiennych, która posiada jedno minimum globalne o wartoœci $0$ dla punktu $x=(1,1,1,1)$ oraz analizowana jest zazwyczaj na hiperszeœcianie $x_i\in[-200,200]$ dla $i=1,2,3,4$. Wed³ug danych zawartych w \cite{RankingFunkcjiTestowych}, jest to funkcja trudniejsza w minimalizacji od funkcji Bohachevsky'ego I, której procentowy sukces dotycz¹cy znalezienie minimum globalnego wyniós³ $72.00\%$. 
+\newline
+Wzór funkcji Colville'a: 
+\newline
+$f(x)=100(x^{2}_1-x_2)^{2}+(x_1-1)^{2}+(x_3-1)^{2}+90(x^{2}_3-x_4)^{2}+10.1((x_2-1)^{2}+(x_4-1)^{2})+19.8(x_2-1)(x_4-1)$ 
 
 \subsubsection{Funkcja Ackley'a}
 
-Funkcja Ackley'a jest popularn¹ funkcj¹ dla testów optymalizacyjnych algorytmów. W swojej dwuwymiarowej postaci, któr¹ ukazano na obrazku (TODO: rys odnos), charakteryzuje siê prawie p³askim obszarem zewnêtrznym i du¿ym otworem w centrum. Funkcja stwarza ryzyko dla algorytmów optymalizacyjnych poprzez mo¿liwoœæ zatrzymania siê w jednym z licznych lokalnych minimów. Istnieje mo¿liwoœæ rozszerzenia funkcji Ackley'a na wiele wymiarów co te¿ uczyniono w prezentowanej pracy magisterskiej, w której rozpatrywana jest ona dla czterech zmiennych. Minimum globalne umiejscowione jest w punkcie $x=(0,0,0,0)$ i jego wartoœæ wynosi 0. Dziedzina funkcji z kolei analizowana bêdzie w przedziale $x_i\in[-150,150]$ dla $i=1,2,3,4$. Dla wspomnianych ju¿ testów, których wyniki dostêpne s¹ do wgl¹du w odnoœniku (TODO: odn do rank), procentowy sukces znalezienia minimum globalnego wyniós³ $48.25\%$.
+Funkcja Ackley'a jest popularn¹ funkcj¹ dla testów optymalizacyjnych algorytmów. W swojej dwuwymiarowej postaci, któr¹ ukazano na obrazku \ref{wykres:img_ack}, charakteryzuje siê stosunkowo p³askim obszarem zewnêtrznym i du¿ym otworem w centrum. Funkcja stwarza ryzyko dla algorytmów optymalizacyjnych poprzez mo¿liwoœæ zatrzymania siê w jednym z licznych lokalnych minimów. Istnieje mo¿liwoœæ rozszerzenia funkcji Ackley'a na wiele wymiarów co te¿ uczyniono w prezentowanej pracy magisterskiej, w której rozpatrywana jest ona dla czterech zmiennych. Minimum globalne umiejscowione jest w punkcie $x=(0,0,0,0)$ i jego wartoœæ wynosi $0$. Dziedzina funkcji analizowana bêdzie z kolei w przedziale $x_i\in[-150,150]$ dla $i=1,2,3,4$. Dla wspomnianych ju¿ testów, których wyniki dostêpne s¹ do wgl¹du w odnoœniku \cite{RankingFunkcjiTestowych}, procentowy sukces znalezienia minimum globalnego wyniós³ $48.25\%$.
  
-  TODO: obrazek + wzór
-  
+\begin{figure}[tb]
+    \centering
+    \includegraphics[width=0.9\textwidth]{img_ack.png}
+    $f(x)=-a\exp(-b \sqrt{\frac{1}{d} \sum_{i=1}^d x^{2}_i}-\exp(\frac{1}{d} \sum_{i=1}^d cos(cx_i))+a+\exp(1)
+    \newline a=20, b=0.2,c=2\pi$
+    \caption{Wykres oraz wzór funkcji Ackley'a dwóch zmiennych, ród³o: https://www.sfu.ca/\textasciitilde ssurjano/ackley.html}
+    \label{wykres:img_ack}
+\end{figure} 
+\newpage
 \subsubsection{Funkcja Rosenbrocka}
 
-Funkcja Rosenbrocka jest to niewypuk³a funkcja, która jest bardzo popularna w kontekœcie optymalizacji jako test dla algorytmów optymalizacyjnych. Nazywana jest równie¿ przez wzgl¹d na swój kszta³t "Funkcj¹ Bananow¹ Rosenbrocka" albo "Dolin¹ Rosenbrocka". Funkcja Rosenbrocka powszechnie jest stosowana w kontekœcie optymalizacji funkcji dwóch zmiennych. Istnieje jednak mo¿liwoœæ rozszerzenia jej do wielu wymiarów. W prezentowanej pracy magisterskiej rozpatrywana jest funkcja Rosenbrocka czterech zmiennych, której minimum globalne mieœci siê w punkcie $x=(1,1,1,1)$ i wynosi 0. Ustalon¹ dziedzin¹ funkcji jest $x_i\in[-200,200]$ dla $i=1,2,3,4$. Opisywana funkcja Rosenbrocka jest funkcj¹ trudn¹ do minimalizacji i wed³ug wyników testów zawartych w (TODO: link do rank) procentowy sukces znalezienia minimum globalnego wyniós³ tylko $8,42\%$.
+Funkcja Rosenbrocka jest to niewypuk³a funkcja, która jest bardzo popularna w kontekœcie optymalizacji jako test dla algorytmów optymalizacyjnych. Nazywana jest równie¿ przez wzgl¹d na swój kszta³t \textit{"Funkcj¹ Bananow¹ Rosenbrocka"} albo \textit{"Dolin¹ Rosenbrocka"} \cite{DolinaRosenbrocka}. Funkcja Rosenbrocka powszechnie jest stosowana w kontekœcie optymalizacji funkcji dwóch zmiennych. Istnieje jednak mo¿liwoœæ rozszerzenia jej do wielu wymiarów. W prezentowanej pracy magisterskiej rozpatrywana jest funkcja Rosenbrocka czterech zmiennych, której minimum globalne mieœci siê w punkcie $x=(1,1,1,1)$ i wynosi $0$. Ustalon¹ dziedzin¹ funkcji jest $x_i\in[-200,200]$ dla $i=1,2,3,4$. Opisywana funkcja Rosenbrocka jest funkcj¹ trudn¹ do minimalizacji i wed³ug wyników testów zawartych w \cite{RankingFunkcjiTestowych}, procentowy sukces znalezienia minimum globalnego wyniós³ tylko $8,42\%$.
 
-TODO: obrazek + wzor 2 i 4zm
+\begin{figure}[tb]
+    \centering
+    \includegraphics[width=0.9\textwidth]{img_ros.png}
+    $f(x)=\sum_{i=1}^{d-1}[100(x_{i+1}-x^{2}_i)^2+(x_i-1)^2]$
+    \caption{Wykres oraz wzór funkcji Rosenbrocka dla $d=4$ zmiennych, ród³o: https://www.sfu.ca/\textasciitilde ssurjano/rosen.html}
+    \label{wykres:img_ros}
+\end{figure} 
   
 \subsubsection{Funkcja Eggholdera}
 
-Kolejn¹ wybran¹ funkcj¹ zosta³a dwuwymiarowa funkcja Eggholdera. Jest to funkcja, której graficzna reprezentacja zawarta w rysunku(TODO: dodaj rys i alias) przypomina pasmo górskie z licznymi dolinami. Jest to funkcja trudna do optymalizacji przez wzgl¹d na licznie wystêpuj¹ce minima lokalne. Dziedzina funkcji powszechnie rozpatrywana jest w przedziale $x_i\in[-512,512]$ dla $i=1,2$. Minimum globalne znajduje siê w punkcie $x=(512,404.2319)$ i wynosi $-959.6407$. Przez wzgl¹d na jego nietypowe po³o¿enie i wspomniane ju¿ liczne minima lokalne, wy³¹cznie $18.92\%$ testów zawartych w (TODO: odnosnik do rank) zakoñczy³o siê jego znalezieniem.
+Kolejn¹ wybran¹ funkcj¹ zosta³a dwuwymiarowa funkcja Eggholdera. Jest to funkcja, której graficzna reprezentacja zawarta w rysunku(TODO: dodaj rys i alias) przypomina pasmo górskie z licznymi dolinami. Jest to funkcja trudna do optymalizacji przez wzgl¹d na licznie wystêpuj¹ce minima lokalne. Dziedzina funkcji powszechnie rozpatrywana jest w przedziale $x_i\in[-512,512]$ dla $i=1,2$. Minimum globalne znajduje siê w punkcie $x=(512,404.2319)$ i wynosi $-959.6407$. Przez wzgl¹d na jego nietypowe po³o¿enie i wspomniane ju¿ liczne minima lokalne, wy³¹cznie $18.92\%$ testów zawartych w \cite{RankingFunkcjiTestowych} zakoñczy³o siê jego znalezieniem.
+
+\begin{figure}[tb]
+    \centering
+    \includegraphics[width=0.9\textwidth]{img_egg.png}
+    $f(x)=-(x_2+47)\sin(\sqrt{|x_2+\frac{x_1}{2}+47|})-x_1\sin(\sqrt{|x_1-(x_2+47)|})$
+    \caption{Wykres oraz wzór funkcji Eggholdera dwóch zmiennych, ród³o: https://www.sfu.ca/\textasciitilde ssurjano/egg.html}
+    \label{wykres:img_egg}
+\end{figure} 
 
 \subsubsection{Funkcja Griewanka}
 
-Ostatni¹ wybran¹ do testów funkcj¹ jest funkcja Greiwanka, której minimum globalne znalezione zosta³o w tylko $6.08\%$ testów zawartych w (TODO: link do rank). Jest to funkcja posiadaj¹ca bardzo du¿o regularnie rozmieszczonych minimów lokalnych które utrudniaj¹ znalezienie globalnego minimum znajduj¹cego siê w punkcie $x=(0,...,0)$, dla którego wartoœæ funkcji wynosi 0. Opisywana funkcja jest funkcj¹ wielowymiarow¹, która prezentowanej pracy magisterskiej sprowadzona zosta³a do funkcji trzech zmiennych o dziedzinie $x_i\in[-200,200]$ dla $i=1,2,3$. Poni¿ej na rysunku (todo odnosnik rysunek) zaprezentowano opisywan¹ funkcjê w postaci dwuwymiarowej na której mo¿na dostrzec liczne minima globalne oraz ich regularne rozmieszczenie.
+Ostatni¹ wybran¹ do testów funkcj¹ jest funkcja Greiwanka, której minimum globalne znalezione zosta³o w tylko $6.08\%$ testów zawartych w \cite{RankingFunkcjiTestowych}. Jest to funkcja posiadaj¹ca bardzo du¿o regularnie rozmieszczonych minimów lokalnych które utrudniaj¹ znalezienie globalnego minimum znajduj¹cego siê w punkcie $x=(0,...,0)$, dla którego wartoœæ funkcji wynosi $0$. Opisywana funkcja jest funkcj¹ wielowymiarow¹, która w prezentowanej pracy magisterskiej zastosowana zosta³a jako funkcja testowa trzech zmiennych o dziedzinie $x_i\in[-200,200]$ dla $i=1,2,3$. Na rysunku (todo odnosnik rysunek) zaprezentowano opisywan¹ funkcjê w postaci dwuwymiarowej na której mo¿na dostrzec liczne minima globalne oraz ich regularne rozmieszczenie.
+
+\begin{figure}[tb]
+    \centering
+    \includegraphics[width=1\textwidth]{img_gri.png}
+    $f(x)=\sum_{i=1}^d\frac{x^{2}_i}{4000}-\prod_{i=1}^{d}\cos(\frac{x_i}{\sqrt{i}})+1$
+    \caption{Wykres oraz wzór funkcji Griewanka dla $d=3$ zmiennych, ród³o: https://www.sfu.ca/\textasciitilde ssurjano/gri.html}
+    \label{wykres:img_gri}
+\end{figure} 
 
 \section{Metody rozwi¹zania wybranego problemu optymalizacji}
 
 \subsection{Algorytmy dok³adne}
 \label{dzial:AlgorytmyDokladne}
 
-Klasycznym podejœciem do znalezienia minimalnej wartoœci zadanej funkcji testowej jest próba porównania wartoœci funkcji dla ka¿dych mo¿liwych parametrów wejœciowych i wybrania w ten sposób optymalnego rozwi¹zania. W rzeczywistoœci jednak takie rozwi¹zanie nie jest praktyczne przez wzgl¹d na olbrzymi¹ mo¿liw¹ liczbê takich parametrów. Jak ju¿ wspomniano w rozdziale \ref{dzial:OpisMinimalizacjiFunkcjiCiaglych}, liczba rozwi¹zañ dla funkcji ograniczonej ju¿ do dwóch zmiennych mo¿e wynieœæ $10^{20}$, a w przypadku trzech zmiennych – $10^{30}$. Zak³adaj¹c, i¿ mo¿liwe by by³o wyliczenie miliarda wartoœci funkcji na sekundê, to w godzinê wartoœæ ta wynosi³aby  $3.6*10^{12}$, a w rok – $3.2*10^{16}$. Prowadz¹c dalej obliczenia wychodzi, i¿ wyliczenie $10^{20}$ wartoœci funkcji trwa³oby oko³o 3125 lat. Widaæ wiêc, ¿e liczba kombinacji jest tak du¿a, i¿ podejœcie to jest niemo¿liwe do wykonania w akceptowalnym czasie.
+Klasycznym podejœciem do znalezienia minimalnej wartoœci zadanej funkcji testowej jest próba porównania wartoœci funkcji dla ka¿dych mo¿liwych parametrów wejœciowych i wybrania w ten sposób najlepszego rozwi¹zania. W rzeczywistoœci jednak takie rozwi¹zanie nie jest praktyczne przez wzgl¹d na olbrzymi¹ mo¿liw¹ liczbê takich parametrów. Jak ju¿ wspomniano w rozdziale \ref{dzial:OpisMinimalizacjiFunkcjiCiaglych}, liczba rozwi¹zañ dla funkcji ograniczonej ju¿ do dwóch zmiennych mo¿e siêgaæ wartoœci $10^{20}$, a w przypadku trzech zmiennych – $10^{30}$. Zak³adaj¹c, i¿ mo¿liwe by by³o wyliczenie miliarda wartoœci funkcji na sekundê, to w godzinê wartoœæ ta wynosi³aby  $3.6*10^{12}$, a w rok – $3.2*10^{16}$. Prowadz¹c dalej obliczenia wychodzi, i¿ wyliczenie $10^{20}$ wartoœci funkcji trwa³oby oko³o 3125 lat. Widaæ wiêc, ¿e liczba kombinacji jest tak du¿a, i¿ podejœcie to jest niemo¿liwe do wykonania w akceptowalnym czasie.
 
 \subsection{Metaheurystyki optymalizacyjne}
 
-Analizuj¹c podejœcie z rozdzia³u \ref{dzial:AlgorytmyDokladne} mo¿e przyjœæ na myœl sposób, który polegaæ bêdzie na wyliczaniu wartoœci funkcji dla wyrywkowych parametrów. Sk¹d jednak wiadomo które punkty wybraæ? Na podstawie czego bazowaæ? W przypadku problemów, w których przez wzgl¹d na czas niemo¿liwe jest dojœcie do rozwi¹zania na ratunek przychodz¹ algorytmy heurystyczne, które umo¿liwiaj¹ skrócenie czasu obliczeñ. Cen¹ któr¹ trzeba jednak za to zap³aciæ jest mo¿liwoœæ otrzymania gorszego rozwi¹zania od rozwi¹zania najlepszego. Samo pojêcie heurystyki pochodzi od greckiego s³owa \textit{heuresis}, które znaczy ‘odnaleŸæ’. Metody heurystyczne polegaj¹ na u¿yciu regu³ oraz faktów, które uzyskane na drodze badania danego problemu umo¿liwiaj¹ jego rozwi¹zanie lub zbli¿enie siê do poprawnej odpowiedzi. Podejœcie heurystyczne stosowane mo¿e byæ w sposób piêtrowy, tworz¹c metaheurystyki. Metaheurystyka jest to ogólny algorytm do rozwi¹zywania problemów obliczeniowych, który inspiracjê czêsto bierze z mechanizmów biologicznych lub fizycznych. Okreœlenie to oznacza tak zwan¹ heurystykê wy¿szego poziomu, co wynika z faktu, i¿ algorytmy tego typu bezpoœrednio nie rozwi¹zuj¹ ¿adnego problemu, a wy³¹cznie podaj¹ metodê na utworzenie odpowiedniego algorytmu. 
-
+Analizuj¹c podejœcie z rozdzia³u \ref{dzial:AlgorytmyDokladne} mo¿e przyjœæ na myœl sposób, który polegaæ bêdzie na wyliczaniu wartoœci funkcji dla wyrywkowych parametrów. Sk¹d jednak wiadomo które punkty wybraæ? Na podstawie czego bazowaæ? W przypadku problemów, w których przez wzgl¹d na czas niemo¿liwe jest dojœcie do jednoznacznego rozwi¹zania na ratunek przychodz¹ algorytmy heurystyczne, które umo¿liwiaj¹ skrócenie czasu obliczeñ. Cen¹ któr¹ trzeba jednak za to zap³aciæ jest mo¿liwoœæ otrzymania gorszego rozwi¹zania od rozwi¹zania najlepszego. Samo pojêcie heurystyki pochodzi od greckiego s³owa \textit{heuresis}, które oznacza \textit{"odnaleŸæ"} \cite{HeurystykaZGreki}. Metody heurystyczne polegaj¹ na u¿yciu regu³ oraz faktów, które uzyskane na drodze badania danego problemu umo¿liwiaj¹ jego rozwi¹zanie lub zbli¿enie siê do poprawnej odpowiedzi. Podejœcie heurystyczne stosowane mo¿e byæ w sposób piêtrowy, tworz¹c metaheurystyki. Metaheurystyka jest to ogólny algorytm do rozwi¹zywania problemów obliczeniowych, który inspiracjê czêsto bierze z mechanizmów biologicznych lub fizycznych. Okreœlenie to oznacza tak zwan¹ heurystykê wy¿szego poziomu, co wynika z faktu, i¿ algorytmy tego typu bezpoœrednio nie rozwi¹zuj¹ ¿adnego problemu, a wy³¹cznie podaj¹ metodê na utworzenie odpowiedniego algorytmu. 
 
 \subsubsection{Metoda optymalizacji rojem cz¹stek}
 \label{dzial:MetodaOptymalizacjiRojemCzastek}
 
-Metoda roju cz¹stek (PSO – Particle Swarm Optimization) jest przyk³adem optymalizacji z kategorii metod inteligencji stadnej. Powsta³a ona w wyniku inspiracji biologicznej, której Ÿród³em by³ uk³ad lotu stada ptaków tworzony w celu znalezienia po¿ywienia lub gniazda oraz unikniêcia drapie¿ników. Zastosowanie prostych zasad umo¿liwia ptakom zsynchronizowany oraz bezkolizyjnych ruch, który daje efekt zachowania jednego organizmu. Ruch stada ptaków, czy ³awicy ryb jest wypadkow¹ dzia³ania wszystkich osobników i koncentruje siê na utrzymaniu optymalnego dystansu od swoich s¹siadów, przy jednoczesnym pod¹¿aniem za liderem. Badania nad optymalizacj¹ roju cz¹stek zapocz¹tkowano od próby graficznej symulacji zachowañ takich grup. Bardzo szybko okaza³o siê, i¿ stworzony matematyczny model mo¿e byæ równie¿ zastosowany jako metoda optymalizacyjna.
+Metoda roju cz¹stek (PSO – Particle Swarm Optimization) jest przyk³adem optymalizacji z kategorii metod inteligencji stadnej. Powsta³a ona w wyniku inspiracji biologicznej, której Ÿród³em by³ uk³ad lotu stada ptaków tworzony w celu znalezienia po¿ywienia lub gniazda oraz unikniêcia drapie¿ników. Zastosowanie prostych zasad umo¿liwia ptakom zsynchronizowany oraz bezkolizyjnych ruch, który daje efekt zachowania jednego organizmu. Ruch stada ptaków, czy ³awicy ryb jest wypadkow¹ dzia³ania wszystkich osobników i koncentruje siê na utrzymaniu optymalnego dystansu od swoich s¹siadów, przy jednoczesnym pod¹¿aniem za liderem. Badania nad optymalizacj¹ roju cz¹stek zapocz¹tkowano od próby graficznej symulacji zachowañ takich grup \cite{PSOOgolneInfo}. Bardzo szybko okaza³o siê, i¿ stworzony matematyczny model mo¿e byæ równie¿ zastosowany jako metoda optymalizacyjna.
 W optymalizacji rojem cz¹stek, rozwi¹zania (cz¹stki) wspó³pracuj¹ ze sob¹ w celu odnalezienia cz¹stki optymalnej. W czasie procesu optymalizacji nastêpuje zmiana po³o¿enia ka¿dej cz¹stki w przestrzeni rozwi¹zañ poprzez wyznaczenie wektora prêdkoœci. Wektor ten jest modyfikowany przy u¿yciu informacji o historii poszukiwañ danej cz¹stki oraz jej cz¹stek s¹siednich. Metoda PSO w problemie optymalizacji funkcji wielowymiarowych d¹¿y do otrzymania cz¹steczki, która reprezentuje jak najmniejsz¹ wartoœæ funkcji i mo¿e byæ opisana dwoma równaniami:
 
 \begin{equation}
 v=W*v+c_1*r_1*(p-x)+c_2*r_2*(g-x)
 \end{equation}
+\begin{equation}
+x_{next}=x+v
+\end{equation}
 gdzie,
 
 $v$ - aktualny wektor prêdkoœci cz¹stki
+
+$x$ - aktualna pozycja cz¹stki
 
 $W$ – parametr z zakresu $[0,1]$, który determinuje wp³yw poprzedniego po³o¿enia cz¹stki na jej obecn¹ pozycjê
 
@@ -133,21 +194,37 @@ $r_1,r_2$ – losowe liczby z zakresu $[0,1]$
 
 $c_1,c_2$ – parametry skaluj¹ce z zakresu $[0,1]$
 
-Nawi¹zuj¹c do powy¿szych równañ, ka¿da cz¹stka roju przeszukuje przestrzeñ rozwi¹zañ zmieniaj¹c po³o¿enie na podstawie swoich najlepszych rozwi¹zañ $p_i$, jednoczeœnie wykorzystuj¹c informacjê o najlepszym rozwi¹zaniu w s¹siedztwie $p_t$. Parametry skaluj¹ce umo¿liwiaj¹ kontrolê wp³ywu danych czêœci wektora prêdkoœci na wynik. W przypadku, w którym $c_1$ bêdzie równe zero, cz¹stka bêdzie wykorzystywa³a tylko i wy³¹cznie informacjê o najlepszym rozwi¹zaniu w roju. Z kolei jeœli wartoœæ parametru $c_2$ zostanie ustawiona na zero, cz¹stka bêdzie poszukiwa³a rozwi¹zania samodzielnie, bez uwzglêdnienia rozwi¹zañ, które uzyskane zosta³y przez inne cz¹stki. 
+$x_{next}$ - nowa pozycja cz¹stki
+\newline
+
+Nawi¹zuj¹c do powy¿szych równañ, ka¿da cz¹stka roju przeszukuje przestrzeñ rozwi¹zañ zmieniaj¹c po³o¿enie na podstawie swoich najlepszych rozwi¹zañ $p$, jednoczeœnie wykorzystuj¹c informacjê o najlepszym rozwi¹zaniu w s¹siedztwie $g$. Parametry skaluj¹ce umo¿liwiaj¹ kontrolê wp³ywu danych sk³adowych wektora prêdkoœci na wynik. W przypadku, w którym $c_1$ bêdzie równe zero, cz¹stka bêdzie wykorzystywa³a tylko i wy³¹cznie informacjê o najlepszym rozwi¹zaniu w roju. Z kolei jeœli wartoœæ parametru $c_2$ zostanie ustawiona na zero, cz¹stka bêdzie poszukiwa³a rozwi¹zania samodzielnie, bez uwzglêdnienia rozwi¹zañ, które uzyskane zosta³y przez inne cz¹stki. 
 
 \subsubsection{Symulowane wy¿arzanie}
 
 Algorytm symulowanego wy¿arzania po raz pierwszy zosta³ opisany w 1953 roku przez Nicolasa Metropolisa. Sposób dzia³ania algorytmu jak i równie¿ jego nazwa odnosi siê do procesów fizycznych, które wykorzystywane s¹ w metalurgii. Proces wy¿arzania polega na rozgrzaniu cia³a sta³ego do okreœlonej temperatury, a nastêpnie jego powolnym studzeniu. Konsekwencj¹ tego dzia³ania jest zmiana struktury krystalicznej materia³u, który poddany zosta³ wy¿arzaniu. W czasie procesu och³adzania metali dostrze¿ono, i¿ cz¹steczki cia³a
 wraz z jego powolnym sch³adzaniem tworz¹ bardziej regularne struktury, ni¿ w przypadku szybszego obni¿enia temperatury, kiedy to ch³odzone cz¹steczki nie potrafi¹ znaleŸæ optymalnego po³o¿enia.
-Algorytm symulowanego wy¿arzania jest usprawnieniem starszych metod iteracyjnych, które polega³y na ci¹g³ym ulepszaniu istniej¹cego rozwi¹zania do momentu braku mo¿liwoœci jego poprawy. W metodach tych zatrzymanie algorytmu mog³o nast¹piæ przy rozwi¹zaniu pseudo-optymalnym – lokalnym minimum. Nie istnia³a wówczas mo¿liwoœæ wyjœcia z owego lokalnego minima i kierowania siê w kierunku minimum globalnego. Bardzo wa¿n¹ cech¹ opisywanego algorytmu jest mo¿liwoœæ wyboru, z pewnym prawdopodobieñstwem, gorszego rozwi¹zania. Dziêki temu problem utkniêcia w lokalnym minimum nie jest ju¿ groŸny. Za wybór gorszego rozwi¹zania ma wp³yw podstawowy parametr przeniesiony z podstaw termodynamicznych algorytmu – temperatura. Im jest ona wy¿sza, tym wiêksze istnieje prawdopodobieñstwo wyboru i zaakceptowania gorszego rozwi¹zania. W czasie dzia³ania algorytmu, temperatura obni¿a siê i dzia³anie algorytmu zbli¿a siê w swoim zachowaniu do typowych metod iteracyjnych.
-W celu wykonania algorytmu symulowanego wy¿arzania w kontekœcie optymalizacji funkcji wielu zmiennych nale¿y na pocz¹tku losowo wygenerowaæ punkt startowy, który mieœci siê na p³aszczyŸnie poszukiwañ, wyliczyæ dla niego wartoœæ funkcji oraz wybraæ temperaturê startow¹ z dostêpnego zakresu [0,100]. Ka¿da iteracja polega na wyborze losowego rozwi¹zania z s¹siedztwa, wyliczenia dla niego wartoœci funkcji i porównaniu z obecnie najlepszym rezultatem oraz obni¿eniu temperatury. W przypadku, w którym wartoœæ funkcji nowego punktu jest mniejsza (lepsza), jest on zaklasyfikowany jako najlepszy. W przeciwnej sytuacji punkt nie jest natychmiastowo odrzucany. Algorytm akceptuje gorsze rezultaty bazuj¹c na funkcji akceptacyjnej, która prezentuje siê nastêpuj¹co:
+Algorytm symulowanego wy¿arzania jest usprawnieniem starszych metod iteracyjnych, które polega³y na ci¹g³ym ulepszaniu istniej¹cego rozwi¹zania do momentu braku mo¿liwoœci jego poprawy. W metodach tych zatrzymanie algorytmu mog³o nast¹piæ przy rozwi¹zaniu pseudo-optymalnym – lokalnym minimum. Nie istnia³a wówczas mo¿liwoœæ wyjœcia z owego lokalnego minimum i kierowania siê w kierunku minimum globalnego. Bardzo wa¿n¹ cech¹ opisywanego algorytmu jest mo¿liwoœæ wyboru, z pewnym prawdopodobieñstwem, gorszego rozwi¹zania. 
+
+
+\begin{figure}[hb]
+    \centering
+    \includegraphics[width=0.7\textwidth]{img_sa.png}
+    \caption{Zasada dzia³ania algorytmu symulowanego wy¿arzania w postaci graficznej, 
+    \newline
+    ród³o: http://iacs-courses.seas.harvard.edu/courses/am207/blog/images/mcmc.png}
+    \label{wykres:img_gri}
+\end{figure} 
+
+Dziêki temu problem utkniêcia w lokalnym minimum nie jest ju¿ groŸny. Za wybór gorszego rozwi¹zania ma wp³yw podstawowy parametr przeniesiony z podstaw termodynamicznych algorytmu – temperatura. Im jest ona wy¿sza, tym wiêksze istnieje prawdopodobieñstwo wyboru i zaakceptowania gorszego rozwi¹zania. W czasie dzia³ania algorytmu, temperatura obni¿a siê i dzia³anie algorytmu zbli¿a siê w swoim zachowaniu do typowych metod iteracyjnych.
+
+W celu wykonania algorytmu symulowanego wy¿arzania w kontekœcie optymalizacji funkcji wielu zmiennych nale¿y na pocz¹tku losowo wygenerowaæ punkt startowy, który mieœci siê na p³aszczyŸnie poszukiwañ, wyliczyæ dla niego wartoœæ funkcji oraz wybraæ temperaturê startow¹ z dostêpnego zakresu $[0,100]$. Ka¿da iteracja polega na wyborze losowego rozwi¹zania z s¹siedztwa, wyliczenia dla niego wartoœci funkcji i porównaniu z obecnie najlepszym rezultatem oraz obni¿eniu temperatury. W przypadku, w którym wartoœæ funkcji nowego punktu jest mniejsza (lepsza), jest on zaklasyfikowany jako najlepszy. W przeciwnej sytuacji punkt nie jest natychmiastowo odrzucany. Algorytm akceptuje gorsze rezultaty bazuj¹c na funkcji akceptacyjnej, która prezentuje siê nastêpuj¹co:
 
 \begin{equation}
 \frac{1}{1+exp(\frac{\Delta}{max(T)})}
 \end{equation}
 gdzie,
 
-$\Delta$ – ró¿nica wartoœci starego i nowego punktu
+$\Delta$ – ró¿nica pomiêdzy wartoœciami najlepszego oraz nowego punktu
 
 $T$ – wartoœæ temperatury
 
@@ -710,5 +787,33 @@ Zastosowanie œrodowiska bazodanowego umo¿liwi³o bardzo szybkie zapisywanie du¿yc
 W fazie implementacji za³o¿onych modu³ów prezentowanej aplikacji napotkano na kilka problemów dotycz¹cych zmiany wymagañ projektowych, sposobem realizacji ustalonych funkcji oraz integracji systemów. Wraz z biegiem czasu powstawa³y nowe pomys³y, które dotyczy³y usprawnienia istniej¹cych rozwi¹zañ, które nie zawsze jednak mog³y byæ wprowadzone przez pryzmat czasu którego to wymaga³y do ich implementacji, przetestowania oraz po³¹czenia z istniej¹cym ju¿ systemem. Powstaj¹ce propozycje zmian wi¹za³y siê tak¿e z modyfikacj¹ istniej¹cej architektury systemu, co w znacznym stopniu zmienia³oby zaplanowany wczeœniej harmonogram prac i wyd³u¿a³oby finalne ukoñczenie projektu. 
 Pomimo tych elementów, przedstawiony cel prezentowanej pracy magisterskiej zosta³ zrealizowany, czego efektem jest dzia³aj¹ca aplikacja bazodanowa posiadaj¹ca funkcjonalnoœci umo¿liwiaj¹ce jego osi¹gniêcie oraz wyniki testów które namacalnie prezentuj¹ uzyskane rezultaty otrzymane przez porównywane algorytmy metaheurystyczne.
 
+\begin{thebibliography}{12}
+
+\bibitem{ProblemKomiwojazera}
+Michalewicz Z., Fogel D.B.: \textsl{Jak to rozwi¹zaæ czyli nowoczesna heurystyka}, Wydawnictwa Naukowo-Techniczne, Warszawa, 2006, str. 25-228
+
+\bibitem{RankingFunkcjiTestowych}
+http://infinity77.net/global\_optimization/test\_functions.html
+\newline 
+[dostêp 1.06.2017r. - 26.08.2017r.]
+
+\bibitem{DolinaRosenbrocka}
+Castillo O., Melin P.: \textsl{Soft Computing and Fractal Theory for Intelligent Manufacturing}, Physica-Verlag, Heidelberg, 2003, str. 100-101
+
+\bibitem{HeurystykaZGreki}
+Nola R., Sankey H.: \textsl{Theories of Scientific Method}, Routledge, Nowy Jork, 2007, str. 25-28
+
+\bibitem{PSOOgolneInfo}
+http://zsi.ii.us.edu.pl/\textasciitilde mboryczka/IntStad/pso\_informacje.php
+\newline
+[dostêp 20.06.2017r. - 26.08.2017r.]
+
+
+\end{thebibliography}
+
+\listoffigures
+
+\lstlistoflistings
 \end{document}
+
 %Silberholz, J., Golden, B., 2010, Comparison of metaheuristics. In: Gendreau, M., Potvin, J.-V. (eds) ENTER Handbook of Metaheuristics, 2nd edn, Springer, Heidelberg. POROWNANIE METAHEUR
