@@ -16,6 +16,9 @@
 \newcolumntype{k}[1]{>{\centering\arraybackslash}p{#1}}
 \setlength{\arrayrulewidth}{1.5\arrayrulewidth}% 50% thicker
 
+\definecolor{bluekeywords}{rgb}{0,0,1}
+\definecolor{greencomments}{rgb}{0,0.5,0}
+
 \usepackage{listings}
 
 \renewcommand{\lstlistingname}{Kod ürÛd≥owy}
@@ -90,7 +93,7 @@ Do analizy wybranych zosta≥o szeúÊ funkcji testowych, ktÛrych dobÛr bra≥ pod uwa
 
 Funkcja Bohachevsky'ego 1 jest stosunkowo prostπ do minimalizacji funkcja dwÛch zmiennych, ktÛrej wykres przedstawiony na wykresie \ref{wykres:img_boha} przybiera kszta≥t ≥uku. Z regu≥y jest ona badana w zakresie $x_i \in[-100,100]$ dla $i=1,2$. W przedstawianej pracy magisterskiej granice to zosta≥y jednak dwukrotnie powiÍkszone i wynoszπ $[-200,200]$. Wed≥ug doúwiadczeÒ przeprowadzonych w \cite{RankingFunkcjiTestowych}, $81.75\%$ doúwiadczeÒ zakoÒczonych zosta≥o znalezieniem minimum globalnego, ktÛre dla funkcji Bohachevsky'ego I wynosi $0$, dla punktu $x=(0,0)$.
 
-\begin{figure}[h]
+\begin{figure}[ht]
     \centering
     \includegraphics[width=0.9\textwidth]{img_boha1.png}
     $f(x)=x^{2}_1+2x^{2}_2-0.3cos(3\pi x_1)-0.4cos(4\pi x_2)+0.7$
@@ -135,7 +138,7 @@ Funkcja Rosenbrocka jest to niewypuk≥a funkcja, ktÛra jest bardzo popularna w ko
 
 Kolejnπ wybranπ funkcjπ zosta≥a dwuwymiarowa funkcja Eggholdera. Jest to funkcja, ktÛrej graficzna reprezentacja zawarta w rysunku \ref{wykres:img_egg} przypomina pasmo gÛrskie z licznymi dolinami. Jest to funkcja trudna do optymalizacji przez wzglπd na licznie wystÍpujπce minima lokalne. Dziedzina funkcji powszechnie rozpatrywana jest w przedziale $x_i\in[-512,512]$ dla $i=1,2$. Minimum globalne znajduje siÍ w punkcie $x=(512,404.2319)$ i wynosi $-959.6407$. Przez wzglπd na jego nietypowe po≥oøenie i wspomniane juø liczne minima lokalne, wy≥πcznie $18.92\%$ testÛw zawartych w \cite{RankingFunkcjiTestowych} zakoÒczy≥o siÍ jego znalezieniem.
 
-\begin{figure}[h]
+\begin{figure}[ht]
     \centering
     \includegraphics[width=0.9\textwidth]{img_egg.png}
     $f(x)=-(x_2+47)\sin(\sqrt{|x_2+\frac{x_1}{2}+47|})-x_1\sin(\sqrt{|x_1-(x_2+47)|})$
@@ -366,20 +369,28 @@ W aspekcie programowania, podobnie jak w innych dziedzinach, w ktÛrych przeprowa
 \subsubsection{Wzorce architektoniczne oprogramowania}
 
 Bardzo dobrπ praktykπ programistycznπ jest przeprowadzenie procesu budowy aplikacji w taki sposÛb, aby moøliwy by≥ efektywny jej rozwÛj oraz dokonanie w ≥atwy sposÛb zmian w istniejπcych juø funkcjonalnoúciach. W tym celu budowÍ aplikacji naleøy przeprowadzaÊ zgodnie z ustalonymi etapami produkcji oprogramowania \cite{FazyProdukcjiOpr}. Etapy te definiujπ obowiπzek ustalenia wymagaÒ budowanego systemu oraz okreúlenia jego ogÛlnej architektury. CzÍúÊ dotyczπca okreúlenia architektury jest bardzo waøna poniewaø jej zmiana podczas fazy implementacji jest niebywale problematyczna do wykonania i w wielu przypadkach wrÍcz niemoøliwa bez koniecznoúci powtÛrnego rozpoczÍcia pracy od poczπtku. Kolejne etapy majπ na celu zrealizowanie zdefiniowanej wczeúniej architektury poprzez zaprogramowanie kaødego komponentu oprogramowania wraz z ich wszystkim wzajemnymi po≥πczeniami, przetestowanie ca≥oúci zaimplementowanego systemu, a takøe jego uruchomienie oraz zniwelowanie b≥ÍdÛw, ktÛre pojawi≥y siÍ w trakcie jego dzia≥ania.
-W kontekúcie planowania i budowania architektury systemu bardzo uøyteczne sπ wzorce architektoniczne, ktÛre to sπ powszechnymi, sprawdzonymi oraz ogÛlnie przyjÍtymi sposobami rozwiπzania okreúlonego problemu z zakresu architektury oprogramowania. Definiujπ one ogÛlnπ strukturÍ systemu informatycznego, elementy, ktÛre wchodzπ w jego sk≥ad oraz zasadÍ komunikowania siÍ komponentÛw pomiÍdzy sobπ. Dokonanie wyboru odpowiedniego wzorca jest w duøym stopniu zaleøne od technologii, ktÛra stosowana jest w projekcie. W przypadku prezentowanej aplikacji oraz technologii WPF na ktÛrej ona bazuje, stosowanym powszechnie wzorcem jest \textit{Model View ViewModel}(MVVM) \ref{Mvvm}, ktÛry to jest odmianπ ogÛlnego wzorca MVC.
+W kontekúcie planowania i budowania architektury systemu bardzo uøyteczne sπ wzorce architektoniczne, ktÛre to sπ powszechnymi, sprawdzonymi oraz ogÛlnie przyjÍtymi sposobami rozwiπzania okreúlonego problemu z zakresu architektury oprogramowania. Definiujπ one ogÛlnπ strukturÍ systemu informatycznego, elementy, ktÛre wchodzπ w jego sk≥ad oraz zasadÍ komunikowania siÍ komponentÛw pomiÍdzy sobπ. Dokonanie wyboru odpowiedniego wzorca jest w duøym stopniu zaleøne od technologii, ktÛra stosowana jest w projekcie. W przypadku prezentowanej aplikacji oraz technologii WPF na ktÛrej ona bazuje, stosowanym powszechnie wzorcem jest \textit{Model View ViewModel (MVVM)} \cite{MvvmOpis}, ktÛry to jest odmianπ ogÛlnego wzorca MVC.
 
 \subsubsection{Zastosowany wzorzec architektoniczny ñ MVVM}
 
-MVVM to wzorzec, ktÛry dziÍki separacji warstwy logiki biznesowej oraz warstwy prezentacji, pozwala na tworzenie ≥atwo testowalnej aplikacji, ktÛrej fragmenty kodu mogπ byÊ ponownie uøyte w innych projektach programistycznych. Aplikacje pisane w technologii WPF przy uøyciu wzorca MVVM umoøliwiajπ rÛwnieø ich prostπ rozbudowÍ, a poprzez obowiπzek zachowania odpowiedniej struktury kodu, ktÛrπ owy wzorzec wymusza, zrozumienie kodu przez nowπ osobÍ jest o wiele prostsze i mniej czasoch≥onne niø w przypadkÛw aplikacji pisanych bez øadnej ogÛlnej struktury. MVVM jest to wzorzec, ktÛry jest bardzo popularny w gronie programistÛw skoncentrowanych przy technologii WPF. Powodem tego jest moøliwoúÊ uøycia najwiÍkszych zalet tej technologii, takich jak binding (wiπzania), behavior (zachowania) oraz command (komendy). Struktura kodu aplikacji bazujπcej na opisywanym wzorcu, podzielona jest na trzy oddzielne warstwy, ktÛrych nazwy sk≥adajπ siÍ na nazwÍ wzorca: Model, Widok (View) oraz Model Widoku (ViewModel). Kaøda z warstwa spe≥nia w aplikacji specjalnie okreúlone funkcje i przetwarza dedykowane dla siebie dane. Graficzna prezentacja oraz kierunki przesy≥ania danych dostÍpna jest do wzglπdu na rysunku (TODO: dodac numer rysunku).
-Warstwa Modelu we wzorcu MVVM jest odpowiedzialna za tak zwanπ logikÍ biznesowπ budowanego systemu. W aplikacji budowanej na potrzeby prezentowanej pracy magisterskiej, warstwa ta zawiera wszystkie klasy, ktÛre stworzone zosta≥y za pomocπ narzÍdzia mapowania obiektowo-relacyjnego Entity Framework w celu odwzorowania relacyjnej bazy danych na poziom obiektÛw dostÍpnych w kodzie.
+MVVM jest to wzorzec, ktÛry dziÍki separacji warstwy logiki biznesowej oraz warstwy prezentacji, pozwala na tworzenie ≥atwo testowalnej aplikacji, ktÛrej fragmenty kodu mogπ byÊ ponownie uøyte w innych projektach programistycznych. Aplikacje implementowane w technologii WPF przy uøyciu wzorca MVVM umoøliwia rÛwnieø ich prostπ rozbudowÍ, a poprzez obowiπzek zachowania odpowiedniej struktury kodu, zrozumienie kodu przez nowπ osobÍ jest o wiele prostsze i mniej czasoch≥onne niø w przypadkÛw aplikacji pisanych bez øadnej ogÛlnie zachowanej struktury. MVVM jest to wzorzec, ktÛry jest bardzo popularny w gronie programistÛw skoncentrowanych przy technologii WPF. Powodem tego jest moøliwoúÊ uøycia najwiÍkszych zalet tej technologii, takich jak \textit{binding} \cite{WpfBinding} (wiπzania), \textit{behavior} (zachowania) oraz \textit{command} \cite{WpfCommands} (komendy). Struktura kodu aplikacji bazujπcej na opisywanym wzorcu, podzielona jest na trzy oddzielne warstwy, ktÛrych nazwy sk≥adajπ siÍ na nazwÍ wzorca: Model, Widok (View) oraz Model Widoku (ViewModel). Kaøda z warstw spe≥nia w aplikacji specjalnie okreúlone funkcje i przetwarza dedykowane dla siebie dane. Graficzna prezentacja oraz kierunki przesy≥ania danych dostÍpna jest do wglπdu na rysunku \ref{rys:mvvm}.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.7\textwidth]{img_mvvm.png}
+    \caption{Przep≥yw danych we wzorcu MVVM, èrÛd≥o: https://i-msdn.sec.s-msft.com/dynimg/IC648329.png}
+    \label{rys:mvvm}
+\end{figure} 
+
+Warstwa Modelu we wzorcu MVVM odpowiedzialna jest za tak zwanπ logikÍ biznesowπ budowanego systemu. W aplikacji implementowanej na potrzeby prezentowanej pracy magisterskiej, warstwa ta zawiera wszystkie klasy, ktÛre stworzone zosta≥y za pomocπ narzÍdzia mapowania obiektowo-relacyjnego Entity Framework w celu odwzorowania relacyjnej bazy danych na poziom obiektÛw dostÍpnych w kodzie.
 Kaøda klasa zawarta w czÍúci modelu, ktÛrej dane majπ zostaÊ wys≥ane do warstwy widoku w celu ich wyúwietlenia uøytkownikowi zobligowane sπ do implementacji interfejsu \textit{INotifyPropertyChanged}, ktÛry aktywnie wspÛ≥pracuje z wiπzaniem stosowanym w WPF.
 Drugπ z kolei warstwπ jest warstwa widoku, ktÛrej odpowiedzialnoúÊ sprowadza siÍ wy≥πcznie do wyúwietlania danych. Jej rolπ jest prezentowanie danych w oknie aplikacji, do ktÛrego dostÍp majπ uøytkownicy systemu.
-Ostatniπ warstwπ modelu MVVM jest warstwa ViewModelu, ktÛrej przeznaczeniem jest poúredniczenie w wymianie danych pomiÍdzy modelem oraz widokiem, do ktÛrego nie posiada jednak øadnej referencji. Elementy widoku odnoszπ siÍ do ViewModelu dziÍki wspomnianym juø komendom oraz bindingowi. Taki mechanizm zapewnia w pe≥ni separacjÍ warstwy ViewModelu, a co za tym idzie, umoøliwia pe≥ne jego przetestowanie bez øadnej zaleønoúci od rzeczywistej warstwy widoku oraz modelu.
+Ostatniπ warstwπ modelu MVVM jest warstwa ViewModelu, ktÛrej przeznaczeniem jest poúredniczenie w wymianie danych pomiÍdzy modelem oraz widokiem, do ktÛrego nie posiada jednak øadnej referencji. Elementy widoku odnoszπ siÍ do ViewModelu dziÍki wspomnianym juø komendom oraz wiπzaniom. Taki mechanizm zapewnia w pe≥ni separacjÍ warstwy ViewModelu, a co za tym idzie, umoøliwia pe≥ne jego przetestowanie bez øadnej zaleønoúci od rzeczywistej warstwy widoku oraz modelu.
 
 \subsubsection{Model aplikacji}
 \label{dzial:ModelAplikacji}
 
-Uøycie wzorca MVVM w aplikacji implementowanej na potrzeby prezentowanej pracy magisterskiej poskutkowa≥o w projekcie programistycznym do powstania obszernej solucji, ktÛra sk≥ada siÍ z ponad siedemdziesiÍciu plikÛw. DziÍki zaplanowanej strukturze podzia≥u elementÛw na foldery, zachowano porzπdek, ktÛry umoøliwia szybkie oraz intuicyjne wyszukiwanie potrzebnych sk≥adowych aplikacji. Wszelkie pliki klas zosta≥y umiejscowione w katalogach nazwanych w sposÛb adekwatny do ich przeznaczenia, przez co odnalezienie przez programistÍ szukanego elementu nie przysparza øadnych problemÛw.
+Uøycie wzorca MVVM w aplikacji implementowanej na potrzeby prezentowanej pracy magisterskiej doprowadzi≥o do powstania obszernej solucji, na ktÛrπ sk≥ada siÍ ponad siedemdziesiπt plikÛw. DziÍki zaplanowanej strukturze podzia≥u elementÛw na foldery, zachowano porzπdek, ktÛry umoøliwia szybkie oraz intuicyjne wyszukiwanie potrzebnych sk≥adowych aplikacji. Wszelkie pliki klas zosta≥y umiejscowione w katalogach nazwanych w sposÛb adekwatny do ich przeznaczenia, przez co odnalezienie przez programistÍ szukanego elementu nie przysparza øadnych problemÛw.
 
 \subsubsection*{Managers}
 
@@ -387,20 +398,66 @@ Uøycie wzorca MVVM w aplikacji implementowanej na potrzeby prezentowanej pracy m
 
 \subsubsection*{Matlab}
 
-Folder \textit{Matlab} ukazany na rysunku (TODO: dodaj rysunek) zawiera pliki funkcji zapisanych w úrodowisku Matlab. Pliki te zawierajπ definicjÍ trzech algorytmÛw metaheurystycznych oraz wybranych funkcji testowych. Przez fakt na ograniczonπ funkcjonalnoúÊ zastosowanego API, ≥πczπcego úrodowisko .NET ze úrodowiskiem Matlab, definicje funkcji testowych oraz algorytmÛw musia≥y znaleüÊ siÍ w jednym katalogu z powodu braku wsparcia przechodzenia pomiÍdzy rÛønymi katalogami.
+Folder \textit{Matlab} ukazany na rysunku \ref{img:KatalogMatlab} zawiera pliki funkcji zapisanych w úrodowisku Matlab. Pliki te zawierajπ definicje trzech algorytmÛw metaheurystycznych oraz wybranych funkcji testowych. Przez fakt na ograniczonπ funkcjonalnoúÊ zastosowanego API, ≥πczπcego úrodowisko .NET ze úrodowiskiem Matlab, definicje funkcji testowych oraz algorytmÛw musia≥y znaleüÊ siÍ w jednym katalogu z powodu braku wsparcia dotyczπcego przejúcia pomiÍdzy rÛønymi katalogami.
+
+\newpage
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.6\textwidth]{img_KatalogMatlab.png}
+    \caption{Widok na pliki funkcji napisanych w úrodowisku Matlab z poziomu solucji, èrÛd≥o: Opracowanie w≥asne.}
+    \label{img:KatalogMatlab}
+\end{figure} 
 
 \subsubsection*{Model}
 
-Katalog Modelu przedstawiony na obrazu (TODO: dodaÊ odnoúnik) zawiera utworzonπ przez Entity Framework strukturÍ obiektowπ relacyjnej bazy danych. Liczba plikÛw, ktÛre zawiera uzaleøniona jest bezpoúrednio od liczby tabel, ktÛra zastosowana zosta≥a w bazie danych. W czasie dzia≥aÒ implementacyjnych nie jest konieczna wiedza o dok≥adnej strukturze przedstawianego folderu, a tylko ktÛra bazodanowa tabela zawiera jakie dane.
+Katalog Modelu przedstawiony na obrazu \ref{img:KatalogModel} zawiera utworzonπ przez Entity Framework strukturÍ obiektowπ relacyjnej bazy danych. Liczba plikÛw, ktÛre zawiera uzaleøniona jest bezpoúrednio od liczby tabel, ktÛra zastosowana zosta≥a w bazie danych. W czasie dzia≥aÒ implementacyjnych nie jest konieczna wiedza o dok≥adnej strukturze przedstawianego folderu, a tylko ktÛra bazodanowa tabela zawiera jakie dane.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.6\textwidth]{img_KatalogModel.png}
+    \caption{Widok na pliki wygenerowane przez Entity Framework z poziomu solucji, èrÛd≥o: Opracowanie w≥asne.}
+    \label{img:KatalogModel}
+\end{figure} 
 
 \subsubsection*{Services}
 
 Katalog \textit{Servies} zawiera dwa serwisy stosowane w prezentowanej aplikacji. Pierwszym z nich jest serwis bazy danych ktÛry umoøliwia po≥πczenie siÍ z fizycznie istniejπcπ bazπ danych. Za pomocπ dedykowanych obiektÛw Entity Frameworka umoøliwia on zapisywanie do bazy danych rezultatÛw przeprowadzonych doúwiadczeÒ oraz pobieranie niezbÍdnych danych dotyczπcych stosowanych algorytmÛw oraz funkcji testowych.
-Drugim z kolei serwisem jest serwis Matlaba, ktÛry przezchowuje obiekty umoøliwiajπce dwukierunkowπ komunikacjÍ ze úrodowiskiem obliczeniowym.
+Drugim z kolei serwisem jest serwis Matlaba, ktÛry przechowuje obiekty umoøliwiajπce dwukierunkowπ komunikacjÍ ze úrodowiskiem obliczeniowym.
 
 \subsubsection*{Tools}
 
-Katalog narzÍdzi, ktÛrego graficzna reprezentacja dostÍpna jest do zobaczenia na rysunku (TODO: dodaj alias rysunku) jest najbardziej rozbudowanym katalogiem w drzewie solucji. Przez wzglπd na jego szerokie zastosowanie posiada on trzy podfoldery, ktÛre uúciúlajπ definicjÍ elementÛw w nich siÍ znajdujπcych. Pierwsyzm z nich jest \textit{Parser}, ktÛry zawiera t≥umacza rezultatÛw otrzymanych ze úrodowiska obliczeniowego. Przez wzglπd na nieuporzπdkowanπ formÍ danych otrzymywanych z Matlaba pojawi≥a siÍ koniecznoúÊ ich uporzπdkowania, biorπc jednoczeúnie pod wzglπd, iø rezultaty doúwiadczeÒ dla rÛønych algorytmÛw oraz rÛønych funkcji testowych mogπ posiadaÊ inne struktury. Drugi podkatalog to \textit{Utils}, ktÛry zawiera dwie bardzo waøne metody dopasowujπce nazwy Matlabowych plikÛw na podstawie wybranego algorytmu metaheurystycznego oraz funkcji testowej. Ostatnim podkatalogiem jest \textit{MatlabContextWrapper}, ktÛry zawiera metody u≥atwiajπce odwo≥anie siÍ do obiektÛw komunikacyjnych, ktÛre poúredniczπ w dwukierunkowym przekazywaniu informacji pomiÍdzy úrodowiskami .NET oraz Matlab.
+Katalog narzÍdzi jest najbardziej rozbudowanym katalogiem w drzewie solucji. Przez wzglπd na jego szerokie zastosowanie posiada on trzy podfoldery, ktÛre uúciúlajπ definicjÍ elementÛw w nich siÍ znajdujπcych. Pierwszym z nich jest \textit{Parser}, ktÛry zawiera t≥umacza rezultatÛw otrzymanych ze úrodowiska obliczeniowego. Przez wzglπd na nieuporzπdkowanπ formÍ danych otrzymywanych z Matlaba pojawi≥a siÍ koniecznoúÊ ich uporzπdkowania. W listingu \ref{listing:ParseResultsFromMatlab} zawarty zosta≥ kod metody umoøliwiajπcej przeprowadzenie tej operacji. Drugi podkatalog zawarty w sekcji \textit{Tools} to \textit{Utils}, w ktÛrym umiejscowione sπ dwie bardzo waøne metody dopasowujπce nazwy Matlabowych plikÛw na podstawie wybranego algorytmu metaheurystycznego oraz funkcji testowej. Ostatnim podkatalogiem jest \textit{MatlabContextWrapper}, ktÛry posiada metody u≥atwiajπce odwo≥ywanie siÍ do obiektÛw komunikacyjnych, ktÛre poúredniczπ w dwukierunkowym przekazywaniu informacji pomiÍdzy úrodowiskami .NET oraz Matlab.
+
+\newpage
+
+\begin{lstlisting}[caption= {Implementacja oraz opis funkcji t≥umaczπcej informacje odebrane ze úrodowiska obliczeniowego Matlab.}, label={listing:ParseResultsFromMatlab}]
+public ResultDetail ParseResult(object[] result)
+{
+// tworzenie obiektu zawierajπcego szczegÛ≥y otrzymanego rezultatu
+  var resultDetails = new ResultDetail
+  {
+    BestFunctionValue = Convert.ToDecimal(result[1]),
+    Iterations = Convert.ToInt32(result[2]),
+    FunctionEvaluations = Convert.ToInt32(result[3]),
+    TotalTime = Convert.ToDecimal(result[4]),
+  };
+
+// wyciπganie wspÛ≥rzÍdnych punktu wraz z numerem wymiaru przestrzeni ktÛrej dotyczπ
+  var resultPointLoc = result[0] as double[,];
+  for (var i = 0; i < resultPointLoc.Length; i++)
+  {
+    resultDetails.Point.Add(new Point
+    {
+      PointValue = resultPointLoc[0,i],
+      ResultDimension = i + 1,
+    });
+  }
+
+  return resultDetails;
+}
+\end{lstlisting}
+
 
 \subsubsection*{View}
 
@@ -408,36 +465,43 @@ Katalog widoku jest katalogiem najwaøniejszym ze strony uøytkownika poniewaø zaw
 
 \subsubsection*{ViewModel}
 
-Ostatni opisywany katalog - \textit{ViewModel} - zawiera pliki dostosowane do pracy ze wzorcem MVVM. Odpowiadajπ one na interakcjÍ uøytkownika oraz realizujπ akcje dostÍpne z poziomu okna aplikacji, w ktÛrym pracuje uøytkownik. Waønym elementem ze strony programistycznej jest plik \textit{ViewModelLocator}, w ktÛrym przeprowadzana jest operacja rejestrowania wszelkich typÛw zastosowanych w aplikacji. DziÍki temu, moøliwe jest skorzystanie ze wzorca wstrzykiwania zaleønoúci, ktÛry pozwala na pisanie kodu o luüniejszych powiπzaniach, prostszego w testowaniu oraz modyfikacji. (TODO: dodaj odnosnik do di)
+Ostatni opisywany katalog - \textit{ViewModel} - zawiera pliki dostosowane do pracy ze wzorcem MVVM. Odpowiadajπ one na interakcjÍ uøytkownika oraz realizujπ akcje dostÍpne z poziomu okna aplikacji, w ktÛrym pracuje uøytkownik. Waønym elementem ze strony programistycznej jest plik \textit{ViewModelLocator}, w ktÛrym przeprowadzana jest operacja rejestrowania wszelkich typÛw zastosowanych w aplikacji. DziÍki temu, moøliwe jest skorzystanie ze wzorca wstrzykiwania zaleønoúci \cite{DependencyInjection}, ktÛry pozwala na pisanie kodu o luüniejszych powiπzaniach, prostszego w testowaniu oraz modyfikacji.
 
 \subsection{Architektura bazy danych}
 
-Tematyka projektu dotyczπca analizy porÛwnawczej algorytmÛw metaheurystycznych doprowadzi≥a do powstania potrzeby zastosowania úrodowiska bazodanowego, ktÛre umoøliwia przechowywanie oraz agregowanie wynikÛw zautomatyzowanych doúwiadczeÒ. W prezentowanym rozdziale opisany zosta≥ serwer bazodanowy, ktÛry przechowuje instancjÍ bazy, jego dzia≥anie oraz model utworzonej bazy danych.
+Analiza tematu projektu dotyczπca porÛwnania algorytmÛw metaheurystycznych doprowadzi≥a do powstania potrzeby zastosowania úrodowiska bazodanowego, ktÛre umoøliwi≥oby przechowywanie oraz agregowanie wynikÛw przeprowadzonych doúwiadczeÒ. W prezentowanym rozdziale opisany zosta≥ serwer bazodanowy przechowujπcy instancjÍ bazy wraz z metodπ jego dzia≥ania oraz model utworzonej bazy danych.
 
-\subsubsection{Microsoft SQL Server ñ uøyty system zarzπdzania bazπ danych}
+\subsubsection{Microsoft SQL Server ñ uøyty system do zarzπdzania bazπ danych}
 
-Zastosowanie w projekcie bazy danych wymusi≥o obowiπzek utworzenia oraz uruchomienia serwera bazodanowego. Przez fakt na zastosowane technologie, ktÛrych opis znajduje siÍ w rozdziale \ref{dzial:ZastosowaneTechnologie}, uøyty zosta≥ Microsoft SQL Server. Jest to relacyjny system zarzπdzania bazπ danych, ktÛrego podstawowπ funkcjπ jest przechowywanie i przetwarzanie danych na øπdanie innych aplikacji, ktÛre mogπ dzia≥aÊ na tym samym komputerze lub na innym komputerze w sieci LAN czy teø WAN. Przydatnym narzÍdziem przy pracy z Microsoft SQL Serverem jest dedykowane narzÍdzie z graficznym interfejsem uøytkownika, ktÛry w znacznym stopniu upraszcza korzystanie z funkcji SQL serwera.
+Zastosowanie w projekcie bazy danych wymusi≥o obowiπzek utworzenia oraz uruchomienia serwera bazodanowego. Przez fakt na zastosowane technologie, ktÛrych opis znajduje siÍ w rozdziale \ref{dzial:ZastosowaneTechnologie}, uøyty zosta≥ Microsoft SQL Server. Jest to relacyjny system zarzπdzania bazπ danych, ktÛrego podstawowπ funkcjπ jest przechowywanie danych oraz ich przetwarzanie na øπdanie innych aplikacji, ktÛre mogπ dzia≥aÊ na tym samym komputerze lub na innej maszynie w sieci LAN czy teø WAN. Przydatnym narzÍdziem przy pracy z Microsoft SQL Serverem jest dedykowane narzÍdzie z graficznym interfejsem uøytkownika, ktÛre w znacznym stopniu upraszcza korzystanie z jego funkcji.
 W przypadku budowanej aplikacji serwer bazodanowy zosta≥ utworzony na maszynie lokalnej, na ktÛrej dzia≥a rÛwnieø aplikacja automatyzujπca testy. Na potrzeby przeprowadzanych doúwiadczeÒ rozwiπzanie to jest wystarczajπce przez fakt braku koniecznoúci posiadania bardzo szybkiego úrodowiska, ktÛre wymaga uiszczenia op≥at adekwatnych do rodzaju wykupywanego serwera.
 
 \subsubsection{Budowa bazy danych uøytej w projekcie}
 
-Przed rozpoczÍciem etapu implementacyjnego oraz po zakoÒczeniu analizy dotyczπcej wyboru wzorca architektonicznego aplikacji, zaprojektowana zosta≥a struktura tabel bazodanowych wraz ze ich wszystkimi dostÍpnymi kolumnami oraz typami, a takøe po≥πczenia i relacje miÍdzy nimi. Proces projektowania bazy danych jest procesem bardzo waønym, a jednoczeúnie czÍsto bagatelizowanym. W sytuacji nieprzemyúlanego zaprojektowania bazy danych istnieje moøliwoúÊ pojawienia siÍ problemu z rozwojem i dodawaniem kolejnych potrzebnych tabel, na ktÛrych mia≥yby operowaÊ nowe funkcjonalnoúci aplikacji. Nieprzemyúlana struktura tabel moøe doprowadziÊ do zbÍdnego powielania danych, ktÛrej konsekwencjπ bÍdzie bardzo szybko powiÍkszajπcy siÍ rozmiar bazy danych. Kolejnym efektem üle zaprojektowanej bazy moøe byÊ spowolniona praca i d≥ugie wykonywanie zapytaÒ. W celu unikniÍcia przedstawionych problemÛw, dokonana zosta≥a szczegÛ≥owa analiza wymaganych funkcjonalnoúci oraz danych, ktÛre one zwracajπ. Wykorzystana w budowanej aplikacji baza danych moøe zostaÊ podzielona na dwa g≥Ûwne sk≥adniki - czÍúÊ s≥ownikowπ zawierajπcπ opisy wybranych algorytmÛw metaheurystycznych oraz funkcji testowych, a takøe czÍúÊ dotyczπcπ przeprowadzanych badaÒ oraz wynikÛw przez nie otrzymanych.
+Przed rozpoczÍciem etapu implementacyjnego oraz po zakoÒczeniu analizy dotyczπcej wyboru wzorca architektonicznego aplikacji, zaprojektowana zosta≥a struktura tabel bazodanowych wraz ze ich wszystkimi dostÍpnymi kolumnami oraz typami, a takøe po≥πczenia i relacje miÍdzy nimi. Proces projektowania bazy danych jest procesem bardzo waønym, a jednoczeúnie czÍsto bagatelizowanym. W sytuacji nieprzemyúlanego zaprojektowania bazy danych istnieje moøliwoúÊ pojawienia siÍ problemu z jej rozbudowπ i dodawaniem kolejnych potrzebnych tabel, na ktÛrych mia≥yby operowaÊ nowe funkcjonalnoúci aplikacji. Nieprzemyúlana struktura tabel moøe doprowadziÊ do zbÍdnego powielania danych, ktÛrej konsekwencjπ bÍdzie bardzo szybko powiÍkszajπcy siÍ rozmiar bazy danych. Kolejnym efektem üle zaprojektowanej bazy moøe byÊ spowolniona praca i d≥ugie wykonywanie zapytaÒ. W celu unikniÍcia przedstawionych problemÛw, dokonana zosta≥a szczegÛ≥owa analiza wymaganych funkcjonalnoúci oraz danych, ktÛre one zwracajπ. Wykorzystana w budowanej aplikacji baza danych moøe zostaÊ podzielona na dwa g≥Ûwne sk≥adniki - czÍúÊ s≥ownikowπ zawierajπcπ opisy wybranych algorytmÛw metaheurystycznych oraz funkcji testowych, a takøe czÍúÊ dotyczπcπ przeprowadzanych badaÒ oraz wynikÛw przez nie otrzymanych.
 
 \subsubsection*{CzÍúÊ s≥ownikowa}
 
-Na s≥ownikowπ czÍúÊ bazy danych sk≥adajπ siÍ trzy tabele, ktÛre zawierajπ dane wejúciowe niezbÍdne w aplikacji: \textit{Alghoritm}, \textit{TestFunction}oraz \textit{ExitFlag}.
+Na s≥ownikowπ czÍúÊ bazy danych sk≥adajπ siÍ trzy tabele przedstawione na rysunku \ref{rys:baza_slownik}, ktÛre zawierajπ dane wejúciowe niezbÍdne w aplikacji: \textit{Alghoritms}, \textit{TestFunctions} oraz \textit{ExitFlags}.
 
-Tabela \textit{Alghoritm} (TODO sprawdzic poprawnosc nazwy) jest prostπ tabelπ s≥ownikowπ zawierajπcπ identyfikator oraz nazwÍ algorytmu metaheurystycznego. Lista algorytmÛw dostÍpnych do przetestowania w aplikacji znajduje siÍ w≥aúnie w tej tabeli. Na podstawie nazwy algorytmu, dopasowywana jest jej funkcja Matlabowa, w ktÛrej tkwi g≥Ûwna logika algorytmu. W celu dodania kolejnego algorytmu, naleøy dodaÊ wpis w opisywanej tabeli oraz wed≥ug odpowiedniego schematu dostÍpnego do wglπdu w klasie \textit{FunctionNameMatcher} stworzyÊ funkcjÍ w aplikacji Matlab. Tak utworzony schemat algorytmu naleøy kolejno dodaÊ do warstwy ViewModelu oraz dostosowaÊ logikÍ okna uøytkownika do wymaganych przez algorytm parametrÛw. 
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=1\textwidth]{img_bazaSlownik.png}
+    \caption{Przestawienie czÍúci s≥ownikowej bazy danych, èrÛd≥o: Opracowanie w≥asne.}
+    \label{rys:baza_slownik}
+\end{figure} 
 
-\textit{TestFunction} (TODO sprawdzic poprawnosc nazwy) jest to tabela, ktÛra opisuje funkcje testowe na bazie ktÛrych dokonywane sπ testy algorytmÛw. Zawarte w niej sπ takie informacje jak identyfikator funkcji, jej nazwa, poziom trudnoúci ustalony na bazie stopnia skomplikowania funkcji testowej zaczerpniÍty ze (TODO: ürÛd≥o do listy algorytmÛw), odnoúnik do wykresu danej funkcji wraz z informacjami na jej temat, zakres p≥aszczyzny w obrÍbie ktÛrej ma byÊ poszukiwana wartoúÊ minimalna oraz wymiar funkcji czyli liczba zmiennych, z ktÛrej owa funkcja siÍ sk≥ada. W celu dodania do aplikacji kolejnej funkcji testowej naleøy tylko dodaÊ jej definicjÍ w opisywanej tabeli oraz utworzyÊ plik Matlabowy zawierajπcy jej wzÛr. Nazwa pliku powinna zgadzaÊ siÍ ze schematem zawartym w klasie dopasowujπcej - \textit{FunctionNameMatcher}. Tak utworzony algorytm automatycznie bÍdzie dostÍpny do wyboru z poziomu aplikacji.
+Tabela \textit{Alghoritms} jest prostπ tabelπ s≥ownikowπ zawierajπcπ identyfikator oraz nazwÍ algorytmu metaheurystycznego. Lista algorytmÛw dostÍpnych do przetestowania w aplikacji znajduje siÍ w≥aúnie w tej tabeli. Na podstawie nazwy algorytmu, dopasowywana jest jej funkcja Matlabowa, w ktÛrej tkwi g≥Ûwna logika algorytmu. W celu dodania kolejnego algorytmu, naleøy dodaÊ wpis w opisywanej tabeli oraz wed≥ug odpowiedniego schematu dostÍpnego do wglπdu w klasie \textit{FunctionNameMatcher} stworzyÊ funkcjÍ w aplikacji Matlab. Tak utworzony schemat algorytmu naleøy kolejno dodaÊ do warstwy ViewModelu oraz dostosowaÊ logikÍ okna uøytkownika do wymaganych przez algorytm parametrÛw. 
+
+\textit{TestFunctions} jest to tabela, ktÛra zawiera opis funkcji testowych na bazie ktÛrych dokonywane sπ testy algorytmÛw. Zawarte w niej sπ takie informacje jak identyfikator funkcji, jej nazwa, poziom trudnoúci ustalony na bazie stopnia skomplikowania funkcji testowej zaczerpniÍty z \cite{RankingFunkcjiTestowych}, odnoúnik do wykresu danej funkcji wraz z informacjami na jej temat, zakres p≥aszczyzny w obrÍbie ktÛrej ma byÊ poszukiwana wartoúÊ minimalna oraz wymiar funkcji czyli liczba zmiennych, na ktÛrej owa funkcja bazuje. W celu dodania do aplikacji kolejnej funkcji testowej naleøy dokonaÊ dodania jej definicji w opisywanej tabeli oraz utworzyÊ plik Matlabowy zawierajπcy jej wzÛr. Nazwa pliku powinna zgadzaÊ siÍ ze schematem zawartym w klasie dopasowujπcej - \textit{FunctionNameMatcher}. Tak utworzona funkcja bÍdzie automatycznie dostÍpna do wyboru z poziomu aplikacji.
 
 Ostatnia tabela z czÍúci s≥ownikowej bazy danych to tabela \textit{ExitFlag} w ktÛrej zdefiniowane sπ numery flag wyjúcia z Matlabowych funkcji oraz ich opis. Przeznaczeniem jej jest uzyskanie informacji dotyczπcej powodu zakoÒczenia pracy danego algorytmu. Powodem tym moøe byÊ dla przyk≥adu osiπgniÍcie maksymalnego za≥oøonego czasu dzia≥ania algorytmu, liczby iteracji lub liczby odwo≥aÒ do funkcji testowej.
 
 \subsubsection*{CzÍúÊ dotyczπca przeprowadzonych badaÒ}
 
-CzÍúÊ bazy danych odnoszπca siÍ do przeprowadzanych badaÒ jest czÍúciπ bardziej rozbudowanπ niø czÍúÊ s≥ownikowa. Zawiera ona wszelkie informacje dotyczπce parametrÛw wejúciowych danego testu oraz rezultaty przeprowadzanych badaÒ. G≥Ûwnπ tabelπ, ktÛra jest swojego rodzaju trzonem bazy danych jest tabela \textit{Results} (TODO: sprawdz nazwe). Po przeprowadzeniu pojedynczego doúwiadczenia w tabeli tej tworzony jest wpis, ktÛry zawiera identyfikatory wierszy odnoszπce siÍ do pozosta≥ych tabel, ktÛre umoøliwiajπ uzyskanie wszelkich informacji o doúwiadczeniu.
+CzÍúÊ bazy danych odnoszπca siÍ do przeprowadzanych badaÒ jest czÍúciπ bardziej rozbudowanπ niø czÍúÊ s≥ownikowa. Zawiera ona wszelkie informacje dotyczπce parametrÛw wejúciowych danego testu oraz rezultaty przeprowadzanych badaÒ. G≥Ûwnπ tabelπ, ktÛra jest swojego rodzaju trzonem bazy danych jest tabela \textit{Results}. Po przeprowadzeniu pojedynczego doúwiadczenia w tabeli tej tworzony jest wpis, ktÛry zawiera identyfikatory wierszy odnoszπce siÍ do pozosta≥ych tabel, ktÛre umoøliwiajπ uzyskanie wszelkich informacji o doúwiadczeniu.
 
-W tabeli \textit{InputParameters} (TODO: sprawdz nazwe) zawarte sπ informacjÍ o parametrach wejúciowych algorytmÛw takich jak maksymalny czas dzia≥ania algorytmu, maksymalna liczba iteracji, dopuszczalna liczba odwo≥aÒ do funkcji testowej oraz w zaleønoúci od wybranego algorytmu wielkoúÊ roju lub wielkoúÊ populacji.
+W tabeli \textit{InputParameters} zawarte sπ informacjÍ o parametrach wejúciowych algorytmÛw takich jak maksymalny czas dzia≥ania algorytmu, maksymalna liczba iteracji, dopuszczalna liczba odwo≥aÒ do funkcji testowej oraz w zaleønoúci od wybranego algorytmu wielkoúÊ roju lub wielkoúÊ populacji.
 
 Rezultaty przeprowadzonego badania umiejscawiane sπ w tabeli \textit{ResultDetail} (TODO: sprawdz nazwe), w ktÛrej to moøna uzyskaÊ informacjÍ na temat liczby przeprowadzonych iteracji, liczby odwo≥aÒ do funkcji testowej, najmniejszej znalezionej wartoúci funkcji, czasu dzia≥ania algorytmu oraz informacjÍ o powodzeniu jego wykonania. Dodatkowym elementem, ktÛry przechowywany jest w bazie jest lokalizacja punktu posiadajπcego najmniejszπ znalezionπ wartoúÊ funkcji. Poczπtkowo temat pracy magisterskiej zak≥ada≥ porÛwnanie algorytmÛw metaheurystycznych bazujπc wy≥πcznie na funkcjach dwÛch zmiennych. Lokalizacja najlepszego punktu przechowywana by≥a w dwÛch kolumnach tabeli \textit{ResultDetails}. Po zmianie wymagaÒ, ktÛre dotyczy≥y koniecznoúci obs≥uøenia funkcji wielu zmiennych musia≥a nastπpiÊ modyfikacja struktury bazy danych. Wartym wspomnienia sπ tutaj fazy dok≥adnej analizy potrzeb, ktÛre baza danych ma spe≥niaÊ oraz proces jej projektowania. Juø na tym etapie jako jedno z ryzyk projektowych za≥oøone zosta≥o w≥aúnie zmienienie podejúcia do liczby wymiarÛw funkcji testowych. W celu zapewnienia prawid≥owego przetwarzania i przechowywania danych zosta≥a w tym celu stworzona nowa tabela - \textit{Points}. Tabela ta jest w relacji wiele do jednego z tabelπ \textit{ResultDetails} oraz umoøliwia przechowywanie wartoúci punktu dla kaødego wymiaru jako oddzielny wpis. Dla przyk≥adu lokalizacja punktu dla funkcji piÍciu zmiennych przechowywana bÍdzie w postaci piÍciu wpisÛw w omawianej tabeli, z ktÛrych kaødy opisywaÊ bÍdzie jego lokalizacjÍ oraz numer wymiaru do ktÛrego ma odniesienie.
 
@@ -868,24 +932,33 @@ Hejlsberg A., Torgersen M. Wilthamuth S., Golde P.: \textsl{The C\# Programming 
 http://urriellu.net/en/articles-software/csharp-advantages.html [dostÍp 22.08.2017r. - 23.08.2017r.]
 
 \bibitem {WPF}
- Nathan  A.: \textsl{WPF 4.5. KsiÍga eksperta}, Wydawnictwo Helion, Gliwice 2015
+ Nathan  A.: \textsl{WPF 4.5. KsiÍga eksperta}, Wydawnictwo Helion, Gliwice, 2015
  
 \bibitem{Xml}
 http://www.w3schools.com/xml/xml\_whatis.asp
 
 \bibitem {T-SQL}
- Itzik B.:  \textsl{Microsoft SQL Server 2012. Podstawy jÍzyka T-SQL}, Wydawnictwo Helion, Gliwice 2012
+ Itzik B.:  \textsl{Microsoft SQL Server 2012. Podstawy jÍzyka T-SQL}, Wydawnictwo Helion, Gliwice, 2012
  
 \bibitem{bookVS}
-Matulewski J.: \textsl{Visual Studio 2013. PodrÍcznik programowania w C\# z zadaniami}, Wydawnictwo Helion, Gliwice 2014 
+Matulewski J.: \textsl{Visual Studio 2013. PodrÍcznik programowania w C\# z zadaniami}, Wydawnictwo Helion, Gliwice, 2014 
 
 \bibitem{ResharperFeatures} https://www.jetbrains.com/resharper/features/ [dostÍp 1.08.2017r. - 23.08.2017r.]
 
 \bibitem{FazyProdukcjiOpr} 
 Jaszkiewicz A.: \textsl{Inøynieria oprogramowania}, Wydawnictwo Helion, 1997
 
-\bibitem{Mvvm} 
-Petzold C.: \textsl{Windows 8. Programowanie aplikacji z wykorzystaniem C\# i XAML}, Wydawnistwo Helion, Gliwice 2013, str. 215-235
+\bibitem{MvvmOpis} 
+Petzold C.: \textsl{Windows 8. Programowanie aplikacji z wykorzystaniem C\# i XAML}, Wydawnictwo Helion, Gliwice, 2013, str. 215-235
+
+\bibitem{WpfBinding}
+MacDonald M.: \textsl{Pro WPF 4.5 in VB: Windows Presentation Foundation in .NET 4.5}, Wydawnictwo Apress, 2012, str. 227-242
+
+\bibitem{WpfCommands}
+Ibidem, str. 243-268.
+
+\bibitem{DependencyInjection}
+Seemann M.: \textsl{Dependency Injection in .NET}, Manning Publications Co., Nowy Jork, 2012
 
 \end{thebibliography}
 

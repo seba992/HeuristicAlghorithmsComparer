@@ -31,26 +31,26 @@
 \contentsline {subsection}{\numberline {5.1}\kernsubsekcyjny Architektura aplikacji}{27}
 \contentsline {subsubsection}{\numberline {5.1.1}\kernsubsubsekcyjny Wzorce architektoniczne oprogramowania}{27}
 \contentsline {subsubsection}{\numberline {5.1.2}\kernsubsubsekcyjny Zastosowany wzorzec architektoniczny \IeC {\textendash } MVVM}{28}
-\contentsline {subsubsection}{\numberline {5.1.3}\kernsubsubsekcyjny Model aplikacji}{29}
-\contentsline {subsection}{\numberline {5.2}\kernsubsekcyjny Architektura bazy danych}{31}
-\contentsline {subsubsection}{\numberline {5.2.1}\kernsubsubsekcyjny Microsoft SQL Server \IeC {\textendash } u\.zyty system zarz\k adzania baz\k a danych}{32}
-\contentsline {subsubsection}{\numberline {5.2.2}\kernsubsubsekcyjny Budowa bazy danych u\.zytej w projekcie}{32}
-\contentsline {subsection}{\numberline {5.3}\kernsubsekcyjny Komunikacja bazy danych z projektem programistycznym}{35}
-\contentsline {subsubsection}{\numberline {5.3.1}\kernsubsubsekcyjny Mapowanie obiektowo-relacyjne}{35}
-\contentsline {subsubsection}{\numberline {5.3.2}\kernsubsubsekcyjny Zastosowane narz\k edzie ORM \IeC {\textendash } Entity Framework}{36}
-\contentsline {subsection}{\numberline {5.4}\kernsubsekcyjny Komunikacja Matlaba z projektem programistycznym}{37}
-\contentsline {section}{\numberline {6}\kernsekcyjny Badania eksperymentalne}{39}
-\contentsline {subsection}{\numberline {6.1}\kernsubsekcyjny Metody por\'ownawcze wybranych algorytm\'ow}{39}
-\contentsline {subsection}{\numberline {6.2}\kernsubsekcyjny Opis przeprowadzonych bada\'n}{39}
-\contentsline {subsubsection}{\numberline {6.2.1}\kernsubsubsekcyjny Skalowanie algorytm\'ow}{39}
-\contentsline {subsubsection}{\numberline {6.2.2}\kernsubsubsekcyjny Przeprowadzenie do\'swiadcze\'n w zaimplementowanym \'srodowisku testowym}{40}
-\contentsline {subsection}{\numberline {6.3}\kernsubsekcyjny Wyniki do\'swiadcze\'n dla zadanych funkcji testowych}{41}
-\contentsline {subsubsection}{\numberline {6.3.1}\kernsubsubsekcyjny Funkcja Bohachevsky\IeC {\textquoteright }ego 1}{41}
-\contentsline {subsubsection}{\numberline {6.3.2}\kernsubsubsekcyjny Funkcja Colville'a}{47}
-\contentsline {subsubsection}{\numberline {6.3.3}\kernsubsubsekcyjny Funkcja Ackley'a}{53}
-\contentsline {subsubsection}{\numberline {6.3.4}\kernsubsubsekcyjny Funkcja Rosenbrocka}{59}
-\contentsline {subsubsection}{\numberline {6.3.5}\kernsubsubsekcyjny Funkcja Eggholdera}{65}
-\contentsline {subsubsection}{\numberline {6.3.6}\kernsubsubsekcyjny Funkcja Griewanka}{71}
-\contentsline {subsection}{\numberline {6.4}\kernsubsekcyjny Wnioski z przeprowadzonych do\'swiadcze\'n}{77}
-\contentsline {section}{\numberline {7}\kernsekcyjny Podsumowanie}{81}
-\contentsline {section}{Bibliografia}{83}
+\contentsline {subsubsection}{\numberline {5.1.3}\kernsubsubsekcyjny Model aplikacji}{30}
+\contentsline {subsection}{\numberline {5.2}\kernsubsekcyjny Architektura bazy danych}{34}
+\contentsline {subsubsection}{\numberline {5.2.1}\kernsubsubsekcyjny Microsoft SQL Server \IeC {\textendash } u\.zyty system do zarz\k adzania baz\k a danych}{34}
+\contentsline {subsubsection}{\numberline {5.2.2}\kernsubsubsekcyjny Budowa bazy danych u\.zytej w projekcie}{35}
+\contentsline {subsection}{\numberline {5.3}\kernsubsekcyjny Komunikacja bazy danych z projektem programistycznym}{37}
+\contentsline {subsubsection}{\numberline {5.3.1}\kernsubsubsekcyjny Mapowanie obiektowo-relacyjne}{38}
+\contentsline {subsubsection}{\numberline {5.3.2}\kernsubsubsekcyjny Zastosowane narz\k edzie ORM \IeC {\textendash } Entity Framework}{39}
+\contentsline {subsection}{\numberline {5.4}\kernsubsekcyjny Komunikacja Matlaba z projektem programistycznym}{39}
+\contentsline {section}{\numberline {6}\kernsekcyjny Badania eksperymentalne}{41}
+\contentsline {subsection}{\numberline {6.1}\kernsubsekcyjny Metody por\'ownawcze wybranych algorytm\'ow}{41}
+\contentsline {subsection}{\numberline {6.2}\kernsubsekcyjny Opis przeprowadzonych bada\'n}{41}
+\contentsline {subsubsection}{\numberline {6.2.1}\kernsubsubsekcyjny Skalowanie algorytm\'ow}{41}
+\contentsline {subsubsection}{\numberline {6.2.2}\kernsubsubsekcyjny Przeprowadzenie do\'swiadcze\'n w zaimplementowanym \'srodowisku testowym}{42}
+\contentsline {subsection}{\numberline {6.3}\kernsubsekcyjny Wyniki do\'swiadcze\'n dla zadanych funkcji testowych}{43}
+\contentsline {subsubsection}{\numberline {6.3.1}\kernsubsubsekcyjny Funkcja Bohachevsky\IeC {\textquoteright }ego 1}{43}
+\contentsline {subsubsection}{\numberline {6.3.2}\kernsubsubsekcyjny Funkcja Colville'a}{49}
+\contentsline {subsubsection}{\numberline {6.3.3}\kernsubsubsekcyjny Funkcja Ackley'a}{55}
+\contentsline {subsubsection}{\numberline {6.3.4}\kernsubsubsekcyjny Funkcja Rosenbrocka}{61}
+\contentsline {subsubsection}{\numberline {6.3.5}\kernsubsubsekcyjny Funkcja Eggholdera}{67}
+\contentsline {subsubsection}{\numberline {6.3.6}\kernsubsubsekcyjny Funkcja Griewanka}{73}
+\contentsline {subsection}{\numberline {6.4}\kernsubsekcyjny Wnioski z przeprowadzonych do\'swiadcze\'n}{79}
+\contentsline {section}{\numberline {7}\kernsekcyjny Podsumowanie}{83}
+\contentsline {section}{Bibliografia}{85}
