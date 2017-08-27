@@ -88,7 +88,7 @@ W prezentowanej pracy dokonano porównania algorytmów metaheurystycznych odnosz¹c
 
 Problem minimalizacji funkcji ci¹g³ych bardzo dobrze nadaje siê do porównania algorytmów metaheurystycznych przez wzgl¹d na powszechnie dostêpne funkcje testowe. Funkcje te posiadaj¹ pewny specyficzny element, dziêki któremu mo¿liwe jest porównanie wyników otrzymanych przez dany algorytm. Element ten to znajomoœæ minimum globalnego dla danej funkcji testowej. Dziêki znajomoœci wartoœci najlepszej (najmniejszej) dla danej funkcji, wiadomo jak szybko oraz czy w ogóle badany algorytm znalaz³ najlepsze mo¿liwe rozwi¹zanie. Posiadaj¹c ten punkt odniesienia mo¿na zestawiæ otrzymane rezultaty wszystkich algorytmów pod k¹tem czasowym lub liczby wyliczeñ wartoœci funkcji dla ustalonych przez algorytm punktów.
 
-Do analizy wybranych zosta³o szeœæ funkcji testowych, których dobór bra³ pod uwagê stopieñ ich skomplikowania. Funkcje te zosta³y wybrane z listy zawartej w \cite{RankingFunkcjiTestowych} uwzglêdniaj¹c ró¿n¹ liczbê wymiarów oraz skalê ich trudnoœci. Ka¿da z funkcji posiada specyficzne w³aœciwoœci, które zostan¹ wziête pod uwagê podczas porównania rezultatów algorytmów heurystycznych.
+Do analizy wybranych zosta³o szeœæ funkcji testowych, których dobór bra³ pod uwagê stopieñ ich skomplikowania. Funkcje te zosta³y wybrane z listy zawartej w artykule \cite{TestFunctionsForOpt} oraz w  \cite{RankingFunkcjiTestowych} uwzglêdniaj¹c ró¿n¹ liczbê wymiarów oraz skalê ich trudnoœci. Ka¿da z funkcji posiada specyficzne w³aœciwoœci, które zostan¹ wziête pod uwagê podczas porównania rezultatów algorytmów heurystycznych.
 
 \subsubsection{Funkcja Bohachevsky’ego I}
 
@@ -580,7 +580,8 @@ W celu zrównania szans ka¿dego z porównywanych algorytmów, wszystkie przeprowadz
     \label{rys:specyfikacja}
 \end{figure} 
 
-Pierwszym kryterium porównawczym by³ maksymalny czas, w którym algorytm poszukiwa³ najlepszego rezultatu. Parametr ten bra³ pod uwagê kilka ró¿nych ustalonych wartoœci dla których przeprowadzana zosta³a próbka doœwiadczeñ, z których wartoœci œrednie zosta³y zestawione i porównane w obrêbie wszystkich algorytmów oraz funkcji testowych. Drugim kryterium porównawczym by³a liczba odwo³añ algorytmu do zadanej funkcji testowej. W kryterium tym porównane zosta³y, w sposób analogiczny jak w kryterium pierwszym, rezultaty otrzymane przez algorytmy przy takim za³o¿eniu, i¿ mog³y one wyliczyæ wartoœæ funkcji testowej okreœlon¹ liczbê razy.
+Bazuj¹c na informacjach zawartych w artykule \cite{MetodyPorownawczeDoc} dokonano wyboru dwóch kryteriów pod k¹tem których przeprowadzane zosta³y testy porównawcze algorytmów.
+Pierwszym z kryteriów porównawczym by³ maksymalny czas, w którym algorytm poszukiwa³ najlepszego rezultatu. Parametr ten bra³ pod uwagê kilka ró¿nych ustalonych wartoœci dla których przeprowadzana zosta³a próbka doœwiadczeñ, z których wartoœci œrednie zosta³y zestawione i porównane w obrêbie wszystkich algorytmów oraz funkcji testowych. Drugim kryterium porównawczym by³a liczba odwo³añ algorytmu do zadanej funkcji testowej. W kryterium tym porównane zosta³y, w sposób analogiczny jak w kryterium pierwszym, rezultaty otrzymane przez algorytmy przy takim za³o¿eniu, i¿ mog³y one wyliczyæ wartoœæ funkcji testowej okreœlon¹ liczbê razy.
 
 \subsection{Opis przeprowadzonych badañ}
 
@@ -704,7 +705,7 @@ Porównuj¹c wyniki dla obu kryteriów porównawczych z tabel \ref{tab:col_all_1} or
 
 \begin{table}[H]
     \centering
-    \includegraphics[width=0.\textwidth]{col_all_2.png}
+    \includegraphics[width=0.75\textwidth]{col_all_2.png}
     \caption{Zestawienie najlepszych wyników wszystkich trzech porównywanych algorytmów metaheurystycznych dla funkcji Colville'a - kryterium liczby odwo³añ do funkcji testowej, ród³o: Opracowanie w³asne.}
     \label{tab:col_all_2}
 \end{table}
@@ -932,15 +933,19 @@ Ranking algorytmów odnosz¹cy siê do wyników przeprowadzonych testów dla kryteriu
 Celem prezentowanej pracy magisterskiej by³o dokonanie analizy porównawczej algorytmu symulowanego wy¿arzania, algorytmu genetycznego oraz metody roju cz¹stek przy pomocy dedykowanej aplikacji bazodanowej umo¿liwiaj¹cej zautomatyzowanie procesu szukania minimum globalnego dla zadanych funkcji testowych.
 Przedstawiony cel zosta³ zrealizowany, czego efektem jest dzia³aj¹ca aplikacja bazodanowa, która umo¿liwi³a przeprowadzenie licznych testów zadanych algorytmów heurystycznych, których zagregowane wyniki umo¿liwi³y ich porównanie.
 
-Zastosowanie œrodowiska bazodanowego umo¿liwi³o bardzo szybkie zapisywanie du¿ych iloœci danych dostarczanych z zaimplementowanej aplikacji, a nastêpnie ich agregacjê wed³ug uznanych kryteriów. Agregacja ta dziêki jêzykowi zapytañ SQL by³a bardzo efektywna przez fakt du¿ej dowolnoœci w kontekœcie sposobu jej wykonania. Mo¿liwe by³o pogrupowanie wszystkich otrzymywanych wyników, bazuj¹c na dowolnym zapisywanym w bazie danych parametrze, co umo¿liwi³o przeprowadzenie operacji dostrojenia algorytmów oraz ich porównania pod k¹tem ustalonych dwóch kryteriów porównawczych. Dziêki obecnoœci bazy danych mo¿liwe by³o równie¿ przechowanie wyników wszystkich testów, co pozwoli³o na ich analizê w dowolnym momencie czasu bez obawy o ich utratê i koniecznoœæ ponownego wykonania d³ugotrwa³ych testów.
+Zastosowanie œrodowiska bazodanowego umo¿liwi³o bardzo szybkie zapisywanie du¿ych iloœci danych dostarczanych z zaimplementowanej aplikacji, a nastêpnie ich agregacjê wed³ug uznanych kryteriów. Agregacja ta dziêki jêzykowi zapytañ SQL by³a bardzo efektywna przez fakt du¿ej dowolnoœci w kontekœcie sposobu jej wykonania. Mo¿liwe by³o pogrupowanie wszystkich otrzymanych wyników, bazuj¹c na dowolnym zapisywanym w bazie danych parametrze, co umo¿liwi³o przeprowadzenie operacji dostrojenia algorytmów oraz ich porównania pod k¹tem ustalonych dwóch kryteriów porównawczych. Dziêki obecnoœci bazy danych mo¿liwe by³o równie¿ przechowanie wyników wszystkich testów, co pozwoli³o na ich analizê w dowolnym momencie czasu bez obawy o ich utratê i koniecznoœæ ponownego wykonania czasoch³onnych testów.
 
 W fazie implementacji za³o¿onych modu³ów aplikacji bazodanowej napotkano na kilka problemów dotycz¹cych zmiany wymagañ projektowych, sposobu realizacji ustalonych funkcji oraz integracji systemów. Zmiany te dotyczy³y g³ównie technicznych aspektów dotycz¹cych sposobu implementacji aplikacji bazodanowej oraz zmiany podejœcia co do liczby wymiarów obs³ugiwanych funkcji testowych. Wraz z biegiem czasu powstawa³y nowe pomys³y, które dotyczy³y usprawnienia istniej¹cych rozwi¹zañ, które nie zawsze jednak mog³y byæ wprowadzone przez pryzmat czasu którego to wymaga³y do ich implementacji, przetestowania oraz po³¹czenia z istniej¹cym ju¿ systemem. Powstaj¹ce propozycje zmian wi¹za³y siê tak¿e z modyfikacj¹ istniej¹cej architektury systemu, co w znacznym stopniu zmienia³oby zaplanowany wczeœniej harmonogram prac i wyd³u¿a³oby finalne ukoñczenie projektu. 
-Pomimo tych elementów utworzona aplikacja, sposób jej po³¹czenia ze œrodowiskiem obliczeniowym Matlab  oraz œrodowiskiem bazodanowym MS-SQL umo¿liwi³a osi¹gniêcie celów zadanych w prezentowanej pracy magisterskiej, czego efektem s¹ wyniki testów które namacalnie prezentuj¹ uzyskane rezultaty otrzymane przez porównane algorytmy metaheurystyczne.
+
+Pomimo tych elementów utworzona aplikacja, sposób jej po³¹czenia ze œrodowiskiem obliczeniowym Matlab oraz œrodowiskiem bazodanowym MS-SQL umo¿liwi³ osi¹gniêcie celów zadanych w prezentowanej pracy magisterskiej, czego efektem s¹ wyniki testów które namacalnie prezentuj¹ uzyskane rezultaty otrzymane przez porównywane algorytmy metaheurystyczne.
 
 \begin{thebibliography}{12}
 
 \bibitem{ProblemKomiwojazera}
-Michalewicz Z., Fogel D.B.: \textsl{Jak to rozwi¹zaæ czyli nowoczesna heurystyka}, Wydawnictwa Naukowo-Techniczne, Warszawa, 2006, str. 25-228
+Michalewicz Z., Fogel D.B.: \textsl{Jak to rozwi¹zaæ czyli nowoczesna heurystyka}, Wydawnictwa Naukowo-Techniczne, Warszawa, 2006, str. 225-228
+
+\bibitem{TestFunctionsForOpt}
+Molga M., Smutnicki C.,\textsl{Test functions for optimization needs}, 2005, http://www.zsd.ict.pwr.wroc.pl/files/docs/functions.pdf [dostêp 1.05.2017r. - 15.07.2017r.]
 
 \bibitem{RankingFunkcjiTestowych}
 http://infinity77.net/global\_optimization/test\_functions.html
@@ -1011,6 +1016,10 @@ Seemann M.: \textsl{Dependency Injection in .NET}, Manning Publications Co., Now
 \bibitem{PrzypisyCodeFirst}
 https://msdn.microsoft.com/en-us/data/jj591583 [dostêp 1.08.2017r. - 23.08.2017r.]
 
+\bibitem{MetodyPorownawczeDoc}
+Silberholz, J., Golden, B., \textsl{Comparison of metaheuristics}, Handbook of Metaheuristics, 2nd edn, Springer, Heidelberg, 2010
+
+
 \end{thebibliography}
 
 \makeatletter
@@ -1021,5 +1030,3 @@ https://msdn.microsoft.com/en-us/data/jj591583 [dostêp 1.08.2017r. - 23.08.2017r
 
 \lstlistoflistings
 \end{document}
-
-%Silberholz, J., Golden, B., 2010, Comparison of metaheuristics. In: Gendreau, M., Potvin, J.-V. (eds) ENTER Handbook of Metaheuristics, 2nd edn, Springer, Heidelberg. POROWNANIE METAHEUR
