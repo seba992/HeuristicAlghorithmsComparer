@@ -294,7 +294,7 @@ Tak utworzona nowa generacja ponownie przechodzi przez wszystkie punkty algorytm
 \section{Automatyzacja przeprowadzanych badañ}
 \label{dzial:AutomatyzacjaPrzeprowadzanychBadan}
 
-Porównanie algorytmów metaheurystycznych w odniesieniu do problemu minimalizacji funkcji wielu zmiennych jest zadaniem bardzo skomplikowanym przez fakt iloœci doœwiadczeñ, które nale¿y wykonaæ. Badania porównawcze przeprowadzane bêd¹ pod k¹tem kilku parametrów. Dla ka¿dego z nich wymagane bêdzie przeprowadzenie wielokrotnych testów dla ka¿dego testowanego algorytmu. Ustalaj¹c próbkê testu na poziomie $10^3$ prób, z której obliczana bêdzie wartoœæ œrednia oraz bior¹c pod uwagê dwa parametry porównawcze, z których ka¿dy przyjmowaæ mo¿e $10$ wartoœci, liczba testów dla jednego algorytmu oraz jednej funkcji testowej osi¹ga ju¿ wartoœæ $2*10^4$. Manualne przetwarzanie w œrodowisku Matlab przy ograniczonej funkcjonalnoœci agregowania wyników jest bardzo czasoch³onnym zadaniem. W tym celu zdecydowano siê zbudowaæ dedykowan¹ aplikacjê bazodanow¹, która bêdzie umo¿liwia³a automatyzacjê przedstawianej operacji. U¿ytkownik z poziomu aplikacji bêdzie mia³ mo¿liwoœæ wyboru funkcji testowej, algorytmu metaheurystycznego oraz jego parametrów, a tak¿e liczby testów, która ma byæ przeprowadzona przy zadanych wartoœciach. Aplikacja automatycznie bêdzie wysy³a³a zapytania do œrodowiska obliczeniowego Matlab, obiera³a wyniki oraz umieszcza³a je w bazie danych, z której w prosty i efektywny sposób mo¿na bêdzie przeprowadziæ ich agregacjê w celu przedstawienia wyników i ich porównania. W ten sposób narzut pracy, który niezbêdny jest do implementacji przedstawionej aplikacji zwróci siê oraz umo¿liwi dalsz¹ analizê algorytmów w kontekœcie problemu optymalizacji funkcji wielu zmiennych poniewa¿ aplikacja umo¿liwiaæ bêdzie równie¿ proste dodanie do niej kolejnych algorytmów oraz funkcji testowych.
+Porównanie algorytmów metaheurystycznych w odniesieniu do problemu minimalizacji funkcji wielu zmiennych jest zadaniem bardzo skomplikowanym przez fakt iloœci doœwiadczeñ, które nale¿y wykonaæ. Badania porównawcze przeprowadzane bêd¹ pod k¹tem kilku parametrów. Dla ka¿dego z nich wymagane bêdzie przeprowadzenie wielokrotnych testów dla ka¿dego testowanego algorytmu. Ustalaj¹c próbkê testu na poziomie $10^3$ prób, z której obliczana bêdzie wartoœæ œrednia oraz bior¹c pod uwagê dwa parametry porównawcze, z których ka¿dy przyjmowaæ mo¿e $10$ wartoœci, liczba testów dla jednego algorytmu oraz jednej funkcji testowej osi¹ga ju¿ wartoœæ $2*10^4$. Manualne przetwarzanie w œrodowisku Matlab przy ograniczonej funkcjonalnoœci agregowania wyników jest bardzo czasoch³onnym zadaniem. W tym celu zdecydowano siê zbudowaæ dedykowan¹ aplikacjê bazodanow¹, która bêdzie umo¿liwia³a automatyzacjê przedstawianej operacji. U¿ytkownik z poziomu aplikacji bêdzie mia³ mo¿liwoœæ wyboru funkcji testowej, algorytmu metaheurystycznego oraz jego parametrów, a tak¿e liczby testów, która ma byæ przeprowadzona przy zadanych wartoœciach. Aplikacja automatycznie bêdzie wysy³a³a zapytania do œrodowiska obliczeniowego Matlab, odbiera³a wyniki oraz umieszcza³a je w bazie danych, z której w prosty i efektywny sposób mo¿na bêdzie przeprowadziæ ich agregacjê w celu przedstawienia wyników i ich porównania. W ten sposób narzut pracy, który niezbêdny jest do implementacji przedstawionej aplikacji zwróci siê oraz umo¿liwi dalsz¹ analizê algorytmów w kontekœcie problemu optymalizacji funkcji wielu zmiennych poniewa¿ aplikacja umo¿liwiaæ bêdzie równie¿ proste dodanie do niej kolejnych algorytmów oraz funkcji testowych.
 
 \section{Wykorzystane rozwi¹zania technologiczne}
 \label{dzial:WykorzystaneRozwiazaniaTechnologiczne}
@@ -377,7 +377,7 @@ W aspekcie programowania, podobnie jak w innych dziedzinach, w których przeprowa
  
 \subsubsection{Wzorce architektoniczne oprogramowania}
 
-Bardzo dobr¹ praktyk¹ programistyczn¹ jest przeprowadzenie procesu budowy aplikacji w taki sposób, aby mo¿liwy by³ efektywny jej rozwój oraz dokonanie w ³atwy sposób zmian w istniej¹cych ju¿ funkcjonalnoœciach. W tym celu budowê aplikacji nale¿y przeprowadzaæ zgodnie z ustalonymi etapami produkcji oprogramowania \cite{FazyProdukcjiOpr}. Etapy te definiuj¹ obowi¹zek ustalenia wymagañ budowanego systemu oraz okreœlenia jego ogólnej architektury. Czêœæ dotycz¹ca okreœlenia architektury jest bardzo wa¿na poniewa¿ jej zmiana podczas fazy implementacji jest niebywale problematyczna do wykonania i w wielu przypadkach wrêcz niemo¿liwa bez koniecznoœci powtórnego rozpoczêcia pracy od pocz¹tku. Kolejne etapy maj¹ na celu zrealizowanie zdefiniowanej wczeœniej architektury poprzez zaprogramowanie ka¿dego komponentu oprogramowania wraz z ich wszystkim wzajemnymi po³¹czeniami, przetestowanie ca³oœci zaimplementowanego systemu, a tak¿e jego uruchomienie oraz zniwelowanie b³êdów, które pojawi³y siê w trakcie jego dzia³ania.
+Bardzo dobr¹ praktyk¹ programistyczn¹ jest przeprowadzenie procesu budowy aplikacji w taki sposób, aby mo¿liwy by³ efektywny jej rozwój oraz dokonanie w ³atwy sposób zmian w istniej¹cych ju¿ funkcjonalnoœciach. W tym celu budowê aplikacji nale¿y przeprowadzaæ zgodnie z ustalonymi etapami produkcji oprogramowania \cite{FazyProdukcjiOpr}. Etapy te definiuj¹ obowi¹zek ustalenia wymagañ budowanego systemu oraz okreœlenia jego ogólnej architektury. Czêœæ dotycz¹ca okreœlenia architektury jest bardzo wa¿na poniewa¿ jej zmiana podczas fazy implementacji jest niebywale problematyczna do wykonania i w wielu przypadkach wrêcz niemo¿liwa bez koniecznoœci powtórnego rozpoczêcia pracy od pocz¹tku. Kolejne etapy maj¹ na celu zrealizowanie zdefiniowanej wczeœniej architektury poprzez zaprogramowanie ka¿dego komponentu oprogramowania wraz z ich wszystkimi wzajemnymi po³¹czeniami, przetestowanie ca³oœci zaimplementowanego systemu, a tak¿e jego uruchomienie oraz zniwelowanie b³êdów, które pojawi³y siê w trakcie jego dzia³ania.
 W kontekœcie planowania i budowania architektury systemu bardzo u¿yteczne s¹ wzorce architektoniczne, które to s¹ powszechnymi, sprawdzonymi oraz ogólnie przyjêtymi sposobami rozwi¹zania okreœlonego problemu z zakresu architektury oprogramowania. Definiuj¹ one ogóln¹ strukturê systemu informatycznego, elementy, które wchodz¹ w jego sk³ad oraz zasadê komunikowania siê komponentów pomiêdzy sob¹. Dokonanie wyboru odpowiedniego wzorca jest w du¿ym stopniu zale¿ne od technologii, która stosowana jest w projekcie. W przypadku prezentowanej aplikacji oraz technologii WPF na której ona bazuje, stosowanym powszechnie wzorcem jest \textit{Model View ViewModel (MVVM)} \cite{MvvmOpis}, który to jest odmian¹ ogólnego wzorca MVC.
 
 \subsubsection{Zastosowany wzorzec architektoniczny – MVVM}
@@ -420,7 +420,7 @@ Folder \textit{Matlab} ukazany na rysunku \ref{img:KatalogMatlab} zawiera pliki 
 
 \subsubsection*{Model}
 
-Katalog Modelu przedstawiony na obrazu \ref{img:KatalogModel} zawiera utworzon¹ przez Entity Framework strukturê obiektow¹ relacyjnej bazy danych. Liczba plików, które zawiera uzale¿niona jest bezpoœrednio od liczby tabel, która zastosowana zosta³a w bazie danych. W czasie dzia³añ implementacyjnych nie jest konieczna wiedza o dok³adnej strukturze przedstawianego folderu, a tylko która bazodanowa tabela zawiera jakie dane.
+Katalog Modelu przedstawiony na obrazku \ref{img:KatalogModel} zawiera utworzon¹ przez Entity Framework strukturê obiektow¹ relacyjnej bazy danych. Liczba plików, które zawiera uzale¿niona jest bezpoœrednio od liczby tabel, która zastosowana zosta³a w bazie danych. W czasie dzia³añ implementacyjnych nie jest konieczna wiedza o dok³adnej strukturze przedstawianego folderu. Wystarczaj¹ce s¹ informacje dotycz¹ce tego, która bazodanowa tabela zawiera jakie dane.
 
 \begin{figure}[ht]
     \centering
@@ -510,6 +510,13 @@ Ostatnia tabela z czêœci s³ownikowej bazy danych to tabela \textit{ExitFlags}, w
 
 Czêœæ bazy danych odnosz¹ca siê do przeprowadzanych badañ jest czêœci¹ bardziej rozbudowan¹ ni¿ czêœæ s³ownikowa. Zawiera ona wszelkie informacje dotycz¹ce parametrów wejœciowych danego testu oraz rezultaty przeprowadzanych badañ. G³ówn¹ tabel¹, która jest swojego rodzaju trzonem bazy danych jest tabela \textit{Results}. Po przeprowadzeniu pojedynczego doœwiadczenia w tabeli tej tworzony jest wpis, który zawiera identyfikatory wierszy odnosz¹ce siê do wszystkich niezbêdnych tabel, które umo¿liwiaj¹ uzyskanie wszelkich informacji o doœwiadczeniu.
 
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=1\textwidth]{img_bazaDane.png}
+    \caption{Przestawienie czêœci bazy danych dotycz¹cej przeprowadzanych badañ, ród³o: Opracowanie w³asne.}
+    \label{rys:baza_dane}
+\end{figure} 
+
 W tabeli \textit{InputParameters} zawarte s¹ informacje o parametrach wejœciowych algorytmów takich jak zadany maksymalny czas dzia³ania algorytmu, maksymalna liczba iteracji, dopuszczalna liczba odwo³añ do funkcji testowej oraz w zale¿noœci od wybranego algorytmu wielkoœæ roju lub wielkoœæ populacji.
 
 Rezultaty przeprowadzonego badania umiejscawiane s¹ w tabeli \textit{ResultDetails}, w której to mo¿na uzyskaæ informacjê na temat liczby przeprowadzonych iteracji, liczby odwo³añ do funkcji testowej, najmniejszej znalezionej wartoœci funkcji, czasu dzia³ania algorytmu oraz informacjê o powodzeniu jego wykonania. Dodatkowym elementem, który przechowywany jest w bazie jest lokalizacja punktu posiadaj¹cego najmniejsz¹ znalezion¹ wartoœæ funkcji. Pocz¹tkowo temat pracy magisterskiej zak³ada³ porównanie algorytmów metaheurystycznych bazuj¹c wy³¹cznie na funkcjach dwóch zmiennych. Lokalizacja najlepszego punktu przechowywana by³a w dwóch kolumnach tabeli \textit{ResultDetails}. Po zmianie wymagañ, które dotyczy³y koniecznoœci obs³u¿enia funkcji wielu zmiennych, musia³a nast¹piæ modyfikacja struktury bazy danych. Warte wspomnienia s¹ tutaj fazy dok³adnej analizy potrzeb, które baza danych ma spe³niaæ oraz proces jej projektowania. Ju¿ na tym etapie jako jedno z ryzyk projektowych za³o¿one zosta³o zmienienie podejœcia do liczby wymiarów funkcji testowych. W celu zapewnienia prawid³owego przetwarzania i przechowywania danych zosta³a w tym celu stworzona nowa tabela - \textit{Points}. Tabela ta jest w relacji wiele do jednego z tabel¹ \textit{ResultDetails} oraz umo¿liwia przechowywanie wspó³rzêdnej punktu dla ka¿dego wymiaru jako oddzielny wpis. Dla przyk³adu, lokalizacja punktu dla funkcji piêciu zmiennych przechowywana bêdzie w postaci piêciu wpisów w omawianej tabeli, z których ka¿dy opisywaæ bêdzie jego lokalizacjê oraz numer wymiaru do którego ma odniesienie.
@@ -562,7 +569,49 @@ Ostatni¹ metod¹ jest \textit{Model First}, które polega na utworzeniu fizycznego
 \subsection{Komunikacja Matlaba z projektem programistycznym}
 \label{dzial:KomunikacjaMatlabaZProjektem}
 
-Poprawne skomunikowanie aplikacji bazodanowej ze œrodowiskiem obliczeniowym Matlab by³o najtrudniejsz¹ czêœci¹ podczas ca³ej pracy implementacyjnej. Podczas tworzenia architektury budowanej aplikacji poszukiwany by³ efektywny sposób integracji obu œrodowisk. Przez fakt utworzenia ich przez ró¿nych producentów, nie istnieje domyœlnie wbudowana funkcjonalnoœæ ich integracji. Poszukiwania doprowadzi³y do zastosowania dedykowanej dla œrodowiska .NET biblioteki opisanej w rozdziale \ref{dzial:MatlabApplicationLibrary}, która ³¹czy siê z poœrednicz¹cym serwerem Matlaba. Serwer ten nie jest domyœlnie dodawany przy instalacji œrodowiska obliczeniowego, dlatego te¿ nachodzi koniecznoœæ jego dodatkowego doinstalowania. Biblioteka umo¿liwia stworzenie ¿¹dania na poziomie C\#, które nastêpnie przekazywane jest do serwera poœrednicz¹cego, które t³umaczy je na jêzyk stosowany przez Matlaba. ¯¹danie te jest  wykonywane przez œrodowisko obliczeniowe, a jego rezultat analogiczn¹ œcie¿k¹ przekazywany jest do aplikacji bazodanowej. Sporym problemem okaza³o siê prawid³owe tworzenie ¿¹dañ przez fakt na bardzo ograniczon¹ dokumentacjê biblioteki i ma³¹ liczbê przyk³adów. Na podstawie metody prób i b³êdów uda³o siê jednak utworzyæ prawid³owy typ ¿¹dañ oraz w sposób w³aœciwy dokonywaæ odbioru ich odpowiedzi. ¯¹danie w kodzie Ÿród³owym numer (TODO: dodaæ alias kodu oraz kod metody wykonujacej ¿¹danie) prezentuje sposób wykonania pojedynczego doœwiadczenia dotycz¹cego algorytmu symulowanego wy¿arzania, natomiast kod Ÿród³owy numer \ref{listing:ParseResultsFromMatlab}, który umiejscowiony zosta³ ju¿ w rozdziale \ref{dzial:ModelAplikacji}, ukazuje sposób przetwarzania otrzymanej odpowiedzi.
+Poprawne skomunikowanie aplikacji bazodanowej ze œrodowiskiem obliczeniowym Matlab by³o najtrudniejsz¹ czêœci¹ podczas ca³ej pracy implementacyjnej. Podczas tworzenia architektury budowanej aplikacji poszukiwany by³ efektywny sposób integracji obu œrodowisk. Przez fakt utworzenia ich przez ró¿nych producentów, nie istnieje domyœlnie wbudowana funkcjonalnoœæ ich integracji. Poszukiwania doprowadzi³y do zastosowania dedykowanej dla œrodowiska .NET biblioteki opisanej w rozdziale \ref{dzial:MatlabApplicationLibrary}, która ³¹czy siê z poœrednicz¹cym serwerem Matlaba. Serwer ten nie jest domyœlnie dodawany przy instalacji œrodowiska obliczeniowego, dlatego te¿ nachodzi koniecznoœæ jego dodatkowego doinstalowania. Biblioteka umo¿liwia stworzenie ¿¹dania na poziomie C\#, które nastêpnie przekazywane jest do serwera poœrednicz¹cego, które t³umaczy je na jêzyk stosowany przez Matlaba. ¯¹danie te jest  wykonywane przez œrodowisko obliczeniowe, a jego rezultat analogiczn¹ œcie¿k¹ przekazywany jest do aplikacji bazodanowej. Sporym problemem okaza³o siê prawid³owe tworzenie ¿¹dañ przez fakt na bardzo ograniczon¹ dokumentacjê biblioteki i ma³¹ liczbê przyk³adów. Na podstawie metody prób i b³êdów uda³o siê jednak utworzyæ prawid³owy typ ¿¹dañ oraz w sposób w³aœciwy dokonywaæ odbioru ich odpowiedzi. ¯¹danie w kodzie Ÿród³owym numer \ref{listing:SendRequestToMatlab} prezentuje sposób wykonania pojedynczego doœwiadczenia dotycz¹cego algorytmu symulowanego wy¿arzania, natomiast kod Ÿród³owy numer \ref{listing:ParseResultsFromMatlab}, który umiejscowiony zosta³ ju¿ w rozdziale \ref{dzial:ModelAplikacji}, ukazuje sposób przetwarzania otrzymanej odpowiedzi.
+
+\begin{lstlisting}[caption= {Implementacja oraz opis funkcji wysy³aj¹cej ¿¹danie do œrodowiska obliczeniowego Matlab.}, label={listing:SendRequestToMatlab}]
+private ResultDetail ExecuteSimulatedAnnealingAlghoritm( Alghoritm alghoritm, TestFunction testFunction, InputParameter inputParameter)
+{
+// pobranie nazwy pliku, w którym znajduje siê logika przetwarzanego algorytmu
+ var alghoritmFileName = FunctionNameMatcher.GetAlghoritmFileName(alghoritm);
+// pobranie nazwy pliku, w którym znajduje siê wzór przetwarzanej funkcji
+ var testFunctionFileName = FunctionNameMatcher.GetFunctionFileName(testFunction);
+
+// czyszczenie obiektu przechowuj¹cego otrzymany rezultat 
+ _computedResult = null;
+
+// wywo³anie ¿¹dania 
+ _matlabContext.Feval(
+  alghoritmFileName,
+  5, // OutputParamsNumber
+  out _computedResult,
+  (double)inputParameter.MaxTime,
+  (double)inputParameter.MaxIterations,
+  (double)inputParameter.MaxFunctionEvaluations,
+  (double)inputParameter.MaxStallIterations,
+  testFunctionFileName,
+  (double)testFunction.BoundRange,
+  testFunction.Dimension
+  );
+
+// zwrócenie odpowiednio przetworzonego rezultatu
+ return _resultParser.ParseResult(_computedResult as object[]);
+}
+\end{lstlisting}
+
+\subsubsection{Uruchomienie aplikacji bazodanowej}
+
+W celu uruchomienia zaimplementowanej aplikacji bazodanowej niezbêdne jest posiadanie œrodowiska obliczeniowego Matlab R2017 w wersji 9.2, serwera SQL wraz z narzêdziem SQL Server Management Studio 17 oraz .NET Framework w wersji 4.5.1.
+Przed uruchomieniem aplikacji, niezbêdn¹ operacj¹ jest odpowiednia konfiguracja serwera bazodanowego. W tym celu, w narzêdziu SQL Server Management Studio nale¿y utworzyæ bazê danych za pomoc¹ skryptu \textit{EntityDataModel.edmx.sql} za³¹czonego do solucji programistycznej. Po jego wykonaniu utworzone zostan¹ wszystkie niezbêdne tabele bazodanowe wraz z odpowiednimi relacjami. Kolejnym krokiem jest dodanie wymaganych danych do czêœci s³ownikowej bazy danych. Odpowiedzialny jest za to skrypt \textit{AddDictionaries.sql}, po wykonaniu którego dodane zostan¹ wszelkie niezbêdne informacje dotycz¹ce porównywanych algorytmów heurystycznych oraz u¿ytych funkcji testowych. Tak przygotowane œrodowisko, na bazie domyœlnej konfiguracji umo¿liwia uruchomienie zaimplementowanej aplikacji, która podczas startu uruchamia automatycznie aplikacjê Matlab. Niweluje to koniecznoœæ pamiêtania o uruchomieniu œrodowiska obliczeniowego manualnie. Okno uruchomionej aplikacji, które aktualnie wykonuje testy, widoczne jest na rysunku \ref{rys:apka}.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.8\textwidth]{img_apka.png}
+    \caption{Widok na oko g³ówne aplikacji podczas przeprowadzania testów, ród³o: Opracowanie w³asne.}
+    \label{rys:apka}
+\end{figure} 
 
 \section{Badania eksperymentalne}
 
@@ -712,7 +761,7 @@ Porównuj¹c wyniki dla obu kryteriów porównawczych z tabel \ref{tab:col_all_1} or
 
 \subsubsection{Funkcja Ackley'a}
 
-Kolejn¹ funkcj¹, która poddana zosta³a testom by³s funkcja Ackleya, dla której algorytm genetyczny oraz metoda roju cz¹stek dla kryterium czasowego uzyska³a najlepsze rezultaty dla wielkoœci populacji oraz roju wynosz¹cej 50. Wyniki te, dostêpne do wgl¹du w tabeli \ref{tab:ack_ga_1} oraz \ref{tab:ack_pso_1}, zestawione zosta³y w tabeli \ref{tab:ack_all_1} z wynikami otrzymanymi przez algorytm symulowanego wy¿arzania. Z podsumowania tego jednoznacznie wynika, i¿ dla ka¿dego badanego parametru maksymalnego czasu, algorytm genetyczny zwróci³ najlepsze rezultaty, które to s¹ bardzo zbli¿one do minimum globalnego wynosz¹cego 0. Pozosta³e algorytmy nawet nie zbli¿y³y siê do tych rezultatów i utknê³y minimach lokalnych funkcji.
+Kolejn¹ funkcj¹, która poddana zosta³a testom by³s funkcja Ackleya, dla której algorytm genetyczny oraz metoda roju cz¹stek dla kryterium czasowego uzyska³a najlepsze rezultaty dla wielkoœci populacji oraz roju wynosz¹cej 50. Wyniki te, dostêpne do wgl¹du w tabeli \ref{tab:ack_ga_1} oraz \ref{tab:ack_pso_1}, zestawione zosta³y w tabeli \ref{tab:ack_all_1} z wynikami otrzymanymi przez algorytm symulowanego wy¿arzania. Z podsumowania tego jednoznacznie wynika, i¿ dla ka¿dego badanego parametru maksymalnego czasu, algorytm genetyczny zwróci³ najlepsze rezultaty, które to s¹ bardzo zbli¿one do minimum globalnego wynosz¹cego 0. Pozosta³e algorytmy nawet nie zbli¿y³y siê do tych rezultatów i utknê³y w minimach lokalnych funkcji.
 
 \begin{table}[H]
     \centering
@@ -760,7 +809,7 @@ Wyniki dotycz¹ce kryterium limitu odwo³añ do funkcji testowej s¹ analogiczne jak
 
 \subsubsection{Funkcja Rosenbrocka}
 
-Funkcja Rosenbrocka jest pierwsz¹ funkcj¹, w której analizuj¹c ustalone kryterium, najlepsze otrzymane rezultaty nie nale¿¹ do jednego algorytmu heurystycznego. Po wyborze optymalnych wielkoœci populacji oraz roju dla kryterium czasowego, których wyniki testów dostêpne s¹ do wgl¹du w tabeli \ref{tab:ros_ga_1} oraz \ref{tab:ros_pso_1}, dokonano zestawienia najlepszych rezultatów wszystkich trzech algorytmów w tabeli \ref{tab:ros_all_1}. Wynika z niej, i¿ dla wartoœci maksymalnego czasu od 1 do 3 sekund, najlepszy rezultaty uzyska³a metoda roju cz¹stek, podczas gdy dla wy¿szych z zakresu 4 do 6 sekund - algorytm genetyczny.
+Funkcja Rosenbrocka jest pierwsz¹ funkcj¹, w której analizuj¹c ustalone kryterium, najlepsze otrzymane rezultaty nie nale¿¹ do jednego algorytmu heurystycznego. Po wyborze optymalnych wielkoœci populacji oraz roju dla kryterium czasowego, których wyniki testów dostêpne s¹ do wgl¹du w tabeli \ref{tab:ros_ga_1} oraz \ref{tab:ros_pso_1}, dokonano zestawienia najlepszych rezultatów wszystkich trzech algorytmów w tabeli \ref{tab:ros_all_1}. Wynika z niej, i¿ dla wartoœci maksymalnego czasu od 1 do 3 sekund, najlepsze rezultaty uzyska³a metoda roju cz¹stek, podczas gdy dla wy¿szych z zakresu 4 do 6 sekund - algorytm genetyczny.
 
 \begin{table}[H]
     \centering
@@ -906,7 +955,7 @@ Drugie kryterium, pod k¹tem którego przeprowadzone zosta³y testy wskazuje ju¿ je
 
 Przeprowadzone doœwiadczenia wykonane zosta³y z myœl¹ o wyrównaniu szans ka¿dego z badanych algorytmów heurystycznych. Metody porównawcze opisane w \ref{dzial:MetodyPorownawczeWybranychAlgorytmow} umo¿liwi³y na podstawie ustalonych kryteriów, jednakowych dla wszystkich algorytmów, sprawdziæ rezultaty przez nie uzyskane. Przez fakt ró¿n¹ specyfikê algorytmów oraz posiadanie przez nich ró¿nych parametrów, czasoch³onn¹ kwesti¹ okaza³a siê próba ich wyskalowania. 
 Podsumowuj¹c przeprowadzone doœwiadczenia w kontekœcie kryterium ustalonego czasu pracy, w obrêbie którego algorytm za zadanie mia³ znaleŸæ najmniejsz¹ wartoœæ badanej funkcji, algorytm genetyczny w jednej na szeœæ funkcji testowych - funkcji Ackley'a - uzyska³ najlepszy rezultat dla ka¿dej wartoœci maksymalnego czasu. W dwóch kolejnych funkcjach - Rosenbrocka oraz Griewanka - uzyska³ najlepszy wynik dla kolejno trzech z szeœciu oraz czterech z szeœciu wartoœci parametru. Funkcja Bohachevsky'ego, Colville'a oraz Eggholdera by³y funkcjami w której algorytm genetyczny uplasowa³ siê na drugim miejscu, za metod¹ roju cz¹stek, która zwróci³a najlepsze wyniki. 
-Metoda ta uzyska³a równie¿ najlepsze rezultaty dla trzech z szeœciu oraz dwóch z szeœciu parametrów dla funkcji Rosenbrocka oraz Griewanka. Najgorzej w zestawieniu wypad³ algorytm symulowanego wy¿arzania, który dla ka¿dej funkcji testowej ulokowa³ siê na miejscu trzecim. Algorytm ten, choæ zwraca³ wyniki bliskie minimum globalnemu, by³y one gorsze od rezultatów zwróconych przez GA oraz PSO.
+Metoda ta uzyska³a równie¿ najlepsze rezultaty dla trzech z szeœciu oraz dwóch z szeœciu parametrów dla funkcji Rosenbrocka oraz Griewanka. Najgorzej w zestawieniu wypad³ algorytm symulowanego wy¿arzania, który dla ka¿dej funkcji testowej ulokowa³ siê na miejscu trzecim. Algorytm ten, choæ zwraca³ wyniki bliskie minimum globalnemu, by³y one gorsze od rezultatów zwróconych przez algorytm genetyczny oraz metodê roju cz¹stek.
 
 Przy analizie wyników dotycz¹cych próby czasowej, zauwa¿alna by³a ró¿nica w iloœci wyliczeñ funkcji testowej dokonywana przez porównywane algorytmy. Metoda roju cz¹stek odwo³ywa³a siê do funkcji testowych œrednio $2,59$ razy wiêcej ni¿ algorytm genetyczny oraz $25.58$ razy wiêcej ni¿ algorytm symulowanego wy¿arzania. Ró¿nice te zosta³y zrównane w wynikach testów odnosz¹cych siê do drugiego kryterium porównawczego jakim by³a ustalona maksymalna liczba odwo³añ do funkcji testowej.
 
