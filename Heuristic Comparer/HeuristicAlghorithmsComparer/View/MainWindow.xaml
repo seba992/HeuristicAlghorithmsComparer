@@ -26,7 +26,7 @@
                             <TextBlock.Text>
                                 <MultiBinding StringFormat="Processing {0}/{1}">
                                     <Binding Path="CurrentProgress"/>
-                                    <Binding Path="TestCount2"/>
+                                    <Binding Path="TestCount"/>
                                 </MultiBinding>
                             </TextBlock.Text>
                         </TextBlock>
@@ -42,6 +42,12 @@
         </xctk:BusyIndicator.ProgressBarStyle>
 
         <Grid x:Name="LayoutRoot">
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <GradientStop Color="White" Offset="0.94"/>
+                    <GradientStop Color="{DynamicResource {x:Static SystemColors.HotTrackColorKey}}"/>
+                </LinearGradientBrush>
+            </Grid.Background>
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
@@ -56,7 +62,6 @@
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
-                <RowDefinition />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="244*" />

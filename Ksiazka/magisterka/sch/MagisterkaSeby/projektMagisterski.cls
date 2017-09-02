@@ -1462,7 +1462,7 @@ Jednocze\'snie o\'swiadczam, \.ze ww. projekt:
 }
 
 \let\sectionXXX\section
-\def\sectionXY[#1]#2{\def\NagText{\thesection. #1}%
+\def\sectionXY[#1]#2{\def\NagText{#1}%
 \sectionXXX{\protect\kernsekcyjny #2}%
 \markboth{\MakeUppercase\NagText\liniaA}{\liniaB\MakeUppercase\NagText}}
 \def\section{\@ifnextchar*{\sectionXXX}{\@dblarg\sectionXY}}

@@ -103,7 +103,7 @@ namespace HeuristicAlghorithmsComparer.ViewModel
             {
                 if (_currentProgress == value) return;
                 _currentProgress = value;
-                CurrentProgressPercentage = value;//GetPercentageProcessValue(value);
+                CurrentProgressPercentage = GetPercentageProcessValue(value);
                 RaisePropertyChanged();
             }
         }
@@ -193,7 +193,7 @@ namespace HeuristicAlghorithmsComparer.ViewModel
         private void ExecuteAction(object sender, DoWorkEventArgs e)
         {
             IsIndicatorBusy = true;
-
+            /*
             SelectedTestFunction = TestFunction.Eggholder;
             
             MaxIterations = 999999;
@@ -235,7 +235,7 @@ namespace HeuristicAlghorithmsComparer.ViewModel
                     }
                 }
             //}
-            /*
+            */
             
             switch (SelectedAlghoritm)
             {
@@ -254,7 +254,7 @@ namespace HeuristicAlghorithmsComparer.ViewModel
                 default:
                     throw new InvalidEnumArgumentException();
             }
-            */
+            
         }
 
         private void ExecuteSimulatedAnnealingTest(TestFunction testFunction, Alghoritm alghoritm, double maxTime,
@@ -264,7 +264,7 @@ namespace HeuristicAlghorithmsComparer.ViewModel
             {
                 _matlabService.ExecuteSimulatedAnnealing(testFunction, alghoritm, maxTime, maxIterations,
                     maxFunctionEvaluations, maxStall);
-                //_worker.ReportProgress(i);
+                _worker.ReportProgress(i);
             }
         }
 
@@ -275,7 +275,7 @@ namespace HeuristicAlghorithmsComparer.ViewModel
             {
                 _matlabService.ExecuteGeneticAlghoritm(testFunction, alghoritm, maxTime, maxGenerations, populationSize,
                     maxStall);
-                //_worker.ReportProgress(i);
+                _worker.ReportProgress(i);
             }
         }
 
@@ -286,7 +286,7 @@ namespace HeuristicAlghorithmsComparer.ViewModel
             {
                 _matlabService.ExecuteParticleSwarmTest(testFunction, alghoritm, maxTime, maxGenerations, swarmSize,
                     maxStall);
-                //_worker.ReportProgress(i);
+                _worker.ReportProgress(i);
             }
         }
     }

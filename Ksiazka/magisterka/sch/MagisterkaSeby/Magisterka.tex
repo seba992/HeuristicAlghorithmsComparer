@@ -26,7 +26,6 @@
 \renewcommand\lstlistlistingname{Kody ürÛd≥owe}
 \renewcommand*{\refname}{Bibliografia}
 
-
 \lstset{language=[Sharp]C,
 captionpos=b,
 showtabs=false,
@@ -66,33 +65,39 @@ basicstyle=\ttfamily\small
 
 \begin{document}
 
-W otaczajπcym nas úwiecie obecnych jest wiele problemÛw, z ktÛrymi zmagajπ siÍ ludzie. CzÍúÊ z nich jest problemami prostymi, do rozwiπzania ktÛrych wystarczy wy≥πcznie nieduøy nak≥ad czasu. Istniejπ jednak problemy trudniejsze, ktÛre wymagajπ d≥ugotrwa≥ych przemyúleÒ i obliczeÒ pomimo ktÛrych nie zawsze otrzymujemy najlepsze rozwiπzanie. Do prostych problemÛw moøemy zaliczyÊ codzienne decyzje podejmowane przez kaødego cz≥owieka. Dla przyk≥adu, jeúli chcemy dojechaÊ z punktu $A$ do punktu $B$ komunikacjπ miejskπ, wystarczajπce bÍdzie sprawdzenie rozk≥adu jazdy i wybranie po≥πczenia, ktÛre bÍdzie pasowa≥o nam w kontekúcie godziny przyjazdu na dane miejsce. Przedstawiony problem posiada innπ skalÍ trudnoúci ze strony przewoünika. Wyznaczenie optymalnych tras przewozowych dla okreúlonej liczby úrodkÛw transportu, w celu obs≥uøenia danego zbioru klientÛw, ktÛrzy rozlokowani sπ w rÛønych punktach jest kwestiπ bardzo skomplikowanπ. Znalezienie optymalnych tras, ktÛre umoøliwiπ przetransportowanie jak najwiÍkszej iloúci osÛb w celu zmaksymalizowania zysku, przy zachowaniu moøliwie najkrÛtszych tras, ktÛrych zamys≥em jest minimalizowanie kosztÛw poniesionych z transportem jest z≥oøonym problemem, znanym jako jedna z odmian problemu marszrutyzacji, ktÛry jest z kolei rozwiniÍciem bardzo popularnego problemu komiwojaøera \cite{ProblemKomiwojazera}. Problem ten polega na znalezieniu najkrÛtszej drogi ≥πczπcej wszystkie zdefiniowane uprzednio punkty, zaczynajπc i koÒczπc w tym samym miejscu. Problemy, do rozwiπzania ktÛrych potrzebne sπ ogromne nak≥ady obliczeniowe definiowane sπ jako problemy optymalizacyjne. W problemach takich liczba moøliwych rozwiπzaÒ w przestrzeni poszukiwaÒ z regu≥y jest tak duøa, øe niemoøliwe jest w skoÒczonym czasie zastosowanie przeszukiwania wyczerpujπcego w celu znalezienia najlepszego z nich. 
+W otaczajπcym nas úwiecie obecnych jest wiele problemÛw, z ktÛrymi zmagajπ siÍ ludzie. CzÍúÊ z nich jest problemami prostymi, do rozwiπzania ktÛrych wystarczy wy≥πcznie nieduøy nak≥ad czasu. Istniejπ jednak problemy trudniejsze, ktÛre wymagajπ d≥ugotrwa≥ych przemyúleÒ i obliczeÒ, pomimo ktÛrych nie zawsze otrzymujemy najlepsze rozwiπzanie. Do prostych problemÛw moøemy zaliczyÊ codzienne decyzje podejmowane przez kaødego cz≥owieka. Dla przyk≥adu, jeúli chcemy dojechaÊ z punktu $A$ do punktu $B$ komunikacjπ miejskπ, wystarczajπce bÍdzie sprawdzenie rozk≥adu jazdy i wybranie po≥πczenia, ktÛre bÍdzie pasowa≥o nam w kontekúcie godziny przyjazdu na dane miejsce. Przedstawiony problem posiada innπ skalÍ trudnoúci ze strony przewoünika. Wyznaczenie optymalnych tras przewozowych dla okreúlonej liczby úrodkÛw transportu, w celu obs≥uøenia danego zbioru klientÛw, ktÛrzy rozlokowani sπ w rÛønych punktach, jest kwestiπ bardzo skomplikowanπ. Znalezienie optymalnych tras, ktÛre umoøliwiπ przetransportowanie jak najwiÍkszej liczby osÛb w celu zmaksymalizowania zysku, przy zachowaniu moøliwie najkrÛtszych tras, ktÛrych zamys≥em jest minimalizowanie kosztÛw poniesionych z transportem, jest z≥oøonym problemem, znanym jako jedna z odmian problemu marszrutyzacji, ktÛry jest z kolei rozwiniÍciem bardzo popularnego problemu komiwojaøera \cite{ProblemKomiwojazera}. Problem ten polega na znalezieniu najkrÛtszej drogi ≥πczπcej wszystkie zdefiniowane uprzednio punkty, zaczynajπc i koÒczπc w tym samym miejscu. Problemy, do rozwiπzania ktÛrych potrzebne sπ ogromne nak≥ady obliczeniowe, definiowane sπ jako problemy optymalizacyjne. W problemach takich liczba moøliwych rozwiπzaÒ w przestrzeni poszukiwaÒ z regu≥y jest tak duøa, øe niemoøliwe jest w skoÒczonym czasie zastosowanie przeszukiwania wyczerpujπcego w celu znalezienia najlepszego z nich. 
 
 \subsection*{Cel pracy}
 
-Celem pracy jest dokonanie analizy porÛwnawczej algorytmu symulowanego wyøarzania, algorytmu genetycznego oraz metody roju czπstek za pomocπ zaimplementowanej dedykowanej aplikacji bazodanowej, ktÛrej przeznaczeniem jest zautomatyzowanie procesu szukania minimum globalnego dla zadanych funkcji testowych.
+Celem pracy jest dokonanie analizy porÛwnawczej algorytmu symulowanego wyøarzania, algorytmu genetycznego oraz metody optymalizacji rojem czπstek za pomocπ zaimplementowanej dedykowanej aplikacji bazodanowej, ktÛrej przeznaczeniem jest zautomatyzowanie procesu szukania minimum globalnego dla zadanych funkcji testowych.
 
 \subsection*{ZawartoúÊ pracy}
 
-Dla osiπgniÍcia wyøej wymienionego celu zrealizowana zosta≥a praca sk≥adajπca siÍ ze wstÍpu, szeúciu rozdzia≥Ûw oraz podsumowania. W rozdziale pierwszym przedstawiony zosta≥ wybÛr problemu optymalizacyjnego wraz z jego opisem oraz listπ funkcji testowych, ktÛre uøyte zosta≥y do przeprowadzenia badaÒ. Rozdzia≥ drugi przedstawia moøliwe sposoby rozwiπzania wybranego problemu optymalizacyjnego wraz z opisem uøytych algorytmÛw metaheurystycznych. Na bazie dwÛch pierwszych rozdzia≥Ûw utworzony zosta≥ w rozdziale trzecim projekt automatyzacji przeprowadzanych doúwiadczeÒ, na podstawie ktÛrego bazowa≥a budowana aplikacja. Kolejny rozdzia≥ to zastosowane rozwiπzania technologiczne oraz opis wykorzystanych technologii, bibliotek zewnÍtrznych, a takøe narzÍdzi. Na ich podstawie utworzona zosta≥a architektura aplikacji bazodanowej, ktÛrej specyfikacja umiejscowiona zosta≥a w rozdziale piπtym. Kolejny rozdzia≥ prezentuje juø úciúle aspekt badawczy. Zawiera on opis metod porÛwnawczych oraz przeprowadzonych badaÒ, a takøe wyniki doúwiadczeÒ dla uøytych funkcji testowych wraz z ich podsumowaniem.
+Przygotowana czÍúÊ opisowa pracy sk≥ada siÍ ze wstÍpu, szeúciu rozdzia≥Ûw oraz podsumowania. W rozdziale pierwszym przedstawiony zosta≥ wybÛr problemu optymalizacyjnego wraz z jego opisem oraz listπ funkcji testowych, ktÛre uøyte zosta≥y do przeprowadzenia badaÒ. Rozdzia≥ drugi przedstawia moøliwe sposoby rozwiπzania wybranego problemu optymalizacyjnego wraz z opisem uøytych algorytmÛw metaheurystycznych. Na bazie dwÛch pierwszych rozdzia≥Ûw opisany zosta≥ w rozdziale trzecim projekt automatyzacji przeprowadzanych doúwiadczeÒ, na podstawie ktÛrego bazowa≥a budowana aplikacja. Kolejny rozdzia≥ to zastosowane rozwiπzania technologiczne oraz opis wykorzystanych technologii, bibliotek zewnÍtrznych, a takøe narzÍdzi. Na ich podstawie utworzona zosta≥a architektura aplikacji bazodanowej, ktÛrej specyfikacja umiejscowiona zosta≥a w rozdziale piπtym. Kolejny rozdzia≥ prezentuje juø úciúle aspekt badawczy. Zawiera on opis metod porÛwnawczych oraz przeprowadzonych badaÒ, a takøe wyniki doúwiadczeÒ dla uøytych funkcji testowych wraz z ich podsumowaniem.
+
+Do czÍúci opisowej pracy magisterskiej do≥πczona zosta≥a p≥yta CD zawierajπca pliki umoøliwiajπce uruchomienie zaimplementowanej aplikacji bazodanowej oraz solucjÍ, w ktÛrej umiejscowiony jest kod aplikacji. Opisywany noúnik posiada dodatkowo plik PDF z treúciπ pracy oraz plik instrukcji, w ktÛrym znajdujπ siÍ informacje dotyczπce sposobu konfiguracji aplikacji oraz odnoúniki do oprogramowania, ktÛrego instalacja jest konieczna w celu prawid≥owego dzia≥ania zaimplementowanego programu.
 
 \section{WybÛr badanego problemu optymalizacji}
+
+\subsection{Podstawowe pojÍcia optymalizacji}
+
+Temat optymalizacji jest bardzo obszernym tematem, w ramach opisu ktÛrego wystÍpuje kilka okreúleÒ, ktÛrych definicje warto wyjaúniÊ. Podstawowym pojÍciem jest \textit{problem optymalizacji}, ktÛry to moøe zostaÊ opisany jako prÛba znalezienia wartoúci zmiennej $x$ zawartej w danym \textit{zbiorze $X$}, dla ktÛrej ustalona funkcja $f(x)$ przyjmuje najkorzystniejszπ wartoúÊ. Funkcja ta nazywana jest \textit{funkcjπ celu} i za zadanie ma zmierzenie wartoúci celu, jaki ma zostaÊ osiπgniÍty. W kontekúcie prezentowanej pracy magisterskiej celem takim jest uzyskanie najmniejszej moøliwej wartoúci danej funkcji, czyli jej minimum globalnego. \textit{ZbiÛr $X$} z kolei jest wyznaczony przez zbiÛr ograniczeÒ problemu, ktÛry w temacie minimalizacji funkcji jest ustalonπ dziedzinπ danej funkcji, czyli zbiorem wszystkich jej argumentÛw. ZbiÛr ten nazywany jest rÛwnieø przestrzeniπ poszukiwaÒ lub przestrzeniπ rozwiπzaÒ.
 
 \subsection{Opis minimalizacji funkcji ciπg≥ych wielu zmiennych}
 \label{dzial:OpisMinimalizacjiFunkcjiCiaglych}
 
-W prezentowanej pracy dokonano porÛwnania algorytmÛw metaheurystycznych odnoszπc siÍ do problemu minimalizacji funkcji wielu zmiennych. Problem ten polega na znalezieniu minimum globalnego rzeczywistej funkcji poprzez systematyczne wybieranie parametrÛw wejúciowych z dozwolonego zakresu i obliczaniu ich wartoúci funkcji. TrudnoúÊ problemu sprowadza siÍ do wielkoúci przestrzeni przeszukiwania. Traktujπc problem jako czysto matematyczny, funkcja \textit{n} zmiennych posiada nieskoÒczenie wiele wartoúci w kaødym wymiarze. Mamy wiÍc nieskoÒczenie wielkπ przestrzeÒ poszukiwaÒ. Biorπc jednak pod wzglπd aspekt technologiczny i to, iø komputery bazujπ na danych skoÒczonych, moøna w prosty sposÛb przedstawiÊ skalÍ trudnoúci. W czasie implementacji algorytmu, ktÛrego celem jest znalezienie minimum globalnego funkcji, naleøy wziπÊ pod uwagÍ dostÍpnπ dok≥adnoúÊ obliczeniowπ maszyny. Zak≥adajπc, iø dok≥adnoúÊ ta wynosi osiem miejsc po przecinku, kaøda zmienna ograniczona w przedziale $[0,100]$ moøe przyjπÊ $100*10^8$ rÛønych wartoúci. Juø dla funkcji dwÛch zmiennych, wielkoúÊ przestrzeni przeszukiwania wynosi $(100*10^8)^2 = 10^{20}$.
+W prezentowanej pracy dokonano porÛwnania algorytmÛw metaheurystycznych odnoszπc siÍ do problemu minimalizacji funkcji wielu zmiennych. Problem ten polega na znalezieniu minimum globalnego funkcji poprzez systematyczne wybieranie parametrÛw wejúciowych z dozwolonego zakresu i obliczaniu dla nich wartoúci funkcji. TrudnoúÊ problemu sprowadza siÍ do wielkoúci przestrzeni przeszukiwania. Traktujπc problem jako czysto matematyczny, funkcja \textit{n} zmiennych posiada nieskoÒczenie wiele wartoúci w kaødym wymiarze. Mamy wiÍc nieskoÒczenie wielkπ przestrzeÒ poszukiwaÒ. Biorπc jednak pod wzglπd aspekt technologiczny i to, iø komputery bazujπ na danych skoÒczonych, moøna w prosty sposÛb przedstawiÊ skalÍ trudnoúci. W czasie implementacji algorytmu, ktÛrego celem jest znalezienie minimum globalnego funkcji, naleøy wziπÊ pod uwagÍ dostÍpnπ dok≥adnoúÊ obliczeniowπ maszyny. Zak≥adajπc, iø dok≥adnoúÊ ta wynosi osiem miejsc po przecinku, kaøda zmienna ograniczona w przedziale $[0,100]$ moøe przyjπÊ $100*10^8$ rÛønych wartoúci. Juø dla funkcji dwÛch zmiennych, wielkoúÊ przestrzeni przeszukiwania wynosi $(100*10^8)^2 = 10^{20}$.
 
 \subsection{Funkcje testowe}
 \label{dzial:FunkcjeTestowe}
 
-Problem minimalizacji funkcji ciπg≥ych bardzo dobrze nadaje siÍ do porÛwnania algorytmÛw metaheurystycznych przez wzglπd na powszechnie dostÍpne funkcje testowe. Funkcje te posiadajπ pewny specyficzny element, dziÍki ktÛremu moøliwe jest porÛwnanie wynikÛw otrzymanych przez dany algorytm. Element ten to znajomoúÊ minimum globalnego dla danej funkcji testowej. DziÍki znajomoúci wartoúci najlepszej (najmniejszej) dla danej funkcji, wiadomo jak szybko oraz czy w ogÛle badany algorytm znalaz≥ najlepsze moøliwe rozwiπzanie. Posiadajπc ten punkt odniesienia moøna zestawiÊ otrzymane rezultaty wszystkich algorytmÛw pod kπtem czasowym lub liczby wyliczeÒ wartoúci funkcji dla ustalonych przez algorytm punktÛw.
+Problem minimalizacji funkcji ciπg≥ych bardzo dobrze nadaje siÍ do porÛwnania algorytmÛw metaheurystycznych przez wzglπd na powszechnie dostÍpne funkcje testowe. Funkcje te posiadajπ pewny specyficzny element, dziÍki ktÛremu moøliwe jest porÛwnanie wynikÛw otrzymanych przez dany algorytm. Element ten to znajomoúÊ minimum globalnego dla danej funkcji testowej. DziÍki znajomoúci wartoúci najlepszej (najmniejszej) dla danej funkcji wiadomo, jak szybko oraz czy w ogÛle badany algorytm znalaz≥ najlepsze moøliwe rozwiπzanie. Posiadajπc ten punkt odniesienia moøna zestawiÊ otrzymane rezultaty wszystkich algorytmÛw pod kπtem czasowym lub liczby wyliczeÒ wartoúci funkcji dla ustalonych przez algorytm punktÛw.
 
-Do analizy wybranych zosta≥o szeúÊ funkcji testowych, ktÛrych dobÛr bra≥ pod uwagÍ stopieÒ ich skomplikowania. Funkcje te zosta≥y wybrane z listy zawartej w artykule \cite{TestFunctionsForOpt} oraz w  \cite{RankingFunkcjiTestowych} uwzglÍdniajπc rÛønπ liczbÍ wymiarÛw oraz skalÍ ich trudnoúci. Kaøda z funkcji posiada specyficzne w≥aúciwoúci, ktÛre zostanπ wziÍte pod uwagÍ podczas porÛwnania rezultatÛw algorytmÛw heurystycznych.
+Do analizy wybranych zosta≥o szeúÊ funkcji testowych, podczas doboru ktÛrych wziÍto pod uwagÍ stopieÒ ich skomplikowania. Funkcje te zosta≥y wybrane z listy zawartej w artykule \cite{TestFunctionsForOpt} oraz w  \cite{RankingFunkcjiTestowych} uwzglÍdniajπc rÛønπ liczbÍ wymiarÛw oraz skalÍ ich trudnoúci. Kaøda z funkcji posiada specyficzne w≥aúciwoúci, ktÛre zostanπ wziÍte pod uwagÍ podczas porÛwnania rezultatÛw algorytmÛw heurystycznych.
 
 \subsubsection{Funkcja Bohachevskyíego I}
 
-Funkcja Bohachevsky'ego 1 jest stosunkowo prostπ do minimalizacji funkcja dwÛch zmiennych, ktÛrej wykres przedstawiony na wykresie \ref{wykres:img_boha} przybiera kszta≥t ≥uku. Z regu≥y jest ona badana w zakresie $x_i \in[-100,100]$ dla $i=1,2$. W przedstawianej pracy magisterskiej granice to zosta≥y jednak dwukrotnie powiÍkszone i wynoszπ $[-200,200]$. Wed≥ug doúwiadczeÒ przeprowadzonych w \cite{RankingFunkcjiTestowych}, $81.75\%$ doúwiadczeÒ zakoÒczonych zosta≥o znalezieniem minimum globalnego, ktÛre dla funkcji Bohachevsky'ego I wynosi $0$, dla punktu $x=(0,0)$.
+Funkcja Bohachevsky'ego I jest stosunkowo prostπ do minimalizacji funkcja dwÛch zmiennych, ktÛrej wykres przedstawiony na rysunku \ref{wykres:img_boha} przybiera kszta≥t ≥uku. Z regu≥y jest ona badana w zakresie $x_i \in[-100,100]$ dla $i=1,2$. W przedstawianej pracy magisterskiej granice to zosta≥y jednak dwukrotnie powiÍkszone i wynoszπ $[-200,200]$. Wed≥ug doúwiadczeÒ przeprowadzonych w \cite{RankingFunkcjiTestowych}, $81.75\%$ prÛb zakoÒczonych zosta≥o znalezieniem minimum globalnego, ktÛre dla funkcji Bohachevsky'ego I wynosi $0$ w punkcie $x=(0,0)$.
 
 \begin{figure}[ht]
     \centering
@@ -104,22 +109,22 @@ Funkcja Bohachevsky'ego 1 jest stosunkowo prostπ do minimalizacji funkcja dwÛch 
 
 \subsubsection{Funkcja Colville'a}
 
-Jest to funkcja czterech zmiennych, ktÛra posiada jedno minimum globalne o wartoúci $0$ dla punktu $x=(1,1,1,1)$ oraz analizowana jest zazwyczaj na hiperszeúcianie $x_i\in[-200,200]$ dla $i=1,2,3,4$. Wed≥ug danych zawartych w \cite{RankingFunkcjiTestowych}, jest to funkcja trudniejsza w minimalizacji od funkcji Bohachevsky'ego I, ktÛrej procentowy sukces dotyczπcy znalezienie minimum globalnego wyniÛs≥ $72.00\%$. 
+Jest to funkcja czterech zmiennych, ktÛra posiada jedno minimum globalne o wartoúci $0$ dla punktu $x=(1,1,1,1)$ oraz analizowana jest zazwyczaj na hiperszeúcianie $x_i\in[-200,200]$ dla $i=1,2,3,4$. Wed≥ug danych zawartych w \cite{RankingFunkcjiTestowych}, jest to funkcja trudniejsza w minimalizacji od funkcji Bohachevsky'ego I, ktÛrej procentowy sukces dotyczπcy znalezienia minimum globalnego wyniÛs≥ $72.00\%$. 
 \newline
 WzÛr funkcji Colville'a: 
 \newline
 $f(x)=100(x^{2}_1-x_2)^{2}+(x_1-1)^{2}+(x_3-1)^{2}+90(x^{2}_3-x_4)^{2}+10.1((x_2-1)^{2}+(x_4-1)^{2})+19.8(x_2-1)(x_4-1)$ 
 
-\subsubsection{Funkcja Ackley'a}
+\subsubsection{Funkcja Ackleya}
 
-Funkcja Ackley'a jest popularnπ funkcjπ dla testÛw optymalizacyjnych algorytmÛw. W swojej dwuwymiarowej postaci, ktÛrπ ukazano na obrazku \ref{wykres:img_ack}, charakteryzuje siÍ stosunkowo p≥askim obszarem zewnÍtrznym i duøym otworem w centrum. Funkcja stwarza ryzyko dla algorytmÛw optymalizacyjnych poprzez moøliwoúÊ zatrzymania siÍ w jednym z licznych lokalnych minimÛw. Istnieje moøliwoúÊ rozszerzenia funkcji Ackley'a na wiele wymiarÛw co teø uczyniono w prezentowanej pracy magisterskiej, w ktÛrej rozpatrywana jest ona dla czterech zmiennych. Minimum globalne umiejscowione jest w punkcie $x=(0,0,0,0)$ i jego wartoúÊ wynosi $0$. Dziedzina funkcji analizowana bÍdzie z kolei w przedziale $x_i\in[-150,150]$ dla $i=1,2,3,4$. Dla wspomnianych juø testÛw, ktÛrych wyniki dostÍpne sπ do wglπdu w odnoúniku \cite{RankingFunkcjiTestowych}, procentowy sukces znalezienia minimum globalnego wyniÛs≥ $48.25\%$.
+Funkcja Ackleya jest popularnπ funkcjπ dla testÛw optymalizacyjnych algorytmÛw. W swojej dwuwymiarowej postaci, ktÛrπ ukazano na rysunku \ref{wykres:img_ack}, charakteryzuje siÍ stosunkowo p≥askim obszarem zewnÍtrznym i duøym otworem w centrum. Funkcja stwarza ryzyko dla algorytmÛw optymalizacyjnych poprzez moøliwoúÊ zatrzymania siÍ w jednym z licznych lokalnych minimÛw. Istnieje moøliwoúÊ rozszerzenia funkcji Ackleya na wiele wymiarÛw, co teø uczyniono w prezentowanej pracy magisterskiej, w ktÛrej rozpatrywana jest ona dla czterech zmiennych. Minimum globalne umiejscowione jest w punkcie $x=(0,0,0,0)$ i jego wartoúÊ wynosi $0$. Dziedzina funkcji analizowana bÍdzie z kolei w przedziale $x_i\in[-150,150]$ dla $i=1,2,3,4$. Dla wspomnianych juø testÛw, ktÛrych wyniki opublikowano w pracy \cite{RankingFunkcjiTestowych}, procentowy sukces znalezienia minimum globalnego wyniÛs≥ $48.25\%$.
  
 \begin{figure}[tb]
     \centering
     \includegraphics[width=0.9\textwidth]{img_ack.png}
     $f(x)=-a\exp(-b \sqrt{\frac{1}{d} \sum_{i=1}^d x^{2}_i}-\exp(\frac{1}{d} \sum_{i=1}^d cos(cx_i))+a+\exp(1)
     \newline a=20, b=0.2,c=2\pi$
-    \caption{Wykres oraz wzÛr funkcji Ackley'a dwÛch zmiennych, èrÛd≥o: https://www.sfu.ca/\textasciitilde ssurjano/ackley.html}
+    \caption{Wykres funkcji Ackleya dla dwÛch zmiennych oraz ogÛlny wzÛr funkcji, èrÛd≥o: https://www.sfu.ca/\textasciitilde ssurjano/ackley.html}
     \label{wykres:img_ack}
 \end{figure} 
 \newpage
@@ -131,15 +136,15 @@ Funkcja Rosenbrocka jest to niewypuk≥a funkcja, ktÛra jest bardzo popularna w ko
     \centering
     \includegraphics[width=0.9\textwidth]{img_ros.png}
     $f(x)=\sum_{i=1}^{d-1}[100(x_{i+1}-x^{2}_i)^2+(x_i-1)^2]$
-    \caption{Wykres oraz wzÛr funkcji Rosenbrocka dla $d=4$ zmiennych, èrÛd≥o: https://www.sfu.ca/\textasciitilde ssurjano/rosen.html}
+    \caption{Wykres funkcji Rosenbrocka dla dwÛch zmiennych oraz ogÛlny wzÛr funkcji, èrÛd≥o: https://www.sfu.ca/\textasciitilde ssurjano/rosen.html}
     \label{wykres:img_ros}
 \end{figure} 
   
 \subsubsection{Funkcja Eggholdera}
 
-Kolejnπ wybranπ funkcjπ zosta≥a dwuwymiarowa funkcja Eggholdera. Jest to funkcja, ktÛrej graficzna reprezentacja zawarta w rysunku \ref{wykres:img_egg} przypomina pasmo gÛrskie z licznymi dolinami. Jest to funkcja trudna do optymalizacji przez wzglπd na licznie wystÍpujπce minima lokalne. Dziedzina funkcji powszechnie rozpatrywana jest w przedziale $x_i\in[-512,512]$ dla $i=1,2$. Minimum globalne znajduje siÍ w punkcie $x=(512,404.2319)$ i wynosi $-959.6407$. Przez wzglπd na jego nietypowe po≥oøenie i wspomniane juø liczne minima lokalne, wy≥πcznie $18.92\%$ testÛw zawartych w \cite{RankingFunkcjiTestowych} zakoÒczy≥o siÍ jego znalezieniem.
+Kolejnπ wybranπ funkcjπ zosta≥a dwuwymiarowa funkcja Eggholdera. Jest to funkcja, ktÛrej graficzna reprezentacja pokazana na rysunku \ref{wykres:img_egg} przypomina pasmo gÛrskie z licznymi dolinami. Jest to funkcja trudna do optymalizacji przez wzglπd na licznie wystÍpujπce minima lokalne. Dziedzina funkcji powszechnie rozpatrywana jest w przedziale $x_i\in[-512,512]$ dla $i=1,2$. Minimum globalne znajduje siÍ w punkcie $x=(512,404.2319)$ i wynosi $-959.6407$. Przez wzglπd na jego nietypowe po≥oøenie i wspomniane juø liczne minima lokalne, wy≥πcznie $18.92\%$ testÛw zawartych w \cite{RankingFunkcjiTestowych} zakoÒczy≥o siÍ jego znalezieniem.
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.9\textwidth]{img_egg.png}
     $f(x)=-(x_2+47)\sin(\sqrt{|x_2+\frac{x_1}{2}+47|})-x_1\sin(\sqrt{|x_1-(x_2+47)|})$
@@ -149,13 +154,14 @@ Kolejnπ wybranπ funkcjπ zosta≥a dwuwymiarowa funkcja Eggholdera. Jest to funkcja
 
 \subsubsection{Funkcja Griewanka}
 
-Ostatniπ wybranπ do testÛw funkcjπ jest funkcja Greiwanka, ktÛrej minimum globalne znalezione zosta≥o w tylko $6.08\%$ testÛw zawartych w \cite{RankingFunkcjiTestowych}. Jest to funkcja posiadajπca bardzo duøo regularnie rozmieszczonych minimÛw lokalnych ktÛre utrudniajπ znalezienie globalnego minimum znajdujπcego siÍ w punkcie $x=(0,...,0)$, dla ktÛrego wartoúÊ funkcji wynosi $0$. Opisywana funkcja jest funkcjπ wielowymiarowπ, ktÛra w prezentowanej pracy magisterskiej zastosowana zosta≥a jako funkcja testowa trzech zmiennych o dziedzinie $x_i\in[-200,200]$ dla $i=1,2,3$. Na rysunku \ref{wykres:img_gri} zaprezentowano opisywanπ funkcjÍ w postaci dwuwymiarowej na ktÛrej moøna dostrzec liczne minima globalne oraz ich regularne rozmieszczenie.
+Ostatniπ wybranπ do testÛw funkcjπ jest funkcja Griewanka, ktÛrej minimum globalne znalezione zosta≥o w tylko $6.08\%$ testÛw zawartych w \cite{RankingFunkcjiTestowych}. Jest to funkcja posiadajπca bardzo duøo regularnie rozmieszczonych minimÛw lokalnych, ktÛre utrudniajπ znalezienie globalnego minimum znajdujπcego siÍ w punkcie $x=(0,...,0)$, dla ktÛrego wartoúÊ funkcji wynosi $0$. Opisywana funkcja jest funkcjπ wielowymiarowπ, ktÛra w prezentowanej pracy magisterskiej zastosowana zosta≥a jako funkcja testowa trzech zmiennych o dziedzinie $x_i\in[-200,200]$ dla $i=1,2,3$. Na rysunku \ref{wykres:img_gri} zaprezentowano opisywanπ funkcjÍ w postaci dwuwymiarowej, w ktÛrej moøna dostrzec liczne minima globalne oraz ich regularne rozmieszczenie.
+\newline
 
-\begin{figure}[tb]
+\begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{img_gri.png}
+    \includegraphics[width=0.9\textwidth]{img_gri.png}
     $f(x)=\sum_{i=1}^d\frac{x^{2}_i}{4000}-\prod_{i=1}^{d}\cos(\frac{x_i}{\sqrt{i}})+1$
-    \caption{Wykres oraz wzÛr funkcji Griewanka dla $d=3$ zmiennych, èrÛd≥o: https://www.sfu.ca/\textasciitilde ssurjano/gri.html}
+    \caption{Wykres funkcji Griewanka dla dwÛch zmiennych oraz ogÛlny wzÛr funkcji, èrÛd≥o: https://www.sfu.ca/\textasciitilde ssurjano/gri.html}
     \label{wykres:img_gri}
 \end{figure} 
 
@@ -164,30 +170,30 @@ Ostatniπ wybranπ do testÛw funkcjπ jest funkcja Greiwanka, ktÛrej minimum global
 \subsection{Algorytmy dok≥adne}
 \label{dzial:AlgorytmyDokladne}
 
-Klasycznym podejúciem do znalezienia minimalnej wartoúci zadanej funkcji testowej jest prÛba porÛwnania wartoúci funkcji dla kaødych moøliwych parametrÛw wejúciowych i wybrania w ten sposÛb najlepszego rozwiπzania. W rzeczywistoúci jednak takie rozwiπzanie nie jest praktyczne przez wzglπd na olbrzymiπ moøliwπ liczbÍ takich parametrÛw. Jak juø wspomniano w rozdziale \ref{dzial:OpisMinimalizacjiFunkcjiCiaglych}, liczba rozwiπzaÒ dla funkcji ograniczonej juø do dwÛch zmiennych moøe siÍgaÊ wartoúci $10^{20}$, a w przypadku trzech zmiennych ñ $10^{30}$. Zak≥adajπc, iø moøliwe by by≥o wyliczenie miliarda wartoúci funkcji na sekundÍ, to w godzinÍ wartoúÊ ta wynosi≥aby  $3.6*10^{12}$, a w rok ñ $3.2*10^{16}$. Prowadzπc dalej obliczenia wychodzi, iø wyliczenie $10^{20}$ wartoúci funkcji trwa≥oby oko≥o 3125 lat. WidaÊ wiÍc, øe liczba kombinacji jest tak duøa, iø podejúcie to jest niemoøliwe do wykonania w akceptowalnym czasie.
+Klasycznym podejúciem do znalezienia minimalnej wartoúci zadanej funkcji testowej jest prÛba porÛwnania wartoúci funkcji dla kaødych moøliwych parametrÛw wejúciowych i wybrania w ten sposÛb najlepszego rozwiπzania. W rzeczywistoúci jednak takie rozwiπzanie nie jest praktyczne przez wzglπd na olbrzymiπ moøliwπ liczbÍ takich parametrÛw. Jak juø wspomniano w podpunkcie \ref{dzial:OpisMinimalizacjiFunkcjiCiaglych}, liczba rozwiπzaÒ dla funkcji ograniczonej juø do dwÛch zmiennych moøe siÍgaÊ wartoúci $10^{20}$, a w przypadku trzech zmiennych ñ $10^{30}$. Zak≥adajπc, iø moøliwe by by≥o wyliczenie miliarda wartoúci funkcji na sekundÍ, to w godzinÍ wartoúÊ ta wynosi≥aby  $3.6*10^{12}$, a w rok oko≥o $3.2*10^{16}$. Wyliczenie $10^{20}$ wartoúci funkcji trwa≥oby oko≥o 3171 lat. WidaÊ wiÍc, øe liczba kombinacji jest tak duøa, iø podejúcie to jest niemoøliwe do wykonania w akceptowalnym czasie.
 
 \subsection{Metaheurystyki optymalizacyjne}
 
-Analizujπc podejúcie z rozdzia≥u \ref{dzial:AlgorytmyDokladne} moøe przyjúÊ na myúl sposÛb, ktÛry polegaÊ bÍdzie na wyliczaniu wartoúci funkcji dla wyrywkowych parametrÛw. Skπd jednak wiadomo ktÛre punkty wybraÊ? Na podstawie czego bazowaÊ? W przypadku problemÛw, w ktÛrych przez wzglπd na czas niemoøliwe jest dojúcie do jednoznacznego rozwiπzania na ratunek przychodzπ algorytmy heurystyczne, ktÛre umoøliwiajπ skrÛcenie czasu obliczeÒ. Cenπ ktÛrπ trzeba jednak za to zap≥aciÊ jest moøliwoúÊ otrzymania gorszego rozwiπzania od rozwiπzania najlepszego. Samo pojÍcie heurystyki pochodzi od greckiego s≥owa \textit{heuresis}, ktÛre oznacza \textit{"odnaleüÊ"} \cite{HeurystykaZGreki}. Metody heurystyczne polegajπ na uøyciu regu≥ oraz faktÛw, ktÛre uzyskane na drodze badania danego problemu umoøliwiajπ jego rozwiπzanie lub zbliøenie siÍ do poprawnej odpowiedzi. Podejúcie heurystyczne stosowane moøe byÊ w sposÛb piÍtrowy, tworzπc metaheurystyki. Metaheurystyka jest to ogÛlny algorytm do rozwiπzywania problemÛw obliczeniowych, ktÛry inspiracjÍ czÍsto bierze z mechanizmÛw biologicznych lub fizycznych. Okreúlenie to oznacza tak zwanπ heurystykÍ wyøszego poziomu, co wynika z faktu, iø algorytmy tego typu bezpoúrednio nie rozwiπzujπ øadnego problemu, a wy≥πcznie podajπ metodÍ na utworzenie odpowiedniego algorytmu. 
+Analizujπc podejúcie z podpunktu \ref{dzial:AlgorytmyDokladne} moøe przyjúÊ na myúl sposÛb, ktÛry polegaÊ bÍdzie na wyliczaniu wartoúci funkcji dla wybranych wartoúci argumentÛw. Skπd jednak wiadomo, ktÛre punkty wybraÊ? Na podstawie czego bazowaÊ? W przypadku problemÛw, w ktÛrych przez wzglπd na czas niemoøliwe jest dojúcie do jednoznacznego rozwiπzania, na ratunek przychodzπ algorytmy heurystyczne, ktÛre umoøliwiajπ skrÛcenie czasu obliczeÒ. Cenπ, ktÛrπ trzeba jednak za to zap≥aciÊ, jest moøliwoúÊ otrzymania rozwiπzania gorszego od rozwiπzania najlepszego. Samo pojÍcie heurystyki pochodzi od greckiego s≥owa \textit{heuresis}, ktÛre oznacza \textit{"odnaleüÊ"} \cite{HeurystykaZGreki}. Metody heurystyczne polegajπ na uøyciu regu≥ oraz faktÛw, ktÛre uzyskane na drodze badania danego problemu umoøliwiajπ jego rozwiπzanie lub zbliøenie siÍ do poprawnej odpowiedzi. Podejúcie heurystyczne stosowane moøe byÊ w sposÛb piÍtrowy, tworzπc metaheurystyki. Metaheurystyka jest to ogÛlny algorytm do rozwiπzywania problemÛw obliczeniowych, ktÛry inspiracjÍ czÍsto bierze z mechanizmÛw biologicznych lub fizycznych. Okreúlenie to oznacza tak zwanπ heurystykÍ wyøszego poziomu \cite{HeurystykaWyzszegoPoziomu}, co wynika z faktu, iø algorytmy tego typu bezpoúrednio nie rozwiπzujπ øadnego problemu, a wy≥πcznie podajπ metodÍ na utworzenie odpowiedniego algorytmu. 
 
 \subsubsection{Metoda optymalizacji rojem czπstek}
 \label{dzial:MetodaOptymalizacjiRojemCzastek}
 
-Metoda roju czπstek (PSO ñ Particle Swarm Optimization) jest przyk≥adem optymalizacji z kategorii metod inteligencji stadnej. Powsta≥a ona w wyniku inspiracji biologicznej, ktÛrej ürÛd≥em by≥ uk≥ad lotu stada ptakÛw tworzony w celu znalezienia poøywienia lub gniazda oraz unikniÍcia drapieønikÛw. Zastosowanie prostych zasad umoøliwia ptakom zsynchronizowany oraz bezkolizyjnych ruch, ktÛry daje efekt zachowania jednego organizmu. Ruch stada ptakÛw, czy ≥awicy ryb jest wypadkowπ dzia≥ania wszystkich osobnikÛw i koncentruje siÍ na utrzymaniu optymalnego dystansu od swoich sπsiadÛw, przy jednoczesnym podπøaniem za liderem. Badania nad optymalizacjπ roju czπstek zapoczπtkowano od prÛby graficznej symulacji zachowaÒ takich grup \cite{PSOOgolneInfo}. Bardzo szybko okaza≥o siÍ, iø stworzony matematyczny model moøe byÊ rÛwnieø zastosowany jako metoda optymalizacyjna.
-W optymalizacji rojem czπstek, rozwiπzania (czπstki) wspÛ≥pracujπ ze sobπ w celu odnalezienia czπstki optymalnej. W czasie procesu optymalizacji nastÍpuje zmiana po≥oøenia kaødej czπstki w przestrzeni rozwiπzaÒ poprzez wyznaczenie wektora prÍdkoúci. Wektor ten jest modyfikowany przy uøyciu informacji o historii poszukiwaÒ danej czπstki oraz jej czπstek sπsiednich. Metoda PSO w problemie optymalizacji funkcji wielowymiarowych dπøy do otrzymania czπsteczki, ktÛra reprezentuje jak najmniejszπ wartoúÊ funkcji i moøe byÊ opisana dwoma rÛwnaniami:
+Metoda optymalizacji rojem czπstek (PSO ñ Particle Swarm Optimization) jest przyk≥adem optymalizacji z kategorii metod inteligencji stadnej. Powsta≥a ona w wyniku inspiracji biologicznej, ktÛrej ürÛd≥em by≥ uk≥ad lotu stada ptakÛw tworzony w celu znalezienia poøywienia lub gniazda oraz unikniÍcia drapieønikÛw. Zastosowanie prostych zasad umoøliwia ptakom zsynchronizowany oraz bezkolizyjnych ruch, ktÛry daje efekt podobny do zachowania jednego organizmu. Ruch stada ptakÛw, czy ≥awicy ryb jest wypadkowπ dzia≥ania wszystkich osobnikÛw i koncentruje siÍ na utrzymaniu optymalnego dystansu od swoich sπsiadÛw, przy jednoczesnym podπøaniu za liderem. Badania nad optymalizacjπ rojem czπstek zapoczπtkowano od prÛby graficznej symulacji zachowaÒ takich grup \cite{PSOOgolneInfo}. Bardzo szybko okaza≥o siÍ, iø stworzony matematyczny model moøe byÊ rÛwnieø zastosowany jako metoda optymalizacyjna.
+W optymalizacji rojem czπstek, rozwiπzania (czπstki) wspÛ≥pracujπ ze sobπ w celu odnalezienia czπstki optymalnej. W czasie procesu optymalizacji nastÍpuje zmiana po≥oøenia kaødej czπstki w przestrzeni poszukiwaÒ poprzez wyznaczenie wektora prÍdkoúci. Wektor ten jest modyfikowany przy uøyciu informacji o historii poszukiwaÒ danej czπstki oraz jej czπstek sπsiednich. Metoda PSO w problemie optymalizacji funkcji wielowymiarowych dπøy do otrzymania czπsteczki, ktÛra reprezentuje jak najmniejszπ wartoúÊ funkcji i moøe byÊ opisana dwoma rÛwnaniami \cite{PSOWzory}:
 
 \begin{equation}
-v=W*v+c_1*r_1*(p-x)+c_2*r_2*(g-x)
+v_{t+1}=W*v_t+c_1*r_1*(p-x_t)+c_2*r_2*(g-x_t)
 \label{wzor:pso}
 \end{equation}
 \begin{equation}
-x_{next}=x+v
+x_{t+1}=x_t+v_{t+1}
 \end{equation}
 gdzie,
 
-$v$ - aktualny wektor prÍdkoúci czπstki
+$v$ - wektor prÍdkoúci czπstki
 
-$x$ - aktualna pozycja czπstki
+$x$ - pozycja czπstki
 
 $W$ ñ parametr z zakresu $[0,1]$, ktÛry determinuje wp≥yw poprzedniego po≥oøenia czπstki na jej obecnπ pozycjÍ
 
@@ -198,49 +204,50 @@ $g$ ñ najlepsze rozwiπzanie dla sπsiedztwa czπstek
 $r_1,r_2$ ñ losowe liczby z zakresu $[0,1]$
 
 $c_1,c_2$ ñ parametry skalujπce z zakresu $[0,1]$
-
-$x_{next}$ - nowa pozycja czπstki
 \newline
 
 Nawiπzujπc do powyøszych rÛwnaÒ, kaøda czπstka roju przeszukuje przestrzeÒ rozwiπzaÒ zmieniajπc po≥oøenie na podstawie swoich najlepszych rozwiπzaÒ $p$, jednoczeúnie wykorzystujπc informacjÍ o najlepszym rozwiπzaniu w sπsiedztwie $g$. Parametry skalujπce umoøliwiajπ kontrolÍ wp≥ywu danych sk≥adowych wektora prÍdkoúci na wynik. W przypadku, w ktÛrym $c_1$ bÍdzie rÛwne zero, czπstka bÍdzie wykorzystywa≥a tylko i wy≥πcznie informacjÍ o najlepszym rozwiπzaniu w roju. Z kolei jeúli wartoúÊ parametru $c_2$ zostanie ustawiona na zero, czπstka bÍdzie poszukiwa≥a rozwiπzania samodzielnie, bez uwzglÍdnienia rozwiπzaÒ, ktÛre uzyskane zosta≥y przez inne czπstki. 
 
 \subsubsection{Symulowane wyøarzanie}
 
-Algorytm symulowanego wyøarzania po raz pierwszy zosta≥ opisany w 1953 roku przez Nicolasa Metropolisa. SposÛb dzia≥ania algorytmu jak i rÛwnieø jego nazwa odnosi siÍ do procesÛw fizycznych, ktÛre wykorzystywane sπ w metalurgii. Proces wyøarzania polega na rozgrzaniu cia≥a sta≥ego do okreúlonej temperatury, a nastÍpnie jego powolnym studzeniu. Konsekwencjπ tego dzia≥ania jest zmiana struktury krystalicznej materia≥u, ktÛry poddany zosta≥ wyøarzaniu. W czasie procesu och≥adzania metali dostrzeøono, iø czπsteczki cia≥a
-wraz z jego powolnym sch≥adzaniem tworzπ bardziej regularne struktury, niø w przypadku szybszego obniøenia temperatury, kiedy to ch≥odzone czπsteczki nie potrafiπ znaleüÊ optymalnego po≥oøenia.
+Algorytm symulowanego wyøarzania po raz pierwszy zosta≥ opisany w 1953 roku przez Nicolasa Metropolisa. SposÛb dzia≥ania algorytmu, jak i rÛwnieø jego nazwa odnosi siÍ do procesÛw fizycznych, ktÛre wykorzystywane sπ w metalurgii. Proces wyøarzania polega na rozgrzaniu cia≥a sta≥ego do okreúlonej temperatury, a nastÍpnie na jego powolnym studzeniu. Konsekwencjπ tego dzia≥ania jest zmiana struktury krystalicznej materia≥u, ktÛry poddany zosta≥ wyøarzaniu. W czasie procesu och≥adzania metali dostrzeøono, iø czπsteczki cia≥a wraz z jego powolnym sch≥adzaniem tworzπ bardziej regularne struktury, niø w przypadku szybszego obniøenia temperatury, kiedy to ch≥odzone czπsteczki nie potrafiπ znaleüÊ optymalnego po≥oøenia.
+
 Algorytm symulowanego wyøarzania jest usprawnieniem starszych metod iteracyjnych, ktÛre polega≥y na ciπg≥ym ulepszaniu istniejπcego rozwiπzania do momentu braku moøliwoúci jego poprawy. W metodach tych zatrzymanie algorytmu mog≥o nastπpiÊ przy rozwiπzaniu pseudo-optymalnym ñ lokalnym minimum. Nie istnia≥a wÛwczas moøliwoúÊ wyjúcia z owego lokalnego minimum i kierowania siÍ w kierunku minimum globalnego. Bardzo waønπ cechπ opisywanego algorytmu jest moøliwoúÊ wyboru, z pewnym prawdopodobieÒstwem, gorszego rozwiπzania. 
+DziÍki temu problem utkniÍcia w lokalnym minimum nie jest juø groüny. Na wybÛr gorszego rozwiπzania ma wp≥yw podstawowy parametr przeniesiony z podstaw termodynamicznych algorytmu ñ temperatura. Im jest ona wyøsza, tym wiÍksze istnieje prawdopodobieÒstwo wyboru i zaakceptowania gorszego rozwiπzania. W czasie dzia≥ania algorytmu temperatura obniøa siÍ i zachowanie metody zaczyna zbliøaÊ siÍ w swoim zachowaniu do typowych metod iteracyjnych.
+Graficzne przedstawienia schematu pracy algorytmu symulowanego wyøarzania przedstawione zosta≥o na rysunku \ref{rys:sa}. Rysunek ten przez wzglπd na lepszπ czytelnoúÊ przedstawia problem przeciwny do problemu opisywanego w prezentowanej pracy magisterskiej, a wiÍc problem poszukiwania globalnego maksimum.
 
-
-\begin{figure}[hb]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.7\textwidth]{img_sa.png}
-    \caption{Zasada dzia≥ania algorytmu symulowanego wyøarzania w postaci graficznej, 
+    \caption{Zasada dzia≥ania algorytmu symulowanego w poszukiwaniu maksimum funkcji, 
     èrÛd≥o: http://iacs-courses.seas.harvard.edu/courses/am207/blog/
 	\newline    
     images/mcmc.png}
     \label{rys:sa}
 \end{figure} 
 
-DziÍki temu problem utkniÍcia w lokalnym minimum nie jest juø groüny. Za wybÛr gorszego rozwiπzania ma wp≥yw podstawowy parametr przeniesiony z podstaw termodynamicznych algorytmu ñ temperatura. Im jest ona wyøsza, tym wiÍksze istnieje prawdopodobieÒstwo wyboru i zaakceptowania gorszego rozwiπzania. W czasie dzia≥ania algorytmu, temperatura obniøa siÍ i dzia≥anie algorytmu zbliøa siÍ w swoim zachowaniu do typowych metod iteracyjnych.
-
-W celu wykonania algorytmu symulowanego wyøarzania w kontekúcie optymalizacji funkcji wielu zmiennych naleøy na poczπtku losowo wygenerowaÊ punkt startowy, ktÛry mieúci siÍ na p≥aszczyünie poszukiwaÒ, wyliczyÊ dla niego wartoúÊ funkcji oraz wybraÊ temperaturÍ startowπ z dostÍpnego zakresu $[0,100]$. Kaøda iteracja polega na wyborze losowego rozwiπzania z sπsiedztwa, wyliczenia dla niego wartoúci funkcji i porÛwnaniu z obecnie najlepszym rezultatem oraz obniøeniu temperatury. W przypadku, w ktÛrym wartoúÊ funkcji nowego punktu jest mniejsza (lepsza), jest on zaklasyfikowany jako najlepszy. W przeciwnej sytuacji punkt nie jest natychmiastowo odrzucany. Algorytm akceptuje gorsze rezultaty bazujπc na funkcji akceptacyjnej, ktÛra prezentuje siÍ nastÍpujπco:
+W celu wykonania algorytmu symulowanego wyøarzania w kontekúcie optymalizacji funkcji wielu zmiennych naleøy na poczπtku losowo wygenerowaÊ punkt startowy, ktÛry mieúci siÍ na przestrzeni poszukiwaÒ, wyliczyÊ dla niego wartoúÊ funkcji oraz wybraÊ temperaturÍ poczπtkowπ. Kaøda iteracja polega na wyborze losowego rozwiπzania z sπsiedztwa, wyliczeniu dla niego wartoúci funkcji i porÛwnaniu z obecnie najlepszym rezultatem oraz obniøeniu temperatury. W przypadku, w ktÛrym wartoúÊ funkcji nowego punktu jest mniejsza (lepsza), jest on zaklasyfikowany jako najlepszy. W przeciwnej sytuacji punkt nie jest natychmiastowo odrzucany. Algorytm akceptuje gorsze rezultaty bazujπc na funkcji akceptacyjnej oraz prawdopodobieÒstwie akceptacji, ktÛre wyliczane jest ze wzoru \ref{wzor:SAprawd}.
 
 \begin{equation}
-\frac{1}{1+exp(\frac{\Delta}{max(T)})}
+p_i=\frac{1}{1+exp(\frac{\Delta_i}{T_i})}
+\label{wzor:SAprawd}
 \end{equation}
 gdzie,
 
-$\Delta$ ñ rÛønica pomiÍdzy wartoúciami najlepszego oraz nowego punktu
+$p_i$ - prawdopodobieÒstwa akceptacji
 
-$T$ ñ wartoúÊ temperatury
+$\Delta_i$ ñ rÛønica pomiÍdzy wartoúciami najlepszego punktu oraz punktu w $i$-tej iteracji
 
-W sytuacji, w ktÛrej $\Delta$ i $T$ sπ wartoúciami dodatnimi, prawdopodobieÒstwo akceptacji mieúci siÍ pomiÍdzy 0 i $\frac{1}{2}$. Niøsza temperatura prowadzi do mniejszego prawdopodobieÒstwa zaakceptowania gorszego rezultatu. Podobnie jest z deltπ ñ im wiÍksza delta tym mniejsza szansa na zaakceptowanie.
+$T_i$ ñ wartoúÊ temperatury
+\newline
+
+W sytuacji, w ktÛrej $\Delta_i$ i $T_i$ sπ wartoúciami dodatnimi, $p_i$ przyjmuje wartoúci z zakresu $(0;\frac{1}{2}$. Niøsza temperatura prowadzi do mniejszego prawdopodobieÒstwa zaakceptowania gorszego rezultatu. Podobnie jest z $\Delta$ ñ im wiÍksza delta, tym mniejsza szansa na zaakceptowanie.
 
 \subsubsection{Algorytm genetyczny}
 
-Model algorytmu genetycznego po raz pierwszy zaprezentowany zosta≥ w 1975 roku przez Johna Hollanda, ktÛry w pracy \textit{"Adaptation in Natural and Artificial Systems"} \cite{GetnetycznyPoRazPierwszy} przedstawi≥ fundamenty za≥oøeÒ dotyczπcych adaptacji darwinowskiej teorii ewolucji w systemach informatycznych.  
+Model algorytmu genetycznego po raz pierwszy zaprezentowany zosta≥ w 1975 roku przez Johna Hollanda, ktÛry w pracy \textit{"Adaptation in Natural and Artificial Systems"} \cite{GetnetycznyPoRazPierwszy} przedstawi≥ fundamenty za≥oøeÒ dotyczπcych adaptacji Darwinowskiej teorii ewolucji w systemach informatycznych.  
 
-W opisie algorytmu genetycznego pos≥uguje siÍ powszechnπ terminologiπ biologicznπ. Z tego teø powodu mÛwi siÍ, iø algorytmy genetyczne przetwarzajπ populacjÍ osobnikÛw, ktÛra reprezentuje rozwiπzanie danego problemu. Kaødy element populacji nazywany jest chromosomem, a jego sk≥adowe genami. Allele z kolei, sπ to moøliwe stany (wartoúci) genu, ktÛre umiejscowione sπ na pozycjach zdefiniowanych jako locus. W badanych modelach komputerowych, osobniki (chromosomy) mogπ byÊ opisane jako rÛøne struktury ñ zaczynajπc od ≥aÒcuchÛw binarnych, a koÒczπc na bardzo z≥oøonych obiektach. W okreúlonej iteracji zwanej zamiennie pokoleniem albo generacjπ, dane chromosomy na bazie okreúlonej miary ich dostrojenia podlegajπ ocenie. Ocena ta skutkuje wyborem najlepiej przystosowanych osobnikÛw, ktÛre wezmπ udzia≥ w kolejnych iteracjach algorytmu. Nim jednak wybrane osobniki populacji utworzπ nowπ generacjÍ, zostajπ poddane modyfikacjom bazujπcych na podstawowych operacjach genetycznych ñ krzyøowaniu, selekcji oraz mutacji.
+W opisie algorytmu genetycznego czÍsto pos≥uguje siÍ powszechnπ terminologiπ biologicznπ \cite{GenetycznyTerminologia}. Z tego teø powodu przyjmuje siÍ, iø algorytmy genetyczne przetwarzajπ populacjÍ osobnikÛw, ktÛra reprezentuje rozwiπzanie danego problemu. Kaødy element populacji nazywany jest chromosomem, a jego sk≥adowe genami. Allele, z kolei sπ to moøliwe stany (wartoúci) genu, ktÛre umiejscowione sπ na pozycjach zdefiniowanych jako locus. W badanych modelach komputerowych, osobniki (chromosomy) mogπ byÊ opisane jako rÛøne struktury ñ zaczynajπc od ≥aÒcuchÛw binarnych, a koÒczπc na bardzo z≥oøonych obiektach. W okreúlonej iteracji zwanej zamiennie pokoleniem albo generacjπ, dane chromosomy na bazie okreúlonej miary ich dostrojenia podlegajπ ocenie. Ocena ta skutkuje wyborem najlepiej przystosowanych osobnikÛw, ktÛre wezmπ udzia≥ w kolejnych iteracjach algorytmu. Nim jednak wybrane osobniki populacji utworzπ nowπ generacjÍ, zostajπ poddane modyfikacjom bazujπcych na podstawowych operacjach genetycznych ñ krzyøowaniu, selekcji oraz mutacji.
 
 W kontekúcie problemu optymalizacji funkcji wielu zmiennych, inicjalizacja algorytmu genetycznego polega na wygenerowaniu populacji poczπtkowej, ktÛra z≥oøona jest z okreúlonej liczby chromosomÛw (punktÛw). Kaødy chromosom reprezentowany w populacji posiada takπ samπ d≥ugoúÊ, ktÛra ustalona jest zaleønie od rozwiπzywanego problemu na etapie implementowania algorytmu. Przed rozpoczÍciem etapu generowania musi byÊ jednak okreúlony sposÛb kodowania informacji zawartej w chromosomie. W algorytmie Hollanda nie by≥o domyúlnie zdefiniowanego sposobu kodowania chromosomÛw. Powszechnie uznaje siÍ jednak stosowanie kodowania binarnego \cite{GenetycznyKodowanieBinarne}. Takie teø kodowanie jest zastosowane w kontekúcie omawianego problemu optymalizowania funkcji wielu zmiennych. Kolejnym etapem, ktÛry nastÍpuje po wygenerowaniu populacji poczπtkowej oraz wyborze kodowania chromosomÛw jest wyznaczenie jakoúci chromosomÛw danej populacji. W tym celu obliczana jest wartoúÊ tak zwanej funkcji oceny, ktÛra definiuje poziom dopasowania konkretnego chromosomu. Tym sposobem moøna stwierdziÊ, ktÛre z nich lepiej rozwiπzujπ dane zagadnienie, a ktÛre gorzej. Znalezienie rozwiπzania danego problemu sprowadza siÍ do znalezienia ekstremum wspomnianej funkcji oceny. Kolejnπ czÍúciπ algorytmu jest zastosowanie mechanizmu selekcji, ktÛry definiuje sposÛb wyboru rozwiπzaÒ rodzicielskich, z ktÛrych tworzone bÍdπ tak zwane rozwiπzania potomne uøyte w nastÍpnej generacji. Prostym w implementacji operatorem selekcji dla algorytmu genetycznego jest metoda ruletki \cite{GenetycznyRuletka}. Metoda ta polega na przydzieleniu kaødemu chromosomowi z danej populacji prawdopodobieÒstwa wed≥ug wzoru:
 
@@ -267,9 +274,9 @@ gdzie $f_{min}$ jest wartoúciπ funkcji przystosowania najgorszego chromosomu. \n
 
 Po etapie selekcji pozostaje do zdefiniowania kwestia wymiany pokoleÒ. W implementacjach czÍsto stosowana jest metoda ca≥kowitego zastÍpowania, w ktÛrej ca≥a aktualna populacja, podlega operacjom krzyøowania i mutacji. Innym sposobem jest metoda zastÍpowania czÍúciowego, w ktÛrej czÍúÊ najlepszych chromosomÛw obecnej populacji przechodzi do populacji potomnej bez øadnych zmian, a pozosta≥e elementy z kolei biorπ udzia≥ w operacji krzyøowania i mutacji. Kolejnπ popularnπ praktykπ jest zastosowanie zastÍpowania elitarnego, w ktÛrym na podstawie parametru okreúlajπcego wielkoúÊ elity, czÍúÊ najlepszych osobnikÛw jest kopiowana do nowej generacji juø na samym poczπtku. Umoøliwia to zapamiÍtanie najlepszych chromosomÛw, ktÛre mogπ byÊ zmienione w wyniku dzia≥ania operatorÛw genetycznych rozpoczynajπcych swojπ pracÍ po zakoÒczeniu etapu selekcji.
 
-Pierwszym z takich operatorÛw jest krzyøowanie, ktÛre jest operacjπ umoøliwiajπcπ tworzenie nowych rozwiπzaÒ. Jego koncept bazuje na procesie rozmnaøania organizmÛw, w czasie trwania ktÛrego potomek dziedziczy czÍúÊ genÛw rodzicÛw. W kontekúcie omawianego algorytmu genetycznego, krzyøowanie polega na przeciÍciu chromosomÛw w ustalonym punkcie i ich wzajemnego zamienienia. Operacja ta zosta≥a przedstawiona na obrazku \ref{rys:gen_krzyz}.
+Pierwszym z takich operatorÛw jest krzyøowanie, ktÛre jest operacjπ umoøliwiajπcπ tworzenie nowych rozwiπzaÒ. Jego koncept bazuje na procesie rozmnaøania organizmÛw, w czasie trwania ktÛrego potomek dziedziczy czÍúÊ genÛw rodzicÛw. W kontekúcie omawianego algorytmu genetycznego, krzyøowanie polega na przeciÍciu chromosomÛw w ustalonym punkcie i ich wzajemnego zamienienia. Operacja ta zosta≥a przedstawiona na rysunku \ref{rys:gen_krzyz}.
 
-\begin{figure}[tb]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.6\textwidth]{img_krzyz.png}
     \caption{Graficzna prezentacja operacji krzyøowania jednopunktowego, èrÛd≥o: https://www.linkedin.com/pulse/genetic-algorithms-sharmishtha-mahajan-patwardhan}
@@ -278,7 +285,7 @@ Pierwszym z takich operatorÛw jest krzyøowanie, ktÛre jest operacjπ umoøliwiajπc
 
 Drugim operatorem genetycznym jest mutacja, ktÛra umoøliwia wprowadzenie nowego elementu do populacji poprzez tworzenie rÛønorodnoúci. Analogicznie jak w otaczajπcym nas úwiecie, w algorytmie genetycznym mutacje zdarzajπ siÍ rzadko. Ich skala zaleøy od parametru, ktÛry przyjmuje zazwyczaj niskie wartoúci. W odniesieniu do chromosomÛw w postaci binarnej, mutacja moøe polegaÊ na zamianie losowego genu na wartoúÊ przeciwnπ. 
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.6\textwidth]{img_muta.png}
     \caption{Graficzna prezentacja operacji mutacji, 
@@ -289,7 +296,7 @@ Drugim operatorem genetycznym jest mutacja, ktÛra umoøliwia wprowadzenie nowego 
     \label{rys:gen_muta}
 \end{figure} 
 
-Tak utworzona nowa generacja ponownie przechodzi przez wszystkie punkty algorytmu. Dzieje siÍ tak aø do czasu, w ktÛrym spe≥nione zostanπ warunki zatrzymania, ktÛre w kontekúcie przedstawianego zagadnienia opisane zosta≥y w rozdziale \ref{dzial:MetodyPorownawczeWybranychAlgorytmow} opisujπcym metody porÛwnawcze wybranych algorytmÛw obejmujπce w swojej treúci warunki stopu opisanych trzech metaheurystykÛw.
+Tak utworzona nowa generacja ponownie przechodzi przez wszystkie punkty algorytmu. Dzieje siÍ tak aø do czasu, w ktÛrym spe≥nione zostanπ warunki zatrzymania, ktÛre w kontekúcie przedstawianego zagadnienia opisane zosta≥y w podpunkcie \ref{dzial:MetodyPorownawczeWybranychAlgorytmow} opisujπcym metody porÛwnawcze wybranych algorytmÛw obejmujπce w swojej treúci warunki stopu opisanych trzech metaheurystykÛw.
 
 \section{Automatyzacja przeprowadzanych badaÒ}
 \label{dzial:AutomatyzacjaPrzeprowadzanychBadan}
@@ -319,7 +326,7 @@ Transaction-SQL (T-SQL) \cite{T-SQL} jest to rozwiniÍcie standardowego jÍzyka SQ
 
 \subsection{Zastosowane narzÍdzia}
 
-W celu efektywnej pracy z technologiami, ktÛre opisane zosta≥y w rozdziale \ref{dzial:ZastosowaneTechnologie} warto uøyÊ dedykowanych narzÍdzi, ktÛre u≥atwiajπ zastosowanie funkcjonalnoúci wspomnianych technologii. W tym celu w trakcie pracy nad prezentowanym projektem magisterskim, uøytych zosta≥o kilka narzÍdzi, ktÛre pozwoli≥y skrÛciÊ czas potrzebny na implementacjÍ aplikacji, przeprowadzenie badaÒ oraz zagregowanie ich rezultatÛw.
+W celu efektywnej pracy z technologiami, ktÛre opisane zosta≥y w podpunkcie\ref{dzial:ZastosowaneTechnologie} warto uøyÊ dedykowanych narzÍdzi, ktÛre u≥atwiajπ zastosowanie funkcjonalnoúci wspomnianych technologii. W tym celu w trakcie pracy nad prezentowanym projektem magisterskim, uøytych zosta≥o kilka narzÍdzi, ktÛre pozwoli≥y skrÛciÊ czas potrzebny na implementacjÍ aplikacji, przeprowadzenie badaÒ oraz zagregowanie ich rezultatÛw.
 
 \subsubsection{Matlab}
 
@@ -347,7 +354,7 @@ Visual Studio \cite{bookVS} jest to bardzo rozbudowane úrodowisko deweloperskie 
 WydajnoúÊ pracy w temacie komercyjnych projektÛw programistycznych jest priorytetem, ktÛry bezpoúrednio przek≥ada siÍ na oszczÍdnoúÊ czasowπ, a co za tym idzie na korzyúci finansowe. DostÍpne sπ narzÍdzia, ktÛrych przeznaczeniem jest poprawienie efektywnoúci osoby implementujπcej aplikacjÍ poprzez kontrolÍ pisanego przez niego kodu wed≥ug zdefiniowanych uprzednio zasad oraz zautomatyzowanie czÍsto powtarzanych czynnoúci. Resharper jest to dodatek do úrodowiska Visual Studio, ktÛry w znacznym stopniu rozbudowuje dostÍpne jego funkcjonalnoúci, u≥atwiajπc przy tym refaktoryzacjÍ oraz pisanie kodu. 
 Funkcje, ktÛre zastosowane byÊ mogπ z poziomu Resharpera moøna pogrupowaÊ na kilkanaúcie grup, z ktÛrych jednπ z najwaøniejszych jest modu≥, ktÛry zajmuje siÍ inspekcjπ kodu. W trakcie pisania kodu z uruchomionym w tle Resharperem nastÍpuje sprawdzanie w czasie rzeczywistym ponad 2000 zasad, ktÛre dotyczπ jego poprawnoúci i w sytuacji znalezienia niespÛjnoúci, nastÍpuje poinformowanie programisty na poziomie interfejsu Visual Studio o zaistnia≥ym b≥Ídzie wraz z jego szczegÛ≥owym opisem i miejscem wystπpienia. NiespÛjnoúci te mogπ dotyczyÊ dla przyk≥adu moøliwoúci zastπpienia czÍúci kodu jego wydajniejszπ wersjπ, ostrzeøeniem programisty przed fragmentem kodu, ktÛry potencjalnie moøe spowodowaÊ b≥Ídne dzia≥anie ca≥ej aplikacji oraz fragmentami martwego kodu.
 Kolejnπ bardzo waønπ grupπ funkcji jest funkcjonalnoúÊ generowania kodu. W czasie pracy implementacyjnej sporo czynnoúci takich jak edycja nazw czy pisanie nowych klas oraz metod notorycznie siÍ powtarza. Za pomocπ skrÛtÛw klawiaturowych, wszystkie powyøsze akcje Resharper wykona za programistÍ. Wygeneruje on niezbÍdne przy dziedziczeniu interfejsu wszystkie jego sk≥adowe, przeniesie danπ klasÍ do odrÍbnego pliku oraz automatycznie dokona zamiany wybranej nazwy na innπ w obrÍbie ca≥ej solucji. 
-Zaprezentowane funkcje Resharpera wraz z innymi, ktÛre dostÍpne sπ do wglπdu w odnoúniku \cite{ResharperFeatures}, umoøliwi≥y zmniejszenie czasu potrzebnego na implementacjÍ niezbÍdnych w projekcie modu≥Ûw poprzez zminimalizowanie liczby pojawiajπcych siÍ zagroøeÒ we wczesnej fazie pisania kodu oraz zautomatyzowanie powtarzalnych czynnoúci.  
+Zaprezentowane funkcje Resharpera wraz z innymi, ktÛre opisane zosta≥y w odnoúniku \cite{ResharperFeatures}, umoøliwi≥y zmniejszenie czasu potrzebnego na implementacjÍ niezbÍdnych w projekcie modu≥Ûw poprzez zminimalizowanie liczby pojawiajπcych siÍ zagroøeÒ we wczesnej fazie pisania kodu oraz zautomatyzowanie powtarzalnych czynnoúci.  
 
 \subsection{Wykorzystane biblioteki zewnÍtrzne}
 
@@ -356,7 +363,7 @@ W trakcie budowy systemu informatycznego zdarzajπ siÍ sytuacje, w ktÛrych koniec
 \subsubsection{Matlab Application Type Library v.1.0}
 \label{dzial:MatlabApplicationLibrary}
 
-Matlab Application Type Library w wersji pierwszej jest to otwarta biblioteka przeznaczona dla úrodowiska .NET posiadajπca API umoøliwiajπce wykonywanie operacji Matlabowych stosujπc sk≥adniÍ C\#. Biblioteka ta umoøliwia odwo≥ywanie siÍ do uprzednio zdefiniowanych w Matlabie funkcji, dostarczajπc odpowiednich parametrÛw oraz odbiera wyniki obliczeÒ, ktÛre mogπ byÊ dalej przetwarzane bez koniecznoúci ich manualnego kopiowania. Biblioteka posiada bardzo ogÛlnie zdefiniowane metody, do ktÛrych prawid≥owego wykonania wymagana jest dok≥adna wiedza, ktÛra jednak ograniczona jest przez wzglπd na brak dokumentacji. Przy d≥uøszej pracy jest jednak moøliwe dojúcie do sposobu skorzystania na poziomie C\# z zaawansowanych funkcji ktÛre dostarcza úrodowisko Matlab. W rozdziale \ref{dzial:KomunikacjaMatlabaZProjektem} przedstawiono dok≥adny sposÛb przekazywania i odbierania danych pomiÍdzy úrodowiskiem .NET oraz Matlabem.
+Matlab Application Type Library w wersji pierwszej jest to otwarta biblioteka przeznaczona dla úrodowiska .NET posiadajπca API umoøliwiajπce wykonywanie operacji Matlabowych stosujπc sk≥adniÍ C\#. Biblioteka ta umoøliwia odwo≥ywanie siÍ do uprzednio zdefiniowanych w Matlabie funkcji, dostarczajπc odpowiednich parametrÛw oraz odbiera wyniki obliczeÒ, ktÛre mogπ byÊ dalej przetwarzane bez koniecznoúci ich manualnego kopiowania. Biblioteka posiada bardzo ogÛlnie zdefiniowane metody, do ktÛrych prawid≥owego wykonania wymagana jest dok≥adna wiedza, ktÛra jednak ograniczona jest przez wzglπd na brak dokumentacji. Przy d≥uøszej pracy jest jednak moøliwe dojúcie do sposobu skorzystania na poziomie C\# z zaawansowanych funkcji ktÛre dostarcza úrodowisko Matlab. W podpunkcie \ref{dzial:KomunikacjaMatlabaZProjektem} przedstawiono dok≥adny sposÛb przekazywania i odbierania danych pomiÍdzy úrodowiskiem .NET oraz Matlabem.
 
 \section{Architektura budowanej aplikacji}
 \label{dzial:ArchitekturaBudowanejApl}
@@ -373,7 +380,7 @@ Budowa bazodanowej aplikacji komputerowej komunikujπcej siÍ z systemem trzecim w
 
 \subsection{Architektura aplikacji}
 
-W aspekcie programowania, podobnie jak w innych dziedzinach, w ktÛrych przeprowadzana jest operacja budowy zadanego elementu, naleøy dok≥adnie zaplanowaÊ jego proces. W aktualnym rozdziale przedstawiony zosta≥ opis metodologii, ktÛry pozwoli≥ na uporzπdkowanie procesu budowania aplikacji komputerowej wraz z jego odmianπ, ktÛra zastosowana zosta≥a podczas pracy nad prezentowanπ pracπ magisterskπ. W rozdziale \ref{dzial:ModelAplikacji} zosta≥ rÛwnieø zawarty szczegÛ≥owy opis poszczegÛlnych elementÛw ze strony projektu programistycznego, ktÛry to jest efektem pracy implementacyjnej.
+W aspekcie programowania, podobnie jak w innych dziedzinach, w ktÛrych przeprowadzana jest operacja budowy zadanego elementu, naleøy dok≥adnie zaplanowaÊ jego proces. W aktualnym rozdziale przedstawiony zosta≥ opis metodologii, ktÛry pozwoli≥ na uporzπdkowanie procesu budowania aplikacji komputerowej wraz z jego odmianπ, ktÛra zastosowana zosta≥a podczas pracy nad prezentowanπ pracπ magisterskπ. W podpunkcie \ref{dzial:ModelAplikacji} zosta≥ rÛwnieø zawarty szczegÛ≥owy opis poszczegÛlnych elementÛw ze strony projektu programistycznego, ktÛry to jest efektem pracy implementacyjnej.
  
 \subsubsection{Wzorce architektoniczne oprogramowania}
 
@@ -382,7 +389,7 @@ W kontekúcie planowania i budowania architektury systemu bardzo uøyteczne sπ wzo
 
 \subsubsection{Zastosowany wzorzec architektoniczny ñ MVVM}
 
-MVVM jest to wzorzec, ktÛry dziÍki separacji warstwy logiki biznesowej oraz warstwy prezentacji, pozwala na tworzenie ≥atwo testowalnej aplikacji, ktÛrej fragmenty kodu mogπ byÊ ponownie uøyte w innych projektach programistycznych. Aplikacje implementowane w technologii WPF przy uøyciu wzorca MVVM umoøliwia rÛwnieø ich prostπ rozbudowÍ, a poprzez obowiπzek zachowania odpowiedniej struktury kodu, zrozumienie kodu przez nowπ osobÍ jest o wiele prostsze i mniej czasoch≥onne niø w przypadkÛw aplikacji pisanych bez øadnej ogÛlnie zachowanej struktury. MVVM jest to wzorzec, ktÛry jest bardzo popularny w gronie programistÛw skoncentrowanych przy technologii WPF. Powodem tego jest moøliwoúÊ uøycia najwiÍkszych zalet tej technologii, takich jak \textit{binding} \cite{WpfBinding} (wiπzania), \textit{behavior} (zachowania) oraz \textit{command} \cite{WpfCommands} (komendy). Struktura kodu aplikacji bazujπcej na opisywanym wzorcu, podzielona jest na trzy oddzielne warstwy, ktÛrych nazwy sk≥adajπ siÍ na nazwÍ wzorca: Model, Widok (View) oraz Model Widoku (ViewModel). Kaøda z warstw spe≥nia w aplikacji specjalnie okreúlone funkcje i przetwarza dedykowane dla siebie dane. Graficzna prezentacja oraz kierunki przesy≥ania danych dostÍpna jest do wglπdu na rysunku \ref{rys:mvvm}.
+MVVM jest to wzorzec, ktÛry dziÍki separacji warstwy logiki biznesowej oraz warstwy prezentacji, pozwala na tworzenie ≥atwo testowalnej aplikacji, ktÛrej fragmenty kodu mogπ byÊ ponownie uøyte w innych projektach programistycznych. Aplikacje implementowane w technologii WPF przy uøyciu wzorca MVVM umoøliwia rÛwnieø ich prostπ rozbudowÍ, a poprzez obowiπzek zachowania odpowiedniej struktury kodu, zrozumienie kodu przez nowπ osobÍ jest o wiele prostsze i mniej czasoch≥onne niø w przypadkÛw aplikacji pisanych bez øadnej ogÛlnie zachowanej struktury. MVVM jest to wzorzec, ktÛry jest bardzo popularny w gronie programistÛw skoncentrowanych przy technologii WPF. Powodem tego jest moøliwoúÊ uøycia najwiÍkszych zalet tej technologii, takich jak \textit{binding} \cite{WpfBinding} (wiπzania), \textit{behavior} (zachowania) oraz \textit{command} \cite{WpfCommands} (komendy). Struktura kodu aplikacji bazujπcej na opisywanym wzorcu, podzielona jest na trzy oddzielne warstwy, ktÛrych nazwy sk≥adajπ siÍ na nazwÍ wzorca: Model, Widok (View) oraz Model Widoku (ViewModel). Kaøda z warstw spe≥nia w aplikacji specjalnie okreúlone funkcje i przetwarza dedykowane dla siebie dane. Graficzna prezentacja oraz kierunki przesy≥ania danych zaprezentowano na rysunku \ref{rys:mvvm}.
 
 \begin{figure}[ht]
     \centering
@@ -420,7 +427,7 @@ Folder \textit{Matlab} ukazany na rysunku \ref{img:KatalogMatlab} zawiera pliki 
 
 \subsubsection*{Model}
 
-Katalog Modelu przedstawiony na obrazku \ref{img:KatalogModel} zawiera utworzonπ przez Entity Framework strukturÍ obiektowπ relacyjnej bazy danych. Liczba plikÛw, ktÛre zawiera uzaleøniona jest bezpoúrednio od liczby tabel, ktÛra zastosowana zosta≥a w bazie danych. W czasie dzia≥aÒ implementacyjnych nie jest konieczna wiedza o dok≥adnej strukturze przedstawianego folderu. Wystarczajπce sπ informacje dotyczπce tego, ktÛra bazodanowa tabela zawiera jakie dane.
+Katalog Modelu przedstawiony na rysunku \ref{img:KatalogModel} zawiera utworzonπ przez Entity Framework strukturÍ obiektowπ relacyjnej bazy danych. Liczba plikÛw, ktÛre zawiera uzaleøniona jest bezpoúrednio od liczby tabel, ktÛra zastosowana zosta≥a w bazie danych. W czasie dzia≥aÒ implementacyjnych nie jest konieczna wiedza o dok≥adnej strukturze przedstawianego folderu. Wystarczajπce sπ informacje dotyczπce tego, ktÛra bazodanowa tabela zawiera jakie dane.
 
 \begin{figure}[ht]
     \centering
@@ -470,7 +477,7 @@ public ResultDetail ParseResult(object[] result)
 
 \subsubsection*{View}
 
-Katalog widoku jest katalogiem najwaøniejszym ze strony uøytkownika poniewaø zawiera definicjÍ budowy g≥Ûwnego okna aplikacji oraz umiejscowienia wszystkich kontrolek jakie ono zawiera. W tym w≥aúnie miejscu wykorzystywany jest opisany w rozdziale \ref{dzial:WpfXaml} jÍzyk XAML, ktÛry pozwala na przeprowadzenie operacji wiπzaÒ oraz stosowanie komend.
+Katalog widoku jest katalogiem najwaøniejszym ze strony uøytkownika poniewaø zawiera definicjÍ budowy g≥Ûwnego okna aplikacji oraz umiejscowienia wszystkich kontrolek jakie ono zawiera. W tym w≥aúnie miejscu wykorzystywany jest opisany w podpunkcie \ref{dzial:WpfXaml} jÍzyk XAML, ktÛry pozwala na przeprowadzenie operacji wiπzaÒ oraz stosowanie komend.
 
 \subsubsection*{ViewModel}
 
@@ -480,9 +487,9 @@ Ostatni opisywany katalog - \textit{ViewModel} - zawiera pliki dostosowane do pr
 
 Analiza tematu projektu dotyczπca porÛwnania algorytmÛw metaheurystycznych doprowadzi≥a do powstania potrzeby zastosowania úrodowiska bazodanowego, ktÛre umoøliwi≥oby przechowywanie oraz agregowanie wynikÛw przeprowadzonych doúwiadczeÒ. W prezentowanym rozdziale opisany zosta≥ serwer bazodanowy przechowujπcy instancjÍ bazy wraz z metodπ jego dzia≥ania oraz model utworzonej bazy danych.
 
-\subsubsection{Microsoft SQL Server ñ uøyty system do zarzπdzania bazπ danych}
+\subsubsection{Microsoft SQL Server ñ system do zarzπdzania bazπ danych}
 
-Zastosowanie w projekcie bazy danych wymusi≥o obowiπzek utworzenia oraz uruchomienia serwera bazodanowego. Przez fakt na zastosowane technologie, ktÛrych opis znajduje siÍ w rozdziale \ref{dzial:ZastosowaneTechnologie}, uøyty zosta≥ Microsoft SQL Server. Jest to relacyjny system zarzπdzania bazπ danych, ktÛrego podstawowπ funkcjπ jest przechowywanie danych oraz ich przetwarzanie na øπdanie innych aplikacji, ktÛre mogπ dzia≥aÊ na tym samym komputerze lub na innej maszynie w sieci LAN czy teø WAN. Przydatnym narzÍdziem przy pracy z Microsoft SQL Serverem jest dedykowane narzÍdzie z graficznym interfejsem uøytkownika, ktÛre w znacznym stopniu upraszcza korzystanie z jego funkcji.
+Zastosowanie w projekcie bazy danych wymusi≥o obowiπzek utworzenia oraz uruchomienia serwera bazodanowego. Przez fakt na zastosowane technologie, ktÛrych opis znajduje siÍ w podpunkcie \ref{dzial:ZastosowaneTechnologie}, uøyty zosta≥ Microsoft SQL Server. Jest to relacyjny system zarzπdzania bazπ danych, ktÛrego podstawowπ funkcjπ jest przechowywanie danych oraz ich przetwarzanie na øπdanie innych aplikacji, ktÛre mogπ dzia≥aÊ na tym samym komputerze lub na innej maszynie w sieci LAN czy teø WAN. Przydatnym narzÍdziem przy pracy z Microsoft SQL Serverem jest dedykowane narzÍdzie z graficznym interfejsem uøytkownika, ktÛre w znacznym stopniu upraszcza korzystanie z jego funkcji.
 W przypadku budowanej aplikacji serwer bazodanowy zosta≥ utworzony na maszynie lokalnej, na ktÛrej dzia≥a rÛwnieø aplikacja automatyzujπca testy. Na potrzeby przeprowadzanych doúwiadczeÒ rozwiπzanie to jest wystarczajπce przez fakt braku koniecznoúci posiadania bardzo szybkiego úrodowiska, ktÛre wymaga uiszczenia op≥at adekwatnych do rodzaju wykupywanego serwera.
 
 \subsubsection{Budowa bazy danych uøytej w projekcie}
@@ -500,7 +507,7 @@ Na s≥ownikowπ czÍúÊ bazy danych sk≥adajπ siÍ trzy tabele przedstawione na rysunk
     \label{rys:baza_slownik}
 \end{figure} 
 
-Tabela \textit{Alghoritms} jest prostπ tabelπ s≥ownikowπ zawierajπcπ identyfikator oraz nazwÍ algorytmu metaheurystycznego. Lista algorytmÛw dostÍpnych do przetestowania w aplikacji znajduje siÍ w≥aúnie w tej tabeli. Na podstawie nazwy algorytmu, dopasowywana jest jej funkcja Matlabowa, w ktÛrej tkwi g≥Ûwna logika algorytmu. W celu prawid≥owego obs≥uøenia kolejnego algorytmu, naleøy dodaÊ wpis w opisywanej tabeli oraz wed≥ug odpowiedniego schematu dostÍpnego do wglπdu w klasie \textit{FunctionNameMatcher} stworzyÊ funkcjÍ w aplikacji Matlab. Tak utworzony schemat algorytmu naleøy kolejno dodaÊ do warstwy ViewModelu oraz dostosowaÊ logikÍ okna uøytkownika do wymaganych przez algorytm parametrÛw. 
+Tabela \textit{Alghoritms} jest prostπ tabelπ s≥ownikowπ zawierajπcπ identyfikator oraz nazwÍ algorytmu metaheurystycznego. Lista algorytmÛw dostÍpnych do przetestowania w aplikacji znajduje siÍ w≥aúnie w tej tabeli. Na podstawie nazwy algorytmu, dopasowywana jest jej funkcja Matlabowa, w ktÛrej tkwi g≥Ûwna logika algorytmu. W celu prawid≥owego obs≥uøenia kolejnego algorytmu, naleøy dodaÊ wpis w opisywanej tabeli oraz wed≥ug odpowiedniego schematu umiejscowionego w klasie \textit{FunctionNameMatcher} stworzyÊ funkcjÍ w aplikacji Matlab. Tak utworzony schemat algorytmu naleøy kolejno dodaÊ do warstwy ViewModelu oraz dostosowaÊ logikÍ okna uøytkownika do wymaganych przez algorytm parametrÛw. 
 
 \textit{TestFunctions} jest to tabela, ktÛra zawiera opis funkcji testowych na bazie ktÛrych dokonywane sπ testy algorytmÛw. Zawarte w niej sπ takie informacje jak identyfikator funkcji, jej nazwa, poziom trudnoúci ustalony na bazie stopnia skomplikowania funkcji testowej zaczerpniÍty z \cite{RankingFunkcjiTestowych}, odnoúnik do wykresu danej funkcji wraz z informacjami na jej temat, zakres p≥aszczyzny w obrÍbie ktÛrej ma byÊ poszukiwana wartoúÊ minimalna oraz wymiar funkcji czyli liczba zmiennych, na ktÛrej owa funkcja bazuje. W celu dodania do aplikacji kolejnej funkcji testowej naleøy dokonaÊ dodania jej definicji w opisywanej tabeli oraz utworzyÊ plik Matlabowy zawierajπcy jej wzÛr. Nazwa pliku powinna zgadzaÊ siÍ ze schematem zawartym w klasie dopasowujπcej - \textit{FunctionNameMatcher}. Tak utworzona funkcja bÍdzie automatycznie dostÍpna do wyboru z poziomu aplikacji.
 
@@ -569,7 +576,7 @@ Ostatniπ metodπ jest \textit{Model First}, ktÛre polega na utworzeniu fizycznego
 \subsection{Komunikacja Matlaba z projektem programistycznym}
 \label{dzial:KomunikacjaMatlabaZProjektem}
 
-Poprawne skomunikowanie aplikacji bazodanowej ze úrodowiskiem obliczeniowym Matlab by≥o najtrudniejszπ czÍúciπ podczas ca≥ej pracy implementacyjnej. Podczas tworzenia architektury budowanej aplikacji poszukiwany by≥ efektywny sposÛb integracji obu úrodowisk. Przez fakt utworzenia ich przez rÛønych producentÛw, nie istnieje domyúlnie wbudowana funkcjonalnoúÊ ich integracji. Poszukiwania doprowadzi≥y do zastosowania dedykowanej dla úrodowiska .NET biblioteki opisanej w rozdziale \ref{dzial:MatlabApplicationLibrary}, ktÛra ≥πczy siÍ z poúredniczπcym serwerem Matlaba. Serwer ten nie jest domyúlnie dodawany przy instalacji úrodowiska obliczeniowego, dlatego teø nachodzi koniecznoúÊ jego dodatkowego doinstalowania. Biblioteka umoøliwia stworzenie øπdania na poziomie C\#, ktÛre nastÍpnie przekazywane jest do serwera poúredniczπcego, ktÛre t≥umaczy je na jÍzyk stosowany przez Matlaba. Øπdanie te jest  wykonywane przez úrodowisko obliczeniowe, a jego rezultat analogicznπ úcieøkπ przekazywany jest do aplikacji bazodanowej. Sporym problemem okaza≥o siÍ prawid≥owe tworzenie øπdaÒ przez fakt na bardzo ograniczonπ dokumentacjÍ biblioteki i ma≥π liczbÍ przyk≥adÛw. Na podstawie metody prÛb i b≥ÍdÛw uda≥o siÍ jednak utworzyÊ prawid≥owy typ øπdaÒ oraz w sposÛb w≥aúciwy dokonywaÊ odbioru ich odpowiedzi. Øπdanie w kodzie ürÛd≥owym numer \ref{listing:SendRequestToMatlab} prezentuje sposÛb wykonania pojedynczego doúwiadczenia dotyczπcego algorytmu symulowanego wyøarzania, natomiast kod ürÛd≥owy numer \ref{listing:ParseResultsFromMatlab}, ktÛry umiejscowiony zosta≥ juø w rozdziale \ref{dzial:ModelAplikacji}, ukazuje sposÛb przetwarzania otrzymanej odpowiedzi.
+Poprawne skomunikowanie aplikacji bazodanowej ze úrodowiskiem obliczeniowym Matlab by≥o najtrudniejszπ czÍúciπ podczas ca≥ej pracy implementacyjnej. Podczas tworzenia architektury budowanej aplikacji poszukiwany by≥ efektywny sposÛb integracji obu úrodowisk. Przez fakt utworzenia ich przez rÛønych producentÛw, nie istnieje domyúlnie wbudowana funkcjonalnoúÊ ich integracji. Poszukiwania doprowadzi≥y do zastosowania dedykowanej dla úrodowiska .NET biblioteki opisanej w podpunkcie \ref{dzial:MatlabApplicationLibrary}, ktÛra ≥πczy siÍ z poúredniczπcym serwerem Matlaba. Serwer ten nie jest domyúlnie dodawany przy instalacji úrodowiska obliczeniowego, dlatego teø nachodzi koniecznoúÊ jego dodatkowego doinstalowania. Biblioteka umoøliwia stworzenie øπdania na poziomie C\#, ktÛre nastÍpnie przekazywane jest do serwera poúredniczπcego, ktÛre t≥umaczy je na jÍzyk stosowany przez Matlaba. Øπdanie te jest  wykonywane przez úrodowisko obliczeniowe, a jego rezultat analogicznπ úcieøkπ przekazywany jest do aplikacji bazodanowej. Sporym problemem okaza≥o siÍ prawid≥owe tworzenie øπdaÒ przez fakt na bardzo ograniczonπ dokumentacjÍ biblioteki i ma≥π liczbÍ przyk≥adÛw. Na podstawie metody prÛb i b≥ÍdÛw uda≥o siÍ jednak utworzyÊ prawid≥owy typ øπdaÒ oraz w sposÛb w≥aúciwy dokonywaÊ odbioru ich odpowiedzi. Øπdanie w kodzie ürÛd≥owym numer \ref{listing:SendRequestToMatlab} prezentuje sposÛb wykonania pojedynczego doúwiadczenia dotyczπcego algorytmu symulowanego wyøarzania, natomiast kod ürÛd≥owy numer \ref{listing:ParseResultsFromMatlab}, ktÛry umiejscowiony zosta≥ juø w punkcie \ref{dzial:ModelAplikacji}, ukazuje sposÛb przetwarzania otrzymanej odpowiedzi.
 
 \begin{lstlisting}[caption= {Implementacja oraz opis funkcji wysy≥ajπcej øπdanie do úrodowiska obliczeniowego Matlab.}, label={listing:SendRequestToMatlab}]
 private ResultDetail ExecuteSimulatedAnnealingAlghoritm( Alghoritm alghoritm, TestFunction testFunction, InputParameter inputParameter)
@@ -601,7 +608,7 @@ private ResultDetail ExecuteSimulatedAnnealingAlghoritm( Alghoritm alghoritm, Te
 }
 \end{lstlisting}
 
-\subsubsection{Uruchomienie aplikacji bazodanowej}
+\subsection{Uruchomienie aplikacji bazodanowej}
 
 W celu uruchomienia zaimplementowanej aplikacji bazodanowej niezbÍdne jest posiadanie úrodowiska obliczeniowego Matlab R2017 w wersji 9.2, serwera SQL wraz z narzÍdziem SQL Server Management Studio 17 oraz .NET Framework w wersji 4.5.1.
 Przed uruchomieniem aplikacji, niezbÍdnπ operacjπ jest odpowiednia konfiguracja serwera bazodanowego. W tym celu, w narzÍdziu SQL Server Management Studio naleøy utworzyÊ bazÍ danych za pomocπ skryptu \textit{EntityDataModel.edmx.sql} za≥πczonego do solucji programistycznej. Po jego wykonaniu utworzone zostanπ wszystkie niezbÍdne tabele bazodanowe wraz z odpowiednimi relacjami. Kolejnym krokiem jest dodanie wymaganych danych do czÍúci s≥ownikowej bazy danych. Odpowiedzialny jest za to skrypt \textit{AddDictionaries.sql}, po wykonaniu ktÛrego dodane zostanπ wszelkie niezbÍdne informacje dotyczπce porÛwnywanych algorytmÛw heurystycznych oraz uøytych funkcji testowych. Tak przygotowane úrodowisko, na bazie domyúlnej konfiguracji umoøliwia uruchomienie zaimplementowanej aplikacji, ktÛra podczas startu uruchamia automatycznie aplikacjÍ Matlab. Niweluje to koniecznoúÊ pamiÍtania o uruchomieniu úrodowiska obliczeniowego manualnie. Okno uruchomionej aplikacji, ktÛre aktualnie wykonuje testy, widoczne jest na rysunku \ref{rys:apka}.
@@ -615,7 +622,7 @@ Przed uruchomieniem aplikacji, niezbÍdnπ operacjπ jest odpowiednia konfiguracja 
 
 \section{Badania eksperymentalne}
 
-Ca≥y proces poczπwszy od pomys≥u automatyzacji przeprowadzanych badaÒ zawarty w rozdziale \ref{dzial:AutomatyzacjaPrzeprowadzanychBadan}, przez analizÍ rozwiπzaÒ technologicznych opisanych w rozdziale \ref{dzial:WykorzystaneRozwiazaniaTechnologiczne}, po budowÍ architektury oraz samej aplikacji bazodanowej ujÍty w rozdziale \ref{dzial:ArchitekturaBudowanejApl} mia≥ za zadanie u≥atwiÊ przeprowadzenie eksperymentalnych badaÒ porÛwnawczych wybranych algorytmÛw metaheurystycznych. W obecnym rozdziale przedstawiony zosta≥ opis metod porÛwnawczych, a takøe samych badaÒ doúwiadczalnych wraz z ich zagregowanymi wynikami zawartymi w rozdziale \ref{dzial:WynikiDoswiadczenDlaZadanychFun}.
+Ca≥y proces poczπwszy od pomys≥u automatyzacji przeprowadzanych badaÒ zawarty w punkcie \ref{dzial:AutomatyzacjaPrzeprowadzanychBadan}, przez analizÍ rozwiπzaÒ technologicznych opisanych w punkcie \ref{dzial:WykorzystaneRozwiazaniaTechnologiczne}, po budowÍ architektury oraz samej aplikacji bazodanowej ujÍty w punkcie \ref{dzial:ArchitekturaBudowanejApl} mia≥ za zadanie u≥atwiÊ przeprowadzenie eksperymentalnych badaÒ porÛwnawczych wybranych algorytmÛw metaheurystycznych. W obecnym rozdziale przedstawiony zosta≥ opis metod porÛwnawczych, a takøe samych badaÒ doúwiadczalnych wraz z ich zagregowanymi wynikami zawartymi w podpunkcie \ref{dzial:WynikiDoswiadczenDlaZadanychFun}.
 
 \subsection{Metody porÛwnawcze wybranych algorytmÛw}
 \label{dzial:MetodyPorownawczeWybranychAlgorytmow}
@@ -641,77 +648,77 @@ Przez wzglπd na duøπ liczbÍ parametrÛw kaødego porÛwnywanego algorytmu heurystyc
 NowaTemperatura = ObecnaTemperatura * 0.95^k
 \end{equation}
 , gdzie \textit{k} jest numerem iteracji od wyøarzenia. UwzglÍdniajπc fakt duøej liczby iteracji, ktÛrπ algorytm mÛg≥ wykonaÊ podczas testÛw, zdecydowano siÍ wprowadziÊ moøliwoúÊ wystπpienia operacji ponownego wyøarzenia (ang. reannealing), w czasie ktÛrej algorytm ponownie ustala temperaturÍ na domyúlnπ wartoúÊ $100$ stopni i kontynuuje pracÍ. WartoúÊ parametru dotyczπcego moøliwoúci wystπpienia ponownego wyøarzania ustalona zosta≥a na poziomie $40$ i definiuje liczbÍ punktÛw, ktÛre algorytm ma obowiπzek zaakceptowaÊ przed wystπpieniem wspomnianej operacji.
-W metodzie roju czπstek domyúlne parametry wzoru \ref{wzor:pso} zawartego w rozdziale \ref{dzial:MetodaOptymalizacjiRojemCzastek} ustalone zosta≥y na nastÍpujπce wartoúci:
+W metodzie optymalizacji rojem czπstek domyúlne parametry wzoru \ref{wzor:pso} zawartego w podpunkcie \ref{dzial:MetodaOptymalizacjiRojemCzastek} ustalone zosta≥y na nastÍpujπce wartoúci:
 $W = 0.6$, $c_1 = c_2 = 0.75$.
 Algorytm genetyczny z kolei wymaga≥ najwiÍkszej iloúci testÛw skalujπcych przez fakt posiadania najwiÍkszej liczby moøliwych kombinacji parametrÛw. Na ich postawie wybrano metodÍ ruletki jako metodÍ selekcji, zastÍpowanie elitarne o wielkoúci elity rÛwnej $0.05*WielkoscPopulacji$ jako metodÍ wymiany pokoleÒ oraz metodÍ krzyøowania jednopunktowego.
 
 \subsubsection{Przeprowadzenie doúwiadczeÒ w zaimplementowanym úrodowisku testowym}
 
-W zaimplementowanej aplikacji, dla kaødego opisanego w rozdziale \ref{dzial:MetodyPorownawczeWybranychAlgorytmow} kryterium, umieszczane by≥y ustalone wartoúci parametrÛw, po czym przeprowadzana by≥a operacja uruchomienia programu. Dla kryterium maksymalnego czasu, w ktÛrym algorytmy poszukiwa≥y globalnego minimum funkcji, doúwiadczenia wykonywane zosta≥y dla zakresu od jednej do piÍciu sekund, z jednosekundowym interwa≥em. Liczba testÛw dla kaødej wartoúci z ustalonego zakresu ustalona zosta≥a na poziomie stu prÛb. Pozosta≥e parametry, takie jak maksymalna liczba iteracji oraz odwo≥aÒ do funkcji wraz z maksymalnπ liczbπ iteracji bez poprawy wyniku, ustalone zosta≥y na niemoøliwπ do osiπgniÍcia wartoúÊ $999999$. Spowodowane by≥o to tym, iø jednym warunkiem stopu w przedstawianej metodzie porÛwnawczej by≥ maksymalny ustalony czas dzia≥ania algorytmu.
-W przypadku algorytmu genetycznego oraz roju czπstek dodatkowo przeprowadzone zosta≥y doúwiadczenia dla rÛønych wielkoúci populacji i roju, dziÍki czemu moøliwa do wykonania by≥a analiza wp≥ywu tych parametrÛw na otrzymane rezultaty.
+W zaimplementowanej aplikacji, dla kaødego opisanego w podpunkcie \ref{dzial:MetodyPorownawczeWybranychAlgorytmow} kryterium, umieszczane by≥y ustalone wartoúci parametrÛw, po czym przeprowadzana by≥a operacja uruchomienia programu. Dla kryterium maksymalnego czasu, w ktÛrym algorytmy poszukiwa≥y globalnego minimum funkcji, doúwiadczenia wykonywane zosta≥y dla zakresu od jednej do piÍciu sekund, z jednosekundowym interwa≥em. Liczba testÛw dla kaødej wartoúci z ustalonego zakresu ustalona zosta≥a na poziomie stu prÛb. Pozosta≥e parametry, takie jak maksymalna liczba iteracji oraz odwo≥aÒ do funkcji wraz z maksymalnπ liczbπ iteracji bez poprawy wyniku, ustalone zosta≥y na niemoøliwπ do osiπgniÍcia wartoúÊ $999999$. Spowodowane by≥o to tym, iø jednym warunkiem stopu w przedstawianej metodzie porÛwnawczej by≥ maksymalny ustalony czas dzia≥ania algorytmu.
+W przypadku algorytmu genetycznego oraz optymalizacji rojem czπstek dodatkowo przeprowadzone zosta≥y doúwiadczenia dla rÛønych wielkoúci populacji i roju, dziÍki czemu moøliwa do wykonania by≥a analiza wp≥ywu tych parametrÛw na otrzymane rezultaty.
 
 Przeprowadzenie badaÒ dotyczπcych kryterium maksymalnej liczby odwo≥aÒ do funkcji testowej przebiega≥o w sposÛb analogiczny, z tπ rÛønicπ, iø niemoøliwπ do osiπgniÍcia wartoúciπ $999999$ zosta≥ objÍty maksymalny czas poszukiwaÒ, ktÛry w opisywanym kryterium nie by≥ brany pod uwagÍ. WartoúÊ parametru dotyczπcego maksymalnej liczby odwo≥aÒ do funkcji testowej ustalona zosta≥a na poziomie $1000, 2000, 3000, 4000, 5000$ oraz $6000$.
 
 \subsection{Wyniki doúwiadczeÒ dla zadanych funkcji testowych}
 \label{dzial:WynikiDoswiadczenDlaZadanychFun}
 
-Aktualny rozdzia≥ prezentuje zagregowane wyniki przeprowadzanych doúwiadczeÒ dla funkcji testowych opisanych w rozdziale \ref{dzial:FunkcjeTestowe}. Prezentacja wynikÛw dla kaødej funkcji testowej podzielona zosta≥a na dwie czÍúci przez wzglπd na dwa kryteria porÛwnawcze algorytmÛw zdefiniowane w rozdziale \ref{dzial:MetodyPorownawczeWybranychAlgorytmow}. Warte zdefiniowania jest znaczenie kolorÛw tabel zawartych w poniøszych podrozdzia≥ach. Zielony kolor definiuje najlepsze otrzymane rezultaty w obrÍbie jednego testu, czerwony natomiast wyniki gorsze.
+Aktualny rozdzia≥ prezentuje zagregowane wyniki przeprowadzanych doúwiadczeÒ dla funkcji testowych opisanych w podpunkcie \ref{dzial:FunkcjeTestowe}. Prezentacja wynikÛw dla kaødej funkcji testowej podzielona zosta≥a na dwie czÍúci przez wzglπd na dwa kryteria porÛwnawcze algorytmÛw zdefiniowane w podpunkcie \ref{dzial:MetodyPorownawczeWybranychAlgorytmow}. Warte zdefiniowania jest znaczenie kolorÛw tabel zawartych w poniøszych podrozdzia≥ach. Zielony kolor definiuje najlepsze otrzymane rezultaty w obrÍbie jednego testu, czerwony natomiast wyniki gorsze.
 
-\subsubsection{Funkcja Bohachevskyíego 1}
+\subsubsection{Funkcja Bohachevskyíego I}
 
 W tabeli \ref{tab:boh_ga_1} przedstawione zosta≥y wyniki otrzymane przez algorytm genetyczny dla kryterium czasowego. Wynika z niej, iø najlepsze rezultaty uzyskane zosta≥y dla wielkoúci populacji rÛwnej $100$.
-Dla metody roju czπstek otrzymane rezultaty zaprezentowane zosta≥y w tabeli \ref{tab:boh_pso_1}, z ktÛrej wynika, iø najlepsze wyniki uzyskane zosta≥y dla wielkoúci roju rÛwnej 50 oraz 100. W tym jednak przypadku, jako najlepsze rezultaty wybrane zosta≥y wyniki z wielkoúciπ roju rÛwnπ 100, z powodu mniejszej liczby odwo≥aÒ do funkcji testowej niø w przypadku roju o wielkoúci 50.
+Dla metody optymalizacji rojem czπstek otrzymane rezultaty zaprezentowane zosta≥y w tabeli \ref{tab:boh_pso_1}, z ktÛrej wynika, iø najlepsze wyniki uzyskane zosta≥y dla wielkoúci roju rÛwnej 50 oraz 100. W tym jednak przypadku, jako najlepsze rezultaty wybrane zosta≥y wyniki z wielkoúciπ roju rÛwnπ 100, z powodu mniejszej liczby odwo≥aÒ do funkcji testowej niø w przypadku roju o wielkoúci 50.
 
 \begin{table}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{boh_ga_1.png}
-    \caption{Zestawienie wynikÛw algorytmu genetycznego dla funkcji Bohachevskyíego - kryterium czasowe, èrÛd≥o: Opracowanie w≥asne.}
+    \caption{Zestawienie wynikÛw algorytmu genetycznego dla funkcji Bohachevskyíego I - kryterium czasowe, èrÛd≥o: Opracowanie w≥asne.}
     \label{tab:boh_ga_1}
 \end{table}
 
 \begin{table}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{boh_pso_1.png}
-    \caption{Zestawienie wynikÛw metody roju czπstek dla funkcji Bohachevskyíego - kryterium czasowe, èrÛd≥o: Opracowanie w≥asne.}
+    \caption{Zestawienie wynikÛw metody optymalizacji rojem czπstek dla funkcji Bohachevskyíego I - kryterium czasowe, èrÛd≥o: Opracowanie w≥asne.}
     \label{tab:boh_pso_1}
 \end{table}
 
-Najlepsze rezultaty algorytmu genetycznego oraz roju czπstek zosta≥y zestawione wraz z rezultatami symulowanego wyøarzania w tabeli \ref{tab:boh_all_1}. Wynika z niej, iø najlepsze wyniki dla kaødej wartoúci parametru maksymalnego czasu uzyska≥a metoda roju czπstek, ktÛra w kaødym przypadku znalaz≥a minimum globalne dla funkcji Bohachevsky'ego, ktÛrego wartoúÊ wynosi 0. Na drugim miejscu uplasowa≥ siÍ algorytm genetyczny, ktÛrego wyniki oscylowa≥y wokÛ≥ minimum globalnego, jednak w ani jednym przypadku go nie osiπgnÍ≥y. Algorytm symulowanego wyøarzania uzyska≥ lepszy rezultat od algorytmu genetycznego tylko w przypadku testu dotyczπcego maksymalnego czasu dzia≥ania algorytmu rÛwnego jednπ sekundÍ. W pozosta≥ych przypadkach uzyska≥ najgorsze rezultaty ze wszystkich porÛwnywanych algorytmÛw metaheurystycznych.
+Najlepsze rezultaty algorytmu genetycznego oraz optymalizacji rojem czπstek zosta≥y zestawione wraz z rezultatami symulowanego wyøarzania w tabeli \ref{tab:boh_all_1}. Wynika z niej, iø najlepsze wyniki dla kaødej wartoúci parametru maksymalnego czasu uzyska≥a metoda optymalizacji rojem czπstek, ktÛra w kaødym przypadku znalaz≥a minimum globalne dla funkcji Bohachevsky'ego I, ktÛrego wartoúÊ wynosi 0. Na drugim miejscu uplasowa≥ siÍ algorytm genetyczny, ktÛrego wyniki oscylowa≥y wokÛ≥ minimum globalnego, jednak w ani jednym przypadku go nie osiπgnÍ≥y. Algorytm symulowanego wyøarzania uzyska≥ lepszy rezultat od algorytmu genetycznego tylko w przypadku testu dotyczπcego maksymalnego czasu dzia≥ania algorytmu rÛwnego jednπ sekundÍ. W pozosta≥ych przypadkach uzyska≥ najgorsze rezultaty ze wszystkich porÛwnywanych algorytmÛw metaheurystycznych.
 
 
 \begin{table}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{boh_all_1.png}
-    \caption{Zestawienie najlepszych wynikÛw wszystkich trzech porÛwnywanych algorytmÛw metaheurystycznych dla funkcji Bohachevskyíego - kryterium czasowe, èrÛd≥o: Opracowanie w≥asne.}
+    \caption{Zestawienie najlepszych wynikÛw wszystkich trzech porÛwnywanych algorytmÛw metaheurystycznych dla funkcji Bohachevskyíego I - kryterium czasowe, èrÛd≥o: Opracowanie w≥asne.}
     \label{tab:boh_all_1}
 \end{table}
 
-W przypadku kryterium dotyczπcym okreúlonej maksymalnej liczby odwo≥aÒ algorytmu do funkcji testowej, otrzymane rezultaty sπ bardzo zbliøone do rezultatÛw poprzedniego kryterium. Algorytm genetyczny najlepsze wyniki uzyska≥ dla wielkoúci populacji rÛwnej 100, co moøna zaobserwowaÊ na wykresie \ref{tab:boh_ga_2}. Metoda roju czπstek, wed≥ug wykresu \ref{tab:boh_pso_2}, najlepsze rezultaty zanotowa≥a dla wielkoúci roju rÛwnego 50, co jest innπ wartoúciπ niø w przypadku kryterium czasowego. Wyniki te zosta≥y zestawione w tabeli \ref{tab:boh_all_2} z rezultatami otrzymanymi przez algorytm symulowanego wyøarzania, z ktÛrej wynika iø ponownie dla kaødej wartoúci zadanego kryterium, najlepsza okaza≥a siÍ metoda roju czπstek.
+W przypadku kryterium dotyczπcym okreúlonej maksymalnej liczby odwo≥aÒ algorytmu do funkcji testowej, otrzymane rezultaty sπ bardzo zbliøone do rezultatÛw poprzedniego kryterium. Algorytm genetyczny najlepsze wyniki uzyska≥ dla wielkoúci populacji rÛwnej 100, co moøna zaobserwowaÊ na wykresie \ref{tab:boh_ga_2}. Metoda optymalizacji rojem czπstek, wed≥ug wykresu \ref{tab:boh_pso_2}, najlepsze rezultaty zanotowa≥a dla wielkoúci roju rÛwnego 50, co jest innπ wartoúciπ niø w przypadku kryterium czasowego. Wyniki te zosta≥y zestawione w tabeli \ref{tab:boh_all_2} z rezultatami otrzymanymi przez algorytm symulowanego wyøarzania, z ktÛrej wynika iø ponownie dla kaødej wartoúci zadanego kryterium, najlepsza okaza≥a siÍ metoda optymalizacji rojem czπstek.
 
 \begin{table}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{boh_ga_2.png}
-    \caption{Zestawienie wynikÛw algorytmu genetycznego dla funkcji Bohachevskyíego - kryterium liczby odwo≥aÒ do funkcji testowej, èrÛd≥o: Opracowanie w≥asne., èrÛd≥o: Opracowanie w≥asne.}
+    \caption{Zestawienie wynikÛw algorytmu genetycznego dla funkcji Bohachevskyíego I - kryterium liczby odwo≥aÒ do funkcji testowej, èrÛd≥o: Opracowanie w≥asne., èrÛd≥o: Opracowanie w≥asne.}
     \label{tab:boh_ga_2}
 \end{table}
 
 \begin{table}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{boh_pso_2.png}
-    \caption{Zestawienie wynikÛw metody roju czπstek dla funkcji Bohachevskyíego - kryterium liczby odwo≥aÒ do funkcji testowej, èrÛd≥o: Opracowanie w≥asne.}
+    \caption{Zestawienie wynikÛw metody optymalizacji rojem czπstek dla funkcji Bohachevskyíego I - kryterium liczby odwo≥aÒ do funkcji testowej, èrÛd≥o: Opracowanie w≥asne.}
     \label{tab:boh_pso_2}
 \end{table}
 
 \begin{table}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{boh_all_2.png}
-    \caption{Zestawienie najlepszych wynikÛw wszystkich trzech porÛwnywanych algorytmÛw metaheurystycznych dla funkcji Bohachevskyíego - kryterium liczby odwo≥aÒ do funkcji testowej, èrÛd≥o: Opracowanie w≥asne.}
+    \caption{Zestawienie najlepszych wynikÛw wszystkich trzech porÛwnywanych algorytmÛw metaheurystycznych dla funkcji Bohachevskyíego I - kryterium liczby odwo≥aÒ do funkcji testowej, èrÛd≥o: Opracowanie w≥asne.}
     \label{tab:boh_all_2}
 \end{table}
 
 \subsubsection{Funkcja Colville'a}
 
-Dla funkcji Colville'a, wyniki testÛw sprawdzajπcych optymalnπ wielkoúÊ populacji dla algorytu genetycznego przedstawione zosta≥y w tabeli \ref{tab:col_ga_1}, z ktÛrej wynika, iø najbliøej minimum globalnego dla kryterium czasowego uplasowa≥y siÍ rezultaty z wielkoúciπ populacji rÛwnπ 100. Taka sama wartoúÊ zosta≥a ustalona dla analogicznego testu sprawdzajπcego optymalnπ wielkoúÊ roju dla metody roju czπstek widocznego na wykresie \ref{tab:col_pso_1}. Wyniki obu testÛw zosta≥y zestawione z rezultatami otrzymanymi przez algorytm symulowanego wyøarzania na wykresie \ref{tab:col_all_1}. Z wykresu tego wynika, iø najbliøej wartoúci 0, ktÛra jest minimum globalnym badanej funkcji, uplasowa≥y siÍ rezultaty otrzymane przez metodÍ roju czπstek. Wyniki zwrÛcone przez algorytm genetyczny umiejscowi≥y go na drugim miejscu, przed algorytmem symulowanego wyøarzania, ktÛrego rezultaty by≥y bardzo odleg≥e od poszukiwanego minimum globalnego.
+Dla funkcji Colville'a, wyniki testÛw sprawdzajπcych optymalnπ wielkoúÊ populacji dla algorytu genetycznego przedstawione zosta≥y w tabeli \ref{tab:col_ga_1}, z ktÛrej wynika, iø najbliøej minimum globalnego dla kryterium czasowego uplasowa≥y siÍ rezultaty z wielkoúciπ populacji rÛwnπ 100. Taka sama wartoúÊ zosta≥a ustalona dla analogicznego testu sprawdzajπcego optymalnπ wielkoúÊ roju dla metody optymalizacji rojem czπstek widocznego na wykresie \ref{tab:col_pso_1}. Wyniki obu testÛw zosta≥y zestawione z rezultatami otrzymanymi przez algorytm symulowanego wyøarzania na wykresie \ref{tab:col_all_1}. Z wykresu tego wynika, iø najbliøej wartoúci 0, ktÛra jest minimum globalnym badanej funkcji, uplasowa≥y siÍ rezultaty otrzymane przez metodÍ optymalizacji rojem czπstek. Wyniki zwrÛcone przez algorytm genetyczny umiejscowi≥y go na drugim miejscu, przed algorytmem symulowanego wyøarzania, ktÛrego rezultaty by≥y bardzo odleg≥e od poszukiwanego minimum globalnego.
 
 \begin{table}[H]
     \centering
@@ -723,7 +730,7 @@ Dla funkcji Colville'a, wyniki testÛw sprawdzajπcych optymalnπ wielkoúÊ populacj
 \begin{table}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{col_pso_1.png}
-    \caption{Zestawienie wynikÛw metody roju czπstek dla funkcji Colville'a - kryterium czasowe, èrÛd≥o: Opracowanie w≥asne.}
+    \caption{Zestawienie wynikÛw metody optymalizacji rojem czπstek dla funkcji Colville'a - kryterium czasowe, èrÛd≥o: Opracowanie w≥asne.}
     \label{tab:col_pso_1}
 \end{table}
 
@@ -734,7 +741,7 @@ Dla funkcji Colville'a, wyniki testÛw sprawdzajπcych optymalnπ wielkoúÊ populacj
     \label{tab:col_all_1}
 \end{table}
 
-Rezultaty dotyczπce testÛw dla kryterium odnoszπcego siÍ do maksymalnej liczby odwo≥aÒ algorytmu do funkcji testowej okaza≥y siÍ bardzo ciekawe przez wzglπd na uzyskanie najlepszych rezultatÛw przez inny algorytm niø w kryterium poprzednim. Do podsumowujπcego testu wszystkich trzech algorytmÛw metaheurystycznych zosta≥y wybrane dla algorytmu genetycznego rezultaty przedstawione w tabeli \ref{tab:col_ga_2} z wielkoúciπ populacji rÛwnπ 100, natomiast dla metody roju czπstek wyniki z wielkoúciπ roju rÛwnπ 10, ktÛre dostÍpne sπ do wglπdu w tabli \ref{tab:col_pso_2}. Podsumowanie widoczne w tabeli \ref{tab:col_all_2} pozwala dostrzec, iø najlepsze wyniki uzyska≥ algorytm genetyczny, ktÛry w testach pierwszego kryterium uzyska≥ drugi rezultat.
+Rezultaty dotyczπce testÛw dla kryterium odnoszπcego siÍ do maksymalnej liczby odwo≥aÒ algorytmu do funkcji testowej okaza≥y siÍ bardzo ciekawe przez wzglπd na uzyskanie najlepszych rezultatÛw przez inny algorytm niø w kryterium poprzednim. Do podsumowujπcego testu wszystkich trzech algorytmÛw metaheurystycznych zosta≥y wybrane dla algorytmu genetycznego rezultaty przedstawione w tabeli \ref{tab:col_ga_2} z wielkoúciπ populacji rÛwnπ 100, natomiast dla metody optymalizacji rojem czπstek wyniki z wielkoúciπ roju rÛwnπ 10, ktÛre dostÍpne sπ do wglπdu w tabli \ref{tab:col_pso_2}. Podsumowanie widoczne w tabeli \ref{tab:col_all_2} pozwala dostrzec, iø najlepsze wyniki uzyska≥ algorytm genetyczny, ktÛry w testach pierwszego kryterium uzyska≥ drugi rezultat.
 
 \begin{table}[H]
     \centering
@@ -746,11 +753,11 @@ Rezultaty dotyczπce testÛw dla kryterium odnoszπcego siÍ do maksymalnej liczby o
 \begin{table}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{col_pso_2.png}
-    \caption{Zestawienie wynikÛw metody roju czπstek dla funkcji Colville'a - kryterium liczby odwo≥aÒ do funkcji testowej, èrÛd≥o: Opracowanie w≥asne.}
+    \caption{Zestawienie wynikÛw metody optymalizacji rojem czπstek dla funkcji Colville'a - kryterium liczby odwo≥aÒ do funkcji testowej, èrÛd≥o: Opracowanie w≥asne.}
     \label{tab:col_pso_2}
 \end{table}
 
-PorÛwnujπc wyniki dla obu kryteriÛw porÛwnawczych z tabel \ref{tab:col_all_1} oraz \ref{tab:col_all_2}, widoczna jest zaleønoúÊ wyjaúniajπca taki efekt. Metoda roju czπstek przeprowadza≥a znacznie wiÍcej odwo≥aÒ do badanej funkcji Colville'a niø algorytm genetyczny dla tego samego czasu pracy algorytmÛw. Z tego powodu przy limicie owych odwo≥aÒ w kryterium drugim, wyniki otrzymane przez algorytm genetyczny okaza≥y siÍ lepsze. Wartym wspomnienia jest takøe to, iø w analizowanym przyk≥adzie wyniki uzyskane przez metodÍ roju czπstek sπ nie tylko gorsze od wynikÛw uzyskanych przez algorytm genetyczny lecz takøe przez symulowane wyøarzanie, ktÛre to uzyska≥o drugi rezultat dla kaødego badanego parametru maksymalnej liczby odwo≥aÒ do funkcji testowej.
+PorÛwnujπc wyniki dla obu kryteriÛw porÛwnawczych z tabel \ref{tab:col_all_1} oraz \ref{tab:col_all_2}, widoczna jest zaleønoúÊ wyjaúniajπca taki efekt. Metoda optymalizacji rojem czπstek przeprowadza≥a znacznie wiÍcej odwo≥aÒ do badanej funkcji Colville'a niø algorytm genetyczny dla tego samego czasu pracy algorytmÛw. Z tego powodu przy limicie owych odwo≥aÒ w kryterium drugim, wyniki otrzymane przez algorytm genetyczny okaza≥y siÍ lepsze. Wartym wspomnienia jest takøe to, iø w analizowanym przyk≥adzie wyniki uzyskane przez metodÍ optymalizacji rojem czπstek sπ nie tylko gorsze od wynikÛw uzyskanych przez algorytm genetyczny lecz takøe przez symulowane wyøarzanie, ktÛre to uzyska≥o drugi rezultat dla kaødego badanego parametru maksymalnej liczby odwo≥aÒ do funkcji testowej.
 
 \begin{table}[H]
     \centering
@@ -759,57 +766,57 @@ PorÛwnujπc wyniki dla obu kryteriÛw porÛwnawczych z tabel \ref{tab:col_all_1} or
     \label{tab:col_all_2}
 \end{table}
 
-\subsubsection{Funkcja Ackley'a}
+\subsubsection{Funkcja Ackleya}
 
-Kolejnπ funkcjπ, ktÛra poddana zosta≥a testom by≥s funkcja Ackleya, dla ktÛrej algorytm genetyczny oraz metoda roju czπstek dla kryterium czasowego uzyska≥a najlepsze rezultaty dla wielkoúci populacji oraz roju wynoszπcej 50. Wyniki te, dostÍpne do wglπdu w tabeli \ref{tab:ack_ga_1} oraz \ref{tab:ack_pso_1}, zestawione zosta≥y w tabeli \ref{tab:ack_all_1} z wynikami otrzymanymi przez algorytm symulowanego wyøarzania. Z podsumowania tego jednoznacznie wynika, iø dla kaødego badanego parametru maksymalnego czasu, algorytm genetyczny zwrÛci≥ najlepsze rezultaty, ktÛre to sπ bardzo zbliøone do minimum globalnego wynoszπcego 0. Pozosta≥e algorytmy nawet nie zbliøy≥y siÍ do tych rezultatÛw i utknÍ≥y w minimach lokalnych funkcji.
+Kolejnπ funkcjπ, ktÛra poddana zosta≥a testom by≥a funkcja Ackleya, dla ktÛrej algorytm genetyczny oraz metoda optymalizacji rojem czπstek dla kryterium czasowego uzyska≥a najlepsze rezultaty dla wielkoúci populacji oraz roju wynoszπcej 50. Wyniki te (tabela \ref{tab:ack_ga_1} oraz \ref{tab:ack_pso_1}) zestawione zosta≥y w tabeli \ref{tab:ack_all_1} z wynikami otrzymanymi przez algorytm symulowanego wyøarzania. Z podsumowania tego jednoznacznie wynika, iø dla kaødego badanego parametru maksymalnego czasu, algorytm genetyczny zwrÛci≥ najlepsze rezultaty, ktÛre to sπ bardzo zbliøone do minimum globalnego wynoszπcego 0. Pozosta≥e algorytmy nawet nie zbliøy≥y siÍ do tych rezultatÛw i utknÍ≥y w minimach lokalnych funkcji.
 
 \begin{table}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{ack_ga_1.png}
-    \caption{Zestawienie wynikÛw algorytmu genetycznego dla funkcji Ackley'a - kryterium czasowe, èrÛd≥o: Opracowanie w≥asne.}
+    \caption{Zestawienie wynikÛw algorytmu genetycznego dla funkcji Ackleya - kryterium czasowe, èrÛd≥o: Opracowanie w≥asne.}
     \label{tab:ack_ga_1}
 \end{table}
 
 \begin{table}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{ack_pso_1.png}
-    \caption{Zestawienie wynikÛw metody roju czπstek dla funkcji Ackley'a - kryterium czasowe, èrÛd≥o: Opracowanie w≥asne.}
+    \caption{Zestawienie wynikÛw metody optymalizacji rojem czπstek dla funkcji Ackleya - kryterium czasowe, èrÛd≥o: Opracowanie w≥asne.}
     \label{tab:ack_pso_1}
 \end{table}
 
 \begin{table}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{ack_all_1.png}
-    \caption{Zestawienie najlepszych wynikÛw wszystkich trzech porÛwnywanych algorytmÛw metaheurystycznych dla funkcji Ackley'a - kryterium czasowe, èrÛd≥o: Opracowanie w≥asne.}
+    \caption{Zestawienie najlepszych wynikÛw wszystkich trzech porÛwnywanych algorytmÛw metaheurystycznych dla funkcji Ackleya - kryterium czasowe, èrÛd≥o: Opracowanie w≥asne.}
     \label{tab:ack_all_1}
 \end{table}
 
-Wyniki dotyczπce kryterium limitu odwo≥aÒ do funkcji testowej sπ analogiczne jak w przypadku pierwszego kryterium. Jedynπ rÛønicπ sπ wielkoúci populacji oraz roju, ktÛrych wyniki zosta≥y wziÍte do testu podsumowujπcego widocznego w tabeli \ref{tab:ack_all_2}. Funkcja Ackley'a jest pierwszπ testowanπ funkcjπ, do ktÛrej minimum globalnego w obu badanych kryteriach zbliøy≥ siÍ tylko jeden porÛwnywany algorytm metaheurystyczny - algorytm genetyczny.
+Wyniki dotyczπce kryterium limitu odwo≥aÒ do funkcji testowej sπ analogiczne jak w przypadku pierwszego kryterium. Jedynπ rÛønicπ sπ wielkoúci populacji oraz roju, ktÛrych wyniki zosta≥y wziÍte do testu podsumowujπcego widocznego w tabeli \ref{tab:ack_all_2}. Funkcja Ackleya jest pierwszπ testowanπ funkcjπ, do ktÛrej minimum globalnego w obu badanych kryteriach zbliøy≥ siÍ tylko jeden porÛwnywany algorytm metaheurystyczny - algorytm genetyczny.
 
 \begin{table}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{ack_ga_2.png}
-    \caption{Zestawienie wynikÛw algorytmu genetycznego dla funkcji Ackley'a - kryterium liczby odwo≥aÒ do funkcji testowej, èrÛd≥o: Opracowanie w≥asne., èrÛd≥o: Opracowanie w≥asne.}
+    \caption{Zestawienie wynikÛw algorytmu genetycznego dla funkcji Ackleya - kryterium liczby odwo≥aÒ do funkcji testowej, èrÛd≥o: Opracowanie w≥asne., èrÛd≥o: Opracowanie w≥asne.}
     \label{tab:ack_ga_2}
 \end{table}
 
 \begin{table}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{ack_pso_2.png}
-    \caption{Zestawienie wynikÛw metody roju czπstek dla funkcji Ackley'a - kryterium liczby odwo≥aÒ do funkcji testowej, èrÛd≥o: Opracowanie w≥asne.}
+    \caption{Zestawienie wynikÛw metody optymalizacji rojem czπstek dla funkcji Ackleya - kryterium liczby odwo≥aÒ do funkcji testowej, èrÛd≥o: Opracowanie w≥asne.}
     \label{tab:ack_pso_2}
 \end{table}
 
 \begin{table}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{ack_all_2.png}
-    \caption{Zestawienie najlepszych wynikÛw wszystkich trzech porÛwnywanych algorytmÛw metaheurystycznych dla funkcji Ackley'a - kryterium liczby odwo≥aÒ do funkcji testowej, èrÛd≥o: Opracowanie w≥asne.}
+    \caption{Zestawienie najlepszych wynikÛw wszystkich trzech porÛwnywanych algorytmÛw metaheurystycznych dla funkcji Ackleya - kryterium liczby odwo≥aÒ do funkcji testowej, èrÛd≥o: Opracowanie w≥asne.}
     \label{tab:ack_all_2}
 \end{table}
 
 \subsubsection{Funkcja Rosenbrocka}
 
-Funkcja Rosenbrocka jest pierwszπ funkcjπ, w ktÛrej analizujπc ustalone kryterium, najlepsze otrzymane rezultaty nie naleøπ do jednego algorytmu heurystycznego. Po wyborze optymalnych wielkoúci populacji oraz roju dla kryterium czasowego, ktÛrych wyniki testÛw dostÍpne sπ do wglπdu w tabeli \ref{tab:ros_ga_1} oraz \ref{tab:ros_pso_1}, dokonano zestawienia najlepszych rezultatÛw wszystkich trzech algorytmÛw w tabeli \ref{tab:ros_all_1}. Wynika z niej, iø dla wartoúci maksymalnego czasu od 1 do 3 sekund, najlepsze rezultaty uzyska≥a metoda roju czπstek, podczas gdy dla wyøszych z zakresu 4 do 6 sekund - algorytm genetyczny.
+Funkcja Rosenbrocka jest pierwszπ funkcjπ, w ktÛrej analizujπc ustalone kryterium, najlepsze otrzymane rezultaty nie naleøπ do jednego algorytmu heurystycznego. Po wyborze optymalnych wielkoúci populacji oraz roju dla kryterium czasowego, ktÛrych wyniki testÛw dostÍpne sπ do wglπdu w tabeli \ref{tab:ros_ga_1} oraz \ref{tab:ros_pso_1}, dokonano zestawienia najlepszych rezultatÛw wszystkich trzech algorytmÛw w tabeli \ref{tab:ros_all_1}. Wynika z niej, iø dla wartoúci maksymalnego czasu od 1 do 3 sekund, najlepsze rezultaty uzyska≥a metoda optymalizacji rojem czπstek, podczas gdy dla wyøszych z zakresu 4 do 6 sekund - algorytm genetyczny.
 
 \begin{table}[H]
     \centering
@@ -821,7 +828,7 @@ Funkcja Rosenbrocka jest pierwszπ funkcjπ, w ktÛrej analizujπc ustalone kryteriu
 \begin{table}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{ros_pso_1.png}
-    \caption{Zestawienie wynikÛw metody roju czπstek dla funkcji Rosenbrocka - kryterium czasowe, èrÛd≥o: Opracowanie w≥asne.}
+    \caption{Zestawienie wynikÛw metody optymalizacji rojem czπstek dla funkcji Rosenbrocka - kryterium czasowe, èrÛd≥o: Opracowanie w≥asne.}
     \label{tab:ros_pso_1}
 \end{table}
 
@@ -832,7 +839,7 @@ Funkcja Rosenbrocka jest pierwszπ funkcjπ, w ktÛrej analizujπc ustalone kryteriu
     \label{tab:ros_all_1}
 \end{table}
 
-Dla drugiego analizowanego kryterium dotyczπcego ustalonej maksymalnej liczby odwo≥aÒ do funkcji testowej, rezultaty, ktÛre dostÍpne sπ do wglπdu w tabeli \ref{tab:ros_all_2} okaza≥y siÍ juø bardziej jednolite. Algorytm genetyczny dla wielkoúci populacji rÛwnej 50 (tabela \ref{tab:ros_ga_2}) osiπgnπ≥ lepsze rezultaty od metody roju czπstek z wielkoúciπ roju rÛwnπ 10 (tabela \ref{tab:ros_pso_2}) dla kaødego przeprowadzonego testu.
+Dla drugiego analizowanego kryterium dotyczπcego ustalonej maksymalnej liczby odwo≥aÒ do funkcji testowej, rezultaty, ktÛre dostÍpne sπ do wglπdu w tabeli \ref{tab:ros_all_2} okaza≥y siÍ juø bardziej jednolite. Algorytm genetyczny dla wielkoúci populacji rÛwnej 50 (tabela \ref{tab:ros_ga_2}) osiπgnπ≥ lepsze rezultaty od metody optymalizacji rojem czπstek z wielkoúciπ roju rÛwnπ 10 (tabela \ref{tab:ros_pso_2}) dla kaødego przeprowadzonego testu.
 
 \begin{table}[H]
     \centering
@@ -844,7 +851,7 @@ Dla drugiego analizowanego kryterium dotyczπcego ustalonej maksymalnej liczby od
 \begin{table}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{ros_pso_2.png}
-    \caption{Zestawienie wynikÛw metody roju czπstek dla funkcji Rosenbrocka - kryterium liczby odwo≥aÒ do funkcji testowej, èrÛd≥o: Opracowanie w≥asne.}
+    \caption{Zestawienie wynikÛw metody optymalizacji rojem czπstek dla funkcji Rosenbrocka - kryterium liczby odwo≥aÒ do funkcji testowej, èrÛd≥o: Opracowanie w≥asne.}
     \label{tab:ros_pso_2}
 \end{table}
 
@@ -857,7 +864,7 @@ Dla drugiego analizowanego kryterium dotyczπcego ustalonej maksymalnej liczby od
 
 \subsubsection{Funkcja Eggholdera}
 
-Czwartπ z kolei funkcjπ jest funkcja Eggholdera, dla ktÛrej rezultaty testÛw weryfikujπcych optymalnπ wartoúÊ populacji oraz roju zaprezentowane zosta≥y na wykresach \ref{tab:egg_ga_1} oraz \ref{tab:egg_pso_1}. Dla obu algorytmÛw w kontekúcie testÛw dotyczπcych kryterium maksymalnego czasu, wartoúci te zosta≥y ustalone na poziomie 100. Ich rezultaty, wraz z rezultatami otrzymanymi dla algorytmu symulowanego wyøarzania zgrupowane zosta≥y na wykresie \ref{tab:egg_all_1}. Analizujπc wykres moøna dostrzec, iø metoda roju czπstek poradzi≥a sobie najlepiej, oscylujπc bardzo blisko minimum globalnego funkcji Eggholdera, ktÛre wynosi $-959,6407$. Tuø za rojem czπstek uplasowa≥ siÍ algorytm genetyczny, ktÛrego rezultaty osiπga≥y úrednio wartoúÊ bliskπ wartoúci $-900$. Wynik ten jest wciπø duøo lepszy od wynikÛw zwrÛconych przez algorytm symulowanego wyøarzania, ktÛry zatrzymywa≥ siÍ na poziomie wartoúci oko≥o $-500$.
+Czwartπ z kolei funkcjπ jest funkcja Eggholdera, dla ktÛrej rezultaty testÛw weryfikujπcych optymalnπ wartoúÊ populacji oraz roju zaprezentowane zosta≥y na wykresach \ref{tab:egg_ga_1} oraz \ref{tab:egg_pso_1}. Dla obu algorytmÛw w kontekúcie testÛw dotyczπcych kryterium maksymalnego czasu, wartoúci te zosta≥y ustalone na poziomie 100. Ich rezultaty, wraz z rezultatami otrzymanymi dla algorytmu symulowanego wyøarzania zgrupowane zosta≥y na wykresie \ref{tab:egg_all_1}. Analizujπc wykres moøna dostrzec, iø metoda optymalizacji rojem czπstek poradzi≥a sobie najlepiej, oscylujπc bardzo blisko minimum globalnego funkcji Eggholdera, ktÛre wynosi $-959,6407$. Tuø za rojem czπstek uplasowa≥ siÍ algorytm genetyczny, ktÛrego rezultaty osiπga≥y úrednio wartoúÊ bliskπ wartoúci $-900$. Wynik ten jest wciπø duøo lepszy od wynikÛw zwrÛconych przez algorytm symulowanego wyøarzania, ktÛry zatrzymywa≥ siÍ na poziomie wartoúci oko≥o $-500$.
 
 \begin{table}[H]
     \centering
@@ -869,7 +876,7 @@ Czwartπ z kolei funkcjπ jest funkcja Eggholdera, dla ktÛrej rezultaty testÛw wer
 \begin{table}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{egg_pso_1.png}
-    \caption{Zestawienie wynikÛw metody roju czπstek dla funkcji Eggholdera - kryterium czasowe, èrÛd≥o: Opracowanie w≥asne.}
+    \caption{Zestawienie wynikÛw metody optymalizacji rojem czπstek dla funkcji Eggholdera - kryterium czasowe, èrÛd≥o: Opracowanie w≥asne.}
     \label{tab:egg_pso_1}
 \end{table}
 
@@ -880,7 +887,7 @@ Czwartπ z kolei funkcjπ jest funkcja Eggholdera, dla ktÛrej rezultaty testÛw wer
     \label{tab:egg_all_1}
 \end{table}
 
-Przechodzπc do drugiego analizowanego kryterium - maksymalnej liczby odwo≥aÒ do funkcji - moøna zaobserwowaÊ, iø wyniki sπ bardzo zbliøone do wynikÛw otrzymanych w kryterium pierwszym. Testy badajπce optymalnπ wielkoúÊ populacji dla algorytmu genetycznego oraz wielkoúci roju dla metody roju czπstek dostÍpne sπ do wglπdu na wykresie \ref{tab:egg_ga_2} oraz \ref{tab:egg_pso_2}, natomiast testy porÛwnujπce wszystkie trzy badane algorytmy heurystyczne na wykresie \ref{tab:egg_all_2}. 
+Przechodzπc do drugiego analizowanego kryterium - maksymalnej liczby odwo≥aÒ do funkcji - moøna zaobserwowaÊ, iø wyniki sπ bardzo zbliøone do wynikÛw otrzymanych w kryterium pierwszym. Testy badajπce optymalnπ wielkoúÊ populacji dla algorytmu genetycznego oraz wielkoúci roju dla metody optymalizacji rojem czπstek dostÍpne sπ do wglπdu na wykresie \ref{tab:egg_ga_2} oraz \ref{tab:egg_pso_2}, natomiast testy porÛwnujπce wszystkie trzy badane algorytmy heurystyczne na wykresie \ref{tab:egg_all_2}. 
 
 \begin{table}[H]
     \centering
@@ -892,7 +899,7 @@ Przechodzπc do drugiego analizowanego kryterium - maksymalnej liczby odwo≥aÒ do 
 \begin{table}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{egg_pso_2.png}
-    \caption{Zestawienie wynikÛw metody roju czπstek dla funkcji Eggholdera - kryterium liczby odwo≥aÒ do funkcji testowej, èrÛd≥o: Opracowanie w≥asne.}
+    \caption{Zestawienie wynikÛw metody optymalizacji rojem czπstek dla funkcji Eggholdera - kryterium liczby odwo≥aÒ do funkcji testowej, èrÛd≥o: Opracowanie w≥asne.}
     \label{tab:egg_pso_2}
 \end{table}
 
@@ -905,7 +912,7 @@ Przechodzπc do drugiego analizowanego kryterium - maksymalnej liczby odwo≥aÒ do 
 
 \subsubsection{Funkcja Griewanka}
 
-Ostatniπ uøytπ funkcjπ testowπ by≥a funkcja Griewanka, dla ktÛrej podobnie jak w przypadku funkcji Rosenbrocka rezultaty otrzymane dla kryterium maksymalnego czasu nie sπ jednoznaczne. PorÛwnujπc najlepsze wyniki otrzymane dla algorytmu genetycznego z tabeli \ref{tab:gri_ga_1} oraz dla metody roju czπstek z tabeli \ref{tab:gri_pso_1} z wynikami otrzymanymi przez algorytm symulowanego wyøarzania, moøna dostrzec w tabeli \ref{tab:gri_all_1}, iø lepszy rezultat otrzymany w teúcie 1 oraz 3 sekund naleøy do algorytmu genetycznego, a dla pozosta≥ych wartoúci maksymalnego czasu dla metody roju czπstek. Otrzymane przez algorytm genetyczny oraz metodÍ roju czπstek rezultaty sπ jednak bardzo do siebie zbliøone i nie mogπ jednoznacznie wyznaczyÊ najlepszego algorytmu. 
+Ostatniπ uøytπ funkcjπ testowπ by≥a funkcja Griewanka, dla ktÛrej podobnie jak w przypadku funkcji Rosenbrocka rezultaty otrzymane dla kryterium maksymalnego czasu nie sπ jednoznaczne. PorÛwnujπc najlepsze wyniki otrzymane dla algorytmu genetycznego z tabeli \ref{tab:gri_ga_1} oraz dla metody optymalizacji rojem czπstek z tabeli \ref{tab:gri_pso_1} z wynikami otrzymanymi przez algorytm symulowanego wyøarzania, moøna dostrzec w tabeli \ref{tab:gri_all_1}, iø lepszy rezultat otrzymany w teúcie 1 oraz 3 sekund naleøy do algorytmu genetycznego, a dla pozosta≥ych wartoúci maksymalnego czasu dla metody optymalizacji rojem czπstek. Otrzymane przez algorytm genetyczny oraz metodÍ roju czπstek rezultaty sπ jednak bardzo do siebie zbliøone i nie mogπ jednoznacznie wyznaczyÊ najlepszego algorytmu. 
 
 \begin{table}[H]
     \centering
@@ -917,7 +924,7 @@ Ostatniπ uøytπ funkcjπ testowπ by≥a funkcja Griewanka, dla ktÛrej podobnie jak w
 \begin{table}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{gri_pso_1.png}
-    \caption{Zestawienie wynikÛw metody roju czπstek dla funkcji Griewanka - kryterium czasowe, èrÛd≥o: Opracowanie w≥asne.}
+    \caption{Zestawienie wynikÛw metody optymalizacji rojem czπstek dla funkcji Griewanka - kryterium czasowe, èrÛd≥o: Opracowanie w≥asne.}
     \label{tab:gri_pso_1}
 \end{table}
 
@@ -928,7 +935,7 @@ Ostatniπ uøytπ funkcjπ testowπ by≥a funkcja Griewanka, dla ktÛrej podobnie jak w
     \label{tab:gri_all_1}
 \end{table}
 
-Drugie kryterium, pod kπtem ktÛrego przeprowadzone zosta≥y testy wskazuje juø jednak w tabeli \ref{tab:gri_all_2} jednoznacznie, iø lepsze rezultaty uzyska≥ algorytm genetyczny. Ponad dwukrotnie wiÍksza liczba odwo≥aÒ metody roju czπstek do funkcji testowej w pierwszym kryterium, w kryterium drugim zosta≥a zrÛwnana. W tym przypadku przy takiej samej liczbie obliczeÒ wartoúci funkcji testowej, algorytm genetyczny uzyska≥ wyniki bliøsze minimum globalnemu niø metoda roju czπstek. Algorytm symulowanego wyøarzania w testach dotyczπcych obu kryteriÛw odniÛs≥ najgorsze rezultaty ze wszystkich porÛwnywanych algorytmÛw heurystycznych. Warto jednak nadmieniÊ, iø wyniki przez niego uzyskane oscylowa≥y rÛwnieø blisko minimum globalnego.
+Drugie kryterium, pod kπtem ktÛrego przeprowadzone zosta≥y testy wskazuje juø jednak w tabeli \ref{tab:gri_all_2} jednoznacznie, iø lepsze rezultaty uzyska≥ algorytm genetyczny. Ponad dwukrotnie wiÍksza liczba odwo≥aÒ metody optymalizacji rojem czπstek do funkcji testowej w pierwszym kryterium, w kryterium drugim zosta≥a zrÛwnana. W tym przypadku przy takiej samej liczbie obliczeÒ wartoúci funkcji testowej, algorytm genetyczny uzyska≥ wyniki bliøsze minimum globalnemu niø metoda optymalizacji rojem czπstek. Algorytm symulowanego wyøarzania w testach dotyczπcych obu kryteriÛw odniÛs≥ najgorsze rezultaty ze wszystkich porÛwnywanych algorytmÛw heurystycznych. Warto jednak nadmieniÊ, iø wyniki przez niego uzyskane oscylowa≥y rÛwnieø blisko minimum globalnego.
 
 \begin{table}[H]
     \centering
@@ -940,7 +947,7 @@ Drugie kryterium, pod kπtem ktÛrego przeprowadzone zosta≥y testy wskazuje juø je
 \begin{table}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{gri_pso_2.png}
-    \caption{Zestawienie wynikÛw metody roju czπstek dla funkcji Griewanka - kryterium liczby odwo≥aÒ do funkcji testowej, èrÛd≥o: Opracowanie w≥asne.}
+    \caption{Zestawienie wynikÛw metody optymalizacji rojem czπstek dla funkcji Griewanka - kryterium liczby odwo≥aÒ do funkcji testowej, èrÛd≥o: Opracowanie w≥asne.}
     \label{tab:gri_pso_2}
 \end{table}
 
@@ -954,32 +961,32 @@ Drugie kryterium, pod kπtem ktÛrego przeprowadzone zosta≥y testy wskazuje juø je
 \subsection{Wnioski z przeprowadzonych doúwiadczeÒ}
 
 Przeprowadzone doúwiadczenia wykonane zosta≥y z myúlπ o wyrÛwnaniu szans kaødego z badanych algorytmÛw heurystycznych. Metody porÛwnawcze opisane w \ref{dzial:MetodyPorownawczeWybranychAlgorytmow} umoøliwi≥y na podstawie ustalonych kryteriÛw, jednakowych dla wszystkich algorytmÛw, sprawdziÊ rezultaty przez nie uzyskane. Przez fakt rÛønπ specyfikÍ algorytmÛw oraz posiadanie przez nich rÛønych parametrÛw, czasoch≥onnπ kwestiπ okaza≥a siÍ prÛba ich wyskalowania. 
-Podsumowujπc przeprowadzone doúwiadczenia w kontekúcie kryterium ustalonego czasu pracy, w obrÍbie ktÛrego algorytm za zadanie mia≥ znaleüÊ najmniejszπ wartoúÊ badanej funkcji, algorytm genetyczny w jednej na szeúÊ funkcji testowych - funkcji Ackley'a - uzyska≥ najlepszy rezultat dla kaødej wartoúci maksymalnego czasu. W dwÛch kolejnych funkcjach - Rosenbrocka oraz Griewanka - uzyska≥ najlepszy wynik dla kolejno trzech z szeúciu oraz czterech z szeúciu wartoúci parametru. Funkcja Bohachevsky'ego, Colville'a oraz Eggholdera by≥y funkcjami w ktÛrej algorytm genetyczny uplasowa≥ siÍ na drugim miejscu, za metodπ roju czπstek, ktÛra zwrÛci≥a najlepsze wyniki. 
-Metoda ta uzyska≥a rÛwnieø najlepsze rezultaty dla trzech z szeúciu oraz dwÛch z szeúciu parametrÛw dla funkcji Rosenbrocka oraz Griewanka. Najgorzej w zestawieniu wypad≥ algorytm symulowanego wyøarzania, ktÛry dla kaødej funkcji testowej ulokowa≥ siÍ na miejscu trzecim. Algorytm ten, choÊ zwraca≥ wyniki bliskie minimum globalnemu, by≥y one gorsze od rezultatÛw zwrÛconych przez algorytm genetyczny oraz metodÍ roju czπstek.
+Podsumowujπc przeprowadzone doúwiadczenia w kontekúcie kryterium ustalonego czasu pracy, w obrÍbie ktÛrego algorytm za zadanie mia≥ znaleüÊ najmniejszπ wartoúÊ badanej funkcji, algorytm genetyczny w jednej na szeúÊ funkcji testowych - funkcji Ackleya - uzyska≥ najlepszy rezultat dla kaødej wartoúci maksymalnego czasu. W dwÛch kolejnych funkcjach - Rosenbrocka oraz Griewanka - uzyska≥ najlepszy wynik dla kolejno trzech z szeúciu oraz czterech z szeúciu wartoúci parametru. Funkcja Bohachevsky'ego I, Colville'a oraz Eggholdera by≥y funkcjami w ktÛrej algorytm genetyczny uplasowa≥ siÍ na drugim miejscu, za metodπ optymalizacji rojem czπstek, ktÛra zwrÛci≥a najlepsze wyniki. 
+Metoda ta uzyska≥a rÛwnieø najlepsze rezultaty dla trzech z szeúciu oraz dwÛch z szeúciu parametrÛw dla funkcji Rosenbrocka oraz Griewanka. Najgorzej w zestawieniu wypad≥ algorytm symulowanego wyøarzania, ktÛry dla kaødej funkcji testowej ulokowa≥ siÍ na miejscu trzecim. Algorytm ten, choÊ zwraca≥ wyniki bliskie minimum globalnemu, by≥y one gorsze od rezultatÛw zwrÛconych przez algorytm genetyczny oraz metodÍ optymalizacji rojem czπstek.
 
-Przy analizie wynikÛw dotyczπcych prÛby czasowej, zauwaøalna by≥a rÛønica w iloúci wyliczeÒ funkcji testowej dokonywana przez porÛwnywane algorytmy. Metoda roju czπstek odwo≥ywa≥a siÍ do funkcji testowych úrednio $2,59$ razy wiÍcej niø algorytm genetyczny oraz $25.58$ razy wiÍcej niø algorytm symulowanego wyøarzania. RÛønice te zosta≥y zrÛwnane w wynikach testÛw odnoszπcych siÍ do drugiego kryterium porÛwnawczego jakim by≥a ustalona maksymalna liczba odwo≥aÒ do funkcji testowej.
+Przy analizie wynikÛw dotyczπcych prÛby czasowej, zauwaøalna by≥a rÛønica w iloúci wyliczeÒ funkcji testowej dokonywana przez porÛwnywane algorytmy. Metoda optymalizacji rojem czπstek odwo≥ywa≥a siÍ do funkcji testowych úrednio $2,59$ razy wiÍcej niø algorytm genetyczny oraz $25.58$ razy wiÍcej niø algorytm symulowanego wyøarzania. RÛønice te zosta≥y zrÛwnane w wynikach testÛw odnoszπcych siÍ do drugiego kryterium porÛwnawczego jakim by≥a ustalona maksymalna liczba odwo≥aÒ do funkcji testowej.
 
-Przy za≥oøeniu jednakowej liczby odwo≥aÒ do funkcji testowych, klasyfikacja algorytmÛw uleg≥a duøemu przetasowaniu w porÛwnaniu do kryterium pierwszego. Bez zmiany wynikÛw zachowa≥y siÍ wszystkie testowane funkcje dwuwymiarowe - Bohachevsky'ego oraz Eggholdera, w ktÛrej metoda roju czπstek uplasowa≥a siÍ przed algorytmem genetycznym oraz algorytmem symulowanego wyøarzenia. W pozosta≥ych czterech funkcjach najlepsze rezultaty uzyska≥ algorytm genetyczny, ktÛry dla funkcji Rosenbrocka oraz Griewanka zajπ≥ pierwsze miejsce przed metodπ roju czπstek oraz symulowanym wyøarzaniem. Ciekawe wyniki dostarczy≥a funkcja Colville'a, dla ktÛrej w pierwszym kryterium najlepsze wyniki uzyska≥a metoda roju czπstek. W drugim kryterium osiπgnÍ≥a ona najgorszy rezultat, plasujπc siÍ za algorytmem symulowanego wyøarzania, ktÛry dla funkcji Colville'a oraz Ackley'a uzyska≥ wyniki pozwalajπce umiejscowiÊ go na drugiej pozycji.
+Przy za≥oøeniu jednakowej liczby odwo≥aÒ do funkcji testowych, klasyfikacja algorytmÛw uleg≥a duøemu przetasowaniu w porÛwnaniu do kryterium pierwszego. Bez zmiany wynikÛw zachowa≥y siÍ wszystkie testowane funkcje dwuwymiarowe - Bohachevsky'ego I oraz Eggholdera, w ktÛrej metoda optymalizacji rojem czπstek uplasowa≥a siÍ przed algorytmem genetycznym oraz algorytmem symulowanego wyøarzenia. W pozosta≥ych czterech funkcjach najlepsze rezultaty uzyska≥ algorytm genetyczny, ktÛry dla funkcji Rosenbrocka oraz Griewanka zajπ≥ pierwsze miejsce przed metodπ optymalizacji rojem czπstek oraz symulowanym wyøarzaniem. Ciekawe wyniki dostarczy≥a funkcja Colville'a, dla ktÛrej w pierwszym kryterium najlepsze wyniki uzyska≥a metoda optymalizacji rojem czπstek. W drugim kryterium osiπgnÍ≥a ona najgorszy rezultat, plasujπc siÍ za algorytmem symulowanego wyøarzania, ktÛry dla funkcji Colville'a oraz Ackleya uzyska≥ wyniki pozwalajπce umiejscowiÊ go na drugiej pozycji.
 
 Ranking algorytmÛw odnoszπcy siÍ do wynikÛw przeprowadzonych testÛw dla kryterium czasowego oraz kryterium maksymalnej liczby odwo≥aÒ do funkcji testowej za≥πczone zosta≥y do wglπdu w tabeli \ref{tab:results_1} oraz \ref{tab:results_2}
 
 \begin{table}[H]
     \centering
     \includegraphics[width=0.5\textwidth]{results_1.png}
-    \caption{Ranking porÛwnanych algorytmÛw heurystycznych (Algorytm genetyczny - GA; Metoda roju czπstek - PSO; Algorytm symulowanego wyøarzania - SA) dla wynikÛw dotyczπcych kryterium maksymalnego czasu, èrÛd≥o: Opracowanie w≥asne.}
+    \caption{Ranking porÛwnanych algorytmÛw heurystycznych (Algorytm genetyczny - GA; Metoda optymalizacji rojem czπstek - PSO; Algorytm symulowanego wyøarzania - SA) dla wynikÛw dotyczπcych kryterium maksymalnego czasu, èrÛd≥o: Opracowanie w≥asne.}
     \label{tab:results_1}
 \end{table}
 
 \begin{table}[H]
     \centering
     \includegraphics[width=0.5\textwidth]{results_2.png}
-    \caption{Ranking porÛwnanych algorytmÛw heurystycznych (Algorytm genetyczny - GA; Metoda roju czπstek - PSO; Algorytm symulowanego wyøarzania - SA) dla wynikÛw dotyczπcych maksymalnej liczby odwo≥aÒ do funkcji testowej, èrÛd≥o: Opracowanie w≥asne.}
+    \caption{Ranking porÛwnanych algorytmÛw heurystycznych (Algorytm genetyczny - GA; Metoda optymalizacji rojem czπstek - PSO; Algorytm symulowanego wyøarzania - SA) dla wynikÛw dotyczπcych maksymalnej liczby odwo≥aÒ do funkcji testowej, èrÛd≥o: Opracowanie w≥asne.}
     \label{tab:results_2}
 \end{table}
 
 \section{Podsumowanie}
 
-Celem prezentowanej pracy magisterskiej by≥o dokonanie analizy porÛwnawczej algorytmu symulowanego wyøarzania, algorytmu genetycznego oraz metody roju czπstek przy pomocy dedykowanej aplikacji bazodanowej umoøliwiajπcej zautomatyzowanie procesu szukania minimum globalnego dla zadanych funkcji testowych.
+Celem prezentowanej pracy magisterskiej by≥o dokonanie analizy porÛwnawczej algorytmu symulowanego wyøarzania, algorytmu genetycznego oraz metody optymalizacji rojem czπstek przy pomocy dedykowanej aplikacji bazodanowej umoøliwiajπcej zautomatyzowanie procesu szukania minimum globalnego dla zadanych funkcji testowych.
 Przedstawiony cel zosta≥ zrealizowany, czego efektem jest dzia≥ajπca aplikacja bazodanowa, ktÛra umoøliwi≥a przeprowadzenie licznych testÛw zadanych algorytmÛw heurystycznych, ktÛrych zagregowane wyniki umoøliwi≥y ich porÛwnanie.
 
 Zastosowanie úrodowiska bazodanowego umoøliwi≥o bardzo szybkie zapisywanie duøych iloúci danych dostarczanych z zaimplementowanej aplikacji, a nastÍpnie ich agregacjÍ wed≥ug uznanych kryteriÛw. Agregacja ta dziÍki jÍzykowi zapytaÒ SQL by≥a bardzo efektywna przez fakt duøej dowolnoúci w kontekúcie sposobu jej wykonania. Moøliwe by≥o pogrupowanie wszystkich otrzymanych wynikÛw, bazujπc na dowolnym zapisywanym w bazie danych parametrze, co umoøliwi≥o przeprowadzenie operacji dostrojenia algorytmÛw oraz ich porÛwnania pod kπtem ustalonych dwÛch kryteriÛw porÛwnawczych. DziÍki obecnoúci bazy danych moøliwe by≥o rÛwnieø przechowanie wynikÛw wszystkich testÛw, co pozwoli≥o na ich analizÍ w dowolnym momencie czasu bez obawy o ich utratÍ i koniecznoúÊ ponownego wykonania czasoch≥onnych testÛw.
@@ -1007,16 +1014,25 @@ Castillo O., Melin P.: \textsl{Soft Computing and Fractal Theory for Intelligent
 \bibitem{HeurystykaZGreki}
 Nola R., Sankey H.: \textsl{Theories of Scientific Method}, Routledge, Nowy Jork, 2007, str. 25-28
 
+\bibitem{HeurystykaWyzszegoPoziomu}
+Rocha A., Correia A., Adeli H., Reis L., Costanzo S., \textsl{Recent Advances in Information Systems and Technologies Volume 2}, Springer, 2017, str. 76
+
 \bibitem{PSOOgolneInfo}
 http://zsi.ii.us.edu.pl/\textasciitilde mboryczka/IntStad/pso\_informacje.php
 \newline
 [dostÍp 20.06.2017r. - 26.08.2017r.]
 
+\bibitem{PSOWzory}
+Foryú P., \textsl{Zastosowanie metody roju czπstek w optymalnym projektowaniu elementÛw konstrukcji}, Wydawnictwo Politechniki Krakowskiej, 4-M/2008, str. 32-33
+
 \bibitem{GetnetycznyPoRazPierwszy}
 Holland J. H.: \textsl{Adaptation in Natural and Artificial Systems}, Univ. of Michigan Press, Ann Arbor, 1975
 
+\bibitem{GenetycznyTerminologia}
+Deppa S. N.: \textsl{Introduction to Genetic Algorithms}, Springer-Verlag, Heidelberg, 2008, str. 5
+
 \bibitem{GenetycznyKodowanieBinarne}
-Deppa S. N.: \textsl{Introduction to Genetic Algorithms}, Springer-Verlag, Heidelberg, 2008, str. 43-44
+Ibidem, str. 43-44
 
 \bibitem{GenetycznyRuletka}
 Ibidem, str. 47-48.
@@ -1034,27 +1050,27 @@ Hejlsberg A., Torgersen M. Wilthamuth S., Golde P.: \textsl{The C\# Programming 
 http://urriellu.net/en/articles-software/csharp-advantages.html [dostÍp 22.08.2017r. - 23.08.2017r.]
 
 \bibitem {WPF}
- Nathan  A.: \textsl{WPF 4.5. KsiÍga eksperta}, Wydawnictwo Helion, Gliwice, 2015
+ Nathan  A.: \textsl{WPF 4.5. KsiÍga eksperta}, Helion, Gliwice, 2015
  
 \bibitem{Xml}
 http://www.w3schools.com/xml/xml\_whatis.asp
 
 \bibitem {T-SQL}
- Itzik B.:  \textsl{Microsoft SQL Server 2012. Podstawy jÍzyka T-SQL}, Wydawnictwo Helion, Gliwice, 2012
+ Itzik B.:  \textsl{Microsoft SQL Server 2012. Podstawy jÍzyka T-SQL}, Helion, Gliwice, 2012
  
 \bibitem{bookVS}
-Matulewski J.: \textsl{Visual Studio 2013. PodrÍcznik programowania w C\# z zadaniami}, Wydawnictwo Helion, Gliwice, 2014 
+Matulewski J.: \textsl{Visual Studio 2013. PodrÍcznik programowania w C\# z zadaniami}, Helion, Gliwice, 2014 
 
 \bibitem{ResharperFeatures} https://www.jetbrains.com/resharper/features/ [dostÍp 1.08.2017r. - 23.08.2017r.]
 
 \bibitem{FazyProdukcjiOpr} 
-Jaszkiewicz A.: \textsl{Inøynieria oprogramowania}, Wydawnictwo Helion, 1997
+Jaszkiewicz A.: \textsl{Inøynieria oprogramowania}, Helion, 1997
 
 \bibitem{MvvmOpis} 
-Petzold C.: \textsl{Windows 8. Programowanie aplikacji z wykorzystaniem C\# i XAML}, Wydawnictwo Helion, Gliwice, 2013, str. 215-235
+Petzold C.: \textsl{Windows 8. Programowanie aplikacji z wykorzystaniem C\# i XAML}, Helion, Gliwice, 2013, str. 215-235
 
 \bibitem{WpfBinding}
-MacDonald M.: \textsl{Pro WPF 4.5 in VB: Windows Presentation Foundation in .NET 4.5}, Wydawnictwo Apress, 2012, str. 227-242
+MacDonald M.: \textsl{Pro WPF 4.5 in VB: Windows Presentation Foundation in .NET 4.5}, Apress, 2012, str. 227-242
 
 \bibitem{WpfCommands}
 Ibidem, str. 243-268.
