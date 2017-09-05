@@ -174,7 +174,7 @@ Klasycznym podejœciem do znalezienia minimalnej wartoœci zadanej funkcji testowe
 
 \subsection{Metaheurystyki optymalizacyjne}
 
-Analizuj¹c podejœcie z podpunktu \ref{dzial:AlgorytmyDokladne} mo¿e przyjœæ na myœl sposób, który polegaæ bêdzie na wyliczaniu wartoœci funkcji dla wybranych wartoœci argumentów. Sk¹d jednak wiadomo, które punkty wybraæ? Na podstawie czego bazowaæ? W przypadku problemów, w których przez wzgl¹d na czas niemo¿liwe jest dojœcie do jednoznacznego rozwi¹zania, na ratunek przychodz¹ algorytmy heurystyczne, które umo¿liwiaj¹ skrócenie czasu obliczeñ. Cen¹, któr¹ trzeba jednak za to zap³aciæ, jest mo¿liwoœæ otrzymania rozwi¹zania gorszego od rozwi¹zania najlepszego. Samo pojêcie heurystyki pochodzi od greckiego s³owa \textit{heuresis}, które oznacza \textit{"odnaleŸæ"} \cite{HeurystykaZGreki}. Metody heurystyczne polegaj¹ na u¿yciu regu³ oraz faktów, które uzyskane na drodze badania danego problemu umo¿liwiaj¹ jego rozwi¹zanie lub zbli¿enie siê do poprawnej odpowiedzi. Podejœcie heurystyczne stosowane mo¿e byæ w sposób piêtrowy, tworz¹c metaheurystyki. Metaheurystyka jest to ogólny algorytm do rozwi¹zywania problemów obliczeniowych, który inspiracjê czêsto bierze z mechanizmów biologicznych lub fizycznych. Okreœlenie to oznacza tak zwan¹ heurystykê wy¿szego poziomu \cite{HeurystykaWyzszegoPoziomu}, co wynika z faktu, i¿ algorytmy tego typu bezpoœrednio nie rozwi¹zuj¹ ¿adnego problemu, a wy³¹cznie podaj¹ metodê na utworzenie odpowiedniego algorytmu. 
+Analizuj¹c podejœcie z podpunktu \ref{dzial:AlgorytmyDokladne} mo¿e przyjœæ na myœl sposób, który polegaæ bêdzie na wyliczaniu wartoœci funkcji dla wybranych wartoœci argumentów. Sk¹d jednak wiadomo, które punkty wybraæ? Na podstawie czego bazowaæ? W przypadku problemów, w których przez wzgl¹d na czas niemo¿liwe jest dojœcie do jednoznacznego rozwi¹zania, na ratunek przychodz¹ algorytmy heurystyczne, które umo¿liwiaj¹ skrócenie czasu obliczeñ. Cen¹, któr¹ trzeba jednak za to zap³aciæ, jest mo¿liwoœæ otrzymania rozwi¹zania gorszego od rozwi¹zania najlepszego. Samo pojêcie heurystyki pochodzi od greckiego s³owa \textit{heuresis}, które oznacza \textit{"odnaleŸæ"} \cite{HeurystykaZGreki}. Metody heurystyczne polegaj¹ na u¿yciu informacji, które uzyskane na drodze badania danego problemu umo¿liwiaj¹ jego rozwi¹zanie lub zbli¿enie siê do poprawnej odpowiedzi. Podejœcie heurystyczne stosowane mo¿e byæ w sposób piêtrowy, tworz¹c metaheurystyki. Metaheurystyka jest to ogólny algorytm do rozwi¹zywania problemów obliczeniowych, który inspiracjê czêsto bierze z mechanizmów biologicznych lub fizycznych. Okreœlenie to oznacza tak zwan¹ heurystykê wy¿szego poziomu \cite{HeurystykaWyzszegoPoziomu}, co wynika z faktu, i¿ algorytmy tego typu bezpoœrednio nie rozwi¹zuj¹ ¿adnego problemu, a wy³¹cznie podaj¹ metodê na utworzenie odpowiedniego algorytmu. 
 
 \subsubsection{Metoda optymalizacji rojem cz¹stek}
 \label{dzial:MetodaOptymalizacjiRojemCzastek}
@@ -219,10 +219,10 @@ Graficzne przedstawienia schematu pracy algorytmu symulowanego wy¿arzania przeds
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.7\textwidth]{img_sa.png}
-    \caption{Zasada dzia³ania algorytmu symulowanego w poszukiwaniu maksimum funkcji, 
-    Ÿród³o: http://iacs-courses.seas.harvard.edu/courses/am207/blog/
+    \caption{Zasada dzia³ania algorytmu symulowanego wy¿arzania w poszukiwaniu maksimum funkcji, 
+    Ÿród³o: http://iacs-courses.seas.harvard.edu/
 	\newline    
-    images/mcmc.png}
+    courses/am207/blog/images/mcmc.png}
     \label{rys:sa}
 \end{figure} 
 
@@ -298,10 +298,20 @@ Drugim operatorem genetycznym jest mutacja, która umo¿liwia wprowadzenie nowego 
 
 Tak utworzona nowa generacja ponownie przechodzi przez wszystkie punkty algorytmu. Dzieje siê tak a¿ do czasu, w którym spe³nione zostan¹ warunki zatrzymania, które w kontekœcie przedstawianego zagadnienia opisane zosta³y w podpunkcie \ref{dzial:MetodyPorownawczeWybranychAlgorytmow} opisuj¹cym metody porównawcze wybranych algorytmów obejmuj¹ce równie¿ warunki stopu opisanych trzech metaheurystyk.
 
-\section{Automatyzacja przeprowadzanych badañ}
-\label{dzial:AutomatyzacjaPrzeprowadzanychBadan}
+\section{Za³o¿enia projektu}
+\label{dzial:ZalozeniaProjektu}
 
-Porównanie algorytmów metaheurystycznych w odniesieniu do problemu minimalizacji funkcji wielu zmiennych jest zadaniem bardzo skomplikowanym przez fakt liczby doœwiadczeñ, które nale¿y wykonaæ. Badania porównawcze przeprowadzane bêd¹ pod k¹tem kilku parametrów. Dla ka¿dego z nich wymagane bêdzie przeprowadzenie wielokrotnych testów dla ka¿dego testowanego algorytmu. "Rêczne" uruchamianie kolejnych eksperymentów numerycznych w œrodowisku Matlab przy ograniczonej funkcjonalnoœci agregowania wyników jest bardzo czasoch³onnym zadaniem. W tym celu zdecydowano siê zbudowaæ dedykowan¹ aplikacjê bazodanow¹, która bêdzie umo¿liwia³a automatyzacjê przedstawianej operacji. U¿ytkownik z poziomu aplikacji bêdzie mia³ mo¿liwoœæ wyboru funkcji testowej, algorytmu metaheurystycznego oraz jego parametrów, a tak¿e liczby testów, która ma byæ przeprowadzona przy zadanych wartoœciach. Aplikacja automatycznie bêdzie wysy³a³a zapytania do œrodowiska obliczeniowego Matlab, odbiera³a wyniki oraz umieszcza³a je w bazie danych, za poœrednictwem której w prosty i efektywny sposób mo¿na bêdzie przeprowadziæ ich agregacjê w celu przedstawienia wyników i ich porównania. W ten sposób narzut pracy, który niezbêdny jest do implementacji przedstawionej aplikacji, zwróci siê oraz umo¿liwi dalsz¹ analizê algorytmów w kontekœcie problemu optymalizacji funkcji wielu zmiennych, poniewa¿ aplikacja umo¿liwiaæ bêdzie równie¿ proste dodanie do niej kolejnych algorytmów oraz funkcji testowych.
+Porównanie algorytmów metaheurystycznych w odniesieniu do problemu minimalizacji funkcji wielu zmiennych jest zadaniem bardzo skomplikowanym przez fakt liczby doœwiadczeñ, które nale¿y wykonaæ. Badania porównawcze przeprowadzane bêd¹ pod k¹tem kilku parametrów. Dla ka¿dego z nich wymagane bêdzie przeprowadzenie wielokrotnych testów dla ka¿dego testowanego algorytmu i funkcji testowej. 
+W celu przeanalizowania mo¿liwoœci œrodowiska obliczeniowego Matlab, przeprowadzone zosta³y próby "rêcznego" uruchamiania eksperymentów numerycznych. Przeprowadzenie owych testów okaza³o siê bardzo czasoch³onnym zadaniem i ukaza³o ograniczon¹ funkcjonalnoœæ œrodowiska w kontekœcie agregowania wyników. Wyniki analizy wymusi³y koniecznoœæ rozwa¿enia sposobu automatyzacji zaplanowanych testów umo¿liwiaj¹cych porównanie algorytmów metaheurystycznych. Przemyœlenia poskutkowa³y powstaniem, zaprezentowanej na rysunku \ref{rys:flow}, ogólnej architektury umo¿liwiaj¹cej zautomatyzowanie czasoch³onnego procesu oraz trwa³e przechowywanie otrzymanych rezultatów w miejscu umo¿liwiaj¹cym ich efektywn¹ agregacjê.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{img_flow.png}
+    \caption{Ogólna architektura umo¿liwiaj¹ca zautomatyzowanie przeprowadzania eksperymentów numerycznych, Ÿród³o: Opracowanie w³asne.}
+    \label{rys:flow}
+\end{figure}
+
+Architektura ta sprowadza siê do zbudowania dedykowanej aplikacji bazodanowej, która umo¿liwiaæ bêdzie automatyzacjê przeprowadzanych testów. U¿ytkownik z poziomu aplikacji bêdzie mia³ mo¿liwoœæ wyboru funkcji testowej, algorytmu metaheurystycznego oraz jego parametrów, a tak¿e liczby testów, która ma byæ przeprowadzona przy zadanych wartoœciach. Aplikacja automatycznie bêdzie wysy³aæ zapytania do œrodowiska obliczeniowego Matlab, odbieraæ wyniki testów oraz umieszczaæ je w bazie danych, za poœrednictwem której w prosty i efektywny sposób mo¿na bêdzie przeprowadziæ ich agregacjê w celu przedstawienia wyników i ich podsumowania. W ten sposób narzut pracy, który niezbêdny jest do implementacji przedstawionej aplikacji, zwróci siê oraz umo¿liwi dalsz¹ analizê algorytmów w kontekœcie problemu optymalizacji funkcji wielu zmiennych, poniewa¿ aplikacja umo¿liwiaæ bêdzie równie¿ proste dodanie do niej kolejnych algorytmów oraz funkcji testowych.
 
 \section{Wykorzystane rozwi¹zania technologiczne}
 \label{dzial:WykorzystaneRozwiazaniaTechnologiczne}
@@ -616,7 +626,7 @@ Przed uruchomieniem aplikacji, niezbêdn¹ operacj¹ jest odpowiednia konfiguracja 
 
 \section{Badania eksperymentalne}
 
-Ca³y proces pocz¹wszy od pomys³u automatyzacji przeprowadzanych badañ zawarty w punkcie \ref{dzial:AutomatyzacjaPrzeprowadzanychBadan}, przez analizê rozwi¹zañ technologicznych opisanych w punkcie \ref{dzial:WykorzystaneRozwiazaniaTechnologiczne}, po budowê architektury oraz samej aplikacji bazodanowej ujêty w punkcie \ref{dzial:ArchitekturaBudowanejApl} mia³ za zadanie u³atwiæ przeprowadzenie eksperymentalnych badañ porównawczych wybranych algorytmów metaheurystycznych. W obecnym rozdziale przedstawiony zosta³ opis metod porównawczych, a tak¿e samych badañ doœwiadczalnych wraz z ich zagregowanymi wynikami zawartymi w podpunkcie \ref{dzial:WynikiDoswiadczenDlaZadanychFun}.
+Ca³y proces pocz¹wszy od pomys³u automatyzacji przeprowadzanych badañ zawarty w punkcie \ref{dzial:ZalozeniaProjektu}, przez analizê rozwi¹zañ technologicznych opisanych w punkcie \ref{dzial:WykorzystaneRozwiazaniaTechnologiczne}, po budowê architektury oraz samej aplikacji bazodanowej ujêty w punkcie \ref{dzial:ArchitekturaBudowanejApl} mia³ za zadanie u³atwiæ przeprowadzenie eksperymentalnych badañ porównawczych wybranych algorytmów metaheurystycznych. W obecnym rozdziale przedstawiony zosta³ opis metod porównawczych, a tak¿e samych badañ doœwiadczalnych wraz z ich zagregowanymi wynikami zawartymi w podpunkcie \ref{dzial:WynikiDoswiadczenDlaZadanychFun}.
 
 \subsection{Metody porównawcze wybranych algorytmów}
 \label{dzial:MetodyPorownawczeWybranychAlgorytmow}
@@ -995,7 +1005,9 @@ Pomimo tych elementów utworzona aplikacja, sposób jej po³¹czenia ze œrodowiskiem
 Michalewicz Z., Fogel D.B.: \textsl{Jak to rozwi¹zaæ czyli nowoczesna heurystyka}, Wydawnictwa Naukowo-Techniczne, Warszawa, 2006, str. 225-228
 
 \bibitem{TestFunctionsForOpt}
-Molga M., Smutnicki C.,\textsl{Test functions for optimization needs}, 2005, http://www.zsd.ict.pwr.wroc.pl/files/docs/functions.pdf [dostêp 1.05.2017r. - 15.07.2017r.]
+Molga M., Smutnicki C.,\textsl{Test functions for optimization needs}, 2005, http://www.zsd.ict.pwr.wroc.pl/files/docs/functions.pdf 
+\newline
+[dostêp 1.05.2017r. - 15.07.2017r.]
 
 \bibitem{RankingFunkcjiTestowych}
 http://infinity77.net/global\_optimization/test\_functions.html
@@ -1035,7 +1047,9 @@ Ibidem, str. 47-48.
 Hejlsberg A., Torgersen M. Wilthamuth S., Golde P.: \textsl{The C\# Programming Language}, Addison-Wesley, Massachusetts, 2009, str. 12-14
 
 \bibitem{CSharpAdvantages}
-http://urriellu.net/en/articles-software/csharp-advantages.html [dostêp 22.08.2017r. - 23.08.2017r.]
+http://urriellu.net/en/articles-software/csharp-advantages.html 
+\newline 
+[dostêp 22.08.2017r. - 23.08.2017r.]
 
 \bibitem {WPF}
  Nathan  A.: \textsl{WPF 4.5. Ksiêga eksperta}, Helion, Gliwice, 2015
@@ -1049,7 +1063,9 @@ http://www.w3schools.com/xml/xml\_whatis.asp
 \bibitem{bookVS}
 Matulewski J.: \textsl{Visual Studio 2013. Podrêcznik programowania w C\# z zadaniami}, Helion, Gliwice, 2014 
 
-\bibitem{ResharperFeatures} https://www.jetbrains.com/resharper/features/ [dostêp 1.08.2017r. - 23.08.2017r.]
+\bibitem{ResharperFeatures} https://www.jetbrains.com/resharper/features/ 
+\newline 
+[dostêp 1.08.2017r. - 23.08.2017r.]
 
 \bibitem{FazyProdukcjiOpr} 
 Jaszkiewicz A.: \textsl{In¿ynieria oprogramowania}, Helion, 1997
@@ -1067,7 +1083,9 @@ Ibidem, str. 243-268.
 Seemann M.: \textsl{Dependency Injection in .NET}, Manning Publications Co., Nowy Jork, 2012
 
 \bibitem{PrzypisyCodeFirst}
-https://msdn.microsoft.com/en-us/data/jj591583 [dostêp 1.08.2017r. - 23.08.2017r.]
+https://msdn.microsoft.com/en-us/data/jj591583 
+\newline 
+[dostêp 1.08.2017r. - 23.08.2017r.]
 
 \bibitem{MetodyPorownawczeDoc}
 Silberholz, J., Golden, B., \textsl{Comparison of metaheuristics}, Handbook of Metaheuristics, 2nd edn, Springer, Heidelberg, 2010

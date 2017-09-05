@@ -15,7 +15,7 @@
 \contentsline {subsubsection}{\numberline {2.2.1}\kernsubsubsekcyjny Metoda optymalizacji rojem cz\k astek}{16}
 \contentsline {subsubsection}{\numberline {2.2.2}\kernsubsubsekcyjny Symulowane wy\.zarzanie}{17}
 \contentsline {subsubsection}{\numberline {2.2.3}\kernsubsubsekcyjny Algorytm genetyczny}{19}
-\contentsline {section}{\numberline {3}\kernsekcyjny Automatyzacja przeprowadzanych bada\'n}{25}
+\contentsline {section}{\numberline {3}\kernsekcyjny Za\IeC {\l }o\.zenia projektu}{25}
 \contentsline {section}{\numberline {4}\kernsekcyjny Wykorzystane rozwi\k azania technologiczne}{27}
 \contentsline {subsection}{\numberline {4.1}\kernsubsekcyjny Zastosowane technologie}{27}
 \contentsline {subsubsection}{\numberline {4.1.1}\kernsubsubsekcyjny .NET Framework/C\#}{27}
