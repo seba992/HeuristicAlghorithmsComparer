@@ -81,7 +81,7 @@ Do czêœci opisowej pracy magisterskiej do³¹czona zosta³a p³yta CD zawieraj¹ca pl
 
 \subsection{Podstawowe pojêcia optymalizacji}
 
-Temat optymalizacji jest bardzo obszernym tematem, w ramach opisu którego wystêpuje kilka okreœleñ, których definicje warto wyjaœniæ. Podstawowym pojêciem jest \textit{problem optymalizacji}, który to mo¿e zostaæ opisany jako próba znalezienia wartoœci zmiennej $x$ zawartej w danym \textit{zbiorze $X$}, dla której ustalona funkcja $f(x)$ przyjmuje najkorzystniejsz¹ wartoœæ. Funkcja ta nazywana jest \textit{funkcj¹ celu} i za zadanie ma zmierzenie wartoœci celu, jaki ma zostaæ osi¹gniêty. W kontekœcie prezentowanej pracy magisterskiej celem takim jest uzyskanie najmniejszej mo¿liwej wartoœci danej funkcji, czyli jej minimum globalnego. \textit{Zbiór $X$} z kolei jest wyznaczony przez zbiór ograniczeñ problemu, który w temacie minimalizacji funkcji jest ustalon¹ dziedzin¹ danej funkcji, czyli zbiorem wszystkich jej argumentów. Zbiór ten nazywany jest równie¿ przestrzeni¹ poszukiwañ lub przestrzeni¹ rozwi¹zañ.
+Temat optymalizacji jest bardzo obszernym tematem, w ramach opisu którego wystêpuje kilka okreœleñ, których definicje warto wyjaœniæ. Podstawowym pojêciem jest \textit{problem optymalizacji}, który to mo¿e zostaæ opisany jako próba znalezienia wartoœci zmiennej $x$ zawartej w danym \textit{zbiorze $X$}, dla której ustalona funkcja $f(x)$ przyjmuje najkorzystniejsz¹ wartoœæ. Funkcja ta nazywana jest \textit{funkcj¹ celu} i za zadanie ma zmierzenie wartoœci celu, jaki ma zostaæ osi¹gniêty. W kontekœcie prezentowanej pracy magisterskiej celem takim jest uzyskanie najmniejszej mo¿liwej wartoœci danej funkcji, czyli jej minimum globalnego. \textit{Zbiór $X$} z kolei jest wyznaczony przez zbiór ograniczeñ problemu, który w temacie minimalizacji funkcji jest ustalon¹ dziedzin¹ danej funkcji, czyli zbiorem wszystkich jej argumentów. Zbiór ten nazywany jest równie¿ \textit{przestrzeni¹ poszukiwañ lub przestrzeni¹ rozwi¹zañ}.
 
 \subsection{Opis minimalizacji funkcji ci¹g³ych wielu zmiennych}
 \label{dzial:OpisMinimalizacjiFunkcjiCiaglych}
@@ -99,11 +99,11 @@ Do analizy wybranych zosta³o szeœæ funkcji testowych, podczas doboru których wzi
 
 Funkcja Bohachevsky'ego I jest stosunkowo prost¹ do minimalizacji funkcja dwóch zmiennych, której wykres przedstawiony na rysunku \ref{wykres:img_boha} przybiera kszta³t ³uku. Z regu³y jest ona badana w zakresie $x_i \in[-100,100]$ dla $i=1,2$. W przedstawianej pracy magisterskiej granice to zosta³y jednak dwukrotnie powiêkszone i wynosz¹ $[-200,200]$. Wed³ug doœwiadczeñ przeprowadzonych w \cite{RankingFunkcjiTestowych}, $81.75\%$ prób zakoñczonych zosta³o znalezieniem minimum globalnego, które dla funkcji Bohachevsky'ego I wynosi $0$ w punkcie $x=(0,0)$.
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.9\textwidth]{img_boha1.png}
     $f(x)=x^{2}_1+2x^{2}_2-0.3cos(3\pi x_1)-0.4cos(4\pi x_2)+0.7$
-    \caption{Wykres oraz wzór funkcji Bohachevsky'ego I dwóch zmiennych, ród³o: https://www.sfu.ca/\textasciitilde ssurjano/boha.html}
+    \caption{Wykres oraz wzór funkcji Bohachevsky'ego I dwóch zmiennych, Ÿród³o: https://www.sfu.ca/\textasciitilde ssurjano/boha.html}
     \label{wykres:img_boha}
 \end{figure} 
 
@@ -119,12 +119,12 @@ $f(x)=100(x^{2}_1-x_2)^{2}+(x_1-1)^{2}+(x_3-1)^{2}+90(x^{2}_3-x_4)^{2}+10.1((x_2
 
 Funkcja Ackleya jest popularn¹ funkcj¹ dla testów optymalizacyjnych algorytmów. W swojej dwuwymiarowej postaci, któr¹ ukazano na rysunku \ref{wykres:img_ack}, charakteryzuje siê stosunkowo p³askim obszarem zewnêtrznym i du¿ym otworem w centrum. Funkcja stwarza ryzyko dla algorytmów optymalizacyjnych poprzez mo¿liwoœæ zatrzymania siê w jednym z licznych lokalnych minimów. Istnieje mo¿liwoœæ rozszerzenia funkcji Ackleya na wiele wymiarów, co te¿ uczyniono w prezentowanej pracy magisterskiej, w której rozpatrywana jest ona dla czterech zmiennych. Minimum globalne umiejscowione jest w punkcie $x=(0,0,0,0)$ i jego wartoœæ wynosi $0$. Dziedzina funkcji analizowana bêdzie z kolei w przedziale $x_i\in[-150,150]$ dla $i=1,2,3,4$. Dla wspomnianych ju¿ testów, których wyniki opublikowano w pracy \cite{RankingFunkcjiTestowych}, procentowy sukces znalezienia minimum globalnego wyniós³ $48.25\%$.
  
-\begin{figure}[tb]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.9\textwidth]{img_ack.png}
     $f(x)=-a\exp(-b \sqrt{\frac{1}{d} \sum_{i=1}^d x^{2}_i}-\exp(\frac{1}{d} \sum_{i=1}^d cos(cx_i))+a+\exp(1)
     \newline a=20, b=0.2,c=2\pi$
-    \caption{Wykres funkcji Ackleya dla dwóch zmiennych oraz ogólny wzór funkcji, ród³o: https://www.sfu.ca/\textasciitilde ssurjano/ackley.html}
+    \caption{Wykres funkcji Ackleya dla dwóch zmiennych oraz ogólny wzór funkcji, Ÿród³o: https://www.sfu.ca/\textasciitilde ssurjano/ackley.html}
     \label{wykres:img_ack}
 \end{figure} 
 \newpage
@@ -132,11 +132,11 @@ Funkcja Ackleya jest popularn¹ funkcj¹ dla testów optymalizacyjnych algorytmów. 
 
 Funkcja Rosenbrocka jest to niewypuk³a funkcja, która jest bardzo popularna w kontekœcie optymalizacji jako test dla algorytmów optymalizacyjnych. Nazywana jest równie¿ przez wzgl¹d na swój kszta³t \textit{"Funkcj¹ Bananow¹ Rosenbrocka"} albo \textit{"Dolin¹ Rosenbrocka"} \cite{DolinaRosenbrocka}. Funkcja Rosenbrocka powszechnie jest stosowana w kontekœcie optymalizacji funkcji dwóch zmiennych. Istnieje jednak mo¿liwoœæ rozszerzenia jej do wielu wymiarów. W prezentowanej pracy magisterskiej rozpatrywana jest funkcja Rosenbrocka czterech zmiennych, której minimum globalne mieœci siê w punkcie $x=(1,1,1,1)$ i wynosi $0$. Ustalon¹ dziedzin¹ funkcji jest $x_i\in[-200,200]$ dla $i=1,2,3,4$. Opisywana funkcja Rosenbrocka jest funkcj¹ trudn¹ do minimalizacji i wed³ug wyników testów zawartych w \cite{RankingFunkcjiTestowych}, procentowy sukces znalezienia minimum globalnego wyniós³ tylko $8,42\%$.
 
-\begin{figure}[tb]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.9\textwidth]{img_ros.png}
     $f(x)=\sum_{i=1}^{d-1}[100(x_{i+1}-x^{2}_i)^2+(x_i-1)^2]$
-    \caption{Wykres funkcji Rosenbrocka dla dwóch zmiennych oraz ogólny wzór funkcji, ród³o: https://www.sfu.ca/\textasciitilde ssurjano/rosen.html}
+    \caption{Wykres funkcji Rosenbrocka dla dwóch zmiennych oraz ogólny wzór funkcji, Ÿród³o: https://www.sfu.ca/\textasciitilde ssurjano/rosen.html}
     \label{wykres:img_ros}
 \end{figure} 
   
@@ -148,7 +148,7 @@ Kolejn¹ wybran¹ funkcj¹ zosta³a dwuwymiarowa funkcja Eggholdera. Jest to funkcja
     \centering
     \includegraphics[width=0.9\textwidth]{img_egg.png}
     $f(x)=-(x_2+47)\sin(\sqrt{|x_2+\frac{x_1}{2}+47|})-x_1\sin(\sqrt{|x_1-(x_2+47)|})$
-    \caption{Wykres oraz wzór funkcji Eggholdera dwóch zmiennych, ród³o: https://www.sfu.ca/\textasciitilde ssurjano/egg.html}
+    \caption{Wykres oraz wzór funkcji Eggholdera dwóch zmiennych, Ÿród³o: https://www.sfu.ca/\textasciitilde ssurjano/egg.html}
     \label{wykres:img_egg}
 \end{figure} 
 
@@ -161,7 +161,7 @@ Ostatni¹ wybran¹ do testów funkcj¹ jest funkcja Griewanka, której minimum global
     \centering
     \includegraphics[width=0.9\textwidth]{img_gri.png}
     $f(x)=\sum_{i=1}^d\frac{x^{2}_i}{4000}-\prod_{i=1}^{d}\cos(\frac{x_i}{\sqrt{i}})+1$
-    \caption{Wykres funkcji Griewanka dla dwóch zmiennych oraz ogólny wzór funkcji, ród³o: https://www.sfu.ca/\textasciitilde ssurjano/gri.html}
+    \caption{Wykres funkcji Griewanka dla dwóch zmiennych oraz ogólny wzór funkcji, Ÿród³o: https://www.sfu.ca/\textasciitilde ssurjano/gri.html}
     \label{wykres:img_gri}
 \end{figure} 
 
@@ -220,51 +220,51 @@ Graficzne przedstawienia schematu pracy algorytmu symulowanego wy¿arzania przeds
     \centering
     \includegraphics[width=0.7\textwidth]{img_sa.png}
     \caption{Zasada dzia³ania algorytmu symulowanego w poszukiwaniu maksimum funkcji, 
-    ród³o: http://iacs-courses.seas.harvard.edu/courses/am207/blog/
+    Ÿród³o: http://iacs-courses.seas.harvard.edu/courses/am207/blog/
 	\newline    
     images/mcmc.png}
     \label{rys:sa}
 \end{figure} 
 
-W celu wykonania algorytmu symulowanego wy¿arzania w kontekœcie optymalizacji funkcji wielu zmiennych nale¿y na pocz¹tku losowo wygenerowaæ punkt startowy, który mieœci siê na przestrzeni poszukiwañ, wyliczyæ dla niego wartoœæ funkcji oraz wybraæ temperaturê pocz¹tkow¹. Ka¿da iteracja polega na wyborze losowego rozwi¹zania z s¹siedztwa, wyliczeniu dla niego wartoœci funkcji i porównaniu z obecnie najlepszym rezultatem oraz obni¿eniu temperatury. W przypadku, w którym wartoœæ funkcji nowego punktu jest mniejsza (lepsza), jest on zaklasyfikowany jako najlepszy. W przeciwnej sytuacji punkt nie jest natychmiastowo odrzucany. Algorytm akceptuje gorsze rezultaty bazuj¹c na funkcji akceptacyjnej oraz prawdopodobieñstwie akceptacji, które wyliczane jest ze wzoru \ref{wzor:SAprawd}.
+W celu zastosowania algorytmu symulowanego wy¿arzania w kontekœcie optymalizacji funkcji wielu zmiennych nale¿y na pocz¹tku losowo wygenerowaæ punkt startowy, mieœci siê w granicach przestrzeni poszukiwañ, wyliczyæ dla niego wartoœæ funkcji oraz wybraæ temperaturê pocz¹tkow¹. Ka¿da iteracja polega na wyborze losowego rozwi¹zania z s¹siedztwa, wyliczeniu dla niego wartoœci funkcji i porównaniu z obecnie najlepszym rezultatem oraz obni¿eniu temperatury. W przypadku, w którym wartoœæ funkcji nowego punktu jest mniejsza (lepsza), jest on zaklasyfikowany jako najlepszy. W przeciwnej sytuacji punkt nie jest natychmiastowo odrzucany. Algorytm akceptuje gorsze rezultaty bazuj¹c na funkcji akceptacyjnej oraz prawdopodobieñstwie akceptacji, które wyliczane jest na podstawie nastêpuj¹cego wzoru:
 
 \begin{equation}
 p_i=\frac{1}{1+exp(\frac{\Delta_i}{T_i})}
 \label{wzor:SAprawd}
 \end{equation}
-gdzie,
+gdzie:
 
-$p_i$ - prawdopodobieñstwa akceptacji
+$p_i$ - prawdopodobieñstwo akceptacji
 
-$\Delta_i$ – ró¿nica pomiêdzy wartoœciami najlepszego punktu oraz punktu w $i$-tej iteracji
+$\Delta_i$ – ró¿nica pomiêdzy wartoœci¹ najlepszego punktu oraz punktu w $i$-tej iteracji
 
 $T_i$ – wartoœæ temperatury
 \newline
 
-W sytuacji, w której $\Delta_i$ i $T_i$ s¹ wartoœciami dodatnimi, $p_i$ przyjmuje wartoœci z zakresu $(0;\frac{1}{2}$. Ni¿sza temperatura prowadzi do mniejszego prawdopodobieñstwa zaakceptowania gorszego rezultatu. Podobnie jest z $\Delta$ – im wiêksza delta, tym mniejsza szansa na zaakceptowanie.
+W sytuacji, w której $\Delta_i$ i $T_i$ s¹ wartoœciami dodatnimi, $p_i$ przyjmuje wartoœci z zakresu $(0;\frac{1}{2})$. Ni¿sza temperatura prowadzi do mniejszego prawdopodobieñstwa zaakceptowania gorszego rezultatu. Podobnie jest z $\Delta_i$ – im wiêksza, tym mniejsza szansa na zaakceptowanie.
 
 \subsubsection{Algorytm genetyczny}
 
 Model algorytmu genetycznego po raz pierwszy zaprezentowany zosta³ w 1975 roku przez Johna Hollanda, który w pracy \textit{"Adaptation in Natural and Artificial Systems"} \cite{GetnetycznyPoRazPierwszy} przedstawi³ fundamenty za³o¿eñ dotycz¹cych adaptacji Darwinowskiej teorii ewolucji w systemach informatycznych.  
 
-W opisie algorytmu genetycznego czêsto pos³uguje siê powszechn¹ terminologi¹ biologiczn¹ \cite{GenetycznyTerminologia}. Z tego te¿ powodu przyjmuje siê, i¿ algorytmy genetyczne przetwarzaj¹ populacjê osobników, która reprezentuje rozwi¹zanie danego problemu. Ka¿dy element populacji nazywany jest chromosomem, a jego sk³adowe genami. Allele, z kolei s¹ to mo¿liwe stany (wartoœci) genu, które umiejscowione s¹ na pozycjach zdefiniowanych jako locus. W badanych modelach komputerowych, osobniki (chromosomy) mog¹ byæ opisane jako ró¿ne struktury – zaczynaj¹c od ³añcuchów binarnych, a koñcz¹c na bardzo z³o¿onych obiektach. W okreœlonej iteracji zwanej zamiennie pokoleniem albo generacj¹, dane chromosomy na bazie okreœlonej miary ich dostrojenia podlegaj¹ ocenie. Ocena ta skutkuje wyborem najlepiej przystosowanych osobników, które wezm¹ udzia³ w kolejnych iteracjach algorytmu. Nim jednak wybrane osobniki populacji utworz¹ now¹ generacjê, zostaj¹ poddane modyfikacjom bazuj¹cych na podstawowych operacjach genetycznych – krzy¿owaniu, selekcji oraz mutacji.
+Opis algorytmu genetycznego bazuje na powszechnej terminologii biologicznej \cite{GenetycznyTerminologia}. Z tego te¿ powodu przyjmuje siê, i¿ algorytmy genetyczne przetwarzaj¹ populacjê osobników, która reprezentuje rozwi¹zanie danego problemu. Ka¿dy element populacji nazywany jest chromosomem, a jego sk³adowe genami. Allele, z kolei, s¹ to mo¿liwe stany (wartoœci) genu, które umiejscowione s¹ na pozycjach zdefiniowanych jako locus. W badanych modelach komputerowych osobniki (chromosomy) mog¹ byæ opisane jako ró¿ne struktury – zaczynaj¹c od ³añcuchów binarnych, a koñcz¹c na bardzo z³o¿onych obiektach. W okreœlonej iteracji zwanej zamiennie pokoleniem albo generacj¹, dane chromosomy na bazie okreœlonej miary ich dostrojenia podlegaj¹ ocenie. Ocena ta skutkuje wyborem najlepiej przystosowanych osobników, które wezm¹ udzia³ w kolejnych iteracjach algorytmu. Nim jednak wybrane osobniki populacji utworz¹ now¹ generacjê, zostaj¹ poddane modyfikacjom bazuj¹cych na podstawowych operacjach genetycznych – krzy¿owaniu, selekcji oraz mutacji.
 
-W kontekœcie problemu optymalizacji funkcji wielu zmiennych, inicjalizacja algorytmu genetycznego polega na wygenerowaniu populacji pocz¹tkowej, która z³o¿ona jest z okreœlonej liczby chromosomów (punktów). Ka¿dy chromosom reprezentowany w populacji posiada tak¹ sam¹ d³ugoœæ, która ustalona jest zale¿nie od rozwi¹zywanego problemu na etapie implementowania algorytmu. Przed rozpoczêciem etapu generowania musi byæ jednak okreœlony sposób kodowania informacji zawartej w chromosomie. W algorytmie Hollanda nie by³o domyœlnie zdefiniowanego sposobu kodowania chromosomów. Powszechnie uznaje siê jednak stosowanie kodowania binarnego \cite{GenetycznyKodowanieBinarne}. Takie te¿ kodowanie jest zastosowane w kontekœcie omawianego problemu optymalizowania funkcji wielu zmiennych. Kolejnym etapem, który nastêpuje po wygenerowaniu populacji pocz¹tkowej oraz wyborze kodowania chromosomów jest wyznaczenie jakoœci chromosomów danej populacji. W tym celu obliczana jest wartoœæ tak zwanej funkcji oceny, która definiuje poziom dopasowania konkretnego chromosomu. Tym sposobem mo¿na stwierdziæ, które z nich lepiej rozwi¹zuj¹ dane zagadnienie, a które gorzej. Znalezienie rozwi¹zania danego problemu sprowadza siê do znalezienia ekstremum wspomnianej funkcji oceny. Kolejn¹ czêœci¹ algorytmu jest zastosowanie mechanizmu selekcji, który definiuje sposób wyboru rozwi¹zañ rodzicielskich, z których tworzone bêd¹ tak zwane rozwi¹zania potomne u¿yte w nastêpnej generacji. Prostym w implementacji operatorem selekcji dla algorytmu genetycznego jest metoda ruletki \cite{GenetycznyRuletka}. Metoda ta polega na przydzieleniu ka¿demu chromosomowi z danej populacji prawdopodobieñstwa wed³ug wzoru:
+W kontekœcie problemu optymalizacji funkcji wielu zmiennych, inicjalizacja algorytmu genetycznego polega na wygenerowaniu populacji pocz¹tkowej, która z³o¿ona jest z okreœlonej liczby chromosomów (punktów). Ka¿dy chromosom reprezentowany w populacji posiada tak¹ sam¹ d³ugoœæ, która ustalona jest zale¿nie od rozwi¹zywanego problemu na etapie implementowania algorytmu. Przed rozpoczêciem etapu generowania musi byæ jednak okreœlony sposób kodowania informacji zawartej w chromosomie. W algorytmie Hollanda nie by³o domyœlnie zdefiniowanego sposobu kodowania chromosomów. Powszechnie uznaje siê jednak stosowanie kodowania binarnego \cite{GenetycznyKodowanieBinarne}. Takie te¿ kodowanie jest zastosowane w kontekœcie omawianego problemu optymalizowania funkcji wielu zmiennych. Kolejnym etapem, który nastêpuje po wygenerowaniu populacji pocz¹tkowej oraz wyborze kodowania chromosomów, jest wyznaczenie jakoœci chromosomów danej populacji. W tym celu obliczana jest wartoœæ tak zwanej funkcji oceny, która definiuje poziom dopasowania konkretnego chromosomu. W zagadnieniach dotycz¹cych optymalizacji, funkcj¹ t¹ jest zwykle optymalizowana funkcja, nazywana funkcj¹ celu. Tym sposobem mo¿na stwierdziæ, które z nich lepiej rozwi¹zuj¹ dane zagadnienie, a które gorzej. Znalezienie rozwi¹zania danego problemu sprowadza siê do znalezienia ekstremum (minimum) wspomnianej funkcji oceny. Kolejn¹ czêœci¹ algorytmu jest zastosowanie mechanizmu selekcji, który definiuje sposób wyboru rozwi¹zañ rodzicielskich, z których tworzone bêd¹ tak zwane rozwi¹zania potomne u¿yte w nastêpnej generacji. Prostym w implementacji operatorem selekcji dla algorytmu genetycznego jest metoda ruletki \cite{GenetycznyRuletka}. Metoda ta polega na przydzieleniu ka¿demu chromosomowi z danej populacji prawdopodobieñstwa wed³ug wzoru:
 
 \begin{equation}
 p_i = \frac{f_i}{\sum_{j=1}^{N}f_j}
 \end{equation}
 
-gdzie,
+gdzie:
 
-$f_i$ - wartoœæ funkcji oceny chromosomu i-tego
+$f_i$ - wartoœæ funkcji oceny \textit{i}-tego chromosomu 
 
-$p_i$ – prawdopodobieñstwo reprodukcji chromosomu i-tego
+$p_i$ – prawdopodobieñstwo reprodukcji \textit{i}-tego chromosomu 
 
 $N$ - liczba chromosomów w populacji
 \newline
 
-W celu wybrania puli rodzicielskiej, ko³o ruletki o obwodzie jeden dzielone jest na czêœci o d³ugoœci $p_i$, a nastêpnie z zakresu $[0,1]$ losowana jest liczba, która jednoznacznie identyfikuje punkt na ruletce, a co za tym idzie konkretny chromosom. Chromosom ten brany bêdzie pod uwagê w procesie nastêpnej reprodukcji, a losowanie powtarzane jest tak d³ugo, a¿ wylosowana zostanie ustalona liczba chromosomów. W problemie minimalizacji funkcji wielu zmiennych istnieje mo¿liwoœæ, i¿ wartoœæ funkcji oceny bêdzie ujemna. W celu zniwelowania problemu ujemnego prawdopodobieñstwa powy¿szy wzór zosta³ zmodyfikowany stosuj¹c skalowanie przystosowania:
+W celu wybrania puli rodzicielskiej, ko³o ruletki o obwodzie jeden dzielone jest na czêœci o d³ugoœci $p_i$, a nastêpnie z zakresu $[0,1]$ losowana jest,  zgodnie z rozk³adem jednostajnym liczba, która jednoznacznie identyfikuje punkt na ruletce, a co za tym idzie konkretny chromosom. Chromosom ten brany bêdzie pod uwagê w procesie nastêpnej reprodukcji, a losowanie powtarzane jest tak d³ugo, a¿ wylosowana zostanie ustalona liczba chromosomów. W problemie minimalizacji funkcji wielu zmiennych istnieje mo¿liwoœæ, i¿ wartoœæ funkcji oceny bêdzie ujemna. W celu zniwelowania problemu ujemnego prawdopodobieñstwa powy¿szy wzór zosta³ zmodyfikowany stosuj¹c skalowanie przystosowania:
 
 \begin{equation}
 p_i = \frac{f_i-f_{min}}{\sum_{j=1}^{N}f_j-f_{min}}
@@ -272,14 +272,14 @@ p_i = \frac{f_i-f_{min}}{\sum_{j=1}^{N}f_j-f_{min}}
 
 gdzie $f_{min}$ jest wartoœci¹ funkcji przystosowania najgorszego chromosomu. \newline
 
-Po etapie selekcji pozostaje do zdefiniowania kwestia wymiany pokoleñ. W implementacjach czêsto stosowana jest metoda ca³kowitego zastêpowania, w której ca³a aktualna populacja, podlega operacjom krzy¿owania i mutacji. Innym sposobem jest metoda zastêpowania czêœciowego, w której czêœæ najlepszych chromosomów obecnej populacji przechodzi do populacji potomnej bez ¿adnych zmian, a pozosta³e elementy z kolei bior¹ udzia³ w operacji krzy¿owania i mutacji. Kolejn¹ popularn¹ praktyk¹ jest zastosowanie zastêpowania elitarnego, w którym na podstawie parametru okreœlaj¹cego wielkoœæ elity, czêœæ najlepszych osobników jest kopiowana do nowej generacji ju¿ na samym pocz¹tku. Umo¿liwia to zapamiêtanie najlepszych chromosomów, które mog¹ byæ zmienione w wyniku dzia³ania operatorów genetycznych rozpoczynaj¹cych swoj¹ pracê po zakoñczeniu etapu selekcji.
+Po etapie selekcji pozostaje do zdefiniowania kwestia wymiany pokoleñ. W implementacjach czêsto stosowana jest metoda ca³kowitego zastêpowania, w której ca³a aktualna populacja podlega operacjom krzy¿owania i mutacji. Innym sposobem jest metoda zastêpowania czêœciowego, w której czêœæ najlepszych chromosomów obecnej populacji przechodzi do populacji potomnej bez ¿adnych zmian, a pozosta³e elementy z kolei bior¹ udzia³ w operacji krzy¿owania i mutacji. Kolejn¹ popularn¹ praktyk¹ jest zastosowanie zastêpowania elitarnego, w którym na podstawie parametru okreœlaj¹cego wielkoœæ elity, czêœæ najlepszych osobników jest kopiowana do nowej generacji ju¿ na samym pocz¹tku. Umo¿liwia to zapamiêtanie najlepszych chromosomów, które mog¹ byæ zmienione w wyniku dzia³ania operatorów genetycznych rozpoczynaj¹cych swoj¹ pracê po zakoñczeniu etapu selekcji.
 
 Pierwszym z takich operatorów jest krzy¿owanie, które jest operacj¹ umo¿liwiaj¹c¹ tworzenie nowych rozwi¹zañ. Jego koncept bazuje na procesie rozmna¿ania organizmów, w czasie trwania którego potomek dziedziczy czêœæ genów rodziców. W kontekœcie omawianego algorytmu genetycznego, krzy¿owanie polega na przeciêciu chromosomów w ustalonym punkcie i ich wzajemnego zamienienia. Operacja ta zosta³a przedstawiona na rysunku \ref{rys:gen_krzyz}.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.6\textwidth]{img_krzyz.png}
-    \caption{Graficzna prezentacja operacji krzy¿owania jednopunktowego, ród³o: https://www.linkedin.com/pulse/genetic-algorithms-sharmishtha-mahajan-patwardhan}
+    \caption{Graficzna prezentacja operacji krzy¿owania jednopunktowego, Ÿród³o: https://www.linkedin.com/pulse/genetic-algorithms-sharmishtha-mahajan-patwardhan}
     \label{rys:gen_krzyz}
 \end{figure} 
 
@@ -290,18 +290,18 @@ Drugim operatorem genetycznym jest mutacja, która umo¿liwia wprowadzenie nowego 
     \includegraphics[width=0.6\textwidth]{img_muta.png}
     \caption{Graficzna prezentacja operacji mutacji, 
     \newline    
-    ród³o: http://web.arch.usyd.edu.au/
+    Ÿród³o: http://web.arch.usyd.edu.au/
     \newline
     \textasciitilde rob/applets/house/images/single\_point\_mutation.png}
     \label{rys:gen_muta}
 \end{figure} 
 
-Tak utworzona nowa generacja ponownie przechodzi przez wszystkie punkty algorytmu. Dzieje siê tak a¿ do czasu, w którym spe³nione zostan¹ warunki zatrzymania, które w kontekœcie przedstawianego zagadnienia opisane zosta³y w podpunkcie \ref{dzial:MetodyPorownawczeWybranychAlgorytmow} opisuj¹cym metody porównawcze wybranych algorytmów obejmuj¹ce w swojej treœci warunki stopu opisanych trzech metaheurystyków.
+Tak utworzona nowa generacja ponownie przechodzi przez wszystkie punkty algorytmu. Dzieje siê tak a¿ do czasu, w którym spe³nione zostan¹ warunki zatrzymania, które w kontekœcie przedstawianego zagadnienia opisane zosta³y w podpunkcie \ref{dzial:MetodyPorownawczeWybranychAlgorytmow} opisuj¹cym metody porównawcze wybranych algorytmów obejmuj¹ce równie¿ warunki stopu opisanych trzech metaheurystyk.
 
 \section{Automatyzacja przeprowadzanych badañ}
 \label{dzial:AutomatyzacjaPrzeprowadzanychBadan}
 
-Porównanie algorytmów metaheurystycznych w odniesieniu do problemu minimalizacji funkcji wielu zmiennych jest zadaniem bardzo skomplikowanym przez fakt iloœci doœwiadczeñ, które nale¿y wykonaæ. Badania porównawcze przeprowadzane bêd¹ pod k¹tem kilku parametrów. Dla ka¿dego z nich wymagane bêdzie przeprowadzenie wielokrotnych testów dla ka¿dego testowanego algorytmu. Ustalaj¹c próbkê testu na poziomie $10^3$ prób, z której obliczana bêdzie wartoœæ œrednia oraz bior¹c pod uwagê dwa parametry porównawcze, z których ka¿dy przyjmowaæ mo¿e $10$ wartoœci, liczba testów dla jednego algorytmu oraz jednej funkcji testowej osi¹ga ju¿ wartoœæ $2*10^4$. Manualne przetwarzanie w œrodowisku Matlab przy ograniczonej funkcjonalnoœci agregowania wyników jest bardzo czasoch³onnym zadaniem. W tym celu zdecydowano siê zbudowaæ dedykowan¹ aplikacjê bazodanow¹, która bêdzie umo¿liwia³a automatyzacjê przedstawianej operacji. U¿ytkownik z poziomu aplikacji bêdzie mia³ mo¿liwoœæ wyboru funkcji testowej, algorytmu metaheurystycznego oraz jego parametrów, a tak¿e liczby testów, która ma byæ przeprowadzona przy zadanych wartoœciach. Aplikacja automatycznie bêdzie wysy³a³a zapytania do œrodowiska obliczeniowego Matlab, odbiera³a wyniki oraz umieszcza³a je w bazie danych, z której w prosty i efektywny sposób mo¿na bêdzie przeprowadziæ ich agregacjê w celu przedstawienia wyników i ich porównania. W ten sposób narzut pracy, który niezbêdny jest do implementacji przedstawionej aplikacji zwróci siê oraz umo¿liwi dalsz¹ analizê algorytmów w kontekœcie problemu optymalizacji funkcji wielu zmiennych poniewa¿ aplikacja umo¿liwiaæ bêdzie równie¿ proste dodanie do niej kolejnych algorytmów oraz funkcji testowych.
+Porównanie algorytmów metaheurystycznych w odniesieniu do problemu minimalizacji funkcji wielu zmiennych jest zadaniem bardzo skomplikowanym przez fakt liczby doœwiadczeñ, które nale¿y wykonaæ. Badania porównawcze przeprowadzane bêd¹ pod k¹tem kilku parametrów. Dla ka¿dego z nich wymagane bêdzie przeprowadzenie wielokrotnych testów dla ka¿dego testowanego algorytmu. "Rêczne" uruchamianie kolejnych eksperymentów numerycznych w œrodowisku Matlab przy ograniczonej funkcjonalnoœci agregowania wyników jest bardzo czasoch³onnym zadaniem. W tym celu zdecydowano siê zbudowaæ dedykowan¹ aplikacjê bazodanow¹, która bêdzie umo¿liwia³a automatyzacjê przedstawianej operacji. U¿ytkownik z poziomu aplikacji bêdzie mia³ mo¿liwoœæ wyboru funkcji testowej, algorytmu metaheurystycznego oraz jego parametrów, a tak¿e liczby testów, która ma byæ przeprowadzona przy zadanych wartoœciach. Aplikacja automatycznie bêdzie wysy³a³a zapytania do œrodowiska obliczeniowego Matlab, odbiera³a wyniki oraz umieszcza³a je w bazie danych, za poœrednictwem której w prosty i efektywny sposób mo¿na bêdzie przeprowadziæ ich agregacjê w celu przedstawienia wyników i ich porównania. W ten sposób narzut pracy, który niezbêdny jest do implementacji przedstawionej aplikacji, zwróci siê oraz umo¿liwi dalsz¹ analizê algorytmów w kontekœcie problemu optymalizacji funkcji wielu zmiennych, poniewa¿ aplikacja umo¿liwiaæ bêdzie równie¿ proste dodanie do niej kolejnych algorytmów oraz funkcji testowych.
 
 \section{Wykorzystane rozwi¹zania technologiczne}
 \label{dzial:WykorzystaneRozwiazaniaTechnologiczne}
@@ -309,99 +309,98 @@ Porównanie algorytmów metaheurystycznych w odniesieniu do problemu minimalizacji
 \subsection{Zastosowane technologie}
 \label{dzial:ZastosowaneTechnologie}
 
-Obecny rozdzia³ obejmuje opis wykorzystanych technologii, które umo¿liwi³y implementacjê aplikacji. Opis ten dotyczy jêzyka programowania, w którym napisany zosta³ backend \cite{Backend} aplikacji oraz silnika graficznego programu wraz z jêzykiem zapytañ bazy danych.
+Obecny rozdzia³ obejmuje opis wykorzystanych technologii, które umo¿liwi³y implementacjê aplikacji. Opis ten dotyczy jêzyka programowania, w którym napisana zosta³a warstwa logiki aplikacji oraz silnika graficznego programu wraz z jêzykiem zapytañ bazy danych.
 
 \subsubsection{.NET Framework/C\#}
 
-.NET Framework jest to platforma programistyczna wydana przez firmê Microsoft w 2002 roku. Przeznaczona jest ona do wytwarzania oprogramowania przeznaczonego dla systemów operacyjnych z rodziny Windows. G³ówn¹ sk³adow¹ przedstawianej platformy s¹ kompilatory jêzyków wysokiego poziomu, które umo¿liwiaj¹ przeprowadzenie operacji kompilacji programów napisanych w jêzykach Visual Basic, F\#, C++/CLI. Platforma .NET wspiera równie¿ jeden z najpopularniejszych jêzyków programowania na œwiecie - C\#, w którym napisana zosta³a aplikacja odnosz¹ca siê do prezentowanej pracy magisterskiej. Wed³ug rankingu TIOBE Software z sierpnia 2017 roku, jêzyk C\# uplasowany jest na czwartym miejscu, spoœród piêædziesiêciu najpopularniejszych jêzyków, które zosta³y wziête pod uwagê \cite{TIOBE}.
-C\# jest to nowoczesny, zorientowany obiektowo jêzyk programowania stworzony przez firmê Microsoft. Jego pierwsza wersja wydana zosta³a ju¿ w po³owie 2000 roku, przy du¿ej zas³udze g³ównego projektanta jêzyka - duñskiego in¿yniera oprogramowania Andersa Hejlsberga \cite{Hejlsberg}. Jêzyk ten mo¿e zostaæ u¿yty w celu pisania aplikacji webowych, desktopowych oraz przeznaczonych na urz¹dzenia przenoœne. Programy w nim napisane kompilowane s¹ do poœredniego kodu, który zapisany jest w CIL (ang. Common Intermediate Language) i wykonany w œrodowisku uruchomieniowym .NET Frameworka. Poziom trudnoœci nauki C\# uznawany jest za stosunkowo niski, g³ównie z powodu posiadania licznych udogodnieñ oraz modu³ów, które upraszczaj¹ pracê programistyczn¹ \cite{CSharpAdvantages}. Do elementów tych mo¿na zaliczyæ brak koniecznoœci dodawania plików nag³ówkowych, które niezbêdne by³y w jêzyku C++, automatyczne zwalnianie dynamicznie przydzielonej pamiêci za które odpowiedzialny jest Garbage Collection, inicjalizowanie zmiennych ich domyœlnymi wartoœciami oraz wprowadzenie dodatkowych elementów sk³adowych klas, takich jak indeksery oraz w³aœciwoœci (ang. properties).
+.NET Framework jest to platforma programistyczna wydana przez firmê Microsoft w 2002 roku. Przeznaczona jest ona do wytwarzania oprogramowania przeznaczonego dla systemów operacyjnych z rodziny Windows. G³ówn¹ sk³adow¹ przedstawianej platformy s¹ kompilatory jêzyków wysokiego poziomu, które umo¿liwiaj¹ przeprowadzenie operacji kompilacji programów napisanych w jêzykach Visual Basic, F\#, C++/CLI. Platforma .NET wspiera równie¿ jeden z najpopularniejszych jêzyków programowania na œwiecie - C\#, w którym napisana zosta³a aplikacja odnosz¹ca siê do prezentowanej pracy magisterskiej. C\# jest to nowoczesny, zorientowany obiektowo jêzyk programowania stworzony przez firmê Microsoft. Jego pierwsza wersja wydana zosta³a ju¿ w po³owie 2000 roku, przy du¿ej zas³udze g³ównego projektanta jêzyka - duñskiego in¿yniera oprogramowania Andersa Hejlsberga \cite{Hejlsberg}. Jêzyk ten mo¿e zostaæ u¿yty w celu pisania aplikacji webowych, desktopowych oraz przeznaczonych na urz¹dzenia przenoœne. Programy w nim napisane kompilowane s¹ do poœredniego kodu, który zapisany jest w CIL (ang. Common Intermediate Language) i wykonany w œrodowisku uruchomieniowym .NET Framework. Poziom trudnoœci nauki C\# uznawany jest za stosunkowo niski, g³ównie z powodu posiadania licznych udogodnieñ oraz modu³ów, które upraszczaj¹ pracê programistyczn¹ \cite{CSharpAdvantages}. Do elementów tych mo¿na zaliczyæ brak koniecznoœci dodawania plików nag³ówkowych, które niezbêdne by³y w jêzyku C++, automatyczne zwalnianie dynamicznie przydzielonej pamiêci, za które odpowiedzialny jest Garbage Collector, inicjalizowanie zmiennych ich domyœlnymi wartoœciami oraz wprowadzenie dodatkowych elementów sk³adowych klas, takich jak indeksery oraz w³aœciwoœci (ang. \textit{properties}).
 
 \subsubsection{WPF / XAML}
 \label{dzial:WpfXaml}
-Windows Presentation Foundation (WPF) \cite{WPF} jest to silnik graficzny, który wprowadzony zosta³ wraz z trzeci¹ wersj¹ œrodowiska .NET. Okna w aplikacjach zaimplementowanych w WPF wyœwietlane s¹ za pomoc¹ grafiki wektorowej, która to wspomagana jest przez akceleratory grafiki 3D. Frontendowe API w technologi WPF opiera siê na jêzyku XML \cite{Xml}, a konkretniej jego odmianie - XAML. Extensible Application Markup Language (XAML) jest to deklaratywny jêzyk znaczników, którego przeznaczeniem jest opis interfejsu u¿ytkownika implementowanego w WPF. Pozwala on zaprojektowanie oraz rozmieszczenie wszelakich elementów wizualnych, a tak¿e umo¿liwia zrównoleglenie pracy programistów pracuj¹cych nad logik¹ biznesow¹ budowanej aplikacji oraz grafików, którzy odpowiedzialni s¹ za tworzenie graficznego interfejsu u¿ytkownika. Zdarza siê, i¿ graficy przez wzgl¹d na zakres swoich obowi¹zków nie znaj¹ ¿adnego jêzyka programowania. Problem ten zosta³ zniwelowany dziêki jêzykowi XAML, który pozwala na zrozumienie przez osoby nietechniczne zasady dzia³ania oraz powi¹zañ poszczególnych okien. Umo¿liwia on tak¿e projektowanie graficznego interfejsu u¿ytkownika w prosty sposób z poziomu drzewiastej struktury lub dedykowanego programu graficznego Expression Blend, który to umo¿liwia przeprowadzenie wszelkich operacji z poziomu graficznego œrodowiska.
+Windows Presentation Foundation (WPF) \cite{WPF} jest to silnik graficzny, który wprowadzony zosta³ wraz z trzeci¹ wersj¹ œrodowiska .NET. Okna w aplikacjach zaimplementowanych w WPF wyœwietlane s¹ za pomoc¹ grafiki wektorowej, która wspomagana jest przez akceleratory grafiki 3D. API warstwy prezentacji, w technologii WPF opiera siê na jêzyku XML \cite{Xml}, a konkretniej jego odmianie - XAML. Extensible Application Markup Language (XAML) jest to deklaratywny jêzyk znaczników, którego przeznaczeniem jest opis interfejsu u¿ytkownika implementowanego w WPF. Pozwala on zaprojektowanie oraz rozmieszczenie wszelakich elementów wizualnych, a tak¿e umo¿liwia zrównoleglenie pracy programistów pracuj¹cych nad logik¹ biznesow¹ budowanej aplikacji oraz grafików, którzy odpowiedzialni s¹ za tworzenie graficznego interfejsu u¿ytkownika. Zdarza siê, i¿ graficy przez wzgl¹d na zakres swoich obowi¹zków nie znaj¹ ¿adnego jêzyka programowania. Problem ten zosta³ zniwelowany dziêki jêzykowi XAML, który pozwala na zrozumienie przez osoby nietechniczne zasady dzia³ania oraz powi¹zañ poszczególnych okien. Umo¿liwia on tak¿e projektowanie graficznego interfejsu u¿ytkownika w prosty sposób z poziomu drzewiastej struktury lub dedykowanego programu graficznego Expression Blend, który umo¿liwia przeprowadzenie wszelkich operacji z poziomu graficznego œrodowiska.
 
 \subsubsection{TSQL}
 
-Transaction-SQL (T-SQL) \cite{T-SQL} jest to rozwiniêcie standardowego jêzyka SQL, który to utworzony zosta³ w latach siedemdziesi¹tych specjalnie na potrzeby relacyjnych baz danych przez firmê IBM. T-SQL pozwala na tworzenie konstrukcji takich jak instrukcje warunkowe i pêtle oraz umo¿liwia stosowanie zmiennych. Aktualnie stosowany on jest do tworzenia zapytañ bazodanowych przez firmy, które potrzebuj¹ bardziej zaawansowanych struktur ni¿ te, które dostêpne s¹ w standardowym SQL. T-SQL wprowadzi³ mo¿liwoœæ stosowania bazodanowych wyzwalaczy, procedur oraz funkcji sk³adowanych, które to przy rozbudowanej strukturze tabel u³atwiaj¹ pracê przy bazie danych.
+Transaction-SQL (T-SQL) \cite{T-SQL} jest rozwiniêcie standardowego jêzyka SQL, który to utworzony zosta³ w latach siedemdziesi¹tych na potrzeby relacyjnych baz danych przez firmê IBM. T-SQL pozwala na tworzenie konstrukcji takich jak instrukcje warunkowe i pêtle oraz umo¿liwia stosowanie zmiennych. Aktualnie stosowany on jest do tworzenia zapytañ bazodanowych przez firmy, które potrzebuj¹ bardziej zaawansowanych struktur ni¿ te, które dostêpne s¹ w standardowym SQL. T-SQL wprowadzi³ mo¿liwoœæ stosowania bazodanowych wyzwalaczy, procedur oraz funkcji sk³adowanych, które przy rozbudowanej strukturze tabel u³atwiaj¹ pracê przy bazie danych.
 
 \subsection{Zastosowane narzêdzia}
 
-W celu efektywnej pracy z technologiami, które opisane zosta³y w podpunkcie\ref{dzial:ZastosowaneTechnologie} warto u¿yæ dedykowanych narzêdzi, które u³atwiaj¹ zastosowanie funkcjonalnoœci wspomnianych technologii. W tym celu w trakcie pracy nad prezentowanym projektem magisterskim, u¿ytych zosta³o kilka narzêdzi, które pozwoli³y skróciæ czas potrzebny na implementacjê aplikacji, przeprowadzenie badañ oraz zagregowanie ich rezultatów.
+W celu efektywnej pracy z technologiami, które opisane zosta³y w podpunkcie \ref{dzial:ZastosowaneTechnologie} warto u¿yæ dedykowanych narzêdzi, które u³atwiaj¹ zastosowanie funkcjonalnoœci wspomnianych technologii. W tym celu w trakcie pracy nad prezentowanym projektem magisterskim u¿ytych zosta³o kilka narzêdzi, które pozwoli³y skróciæ czas potrzebny na implementacjê aplikacji, przeprowadzenie badañ oraz zagregowanie ich rezultatów.
 
 \subsubsection{Matlab}
 
 Matlab jest to œrodowisko przeznaczone do wykonywania obliczeñ numerycznych, matematycznych oraz symulacyjnych. Nazwa œrodowiska odnosi siê do s³ów MATrix LABoratory, gdy¿ Matlab przeznaczony by³ pocz¹tkowo do numerycznych obliczeñ macierzowych. Aktualnie aplikacja ta ma zdecydowanie wiêksze mo¿liwoœci - posiada liczne funkcje biblioteczne, umo¿liwia ich rozbudowê, a tak¿e definiowanie nowych przez u¿ytkownika. Matlab posiada równie¿ dedykowany jêzyk programowania, czego konsekwencj¹ jest mo¿liwoœæ pisania w pe³ni funkcjonalnych aplikacji pracuj¹cych w opisywanym œrodowisku.
-W aspekcie grafiki, Matlab pozwala na rysowanie dwu oraz trójwymiarowych wykresów, a tak¿e wizualizacjê rezultatu obliczeñ w postaci animacji. Istotn¹ kwesti¹ w kontekœcie prezentowanej pracy magisterskiej jest posiadanie przez œrodowisko Matlab terminala, który pozwala na wprowadzanie komend i wykonywanie funkcji. Istnieje mo¿liwoœæ jego samodzielnego uruchomienia oraz po³¹czenia z innymi systemami za poœrednictwem dedykowanych bibliotek, które umo¿liwiaj¹ synchronizacjê Matlaba z aplikacjami napisanymi w technologii .NET, Java czy C++.
+W aspekcie grafiki, Matlab pozwala na rysowanie dwu- oraz trójwymiarowych wykresów, a tak¿e wizualizacjê rezultatu obliczeñ w postaci animacji. Istotn¹ kwesti¹ w kontekœcie prezentowanej pracy magisterskiej jest posiadanie przez œrodowisko Matlab terminala, który pozwala na wprowadzanie komend i wykonywanie funkcji. Istnieje mo¿liwoœæ jego samodzielnego uruchomienia oraz po³¹czenia z innymi systemami za poœrednictwem dedykowanych bibliotek, które umo¿liwiaj¹ synchronizacjê Matlaba z aplikacjami napisanymi w technologii .NET, Java czy C++.
 
 \subsubsection{SQL Server Management Studio 17}
 
-W czasie pracy nad aplikacj¹ automatyzuj¹c¹ proces przeprowadzania testów wykorzystano darmowe narzêdzie, którego przeznaczeniem jest zarz¹dzanie baz¹ danych - SQL Server Management Studio 17. Potrzeba u¿ycia narzêdzia wynik³a z istniej¹cej infrastruktury aplikacji, która opiera siê na rozwi¹zaniach Microsoftu. Zastosowane narzêdzie znacznie u³atwi³o pracê i wspomog³o proces projektowania bazy danych dziêki funkcjonalnoœci generowania diagramów, które umo¿liwi³y podgl¹d struktury bazy oraz relacji pomiêdzy poszczególnymi tabelami. Kolejn¹ olbrzymi¹ zalet¹ SQL Management Studio jest mo¿liwoœæ tworzenia zapytañ bazodanowych, które pozwalaj¹ w bardzo elastyczny sposób pogrupowaæ olbrzymie iloœci danych w wybrany przez u¿ytkownika sposób. Umo¿liwia to w krótkim czasie stworzenie statystyk zastosowanych algorytmów, które dynamicznie bêd¹ siê aktualizowa³y wraz z nap³ywem kolejnych danych do bazy.
+W czasie pracy nad aplikacj¹ automatyzuj¹c¹ proces przeprowadzania testów wykorzystano darmowe narzêdzie, którego przeznaczeniem jest zarz¹dzanie baz¹ danych - SQL Server Management Studio 17. Potrzeba u¿ycia narzêdzia, którego interfejs u¿ytkownika zaprezentowany zosta³ na rysunku \ref{rys:manaStudio}, wynik³a z istniej¹cej infrastruktury aplikacji, która opiera siê na rozwi¹zaniach Microsoftu. Zastosowane narzêdzie znacznie u³atwi³o pracê i wspomog³o proces projektowania bazy danych dziêki funkcjonalnoœci generowania diagramów, które umo¿liwi³y podgl¹d struktury bazy oraz relacji pomiêdzy poszczególnymi tabelami. Kolejn¹ zalet¹ SQL Management Studio jest mo¿liwoœæ tworzenia zapytañ bazodanowych, które pozwalaj¹ w bardzo elastyczny sposób pogrupowaæ olbrzymie iloœci danych w wybrany przez u¿ytkownika sposób. Umo¿liwia to w krótkim czasie stworzenie statystyk dla badanych algorytmów, które dynamicznie bêd¹ siê aktualizowa³y wraz z nap³ywem kolejnych danych do bazy.
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{img_managementStudio.png}
     \caption{Interfejs SQL Server Management Studio 2017
-    ród³o: Opracowanie w³asne.}
+    Ÿród³o: Opracowanie w³asne.}
     \label{rys:manaStudio}
 \end{figure} 
 
 \subsubsection{Visual Studio 2015}
 
-Visual Studio \cite{bookVS} jest to bardzo rozbudowane œrodowisko deweloperskie firmy Microsoft. Stosowane jest do procesu wytwarzania oprogramowania z graficznym interfejsem u¿ytkownika w technologii WPF, WinForms, Web Sites oraz Xamarin. Visual Studio posiada zaawansowany edytor kodu, który wspiera mechanizm podpowiadania sk³adni kodu - IntelliSense, który mo¿e byæ dodatkowo rozbudowany poprzez dedykowane narzêdzia np. Resharper. Zintegrowany debugger zawarty w œrodowisku Visual Studio umo¿liwia równie¿ analizê programu w czasie jego dzia³ania, dziêki czemu mo¿liwe jest odnalezienie w bardzo ³atwy sposób potencjalnych b³êdów oraz sprawdzenie poprawnoœci zaimplementowanego rozwi¹zania. Funkcje te, wraz z wbudowanym designerem do tworzenia aplikacji WPF oraz narzêdziem do projektowania baz danych umo¿liwi³y skoncentrowanie pracy programistycznej przy jednym narzêdziu, dziêki czemu mo¿liwa by³a du¿a oszczêdnoœæ czasowa w zakresie poszukiwañ niezbêdnych narzêdzi i ich integracji. Visual Studio, SQL Server Management Studio 17 oraz zastosowane technologie s¹ wytwarzane przez jedn¹ firmê - Microsoft. Dziêki temu aspektowi ich po³¹czenie i synchronizacja jest bezproblemowa i bardzo szybka.
+Visual Studio \cite{bookVS} jest to bardzo rozbudowane œrodowisko deweloperskie firmy Microsoft. Stosowane jest do procesu wytwarzania oprogramowania z graficznym interfejsem u¿ytkownika w technologii WPF, WinForms, Web Sites oraz Xamarin. Visual Studio posiada zaawansowany edytor kodu, który wspiera mechanizm podpowiadania sk³adni kodu - IntelliSense, który mo¿e byæ dodatkowo rozbudowany poprzez dedykowane narzêdzia, np. Resharper. Zintegrowany debugger zawarty w œrodowisku Visual Studio umo¿liwia równie¿ analizê programu w czasie jego dzia³ania, dziêki czemu mo¿liwe jest odnalezienie w bardzo ³atwy sposób potencjalnych b³êdów oraz sprawdzenie poprawnoœci zaimplementowanego rozwi¹zania. Funkcje te, wraz z wbudowanymi narzêdziami do projektowania baz danych oraz tworzenia aplikacji w technologii WPF, umo¿liwi³y przeprowadzenie implementacji budowanego systemu stosuj¹c jedno œrodowisko, dziêki czemu mo¿liwa by³a du¿a oszczêdnoœæ czasowa w zakresie poszukiwañ niezbêdnych narzêdzi i ich integracji. Visual Studio, SQL Server Management Studio 17 oraz zastosowane technologie s¹ wytwarzane przez jedn¹ firmê - Microsoft. Dziêki temu aspektowi ich po³¹czenie i synchronizacja jest bezproblemowa i bardzo szybka.
 
 \subsubsection{Resharper}
 
-Wydajnoœæ pracy w temacie komercyjnych projektów programistycznych jest priorytetem, który bezpoœrednio przek³ada siê na oszczêdnoœæ czasow¹, a co za tym idzie na korzyœci finansowe. Dostêpne s¹ narzêdzia, których przeznaczeniem jest poprawienie efektywnoœci osoby implementuj¹cej aplikacjê poprzez kontrolê pisanego przez niego kodu wed³ug zdefiniowanych uprzednio zasad oraz zautomatyzowanie czêsto powtarzanych czynnoœci. Resharper jest to dodatek do œrodowiska Visual Studio, który w znacznym stopniu rozbudowuje dostêpne jego funkcjonalnoœci, u³atwiaj¹c przy tym refaktoryzacjê oraz pisanie kodu. 
-Funkcje, które zastosowane byæ mog¹ z poziomu Resharpera mo¿na pogrupowaæ na kilkanaœcie grup, z których jedn¹ z najwa¿niejszych jest modu³, który zajmuje siê inspekcj¹ kodu. W trakcie pisania kodu z uruchomionym w tle Resharperem nastêpuje sprawdzanie w czasie rzeczywistym ponad 2000 zasad, które dotycz¹ jego poprawnoœci i w sytuacji znalezienia niespójnoœci, nastêpuje poinformowanie programisty na poziomie interfejsu Visual Studio o zaistnia³ym b³êdzie wraz z jego szczegó³owym opisem i miejscem wyst¹pienia. Niespójnoœci te mog¹ dotyczyæ dla przyk³adu mo¿liwoœci zast¹pienia czêœci kodu jego wydajniejsz¹ wersj¹, ostrze¿eniem programisty przed fragmentem kodu, który potencjalnie mo¿e spowodowaæ b³êdne dzia³anie ca³ej aplikacji oraz fragmentami martwego kodu.
-Kolejn¹ bardzo wa¿n¹ grup¹ funkcji jest funkcjonalnoœæ generowania kodu. W czasie pracy implementacyjnej sporo czynnoœci takich jak edycja nazw czy pisanie nowych klas oraz metod notorycznie siê powtarza. Za pomoc¹ skrótów klawiaturowych, wszystkie powy¿sze akcje Resharper wykona za programistê. Wygeneruje on niezbêdne przy dziedziczeniu interfejsu wszystkie jego sk³adowe, przeniesie dan¹ klasê do odrêbnego pliku oraz automatycznie dokona zamiany wybranej nazwy na inn¹ w obrêbie ca³ej solucji. 
-Zaprezentowane funkcje Resharpera wraz z innymi, które opisane zosta³y w odnoœniku \cite{ResharperFeatures}, umo¿liwi³y zmniejszenie czasu potrzebnego na implementacjê niezbêdnych w projekcie modu³ów poprzez zminimalizowanie liczby pojawiaj¹cych siê zagro¿eñ we wczesnej fazie pisania kodu oraz zautomatyzowanie powtarzalnych czynnoœci.  
+Wydajnoœæ pracy w komercyjnych projektach programistycznych jest priorytetem, który bezpoœrednio przek³ada siê na oszczêdnoœæ czasow¹, a co za tym idzie, na korzyœci finansowe. Dostêpne s¹ narzêdzia, których przeznaczeniem jest u³atwienie pracy osobie implementuj¹cej aplikacjê poprzez kontrolê pisanego przez niego kodu wed³ug zdefiniowanych uprzednio zasad oraz zautomatyzowanie czêsto powtarzanych czynnoœci. Resharper jest to dodatek do œrodowiska Visual Studio, który w znacznym stopniu rozbudowuje dostêpne jego funkcjonalnoœci, u³atwiaj¹c przy tym refaktoryzacjê oraz pisanie kodu. 
+Funkcje, które mog¹ byæ zastosowane z poziomu Resharpera, mo¿na podzieliæ na kilkanaœcie grup, z których jedn¹ z najwa¿niejszych jest modu³, który zajmuje siê inspekcj¹ kodu. W trakcie pisania kodu z uruchomionym w tle Resharperem nastêpuje sprawdzanie w czasie rzeczywistym ponad 2000 zasad, które dotycz¹ jego poprawnoœci i w sytuacji znalezienia niespójnoœci, nastêpuje poinformowanie programisty na poziomie interfejsu Visual Studio o zaistnia³ym b³êdzie wraz z jego szczegó³owym opisem i miejscem wyst¹pienia. Niespójnoœci te mog¹ dotyczyæ dla przyk³adu mo¿liwoœci zast¹pienia czêœci kodu jego wydajniejsz¹ wersj¹, ostrze¿eniem programisty przed fragmentem kodu, który potencjalnie mo¿e spowodowaæ b³êdne dzia³anie ca³ej aplikacji oraz fragmentami "martwego" kodu.
+Kolejn¹ bardzo wa¿n¹ funkcjonalnoœci¹ jest generowanie kodu. W czasie pracy implementacyjnej sporo czynnoœci takich jak edycja nazw czy pisanie nowych klas oraz metod notorycznie siê powtarza. Za pomoc¹ skrótów klawiaturowych, wszystkie powy¿sze akcje Resharper wykona za programistê. Wygeneruje on niezbêdne przy dziedziczeniu interfejsu wszystkie jego sk³adowe, przeniesie dan¹ klasê do odrêbnego pliku oraz automatycznie dokona zamiany wybranej nazwy na inn¹ w obrêbie ca³ej solucji. 
+Zaprezentowane funkcje Resharpera wraz z innymi, które opisane zosta³y w artykule \cite{ResharperFeatures}, umo¿liwi³y zmniejszenie czasu potrzebnego na implementacjê niezbêdnych w projekcie modu³ów poprzez zminimalizowanie liczby pojawiaj¹cych siê zagro¿eñ we wczesnej fazie pisania kodu oraz zautomatyzowanie powtarzalnych czynnoœci.  
 
 \subsection{Wykorzystane biblioteki zewnêtrzne}
 
-W trakcie budowy systemu informatycznego zdarzaj¹ siê sytuacje, w których konieczne jest korzystanie z aplikacji ró¿nych firm, które domyœlnie nie umo¿liwiaj¹ ich po³¹czenia. Problem taki wyst¹pi³ równie¿ w czasie pracy nad prezentowanym projektem magisterskim. U¿ycie narzêdzia innego producenta ni¿ Microsoft, jakim jest Matlab doprowadzi³o do koniecznoœci znalezienia metody jego po³¹czenia ze œrodowiskiem .NET.
+W trakcie budowy systemu informatycznego zdarzaj¹ siê sytuacje, w których konieczne jest korzystanie z aplikacji ró¿nych firm, które domyœlnie nie umo¿liwiaj¹ ich po³¹czenia. Problem taki wyst¹pi³ równie¿ w czasie pracy nad prezentowanym projektem magisterskim. U¿ycie narzêdzia innego producenta ni¿ Microsoft, jakim jest Matlab, doprowadzi³o do koniecznoœci znalezienia metody jego po³¹czenia ze œrodowiskiem .NET.
 
 \subsubsection{Matlab Application Type Library v.1.0}
 \label{dzial:MatlabApplicationLibrary}
 
-Matlab Application Type Library w wersji pierwszej jest to otwarta biblioteka przeznaczona dla œrodowiska .NET posiadaj¹ca API umo¿liwiaj¹ce wykonywanie operacji Matlabowych stosuj¹c sk³adniê C\#. Biblioteka ta umo¿liwia odwo³ywanie siê do uprzednio zdefiniowanych w Matlabie funkcji, dostarczaj¹c odpowiednich parametrów oraz odbiera wyniki obliczeñ, które mog¹ byæ dalej przetwarzane bez koniecznoœci ich manualnego kopiowania. Biblioteka posiada bardzo ogólnie zdefiniowane metody, do których prawid³owego wykonania wymagana jest dok³adna wiedza, która jednak ograniczona jest przez wzgl¹d na brak dokumentacji. Przy d³u¿szej pracy jest jednak mo¿liwe dojœcie do sposobu skorzystania na poziomie C\# z zaawansowanych funkcji które dostarcza œrodowisko Matlab. W podpunkcie \ref{dzial:KomunikacjaMatlabaZProjektem} przedstawiono dok³adny sposób przekazywania i odbierania danych pomiêdzy œrodowiskiem .NET oraz Matlabem.
+Matlab Application Type Library w wersji pierwszej jest to otwarta biblioteka przeznaczona dla œrodowiska .NET posiadaj¹ca API umo¿liwiaj¹ce wykonywanie operacji Matlabowych stosuj¹c sk³adniê C\#. Biblioteka ta umo¿liwia odwo³ywanie siê do uprzednio zdefiniowanych w Matlabie funkcji, dostarczaj¹c odpowiednich parametrów oraz odbiera wyniki obliczeñ, które mog¹ byæ dalej przetwarzane bez koniecznoœci ich manualnego kopiowania. Biblioteka posiada bardzo ogólnie zdefiniowane metody, do których prawid³owego wykonania wymagana jest dok³adna wiedza, która jednak ograniczona jest przez wzgl¹d na brak dokumentacji. Przy d³u¿szej pracy jest jednak mo¿liwe dojœcie do sposobu skorzystania na poziomie C\# z zaawansowanych funkcji, które dostarcza œrodowisko Matlab. W podpunkcie \ref{dzial:KomunikacjaMatlabaZProjektem} przedstawiono dok³adny sposób przekazywania i odbierania danych pomiêdzy œrodowiskiem .NET oraz Matlabem.
 
 \section{Architektura budowanej aplikacji}
 \label{dzial:ArchitekturaBudowanejApl}
 
-Budowa bazodanowej aplikacji komputerowej komunikuj¹cej siê z systemem trzecim wymaga szczegó³owej analizy wszystkich elementów, które maj¹ odniesienie do jej architektury. Przez koniecznoœæ budowy dwóch oddzielnych elementów - bazy danych oraz aplikacji desktopowej, analiza ta podzielona zosta³a na czêœæ odwo³uj¹c¹ siê do architektury aplikacji, modelowania bazy danych oraz jej komunikacji z projektem programistycznym oraz komunikacji œrodowiska Matlab z implementowan¹ aplikacj¹. Powi¹zanie miêdzy elementami oraz przep³yw informacji w tworzonym systemie zawarty zosta³ na rysunku \ref{rys:model}.
+Budowa bazodanowej aplikacji komunikuj¹cej siê z systemem trzecim (Matlab) wymaga szczegó³owej analizy wszystkich elementów, które maj¹ odniesienie do jej architektury. Przez koniecznoœæ budowy dwóch oddzielnych elementów - bazy danych oraz aplikacji desktopowej - analiza ta podzielona zosta³a na czêœæ odwo³uj¹c¹ siê do architektury aplikacji, modelowania bazy danych oraz jej komunikacji z projektem programistycznym oraz komunikacji œrodowiska Matlab z implementowan¹ aplikacj¹. Powi¹zanie miêdzy elementami oraz przep³yw informacji w tworzonym systemie zaprezentowany zosta³ na rysunku \ref{rys:model}.
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{img_model.png}
-    \caption{Powi¹zania pomiêdzy elementami budowanego systemu, ród³o: Opracowanie w³asne.}
+    \caption{Powi¹zania pomiêdzy elementami budowanego systemu, Ÿród³o: Opracowanie w³asne.}
     \label{rys:model}
 \end{figure} 
 
 
 \subsection{Architektura aplikacji}
 
-W aspekcie programowania, podobnie jak w innych dziedzinach, w których przeprowadzana jest operacja budowy zadanego elementu, nale¿y dok³adnie zaplanowaæ jego proces. W aktualnym rozdziale przedstawiony zosta³ opis metodologii, który pozwoli³ na uporz¹dkowanie procesu budowania aplikacji komputerowej wraz z jego odmian¹, która zastosowana zosta³a podczas pracy nad prezentowan¹ prac¹ magistersk¹. W podpunkcie \ref{dzial:ModelAplikacji} zosta³ równie¿ zawarty szczegó³owy opis poszczególnych elementów ze strony projektu programistycznego, który to jest efektem pracy implementacyjnej.
+W aspekcie programowania, podobnie jak w innych dziedzinach, w których przeprowadzana jest operacja budowy zadanego elementu, nale¿y dok³adnie zaplanowaæ jego proces. W aktualnym rozdziale przedstawiony zosta³ opis sposobu, który pozwoli³ na uporz¹dkowanie procesu budowania aplikacji oraz opis jego modyfikacji dostosowanej do technologii WPF, która zastosowana zosta³a podczas pracy nad prezentowan¹ prac¹ magistersk¹. W podpunkcie \ref{dzial:ModelAplikacji} zosta³ równie¿ zawarty szczegó³owy opis poszczególnych elementów projektu programistycznego, który jest efektem pracy implementacyjnej.
  
 \subsubsection{Wzorce architektoniczne oprogramowania}
 
-Bardzo dobr¹ praktyk¹ programistyczn¹ jest przeprowadzenie procesu budowy aplikacji w taki sposób, aby mo¿liwy by³ efektywny jej rozwój oraz dokonanie w ³atwy sposób zmian w istniej¹cych ju¿ funkcjonalnoœciach. W tym celu budowê aplikacji nale¿y przeprowadzaæ zgodnie z ustalonymi etapami produkcji oprogramowania \cite{FazyProdukcjiOpr}. Etapy te definiuj¹ obowi¹zek ustalenia wymagañ budowanego systemu oraz okreœlenia jego ogólnej architektury. Czêœæ dotycz¹ca okreœlenia architektury jest bardzo wa¿na poniewa¿ jej zmiana podczas fazy implementacji jest niebywale problematyczna do wykonania i w wielu przypadkach wrêcz niemo¿liwa bez koniecznoœci powtórnego rozpoczêcia pracy od pocz¹tku. Kolejne etapy maj¹ na celu zrealizowanie zdefiniowanej wczeœniej architektury poprzez zaprogramowanie ka¿dego komponentu oprogramowania wraz z ich wszystkimi wzajemnymi po³¹czeniami, przetestowanie ca³oœci zaimplementowanego systemu, a tak¿e jego uruchomienie oraz zniwelowanie b³êdów, które pojawi³y siê w trakcie jego dzia³ania.
-W kontekœcie planowania i budowania architektury systemu bardzo u¿yteczne s¹ wzorce architektoniczne, które to s¹ powszechnymi, sprawdzonymi oraz ogólnie przyjêtymi sposobami rozwi¹zania okreœlonego problemu z zakresu architektury oprogramowania. Definiuj¹ one ogóln¹ strukturê systemu informatycznego, elementy, które wchodz¹ w jego sk³ad oraz zasadê komunikowania siê komponentów pomiêdzy sob¹. Dokonanie wyboru odpowiedniego wzorca jest w du¿ym stopniu zale¿ne od technologii, która stosowana jest w projekcie. W przypadku prezentowanej aplikacji oraz technologii WPF na której ona bazuje, stosowanym powszechnie wzorcem jest \textit{Model View ViewModel (MVVM)} \cite{MvvmOpis}, który to jest odmian¹ ogólnego wzorca MVC.
+Bardzo dobr¹ praktyk¹ programistyczn¹ jest przeprowadzenie procesu budowy aplikacji w taki sposób, aby mo¿liwy by³ efektywny jej rozwój oraz dokonanie w ³atwy sposób zmian w istniej¹cych ju¿ funkcjonalnoœciach. W tym celu budowê aplikacji nale¿y przeprowadzaæ zgodnie z ustalonymi etapami produkcji oprogramowania \cite{FazyProdukcjiOpr}. Etapy te definiuj¹ obowi¹zek ustalenia wymagañ budowanego systemu oraz okreœlenia jego ogólnej architektury. Czêœæ dotycz¹ca okreœlenia architektury jest bardzo wa¿na, poniewa¿ jej zmiana podczas fazy implementacji jest niebywale problematyczna do wykonania i w wielu przypadkach wrêcz niemo¿liwa bez koniecznoœci powtórnego rozpoczêcia pracy od pocz¹tku. Kolejne etapy maj¹ na celu zrealizowanie zdefiniowanej wczeœniej architektury poprzez zaprogramowanie ka¿dego komponentu wraz z ich wszystkimi wzajemnymi po³¹czeniami, przetestowanie ca³oœci zaimplementowanego systemu, a tak¿e jego uruchomienie oraz zniwelowanie b³êdów, które pojawi³y siê w trakcie jego dzia³ania.
+W kontekœcie planowania i budowania architektury systemu bardzo u¿yteczne s¹ wzorce architektoniczne, które s¹ powszechnymi, sprawdzonymi oraz ogólnie przyjêtymi sposobami rozwi¹zania okreœlonego problemu z zakresu architektury oprogramowania. Definiuj¹ one ogóln¹ strukturê systemu informatycznego, elementy, które wchodz¹ w jego sk³ad, oraz zasadê komunikowania siê komponentów pomiêdzy sob¹. Dokonanie wyboru odpowiedniego wzorca jest w du¿ym stopniu zale¿ne od technologii, która stosowana jest w projekcie. W przypadku prezentowanej aplikacji oraz technologii WPF, na której ona bazuje, stosowanym powszechnie wzorcem jest \textit{Model View ViewModel (MVVM)} \cite{MvvmOpis}, który jest odmian¹ ogólnego wzorca MVC.
 
 \subsubsection{Zastosowany wzorzec architektoniczny – MVVM}
 
-MVVM jest to wzorzec, który dziêki separacji warstwy logiki biznesowej oraz warstwy prezentacji, pozwala na tworzenie ³atwo testowalnej aplikacji, której fragmenty kodu mog¹ byæ ponownie u¿yte w innych projektach programistycznych. Aplikacje implementowane w technologii WPF przy u¿yciu wzorca MVVM umo¿liwia równie¿ ich prost¹ rozbudowê, a poprzez obowi¹zek zachowania odpowiedniej struktury kodu, zrozumienie kodu przez now¹ osobê jest o wiele prostsze i mniej czasoch³onne ni¿ w przypadków aplikacji pisanych bez ¿adnej ogólnie zachowanej struktury. MVVM jest to wzorzec, który jest bardzo popularny w gronie programistów skoncentrowanych przy technologii WPF. Powodem tego jest mo¿liwoœæ u¿ycia najwiêkszych zalet tej technologii, takich jak \textit{binding} \cite{WpfBinding} (wi¹zania), \textit{behavior} (zachowania) oraz \textit{command} \cite{WpfCommands} (komendy). Struktura kodu aplikacji bazuj¹cej na opisywanym wzorcu, podzielona jest na trzy oddzielne warstwy, których nazwy sk³adaj¹ siê na nazwê wzorca: Model, Widok (View) oraz Model Widoku (ViewModel). Ka¿da z warstw spe³nia w aplikacji specjalnie okreœlone funkcje i przetwarza dedykowane dla siebie dane. Graficzna prezentacja oraz kierunki przesy³ania danych zaprezentowano na rysunku \ref{rys:mvvm}.
+MVVM jest to wzorzec, który dziêki separacji warstwy logiki biznesowej oraz warstwy prezentacji pozwala na tworzenie ³atwo testowalnej aplikacji, której fragmenty kodu mog¹ byæ ponownie u¿yte w innych projektach programistycznych. Aplikacje implementowane w technologii WPF przy u¿yciu wzorca MVVM umo¿liwia równie¿ ich prost¹ rozbudowê, a poprzez obowi¹zek zachowania odpowiedniej struktury kodu, zrozumienie kodu przez now¹ osobê jest o wiele prostsze i mniej czasoch³onne ni¿ w przypadków aplikacji pisanych bez ¿adnej ogólnie zachowanej struktury. MVVM jest to wzorzec, który jest bardzo popularny w gronie programistów skoncentrowanych przy technologii WPF. Powodem tego jest mo¿liwoœæ u¿ycia najwiêkszych zalet tej technologii, takich jak \textit{binding} \cite{WpfBinding} (wi¹zania), \textit{behavior} (zachowania) oraz \textit{command} \cite{WpfCommands} (komendy). Struktura kodu aplikacji bazuj¹cej na opisywanym wzorcu podzielona jest na trzy oddzielne warstwy, których nazwy sk³adaj¹ siê na nazwê wzorca: Model, Widok (View) oraz Model Widoku (ViewModel). Ka¿da z warstw spe³nia w aplikacji specjalnie okreœlone funkcje i przetwarza dedykowane dla siebie dane. Graficzna prezentacja oraz kierunki przesy³ania danych zaprezentowano na rysunku \ref{rys:mvvm}.
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.7\textwidth]{img_mvvm.png}
-    \caption{Przep³yw danych we wzorcu MVVM, ród³o: https://i-msdn.sec.s-msft.com/dynimg/IC648329.png}
+    \caption{Przep³yw danych we wzorcu MVVM, Ÿród³o: https://i-msdn.sec.s-msft.com/dynimg/IC648329.png}
     \label{rys:mvvm}
 \end{figure} 
 
 Warstwa Modelu we wzorcu MVVM odpowiedzialna jest za tak zwan¹ logikê biznesow¹ budowanego systemu. W aplikacji implementowanej na potrzeby prezentowanej pracy magisterskiej, warstwa ta zawiera wszystkie klasy, które stworzone zosta³y za pomoc¹ narzêdzia mapowania obiektowo-relacyjnego Entity Framework w celu odwzorowania relacyjnej bazy danych na poziom obiektów dostêpnych w kodzie.
-Ka¿da klasa zawarta w czêœci modelu, której dane maj¹ zostaæ wys³ane do warstwy widoku w celu ich wyœwietlenia u¿ytkownikowi zobligowane s¹ do implementacji interfejsu \textit{INotifyPropertyChanged}, który aktywnie wspó³pracuje z wi¹zaniem stosowanym w WPF.
-Drug¹ z kolei warstw¹ jest warstwa widoku, której odpowiedzialnoœæ sprowadza siê wy³¹cznie do wyœwietlania danych. Jej rol¹ jest prezentowanie danych w oknie aplikacji, do którego dostêp maj¹ u¿ytkownicy systemu.
-Ostatni¹ warstw¹ modelu MVVM jest warstwa ViewModelu, której przeznaczeniem jest poœredniczenie w wymianie danych pomiêdzy modelem oraz widokiem, do którego nie posiada jednak ¿adnej referencji. Elementy widoku odnosz¹ siê do ViewModelu dziêki wspomnianym ju¿ komendom oraz wi¹zaniom. Taki mechanizm zapewnia w pe³ni separacjê warstwy ViewModelu, a co za tym idzie, umo¿liwia pe³ne jego przetestowanie bez ¿adnej zale¿noœci od rzeczywistej warstwy widoku oraz modelu.
+Ka¿da klasa zawarta w czêœci modelu, której dane maj¹ zostaæ wys³ane do warstwy widoku w celu ich wyœwietlenia u¿ytkownikowi, zobligowana jest do implementacji interfejsu \textit{INotifyPropertyChanged}, który aktywnie wspó³pracuje z wi¹zaniem stosowanym w WPF.
+Drug¹ z kolei warstw¹ jest warstwa widoku, której funkcja sprowadza siê wy³¹cznie do wyœwietlania danych i realizowana jest poprzez prezentowanie danych w oknie aplikacji, do którego dostêp maj¹ u¿ytkownicy systemu.
+Ostatni¹ warstw¹ modelu MVVM jest warstwa ViewModel, której przeznaczeniem jest poœredniczenie w wymianie danych pomiêdzy modelem oraz widokiem, do którego nie posiada jednak ¿adnej referencji. Elementy widoku odnosz¹ siê do ViewModel dziêki wspomnianym ju¿ komendom oraz wi¹zaniom. Taki mechanizm zapewnia w pe³ni separacjê warstwy ViewModel, a co za tym idzie, umo¿liwia pe³ne jego przetestowanie bez ¿adnej zale¿noœci od rzeczywistej warstwy widoku oraz modelu.
 
 \subsubsection{Model aplikacji}
 \label{dzial:ModelAplikacji}
@@ -416,12 +415,10 @@ U¿ycie wzorca MVVM w aplikacji implementowanej na potrzeby prezentowanej pracy m
 
 Folder \textit{Matlab} ukazany na rysunku \ref{img:KatalogMatlab} zawiera pliki funkcji zapisanych w œrodowisku Matlab. Pliki te zawieraj¹ definicje trzech algorytmów metaheurystycznych oraz wybranych funkcji testowych. Przez fakt na ograniczon¹ funkcjonalnoœæ zastosowanego API, ³¹cz¹cego œrodowisko .NET ze œrodowiskiem Matlab, definicje funkcji testowych oraz algorytmów musia³y znaleŸæ siê w jednym katalogu z powodu braku wsparcia dotycz¹cego przejœcia pomiêdzy ró¿nymi katalogami.
 
-\newpage
-
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.6\textwidth]{img_KatalogMatlab.png}
-    \caption{Widok na pliki funkcji napisanych w œrodowisku Matlab z poziomu solucji, ród³o: Opracowanie w³asne.}
+    \caption{Widok na pliki funkcji napisanych w œrodowisku Matlab z poziomu solucji, Ÿród³o: Opracowanie w³asne.}
     \label{img:KatalogMatlab}
 \end{figure} 
 
@@ -429,23 +426,21 @@ Folder \textit{Matlab} ukazany na rysunku \ref{img:KatalogMatlab} zawiera pliki 
 
 Katalog Modelu przedstawiony na rysunku \ref{img:KatalogModel} zawiera utworzon¹ przez Entity Framework strukturê obiektow¹ relacyjnej bazy danych. Liczba plików, które zawiera uzale¿niona jest bezpoœrednio od liczby tabel, która zastosowana zosta³a w bazie danych. W czasie dzia³añ implementacyjnych nie jest konieczna wiedza o dok³adnej strukturze przedstawianego folderu. Wystarczaj¹ce s¹ informacje dotycz¹ce tego, która bazodanowa tabela zawiera jakie dane.
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.6\textwidth]{img_KatalogModel.png}
-    \caption{Widok na pliki wygenerowane przez Entity Framework z poziomu solucji, ród³o: Opracowanie w³asne.}
+    \caption{Widok na pliki wygenerowane przez Entity Framework z poziomu solucji, Ÿród³o: Opracowanie w³asne.}
     \label{img:KatalogModel}
 \end{figure} 
 
 \subsubsection*{Services}
 
-Katalog \textit{Servies} zawiera dwa serwisy stosowane w prezentowanej aplikacji. Pierwszym z nich jest serwis bazy danych który umo¿liwia po³¹czenie siê z fizycznie istniej¹c¹ baz¹ danych. Za pomoc¹ dedykowanych obiektów Entity Frameworka umo¿liwia on zapisywanie do bazy danych rezultatów przeprowadzonych doœwiadczeñ oraz pobieranie niezbêdnych danych dotycz¹cych stosowanych algorytmów oraz funkcji testowych.
+Katalog \textit{Servies} zawiera dwa serwisy stosowane w prezentowanej aplikacji. Pierwszym z nich jest serwis bazy danych który umo¿liwia po³¹czenie siê z fizycznie istniej¹c¹ baz¹ danych. Za pomoc¹ dedykowanych obiektów Entity Framework umo¿liwia on zapisywanie do bazy danych rezultatów przeprowadzonych doœwiadczeñ oraz pobieranie niezbêdnych danych dotycz¹cych stosowanych algorytmów oraz funkcji testowych.
 Drugim z kolei serwisem jest serwis Matlaba, który przechowuje obiekty umo¿liwiaj¹ce dwukierunkow¹ komunikacjê ze œrodowiskiem obliczeniowym.
 
 \subsubsection*{Tools}
 
 Katalog narzêdzi jest najbardziej rozbudowanym katalogiem w drzewie solucji. Przez wzgl¹d na jego szerokie zastosowanie posiada on trzy podfoldery, które uœciœlaj¹ definicjê elementów w nich siê znajduj¹cych. Pierwszym z nich jest \textit{Parser}, który zawiera t³umacza rezultatów otrzymanych ze œrodowiska obliczeniowego. Przez wzgl¹d na nieuporz¹dkowan¹ formê danych otrzymywanych z Matlaba pojawi³a siê koniecznoœæ ich uporz¹dkowania. W listingu \ref{listing:ParseResultsFromMatlab} zawarty zosta³ kod metody umo¿liwiaj¹cej przeprowadzenie tej operacji. Drugi podkatalog zawarty w sekcji \textit{Tools} to \textit{Utils}, w którym umiejscowione s¹ dwie bardzo wa¿ne metody dopasowuj¹ce nazwy Matlabowych plików na podstawie wybranego algorytmu metaheurystycznego oraz funkcji testowej. Ostatnim podkatalogiem jest \textit{MatlabContextWrapper}, który posiada metody u³atwiaj¹ce odwo³ywanie siê do obiektów komunikacyjnych, które poœrednicz¹ w dwukierunkowym przekazywaniu informacji pomiêdzy œrodowiskami .NET oraz Matlab.
-
-\newpage
 
 \begin{lstlisting}[caption= {Implementacja oraz opis funkcji t³umacz¹cej informacje odebrane ze œrodowiska obliczeniowego Matlab.}, label={listing:ParseResultsFromMatlab}]
 public ResultDetail ParseResult(object[] result)
@@ -469,7 +464,6 @@ public ResultDetail ParseResult(object[] result)
       ResultDimension = i + 1,
     });
   }
-
   return resultDetails;
 }
 \end{lstlisting}
@@ -500,14 +494,14 @@ Przed rozpoczêciem etapu implementacyjnego oraz po zakoñczeniu analizy dotycz¹ce
 
 Na s³ownikow¹ czêœæ bazy danych sk³adaj¹ siê trzy tabele przedstawione na rysunku \ref{rys:baza_slownik}, które zawieraj¹ dane wejœciowe niezbêdne w aplikacji: \textit{Alghoritms}, \textit{TestFunctions} oraz \textit{ExitFlags}.
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{img_bazaSlownik.png}
-    \caption{Przestawienie czêœci s³ownikowej bazy danych, ród³o: Opracowanie w³asne.}
+    \caption{Przestawienie czêœci s³ownikowej bazy danych, Ÿród³o: Opracowanie w³asne.}
     \label{rys:baza_slownik}
 \end{figure} 
 
-Tabela \textit{Alghoritms} jest prost¹ tabel¹ s³ownikow¹ zawieraj¹c¹ identyfikator oraz nazwê algorytmu metaheurystycznego. Lista algorytmów dostêpnych do przetestowania w aplikacji znajduje siê w³aœnie w tej tabeli. Na podstawie nazwy algorytmu, dopasowywana jest jej funkcja Matlabowa, w której tkwi g³ówna logika algorytmu. W celu prawid³owego obs³u¿enia kolejnego algorytmu, nale¿y dodaæ wpis w opisywanej tabeli oraz wed³ug odpowiedniego schematu umiejscowionego w klasie \textit{FunctionNameMatcher} stworzyæ funkcjê w aplikacji Matlab. Tak utworzony schemat algorytmu nale¿y kolejno dodaæ do warstwy ViewModelu oraz dostosowaæ logikê okna u¿ytkownika do wymaganych przez algorytm parametrów. 
+Tabela \textit{Alghoritms} jest prost¹ tabel¹ s³ownikow¹ zawieraj¹c¹ identyfikator oraz nazwê algorytmu metaheurystycznego. Lista algorytmów dostêpnych do przetestowania w aplikacji znajduje siê w³aœnie w tej tabeli. Na podstawie nazwy algorytmu, dopasowywana jest jej funkcja Matlabowa, w której tkwi g³ówna logika algorytmu. W celu prawid³owego obs³u¿enia kolejnego algorytmu, nale¿y dodaæ wpis w opisywanej tabeli oraz wed³ug odpowiedniego schematu umiejscowionego w klasie \textit{FunctionNameMatcher} stworzyæ funkcjê w aplikacji Matlab. Tak utworzony schemat algorytmu nale¿y kolejno dodaæ do warstwy ViewModel oraz dostosowaæ logikê okna u¿ytkownika do wymaganych przez algorytm parametrów. 
 
 \textit{TestFunctions} jest to tabela, która zawiera opis funkcji testowych na bazie których dokonywane s¹ testy algorytmów. Zawarte w niej s¹ takie informacje jak identyfikator funkcji, jej nazwa, poziom trudnoœci ustalony na bazie stopnia skomplikowania funkcji testowej zaczerpniêty z \cite{RankingFunkcjiTestowych}, odnoœnik do wykresu danej funkcji wraz z informacjami na jej temat, zakres p³aszczyzny w obrêbie której ma byæ poszukiwana wartoœæ minimalna oraz wymiar funkcji czyli liczba zmiennych, na której owa funkcja bazuje. W celu dodania do aplikacji kolejnej funkcji testowej nale¿y dokonaæ dodania jej definicji w opisywanej tabeli oraz utworzyæ plik Matlabowy zawieraj¹cy jej wzór. Nazwa pliku powinna zgadzaæ siê ze schematem zawartym w klasie dopasowuj¹cej - \textit{FunctionNameMatcher}. Tak utworzona funkcja bêdzie automatycznie dostêpna do wyboru z poziomu aplikacji.
 
@@ -517,10 +511,10 @@ Ostatnia tabela z czêœci s³ownikowej bazy danych to tabela \textit{ExitFlags}, w
 
 Czêœæ bazy danych odnosz¹ca siê do przeprowadzanych badañ jest czêœci¹ bardziej rozbudowan¹ ni¿ czêœæ s³ownikowa. Zawiera ona wszelkie informacje dotycz¹ce parametrów wejœciowych danego testu oraz rezultaty przeprowadzanych badañ. G³ówn¹ tabel¹, która jest swojego rodzaju trzonem bazy danych jest tabela \textit{Results}. Po przeprowadzeniu pojedynczego doœwiadczenia w tabeli tej tworzony jest wpis, który zawiera identyfikatory wierszy odnosz¹ce siê do wszystkich niezbêdnych tabel, które umo¿liwiaj¹ uzyskanie wszelkich informacji o doœwiadczeniu.
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{img_bazaDane.png}
-    \caption{Przestawienie czêœci bazy danych dotycz¹cej przeprowadzanych badañ, ród³o: Opracowanie w³asne.}
+    \caption{Przestawienie czêœci bazy danych dotycz¹cej przeprowadzanych badañ, Ÿród³o: Opracowanie w³asne.}
     \label{rys:baza_dane}
 \end{figure} 
 
@@ -571,7 +565,7 @@ Pierwsz¹ metod¹ jest \textit{Code First}, który pozwala na utworzenie fizycznego
 
 Kolejnym sposobem jest podejœcie \textit{Database First}, które jest u¿yteczne w sytuacji, w której dostêpna jest dzia³aj¹ca ju¿ baza danych. Korzystaj¹c z dostêpnego w frameworku kreatora, istnieje mo¿liwoœæ okreœlenia lokalizacji bazy oraz poddania jej automatycznemu mapowaniu, w wyniku którego wygenerowane zostaj¹ niezbêdne klasy obiektowego modelu bazy danych.
 
-Ostatni¹ metod¹ jest \textit{Model First}, które polega na utworzeniu fizycznego modelu bazy danych pos³uguj¹c siê wbudowanemu w Entity Framework Designerem, który w du¿ym stopniu upraszcza tworzenie w³aœciwoœci oraz encji bazodanowych. Œcie¿ka ta stosowana jest, gdy posiadany jest wy³¹cznie sam schemat bazy danych. Ze zbudowanego modelu nastêpuje wygenerowanie fizycznego modelu bazy danych jak i równie¿ klas, które reprezentuj¹ model obiektowy. Sposób ten zosta³ zastosowany w prezentowanej pracy magisterskiej. Po analizie wymagañ i utworzeniu schematu bazy danych, zosta³ on przeniesiony na poziom Designera opisywanego frameworka, który automatycznie stworzy³ skrypt napisany w jêzyku SQL, po wykonaniu którego utworzony zosta³ fizyczny model bazy danych, a tak¿e wygenerowane zosta³y wszystkie niezbêdne klasy reprezentuj¹ce model obiektowy zadanego schematu bazy.
+Ostatni¹ metod¹ jest \textit{Model First}, które polega na utworzeniu fizycznego modelu bazy danych pos³uguj¹c siê wbudowanemu w Entity Framework Designerem, który w du¿ym stopniu upraszcza tworzenie w³aœciwoœci oraz encji bazodanowych. Œcie¿ka ta stosowana jest, gdy posiadany jest wy³¹cznie sam schemat bazy danych. Ze zbudowanego modelu nastêpuje wygenerowanie fizycznego modelu bazy danych jak i równie¿ klas, które reprezentuj¹ model obiektowy. Sposób ten zosta³ zastosowany w prezentowanej pracy magisterskiej. Po analizie wymagañ i utworzeniu schematu bazy danych, zosta³ on przeniesiony na poziom Designera opisywanego frameworku, który automatycznie stworzy³ skrypt napisany w jêzyku SQL, po wykonaniu którego utworzony zosta³ fizyczny model bazy danych, a tak¿e wygenerowane zosta³y wszystkie niezbêdne klasy reprezentuj¹ce model obiektowy zadanego schematu bazy.
 
 \subsection{Komunikacja Matlaba z projektem programistycznym}
 \label{dzial:KomunikacjaMatlabaZProjektem}
@@ -613,10 +607,10 @@ private ResultDetail ExecuteSimulatedAnnealingAlghoritm( Alghoritm alghoritm, Te
 W celu uruchomienia zaimplementowanej aplikacji bazodanowej niezbêdne jest posiadanie œrodowiska obliczeniowego Matlab R2017 w wersji 9.2, serwera SQL wraz z narzêdziem SQL Server Management Studio 17 oraz .NET Framework w wersji 4.5.1.
 Przed uruchomieniem aplikacji, niezbêdn¹ operacj¹ jest odpowiednia konfiguracja serwera bazodanowego. W tym celu, w narzêdziu SQL Server Management Studio nale¿y utworzyæ bazê danych za pomoc¹ skryptu \textit{EntityDataModel.edmx.sql} za³¹czonego do solucji programistycznej. Po jego wykonaniu utworzone zostan¹ wszystkie niezbêdne tabele bazodanowe wraz z odpowiednimi relacjami. Kolejnym krokiem jest dodanie wymaganych danych do czêœci s³ownikowej bazy danych. Odpowiedzialny jest za to skrypt \textit{AddDictionaries.sql}, po wykonaniu którego dodane zostan¹ wszelkie niezbêdne informacje dotycz¹ce porównywanych algorytmów heurystycznych oraz u¿ytych funkcji testowych. Tak przygotowane œrodowisko, na bazie domyœlnej konfiguracji umo¿liwia uruchomienie zaimplementowanej aplikacji, która podczas startu uruchamia automatycznie aplikacjê Matlab. Niweluje to koniecznoœæ pamiêtania o uruchomieniu œrodowiska obliczeniowego manualnie. Okno uruchomionej aplikacji, które aktualnie wykonuje testy, widoczne jest na rysunku \ref{rys:apka}.
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{img_apka.png}
-    \caption{Widok na oko g³ówne aplikacji podczas przeprowadzania testów, ród³o: Opracowanie w³asne.}
+    \caption{Widok na oko g³ówne aplikacji podczas przeprowadzania testów, Ÿród³o: Opracowanie w³asne.}
     \label{rys:apka}
 \end{figure} 
 
@@ -629,10 +623,10 @@ Ca³y proces pocz¹wszy od pomys³u automatyzacji przeprowadzanych badañ zawarty w 
 
 W celu zrównania szans ka¿dego z porównywanych algorytmów, wszystkie przeprowadzane testy dokonane zosta³y na tej samej maszynie obliczeniowej o parametrach przedstawionych na rysunku \ref{rys:specyfikacja} przy tych samych warunkach obci¹¿eniowych systemu. 
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.9\textwidth]{img_specyfikacja.png}
-    \caption{Przestawienie parametrów komputera na którym przeprowadzane by³y testy, ród³o: Opracowanie w³asne.}
+    \caption{Przestawienie parametrów komputera na którym przeprowadzane by³y testy, Ÿród³o: Opracowanie w³asne.}
     \label{rys:specyfikacja}
 \end{figure} 
 
@@ -672,14 +666,14 @@ Dla metody optymalizacji rojem cz¹stek otrzymane rezultaty zaprezentowane zosta³
 \begin{table}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{boh_ga_1.png}
-    \caption{Zestawienie wyników algorytmu genetycznego dla funkcji Bohachevsky’ego I - kryterium czasowe, ród³o: Opracowanie w³asne.}
+    \caption{Zestawienie wyników algorytmu genetycznego dla funkcji Bohachevsky’ego I - kryterium czasowe, Ÿród³o: Opracowanie w³asne.}
     \label{tab:boh_ga_1}
 \end{table}
 
 \begin{table}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{boh_pso_1.png}
-    \caption{Zestawienie wyników metody optymalizacji rojem cz¹stek dla funkcji Bohachevsky’ego I - kryterium czasowe, ród³o: Opracowanie w³asne.}
+    \caption{Zestawienie wyników metody optymalizacji rojem cz¹stek dla funkcji Bohachevsky’ego I - kryterium czasowe, Ÿród³o: Opracowanie w³asne.}
     \label{tab:boh_pso_1}
 \end{table}
 
@@ -689,7 +683,7 @@ Najlepsze rezultaty algorytmu genetycznego oraz optymalizacji rojem cz¹stek zost
 \begin{table}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{boh_all_1.png}
-    \caption{Zestawienie najlepszych wyników wszystkich trzech porównywanych algorytmów metaheurystycznych dla funkcji Bohachevsky’ego I - kryterium czasowe, ród³o: Opracowanie w³asne.}
+    \caption{Zestawienie najlepszych wyników wszystkich trzech porównywanych algorytmów metaheurystycznych dla funkcji Bohachevsky’ego I - kryterium czasowe, Ÿród³o: Opracowanie w³asne.}
     \label{tab:boh_all_1}
 \end{table}
 
@@ -698,21 +692,21 @@ W przypadku kryterium dotycz¹cym okreœlonej maksymalnej liczby odwo³añ algorytmu
 \begin{table}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{boh_ga_2.png}
-    \caption{Zestawienie wyników algorytmu genetycznego dla funkcji Bohachevsky’ego I - kryterium liczby odwo³añ do funkcji testowej, ród³o: Opracowanie w³asne., ród³o: Opracowanie w³asne.}
+    \caption{Zestawienie wyników algorytmu genetycznego dla funkcji Bohachevsky’ego I - kryterium liczby odwo³añ do funkcji testowej, Ÿród³o: Opracowanie w³asne.}
     \label{tab:boh_ga_2}
 \end{table}
 
 \begin{table}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{boh_pso_2.png}
-    \caption{Zestawienie wyników metody optymalizacji rojem cz¹stek dla funkcji Bohachevsky’ego I - kryterium liczby odwo³añ do funkcji testowej, ród³o: Opracowanie w³asne.}
+    \caption{Zestawienie wyników metody optymalizacji rojem cz¹stek dla funkcji Bohachevsky’ego I - kryterium liczby odwo³añ do funkcji testowej, Ÿród³o: Opracowanie w³asne.}
     \label{tab:boh_pso_2}
 \end{table}
 
 \begin{table}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{boh_all_2.png}
-    \caption{Zestawienie najlepszych wyników wszystkich trzech porównywanych algorytmów metaheurystycznych dla funkcji Bohachevsky’ego I - kryterium liczby odwo³añ do funkcji testowej, ród³o: Opracowanie w³asne.}
+    \caption{Zestawienie najlepszych wyników wszystkich trzech porównywanych algorytmów metaheurystycznych dla funkcji Bohachevsky’ego I - kryterium liczby odwo³añ do funkcji testowej, Ÿród³o: Opracowanie w³asne.}
     \label{tab:boh_all_2}
 \end{table}
 
@@ -723,21 +717,21 @@ Dla funkcji Colville'a, wyniki testów sprawdzaj¹cych optymaln¹ wielkoœæ populacj
 \begin{table}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{col_ga_1.png}
-    \caption{Zestawienie wyników algorytmu genetycznego dla funkcji Colville'a - kryterium czasowe, ród³o: Opracowanie w³asne.}
+    \caption{Zestawienie wyników algorytmu genetycznego dla funkcji Colville'a - kryterium czasowe, Ÿród³o: Opracowanie w³asne.}
     \label{tab:col_ga_1}
 \end{table}
 
 \begin{table}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{col_pso_1.png}
-    \caption{Zestawienie wyników metody optymalizacji rojem cz¹stek dla funkcji Colville'a - kryterium czasowe, ród³o: Opracowanie w³asne.}
+    \caption{Zestawienie wyników metody optymalizacji rojem cz¹stek dla funkcji Colville'a - kryterium czasowe, Ÿród³o: Opracowanie w³asne.}
     \label{tab:col_pso_1}
 \end{table}
 
 \begin{table}[H]
     \centering
     \includegraphics[height=0.75\textwidth]{col_all_1.png}
-    \caption{Zestawienie najlepszych wyników wszystkich trzech porównywanych algorytmów metaheurystycznych dla funkcji Colville'a - kryterium czasowe, ród³o: Opracowanie w³asne.}
+    \caption{Zestawienie najlepszych wyników wszystkich trzech porównywanych algorytmów metaheurystycznych dla funkcji Colville'a - kryterium czasowe, Ÿród³o: Opracowanie w³asne.}
     \label{tab:col_all_1}
 \end{table}
 
@@ -746,14 +740,14 @@ Rezultaty dotycz¹ce testów dla kryterium odnosz¹cego siê do maksymalnej liczby o
 \begin{table}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{col_ga_2.png}
-    \caption{Zestawienie wyników algorytmu genetycznego dla funkcji Colville'a - kryterium liczby odwo³añ do funkcji testowej, ród³o: Opracowanie w³asne., ród³o: Opracowanie w³asne.}
+    \caption{Zestawienie wyników algorytmu genetycznego dla funkcji Colville'a - kryterium liczby odwo³añ do funkcji testowej, Ÿród³o: Opracowanie w³asne., Ÿród³o: Opracowanie w³asne.}
     \label{tab:col_ga_2}
 \end{table}
 
 \begin{table}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{col_pso_2.png}
-    \caption{Zestawienie wyników metody optymalizacji rojem cz¹stek dla funkcji Colville'a - kryterium liczby odwo³añ do funkcji testowej, ród³o: Opracowanie w³asne.}
+    \caption{Zestawienie wyników metody optymalizacji rojem cz¹stek dla funkcji Colville'a - kryterium liczby odwo³añ do funkcji testowej, Ÿród³o: Opracowanie w³asne.}
     \label{tab:col_pso_2}
 \end{table}
 
@@ -762,7 +756,7 @@ Porównuj¹c wyniki dla obu kryteriów porównawczych z tabel \ref{tab:col_all_1} or
 \begin{table}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{col_all_2.png}
-    \caption{Zestawienie najlepszych wyników wszystkich trzech porównywanych algorytmów metaheurystycznych dla funkcji Colville'a - kryterium liczby odwo³añ do funkcji testowej, ród³o: Opracowanie w³asne.}
+    \caption{Zestawienie najlepszych wyników wszystkich trzech porównywanych algorytmów metaheurystycznych dla funkcji Colville'a - kryterium liczby odwo³añ do funkcji testowej, Ÿród³o: Opracowanie w³asne.}
     \label{tab:col_all_2}
 \end{table}
 
@@ -773,21 +767,21 @@ Kolejn¹ funkcj¹, która poddana zosta³a testom by³a funkcja Ackleya, dla której a
 \begin{table}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{ack_ga_1.png}
-    \caption{Zestawienie wyników algorytmu genetycznego dla funkcji Ackleya - kryterium czasowe, ród³o: Opracowanie w³asne.}
+    \caption{Zestawienie wyników algorytmu genetycznego dla funkcji Ackleya - kryterium czasowe, Ÿród³o: Opracowanie w³asne.}
     \label{tab:ack_ga_1}
 \end{table}
 
 \begin{table}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{ack_pso_1.png}
-    \caption{Zestawienie wyników metody optymalizacji rojem cz¹stek dla funkcji Ackleya - kryterium czasowe, ród³o: Opracowanie w³asne.}
+    \caption{Zestawienie wyników metody optymalizacji rojem cz¹stek dla funkcji Ackleya - kryterium czasowe, Ÿród³o: Opracowanie w³asne.}
     \label{tab:ack_pso_1}
 \end{table}
 
 \begin{table}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{ack_all_1.png}
-    \caption{Zestawienie najlepszych wyników wszystkich trzech porównywanych algorytmów metaheurystycznych dla funkcji Ackleya - kryterium czasowe, ród³o: Opracowanie w³asne.}
+    \caption{Zestawienie najlepszych wyników wszystkich trzech porównywanych algorytmów metaheurystycznych dla funkcji Ackleya - kryterium czasowe, Ÿród³o: Opracowanie w³asne.}
     \label{tab:ack_all_1}
 \end{table}
 
@@ -796,21 +790,21 @@ Wyniki dotycz¹ce kryterium limitu odwo³añ do funkcji testowej s¹ analogiczne jak
 \begin{table}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{ack_ga_2.png}
-    \caption{Zestawienie wyników algorytmu genetycznego dla funkcji Ackleya - kryterium liczby odwo³añ do funkcji testowej, ród³o: Opracowanie w³asne., ród³o: Opracowanie w³asne.}
+    \caption{Zestawienie wyników algorytmu genetycznego dla funkcji Ackleya - kryterium liczby odwo³añ do funkcji testowej, Ÿród³o: Opracowanie w³asne.}
     \label{tab:ack_ga_2}
 \end{table}
 
 \begin{table}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{ack_pso_2.png}
-    \caption{Zestawienie wyników metody optymalizacji rojem cz¹stek dla funkcji Ackleya - kryterium liczby odwo³añ do funkcji testowej, ród³o: Opracowanie w³asne.}
+    \caption{Zestawienie wyników metody optymalizacji rojem cz¹stek dla funkcji Ackleya - kryterium liczby odwo³añ do funkcji testowej, Ÿród³o: Opracowanie w³asne.}
     \label{tab:ack_pso_2}
 \end{table}
 
 \begin{table}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{ack_all_2.png}
-    \caption{Zestawienie najlepszych wyników wszystkich trzech porównywanych algorytmów metaheurystycznych dla funkcji Ackleya - kryterium liczby odwo³añ do funkcji testowej, ród³o: Opracowanie w³asne.}
+    \caption{Zestawienie najlepszych wyników wszystkich trzech porównywanych algorytmów metaheurystycznych dla funkcji Ackleya - kryterium liczby odwo³añ do funkcji testowej, Ÿród³o: Opracowanie w³asne.}
     \label{tab:ack_all_2}
 \end{table}
 
@@ -821,21 +815,21 @@ Funkcja Rosenbrocka jest pierwsz¹ funkcj¹, w której analizuj¹c ustalone kryteriu
 \begin{table}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{ros_ga_1.png}
-    \caption{Zestawienie wyników algorytmu genetycznego dla funkcji Rosenbrocka - kryterium czasowe, ród³o: Opracowanie w³asne.}
+    \caption{Zestawienie wyników algorytmu genetycznego dla funkcji Rosenbrocka - kryterium czasowe, Ÿród³o: Opracowanie w³asne.}
     \label{tab:ros_ga_1}
 \end{table}
 
 \begin{table}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{ros_pso_1.png}
-    \caption{Zestawienie wyników metody optymalizacji rojem cz¹stek dla funkcji Rosenbrocka - kryterium czasowe, ród³o: Opracowanie w³asne.}
+    \caption{Zestawienie wyników metody optymalizacji rojem cz¹stek dla funkcji Rosenbrocka - kryterium czasowe, Ÿród³o: Opracowanie w³asne.}
     \label{tab:ros_pso_1}
 \end{table}
 
 \begin{table}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{ros_all_1.png}
-    \caption{Zestawienie najlepszych wyników wszystkich trzech porównywanych algorytmów metaheurystycznych dla funkcji Rosenbrocka - kryterium czasowe, ród³o: Opracowanie w³asne.}
+    \caption{Zestawienie najlepszych wyników wszystkich trzech porównywanych algorytmów metaheurystycznych dla funkcji Rosenbrocka - kryterium czasowe, Ÿród³o: Opracowanie w³asne.}
     \label{tab:ros_all_1}
 \end{table}
 
@@ -844,21 +838,21 @@ Dla drugiego analizowanego kryterium dotycz¹cego ustalonej maksymalnej liczby od
 \begin{table}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{ros_ga_2.png}
-    \caption{Zestawienie wyników algorytmu genetycznego dla funkcji Rosenbrocka - kryterium liczby odwo³añ do funkcji testowej, ród³o: Opracowanie w³asne., ród³o: Opracowanie w³asne.}
+    \caption{Zestawienie wyników algorytmu genetycznego dla funkcji Rosenbrocka - kryterium liczby odwo³añ do funkcji testowej, Ÿród³o: Opracowanie w³asne.}
     \label{tab:ros_ga_2}
 \end{table}
 
 \begin{table}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{ros_pso_2.png}
-    \caption{Zestawienie wyników metody optymalizacji rojem cz¹stek dla funkcji Rosenbrocka - kryterium liczby odwo³añ do funkcji testowej, ród³o: Opracowanie w³asne.}
+    \caption{Zestawienie wyników metody optymalizacji rojem cz¹stek dla funkcji Rosenbrocka - kryterium liczby odwo³añ do funkcji testowej, Ÿród³o: Opracowanie w³asne.}
     \label{tab:ros_pso_2}
 \end{table}
 
 \begin{table}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{ros_all_2.png}
-    \caption{Zestawienie najlepszych wyników wszystkich trzech porównywanych algorytmów metaheurystycznych dla funkcji Rosenbrocka - kryterium liczby odwo³añ do funkcji testowej, ród³o: Opracowanie w³asne.}
+    \caption{Zestawienie najlepszych wyników wszystkich trzech porównywanych algorytmów metaheurystycznych dla funkcji Rosenbrocka - kryterium liczby odwo³añ do funkcji testowej, Ÿród³o: Opracowanie w³asne.}
     \label{tab:ros_all_2}
 \end{table}
 
@@ -869,21 +863,21 @@ Czwart¹ z kolei funkcj¹ jest funkcja Eggholdera, dla której rezultaty testów wer
 \begin{table}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{egg_ga_1.png}
-    \caption{Zestawienie wyników algorytmu genetycznego dla funkcji Eggholdera - kryterium czasowe, ród³o: Opracowanie w³asne.}
+    \caption{Zestawienie wyników algorytmu genetycznego dla funkcji Eggholdera - kryterium czasowe, Ÿród³o: Opracowanie w³asne.}
     \label{tab:egg_ga_1}
 \end{table}
 
 \begin{table}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{egg_pso_1.png}
-    \caption{Zestawienie wyników metody optymalizacji rojem cz¹stek dla funkcji Eggholdera - kryterium czasowe, ród³o: Opracowanie w³asne.}
+    \caption{Zestawienie wyników metody optymalizacji rojem cz¹stek dla funkcji Eggholdera - kryterium czasowe, Ÿród³o: Opracowanie w³asne.}
     \label{tab:egg_pso_1}
 \end{table}
 
 \begin{table}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{egg_all_1.png}
-    \caption{Zestawienie najlepszych wyników wszystkich trzech porównywanych algorytmów metaheurystycznych dla funkcji Eggholdera - kryterium czasowe, ród³o: Opracowanie w³asne.}
+    \caption{Zestawienie najlepszych wyników wszystkich trzech porównywanych algorytmów metaheurystycznych dla funkcji Eggholdera - kryterium czasowe, Ÿród³o: Opracowanie w³asne.}
     \label{tab:egg_all_1}
 \end{table}
 
@@ -892,21 +886,21 @@ Przechodz¹c do drugiego analizowanego kryterium - maksymalnej liczby odwo³añ do 
 \begin{table}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{egg_ga_2.png}
-    \caption{Zestawienie wyników algorytmu genetycznego dla funkcji Eggholdera - kryterium liczby odwo³añ do funkcji testowej, ród³o: Opracowanie w³asne., ród³o: Opracowanie w³asne.}
+    \caption{Zestawienie wyników algorytmu genetycznego dla funkcji Eggholdera - kryterium liczby odwo³añ do funkcji testowej, Ÿród³o: Opracowanie w³asne.}
     \label{tab:egg_ga_2}
 \end{table}
 
 \begin{table}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{egg_pso_2.png}
-    \caption{Zestawienie wyników metody optymalizacji rojem cz¹stek dla funkcji Eggholdera - kryterium liczby odwo³añ do funkcji testowej, ród³o: Opracowanie w³asne.}
+    \caption{Zestawienie wyników metody optymalizacji rojem cz¹stek dla funkcji Eggholdera - kryterium liczby odwo³añ do funkcji testowej, Ÿród³o: Opracowanie w³asne.}
     \label{tab:egg_pso_2}
 \end{table}
 
 \begin{table}[H]
     \centering
     \includegraphics[height=1\textwidth]{egg_all_2.png}
-    \caption{Zestawienie najlepszych wyników wszystkich trzech porównywanych algorytmów metaheurystycznych dla funkcji Eggholdera - kryterium liczby odwo³añ do funkcji testowej, ród³o: Opracowanie w³asne.}
+    \caption{Zestawienie najlepszych wyników wszystkich trzech porównywanych algorytmów metaheurystycznych dla funkcji Eggholdera - kryterium liczby odwo³añ do funkcji testowej, Ÿród³o: Opracowanie w³asne.}
     \label{tab:egg_all_2}
 \end{table}
 
@@ -917,21 +911,21 @@ Ostatni¹ u¿yt¹ funkcj¹ testow¹ by³a funkcja Griewanka, dla której podobnie jak w
 \begin{table}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{gri_ga_1.png}
-    \caption{Zestawienie wyników algorytmu genetycznego dla funkcji Griewanka - kryterium czasowe, ród³o: Opracowanie w³asne.}
+    \caption{Zestawienie wyników algorytmu genetycznego dla funkcji Griewanka - kryterium czasowe, Ÿród³o: Opracowanie w³asne.}
     \label{tab:gri_ga_1}
 \end{table}
 
 \begin{table}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{gri_pso_1.png}
-    \caption{Zestawienie wyników metody optymalizacji rojem cz¹stek dla funkcji Griewanka - kryterium czasowe, ród³o: Opracowanie w³asne.}
+    \caption{Zestawienie wyników metody optymalizacji rojem cz¹stek dla funkcji Griewanka - kryterium czasowe, Ÿród³o: Opracowanie w³asne.}
     \label{tab:gri_pso_1}
 \end{table}
 
 \begin{table}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{gri_all_1.png}
-    \caption{Zestawienie najlepszych wyników wszystkich trzech porównywanych algorytmów metaheurystycznych dla funkcji Griewanka - kryterium czasowe, ród³o: Opracowanie w³asne.}
+    \caption{Zestawienie najlepszych wyników wszystkich trzech porównywanych algorytmów metaheurystycznych dla funkcji Griewanka - kryterium czasowe, Ÿród³o: Opracowanie w³asne.}
     \label{tab:gri_all_1}
 \end{table}
 
@@ -940,21 +934,21 @@ Drugie kryterium, pod k¹tem którego przeprowadzone zosta³y testy wskazuje ju¿ je
 \begin{table}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{gri_ga_2.png}
-    \caption{Zestawienie wyników algorytmu genetycznego dla funkcji Griewanka - kryterium liczby odwo³añ do funkcji testowej, ród³o: Opracowanie w³asne., ród³o: Opracowanie w³asne.}
+    \caption{Zestawienie wyników algorytmu genetycznego dla funkcji Griewanka - kryterium liczby odwo³añ do funkcji testowej, Ÿród³o: Opracowanie w³asne.}
     \label{tab:gri_ga_2}
 \end{table}
 
 \begin{table}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{gri_pso_2.png}
-    \caption{Zestawienie wyników metody optymalizacji rojem cz¹stek dla funkcji Griewanka - kryterium liczby odwo³añ do funkcji testowej, ród³o: Opracowanie w³asne.}
+    \caption{Zestawienie wyników metody optymalizacji rojem cz¹stek dla funkcji Griewanka - kryterium liczby odwo³añ do funkcji testowej, Ÿród³o: Opracowanie w³asne.}
     \label{tab:gri_pso_2}
 \end{table}
 
 \begin{table}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{gri_all_2.png}
-    \caption{Zestawienie najlepszych wyników wszystkich trzech porównywanych algorytmów metaheurystycznych dla funkcji Griewanka - kryterium liczby odwo³añ do funkcji testowej, ród³o: Opracowanie w³asne.}
+    \caption{Zestawienie najlepszych wyników wszystkich trzech porównywanych algorytmów metaheurystycznych dla funkcji Griewanka - kryterium liczby odwo³añ do funkcji testowej, Ÿród³o: Opracowanie w³asne.}
     \label{tab:gri_all_2}
 \end{table}
 
@@ -973,14 +967,14 @@ Ranking algorytmów odnosz¹cy siê do wyników przeprowadzonych testów dla kryteriu
 \begin{table}[H]
     \centering
     \includegraphics[width=0.5\textwidth]{results_1.png}
-    \caption{Ranking porównanych algorytmów heurystycznych (Algorytm genetyczny - GA; Metoda optymalizacji rojem cz¹stek - PSO; Algorytm symulowanego wy¿arzania - SA) dla wyników dotycz¹cych kryterium maksymalnego czasu, ród³o: Opracowanie w³asne.}
+    \caption{Ranking porównanych algorytmów heurystycznych (Algorytm genetyczny - GA; Metoda optymalizacji rojem cz¹stek - PSO; Algorytm symulowanego wy¿arzania - SA) dla wyników dotycz¹cych kryterium maksymalnego czasu, Ÿród³o: Opracowanie w³asne.}
     \label{tab:results_1}
 \end{table}
 
 \begin{table}[H]
     \centering
     \includegraphics[width=0.5\textwidth]{results_2.png}
-    \caption{Ranking porównanych algorytmów heurystycznych (Algorytm genetyczny - GA; Metoda optymalizacji rojem cz¹stek - PSO; Algorytm symulowanego wy¿arzania - SA) dla wyników dotycz¹cych maksymalnej liczby odwo³añ do funkcji testowej, ród³o: Opracowanie w³asne.}
+    \caption{Ranking porównanych algorytmów heurystycznych (Algorytm genetyczny - GA; Metoda optymalizacji rojem cz¹stek - PSO; Algorytm symulowanego wy¿arzania - SA) dla wyników dotycz¹cych maksymalnej liczby odwo³añ do funkcji testowej, Ÿród³o: Opracowanie w³asne.}
     \label{tab:results_2}
 \end{table}
 
@@ -1036,12 +1030,6 @@ Ibidem, str. 43-44
 
 \bibitem{GenetycznyRuletka}
 Ibidem, str. 47-48.
-
-\bibitem{Backend}
-http://dictionary.cambridge.org/dictionary/english/back-end [dostêp 1.08.2017r. - 26.08.2017r.]
-
-\bibitem{TIOBE}
-https://www.tiobe.com/tiobe-index/ [dostêp 22.08.2017r. - 23.08.2017r.]
 
 \bibitem{Hejlsberg}
 Hejlsberg A., Torgersen M. Wilthamuth S., Golde P.: \textsl{The C\# Programming Language}, Addison-Wesley, Massachusetts, 2009, str. 12-14

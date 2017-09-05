@@ -1,17 +1,17 @@
-\contentsline {figure}{\numberline {1}{\ignorespaces Wykres oraz wz\'or funkcji Bohachevsky'ego I dw\'och zmiennych, \'Zr\'od\IeC {\l }o: https://www.sfu.ca/\textasciitilde ssurjano/boha.html}}{9}
-\contentsline {figure}{\numberline {2}{\ignorespaces Wykres funkcji Ackleya dla dw\'och zmiennych oraz og\'olny wz\'or funkcji, \'Zr\'od\IeC {\l }o: https://www.sfu.ca/\textasciitilde ssurjano/ackley.html}}{10}
-\contentsline {figure}{\numberline {3}{\ignorespaces Wykres funkcji Rosenbrocka dla dw\'och zmiennych oraz og\'olny wz\'or funkcji, \'Zr\'od\IeC {\l }o: https://www.sfu.ca/\textasciitilde ssurjano/rosen.html}}{11}
-\contentsline {figure}{\numberline {4}{\ignorespaces Wykres oraz wz\'or funkcji Eggholdera dw\'och zmiennych, \'Zr\'od\IeC {\l }o: https://www.sfu.ca/\textasciitilde ssurjano/egg.html}}{12}
-\contentsline {figure}{\numberline {5}{\ignorespaces Wykres funkcji Griewanka dla dw\'och zmiennych oraz og\'olny wz\'or funkcji, \'Zr\'od\IeC {\l }o: https://www.sfu.ca/\textasciitilde ssurjano/gri.html}}{13}
-\contentsline {figure}{\numberline {6}{\ignorespaces Zasada dzia\IeC {\l }ania algorytmu symulowanego w poszukiwaniu maksimum funkcji, \'Zr\'od\IeC {\l }o: http://iacs-courses.seas.harvard.edu/courses/am207/blog/ \newline images/mcmc.png}}{18}
-\contentsline {figure}{\numberline {7}{\ignorespaces Graficzna prezentacja operacji krzy\.zowania jednopunktowego, \'Zr\'od\IeC {\l }o: https://www.linkedin.com/pulse/genetic-algorithms-sharmishtha-mahajan-patwardhan}}{22}
-\contentsline {figure}{\numberline {8}{\ignorespaces Graficzna prezentacja operacji mutacji, \newline \'Zr\'od\IeC {\l }o: http://web.arch.usyd.edu.au/ \newline \textasciitilde rob/applets/house/images/single\_point\_mutation.png}}{22}
-\contentsline {figure}{\numberline {9}{\ignorespaces Interfejs SQL Server Management Studio 2017 \'Zr\'od\IeC {\l }o: Opracowanie w\IeC {\l }asne.}}{30}
-\contentsline {figure}{\numberline {10}{\ignorespaces Powi\k azania pomi\k edzy elementami budowanego systemu, \'Zr\'od\IeC {\l }o: Opracowanie w\IeC {\l }asne.}}{33}
-\contentsline {figure}{\numberline {11}{\ignorespaces Przep\IeC {\l }yw danych we wzorcu MVVM, \'Zr\'od\IeC {\l }o: https://i-msdn.sec.s-msft.com/dynimg/IC648329.png}}{35}
-\contentsline {figure}{\numberline {12}{\ignorespaces Widok na pliki funkcji napisanych w \'srodowisku Matlab z poziomu solucji, \'Zr\'od\IeC {\l }o: Opracowanie w\IeC {\l }asne.}}{38}
-\contentsline {figure}{\numberline {13}{\ignorespaces Widok na pliki wygenerowane przez Entity Framework z poziomu solucji, \'Zr\'od\IeC {\l }o: Opracowanie w\IeC {\l }asne.}}{39}
-\contentsline {figure}{\numberline {14}{\ignorespaces Przestawienie cz\k e\'sci s\IeC {\l }ownikowej bazy danych, \'Zr\'od\IeC {\l }o: Opracowanie w\IeC {\l }asne.}}{43}
-\contentsline {figure}{\numberline {15}{\ignorespaces Przestawienie cz\k e\'sci bazy danych dotycz\k acej przeprowadzanych bada\'n, \'Zr\'od\IeC {\l }o: Opracowanie w\IeC {\l }asne.}}{44}
-\contentsline {figure}{\numberline {16}{\ignorespaces Widok na oko g\IeC {\l }\'owne aplikacji podczas przeprowadzania test\'ow, \'Zr\'od\IeC {\l }o: Opracowanie w\IeC {\l }asne.}}{50}
-\contentsline {figure}{\numberline {17}{\ignorespaces Przestawienie parametr\'ow komputera na kt\'orym przeprowadzane by\IeC {\l }y testy, \'Zr\'od\IeC {\l }o: Opracowanie w\IeC {\l }asne.}}{51}
+\contentsline {figure}{\numberline {1}{\ignorespaces Wykres oraz wz\'or funkcji Bohachevsky'ego I dw\'och zmiennych, \'zr\'od\IeC {\l }o: https://www.sfu.ca/\textasciitilde ssurjano/boha.html}}{9}
+\contentsline {figure}{\numberline {2}{\ignorespaces Wykres funkcji Ackleya dla dw\'och zmiennych oraz og\'olny wz\'or funkcji, \'zr\'od\IeC {\l }o: https://www.sfu.ca/\textasciitilde ssurjano/ackley.html}}{10}
+\contentsline {figure}{\numberline {3}{\ignorespaces Wykres funkcji Rosenbrocka dla dw\'och zmiennych oraz og\'olny wz\'or funkcji, \'zr\'od\IeC {\l }o: https://www.sfu.ca/\textasciitilde ssurjano/rosen.html}}{11}
+\contentsline {figure}{\numberline {4}{\ignorespaces Wykres oraz wz\'or funkcji Eggholdera dw\'och zmiennych, \'zr\'od\IeC {\l }o: https://www.sfu.ca/\textasciitilde ssurjano/egg.html}}{12}
+\contentsline {figure}{\numberline {5}{\ignorespaces Wykres funkcji Griewanka dla dw\'och zmiennych oraz og\'olny wz\'or funkcji, \'zr\'od\IeC {\l }o: https://www.sfu.ca/\textasciitilde ssurjano/gri.html}}{13}
+\contentsline {figure}{\numberline {6}{\ignorespaces Zasada dzia\IeC {\l }ania algorytmu symulowanego w poszukiwaniu maksimum funkcji, \'zr\'od\IeC {\l }o: http://iacs-courses.seas.harvard.edu/courses/am207/blog/ \newline images/mcmc.png}}{18}
+\contentsline {figure}{\numberline {7}{\ignorespaces Graficzna prezentacja operacji krzy\.zowania jednopunktowego, \'zr\'od\IeC {\l }o: https://www.linkedin.com/pulse/genetic-algorithms-sharmishtha-mahajan-patwardhan}}{22}
+\contentsline {figure}{\numberline {8}{\ignorespaces Graficzna prezentacja operacji mutacji, \newline \'zr\'od\IeC {\l }o: http://web.arch.usyd.edu.au/ \newline \textasciitilde rob/applets/house/images/single\_point\_mutation.png}}{22}
+\contentsline {figure}{\numberline {9}{\ignorespaces Interfejs SQL Server Management Studio 2017 \'zr\'od\IeC {\l }o: Opracowanie w\IeC {\l }asne.}}{30}
+\contentsline {figure}{\numberline {10}{\ignorespaces Powi\k azania pomi\k edzy elementami budowanego systemu, \'zr\'od\IeC {\l }o: Opracowanie w\IeC {\l }asne.}}{33}
+\contentsline {figure}{\numberline {11}{\ignorespaces Przep\IeC {\l }yw danych we wzorcu MVVM, \'zr\'od\IeC {\l }o: https://i-msdn.sec.s-msft.com/dynimg/IC648329.png}}{35}
+\contentsline {figure}{\numberline {12}{\ignorespaces Widok na pliki funkcji napisanych w \'srodowisku Matlab z poziomu solucji, \'zr\'od\IeC {\l }o: Opracowanie w\IeC {\l }asne.}}{37}
+\contentsline {figure}{\numberline {13}{\ignorespaces Widok na pliki wygenerowane przez Entity Framework z poziomu solucji, \'zr\'od\IeC {\l }o: Opracowanie w\IeC {\l }asne.}}{38}
+\contentsline {figure}{\numberline {14}{\ignorespaces Przestawienie cz\k e\'sci s\IeC {\l }ownikowej bazy danych, \'zr\'od\IeC {\l }o: Opracowanie w\IeC {\l }asne.}}{42}
+\contentsline {figure}{\numberline {15}{\ignorespaces Przestawienie cz\k e\'sci bazy danych dotycz\k acej przeprowadzanych bada\'n, \'zr\'od\IeC {\l }o: Opracowanie w\IeC {\l }asne.}}{43}
+\contentsline {figure}{\numberline {16}{\ignorespaces Widok na oko g\IeC {\l }\'owne aplikacji podczas przeprowadzania test\'ow, \'zr\'od\IeC {\l }o: Opracowanie w\IeC {\l }asne.}}{50}
+\contentsline {figure}{\numberline {17}{\ignorespaces Przestawienie parametr\'ow komputera na kt\'orym przeprowadzane by\IeC {\l }y testy, \'zr\'od\IeC {\l }o: Opracowanie w\IeC {\l }asne.}}{51}

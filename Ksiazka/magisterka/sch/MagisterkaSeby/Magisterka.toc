@@ -4,10 +4,10 @@
 \contentsline {subsection}{\numberline {1.2}\kernsubsekcyjny Opis minimalizacji funkcji ci\k ag\IeC {\l }ych wielu zmiennych}{7}
 \contentsline {subsection}{\numberline {1.3}\kernsubsekcyjny Funkcje testowe}{8}
 \contentsline {subsubsection}{\numberline {1.3.1}\kernsubsubsekcyjny Funkcja Bohachevsky\IeC {\textquoteright }ego I}{8}
-\contentsline {subsubsection}{\numberline {1.3.2}\kernsubsubsekcyjny Funkcja Colville'a}{8}
+\contentsline {subsubsection}{\numberline {1.3.2}\kernsubsubsekcyjny Funkcja Colville'a}{9}
 \contentsline {subsubsection}{\numberline {1.3.3}\kernsubsubsekcyjny Funkcja Ackleya}{9}
-\contentsline {subsubsection}{\numberline {1.3.4}\kernsubsubsekcyjny Funkcja Rosenbrocka}{10}
-\contentsline {subsubsection}{\numberline {1.3.5}\kernsubsubsekcyjny Funkcja Eggholdera}{11}
+\contentsline {subsubsection}{\numberline {1.3.4}\kernsubsubsekcyjny Funkcja Rosenbrocka}{11}
+\contentsline {subsubsection}{\numberline {1.3.5}\kernsubsubsekcyjny Funkcja Eggholdera}{12}
 \contentsline {subsubsection}{\numberline {1.3.6}\kernsubsubsekcyjny Funkcja Griewanka}{12}
 \contentsline {section}{\numberline {2}\kernsekcyjny Metody rozwi\k azania wybranego problemu optymalizacji}{15}
 \contentsline {subsection}{\numberline {2.1}\kernsubsekcyjny Algorytmy dok\IeC {\l }adne}{15}
@@ -33,13 +33,13 @@
 \contentsline {subsubsection}{\numberline {5.1.1}\kernsubsubsekcyjny Wzorce architektoniczne oprogramowania}{34}
 \contentsline {subsubsection}{\numberline {5.1.2}\kernsubsubsekcyjny Zastosowany wzorzec architektoniczny \IeC {\textendash } MVVM}{34}
 \contentsline {subsubsection}{\numberline {5.1.3}\kernsubsubsekcyjny Model aplikacji}{36}
-\contentsline {subsection}{\numberline {5.2}\kernsubsekcyjny Architektura bazy danych}{41}
-\contentsline {subsubsection}{\numberline {5.2.1}\kernsubsubsekcyjny Microsoft SQL Server \IeC {\textendash } system do zarz\k adzania baz\k a danych}{41}
-\contentsline {subsubsection}{\numberline {5.2.2}\kernsubsubsekcyjny Budowa bazy danych u\.zytej w projekcie}{42}
-\contentsline {subsection}{\numberline {5.3}\kernsubsekcyjny Komunikacja bazy danych z projektem programistycznym}{45}
+\contentsline {subsection}{\numberline {5.2}\kernsubsekcyjny Architektura bazy danych}{40}
+\contentsline {subsubsection}{\numberline {5.2.1}\kernsubsubsekcyjny Microsoft SQL Server \IeC {\textendash } system do zarz\k adzania baz\k a danych}{40}
+\contentsline {subsubsection}{\numberline {5.2.2}\kernsubsubsekcyjny Budowa bazy danych u\.zytej w projekcie}{41}
+\contentsline {subsection}{\numberline {5.3}\kernsubsekcyjny Komunikacja bazy danych z projektem programistycznym}{44}
 \contentsline {subsubsection}{\numberline {5.3.1}\kernsubsubsekcyjny Mapowanie obiektowo-relacyjne}{45}
-\contentsline {subsubsection}{\numberline {5.3.2}\kernsubsubsekcyjny Zastosowane narz\k edzie mapowania obiektowo relacyjnego \IeC {\textendash } Entity Framework}{47}
-\contentsline {subsection}{\numberline {5.4}\kernsubsekcyjny Komunikacja Matlaba z projektem programistycznym}{48}
+\contentsline {subsubsection}{\numberline {5.3.2}\kernsubsubsekcyjny Zastosowane narz\k edzie mapowania obiektowo relacyjnego \IeC {\textendash } Entity Framework}{46}
+\contentsline {subsection}{\numberline {5.4}\kernsubsekcyjny Komunikacja Matlaba z projektem programistycznym}{47}
 \contentsline {subsection}{\numberline {5.5}\kernsubsekcyjny Uruchomienie aplikacji bazodanowej}{49}
 \contentsline {section}{\numberline {6}\kernsekcyjny Badania eksperymentalne}{51}
 \contentsline {subsection}{\numberline {6.1}\kernsubsekcyjny Metody por\'ownawcze wybranych algorytm\'ow}{51}
