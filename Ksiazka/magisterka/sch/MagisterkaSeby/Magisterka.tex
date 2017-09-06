@@ -419,11 +419,11 @@ U¿ycie wzorca MVVM w aplikacji implementowanej na potrzeby prezentowanej pracy m
 
 \subsubsection*{Managers}
 
-\textit{Managers} jest to katalog zawieraj¹cy klasê menad¿era tworz¹cego i wysy³aj¹cego ¿¹danie przeprowadzenia doœwiadczenia do œrodowiska Matlab. Menad¿er ten za poœrednictwem klas dopasowuj¹cych tworzy ¿¹danie zgodne ze standardem zastosowanej biblioteki opisanej w \ref{dzial:MatlabApplicationLibrary}, wysy³a je do œrodowiska obliczeniowego oraz odbiera rezultaty.
+\textit{Managers} jest to katalog zawieraj¹cy klasê menad¿era tworz¹cego i wysy³aj¹cego ¿¹danie przeprowadzenia eksperymentu numerycznego do œrodowiska Matlab. Menad¿er ten za poœrednictwem klas dopasowuj¹cych tworzy ¿¹danie zgodne ze standardem zastosowanej biblioteki opisanej w podpunkcie \ref{dzial:MatlabApplicationLibrary}, wysy³a je do œrodowiska obliczeniowego oraz odbiera rezultaty.
 
 \subsubsection*{Matlab}
 
-Folder \textit{Matlab} ukazany na rysunku \ref{img:KatalogMatlab} zawiera pliki funkcji zapisanych w œrodowisku Matlab. Pliki te zawieraj¹ definicje trzech algorytmów metaheurystycznych oraz wybranych funkcji testowych. Przez fakt na ograniczon¹ funkcjonalnoœæ zastosowanego API, ³¹cz¹cego œrodowisko .NET ze œrodowiskiem Matlab, definicje funkcji testowych oraz algorytmów musia³y znaleŸæ siê w jednym katalogu z powodu braku wsparcia dotycz¹cego przejœcia pomiêdzy ró¿nymi katalogami.
+Folder \textit{Matlab} ukazany na rysunku \ref{img:KatalogMatlab} zawiera pliki funkcji zapisanych w œrodowisku Matlab. Pliki te zawieraj¹ kod opisuj¹cy trzech algorytmów metaheurystycznych oraz wybranych funkcji testowych. Przez fakt na ograniczon¹ funkcjonalnoœæ zastosowanego API, ³¹cz¹cego œrodowisko .NET ze œrodowiskiem Matlab, opisy funkcji testowych oraz algorytmów musia³y znaleŸæ siê w jednym katalogu z powodu braku wsparcia dotycz¹cego przejœcia pomiêdzy ró¿nymi katalogami.
 
 \begin{figure}[H]
     \centering
@@ -434,7 +434,7 @@ Folder \textit{Matlab} ukazany na rysunku \ref{img:KatalogMatlab} zawiera pliki 
 
 \subsubsection*{Model}
 
-Katalog Modelu przedstawiony na rysunku \ref{img:KatalogModel} zawiera utworzon¹ przez Entity Framework strukturê obiektow¹ relacyjnej bazy danych. Liczba plików, które zawiera uzale¿niona jest bezpoœrednio od liczby tabel, która zastosowana zosta³a w bazie danych. W czasie dzia³añ implementacyjnych nie jest konieczna wiedza o dok³adnej strukturze przedstawianego folderu. Wystarczaj¹ce s¹ informacje dotycz¹ce tego, która bazodanowa tabela zawiera jakie dane.
+Katalog o nazwie \textit{Model}, przedstawiony na rysunku \ref{img:KatalogModel} zawiera utworzon¹ przez Entity Framework drzewiast¹ strukturê plików, które w postaci obiektów odzwierciedlaj¹ strukturê relacyjnej bazy danych. Liczba plików, które zawiera, uzale¿niona jest bezpoœrednio od liczby tabel, która zastosowana zosta³a w bazie. W czasie dzia³añ implementacyjnych nie jest konieczna wiedza o dok³adnej strukturze przedstawianego folderu. Wystarczaj¹ce s¹ informacje dotycz¹ce tego, która tabela zawiera jakie dane.
 
 \begin{figure}[H]
     \centering
@@ -445,12 +445,12 @@ Katalog Modelu przedstawiony na rysunku \ref{img:KatalogModel} zawiera utworzon¹
 
 \subsubsection*{Services}
 
-Katalog \textit{Servies} zawiera dwa serwisy stosowane w prezentowanej aplikacji. Pierwszym z nich jest serwis bazy danych który umo¿liwia po³¹czenie siê z fizycznie istniej¹c¹ baz¹ danych. Za pomoc¹ dedykowanych obiektów Entity Framework umo¿liwia on zapisywanie do bazy danych rezultatów przeprowadzonych doœwiadczeñ oraz pobieranie niezbêdnych danych dotycz¹cych stosowanych algorytmów oraz funkcji testowych.
+Katalog \textit{Servies} zawiera dwa serwisy stosowane w prezentowanej aplikacji. Pierwszym z nich jest serwis bazy danych, który umo¿liwia po³¹czenie siê z baz¹ danych. Za pomoc¹ dedykowanych obiektów Entity Framework umo¿liwia on zapisywanie do bazy danych rezultatów przeprowadzonych eksperymentów oraz pobieranie niezbêdnych danych dotycz¹cych stosowanych algorytmów oraz funkcji testowych.
 Drugim z kolei serwisem jest serwis Matlaba, który przechowuje obiekty umo¿liwiaj¹ce dwukierunkow¹ komunikacjê ze œrodowiskiem obliczeniowym.
 
 \subsubsection*{Tools}
 
-Katalog narzêdzi jest najbardziej rozbudowanym katalogiem w drzewie solucji. Przez wzgl¹d na jego szerokie zastosowanie posiada on trzy podfoldery, które uœciœlaj¹ definicjê elementów w nich siê znajduj¹cych. Pierwszym z nich jest \textit{Parser}, który zawiera t³umacza rezultatów otrzymanych ze œrodowiska obliczeniowego. Przez wzgl¹d na nieuporz¹dkowan¹ formê danych otrzymywanych z Matlaba pojawi³a siê koniecznoœæ ich uporz¹dkowania. W listingu \ref{listing:ParseResultsFromMatlab} zawarty zosta³ kod metody umo¿liwiaj¹cej przeprowadzenie tej operacji. Drugi podkatalog zawarty w sekcji \textit{Tools} to \textit{Utils}, w którym umiejscowione s¹ dwie bardzo wa¿ne metody dopasowuj¹ce nazwy Matlabowych plików na podstawie wybranego algorytmu metaheurystycznego oraz funkcji testowej. Ostatnim podkatalogiem jest \textit{MatlabContextWrapper}, który posiada metody u³atwiaj¹ce odwo³ywanie siê do obiektów komunikacyjnych, które poœrednicz¹ w dwukierunkowym przekazywaniu informacji pomiêdzy œrodowiskami .NET oraz Matlab.
+Katalog narzêdzi jest najbardziej rozbudowanym katalogiem w drzewie solucji. Przez wzgl¹d na jego szerokie zastosowanie posiada on trzy podfoldery, które uœciœlaj¹ definicjê elementów w nich siê znajduj¹cych. Pierwszym z nich jest \textit{Parser}, który zawiera t³umacza rezultatów otrzymanych ze œrodowiska obliczeniowego. Przez wzgl¹d na zastosowan¹ strukturê tabel w bazie danych pojawi³a siê koniecznoœæ uporz¹dkowania danych otrzymywanych z Matlaba. W listingu \ref{listing:ParseResultsFromMatlab} zawarty zosta³ kod metody umo¿liwiaj¹cej przeprowadzenie tej operacji. Drugi podkatalog zawarty w sekcji \textit{Tools} to \textit{Utils}, w którym umiejscowione s¹ dwie bardzo wa¿ne metody dopasowuj¹ce nazwy Matlabowych plików na podstawie wybranego algorytmu metaheurystycznego oraz funkcji testowej. Ostatnim podkatalogiem jest \textit{MatlabContextWrapper}, który posiada metody u³atwiaj¹ce odwo³ywanie siê do obiektów komunikacyjnych, które poœrednicz¹ w dwukierunkowym przekazywaniu informacji pomiêdzy œrodowiskami .NET oraz Matlab.
 
 \begin{lstlisting}[caption= {Implementacja oraz opis funkcji t³umacz¹cej informacje odebrane ze œrodowiska obliczeniowego Matlab.}, label={listing:ParseResultsFromMatlab}]
 public ResultDetail ParseResult(object[] result)
@@ -464,7 +464,7 @@ public ResultDetail ParseResult(object[] result)
     TotalTime = Convert.ToDecimal(result[4]),
   };
 
-// wyci¹ganie wspó³rzêdnych punktu wraz z numerem wymiaru przestrzeni której dotycz¹
+// wyci¹ganie wspó³rzêdnych punktu wraz z numerem wymiaru przestrzeni, której dotycz¹
   var resultPointLoc = result[0] as double[,];
   for (var i = 0; i < resultPointLoc.Length; i++)
   {
@@ -481,11 +481,11 @@ public ResultDetail ParseResult(object[] result)
 
 \subsubsection*{View}
 
-Katalog widoku jest katalogiem najwa¿niejszym ze strony u¿ytkownika poniewa¿ zawiera definicjê budowy g³ównego okna aplikacji oraz umiejscowienia wszystkich kontrolek jakie ono zawiera. W tym w³aœnie miejscu wykorzystywany jest opisany w podpunkcie \ref{dzial:WpfXaml} jêzyk XAML, który pozwala na przeprowadzenie operacji wi¹zañ oraz stosowanie komend.
+Katalog widoku jest katalogiem najwa¿niejszym z punktu widzenia u¿ytkownika, poniewa¿ zawiera definicjê budowy g³ównego okna aplikacji oraz umiejscowienia wszystkich kontrolek, jakie ono zawiera. W tym w³aœnie miejscu wykorzystywany jest opisany w podpunkcie \ref{dzial:WpfXaml} jêzyk XAML, który pozwala na przeprowadzenie operacji wi¹zañ oraz stosowanie komend.
 
 \subsubsection*{ViewModel}
 
-Ostatni opisywany katalog - \textit{ViewModel} - zawiera pliki dostosowane do pracy ze wzorcem MVVM. Odpowiadaj¹ one na interakcjê u¿ytkownika oraz realizuj¹ akcje dostêpne z poziomu okna aplikacji, w którym pracuje u¿ytkownik. Wa¿nym elementem ze strony programistycznej jest plik \textit{ViewModelLocator}, w którym przeprowadzana jest operacja rejestrowania wszelkich typów zastosowanych w aplikacji. Dziêki temu, mo¿liwe jest skorzystanie ze wzorca wstrzykiwania zale¿noœci \cite{DependencyInjection}, który pozwala na pisanie kodu o luŸniejszych powi¹zaniach, prostszego w testowaniu oraz modyfikacji.
+Ostatni opisywany katalog - \textit{ViewModel} - zawiera pliki dostosowane do pracy ze wzorcem MVVM. Odpowiadaj¹ one na interakcjê u¿ytkownika oraz realizuj¹ akcje dostêpne z poziomu okna aplikacji, w którym pracuje u¿ytkownik. Wa¿nym elementem ze strony programistycznej jest plik \textit{ViewModelLocator}, w którym przeprowadzana jest operacja rejestrowania wszelkich typów obiektów zastosowanych w aplikacji. Dziêki temu, mo¿liwe jest skorzystanie ze wzorca wstrzykiwania zale¿noœci \cite{DependencyInjection}, który pozwala na pisanie kodu o luŸniejszych powi¹zaniach, prostszego w testowaniu oraz modyfikacji.
 
 \subsection{Architektura bazy danych}
 
@@ -493,10 +493,10 @@ Analiza tematu projektu dotycz¹ca porównania algorytmów metaheurystycznych dopro
 
 \subsubsection{Microsoft SQL Server – system do zarz¹dzania baz¹ danych}
 
-Zastosowanie w projekcie bazy danych wymusi³o obowi¹zek utworzenia oraz uruchomienia serwera bazodanowego. Przez fakt na zastosowane technologie, których opis znajduje siê w podpunkcie \ref{dzial:ZastosowaneTechnologie}, u¿yty zosta³ Microsoft SQL Server. Jest to relacyjny system zarz¹dzania baz¹ danych, którego podstawow¹ funkcj¹ jest przechowywanie danych oraz ich przetwarzanie na ¿¹danie innych aplikacji, które mog¹ dzia³aæ na tym samym komputerze lub na innej maszynie w sieci LAN czy te¿ WAN. Przydatnym narzêdziem przy pracy z Microsoft SQL Serverem jest dedykowane narzêdzie z graficznym interfejsem u¿ytkownika, które w znacznym stopniu upraszcza korzystanie z jego funkcji.
-W przypadku budowanej aplikacji serwer bazodanowy zosta³ utworzony na maszynie lokalnej, na której dzia³a równie¿ aplikacja automatyzuj¹ca testy. Na potrzeby przeprowadzanych doœwiadczeñ rozwi¹zanie to jest wystarczaj¹ce przez fakt braku koniecznoœci posiadania bardzo szybkiego œrodowiska, które wymaga uiszczenia op³at adekwatnych do rodzaju wykupywanego serwera.
+Zastosowanie w projekcie bazy danych oznacza koniecznoœæ utworzenia oraz uruchomienia serwera bazy danych. Ze wzglêdu na zastosowane technologie, których opis znajduje siê w podpunkcie \ref{dzial:ZastosowaneTechnologie}, u¿yty zosta³ Microsoft SQL Server. Jest to relacyjny system zarz¹dzania baz¹ danych, którego podstawow¹ funkcj¹ jest przechowywanie danych oraz ich przetwarzanie na ¿¹danie innych aplikacji, które mog¹ dzia³aæ na tym samym komputerze lub na innej maszynie w sieci LAN czy te¿ WAN. Przydatnym narzêdziem przy pracy z Microsoft SQL Server jest dedykowane narzêdzie z graficznym interfejsem u¿ytkownika, które w znacznym stopniu upraszcza korzystanie z jego funkcji.
+W przypadku budowanej aplikacji serwer bazy danych zosta³ utworzony na maszynie lokalnej, na której dzia³a równie¿ aplikacja automatyzuj¹ca testy. Na potrzeby przeprowadzanych doœwiadczeñ rozwi¹zanie to jest wystarczaj¹ce przez fakt braku koniecznoœci posiadania bardzo szybkiego œrodowiska, które wymaga uiszczenia op³at adekwatnych do rodzaju wykupywanego serwera.
 
-\subsubsection{Budowa bazy danych u¿ytej w projekcie}
+\subsubsection{Struktura bazy danych u¿ytej w projekcie}
 
 Przed rozpoczêciem etapu implementacyjnego oraz po zakoñczeniu analizy dotycz¹cej wyboru wzorca architektonicznego aplikacji, zaprojektowana zosta³a struktura tabel bazodanowych wraz ze ich wszystkimi dostêpnymi kolumnami oraz typami, a tak¿e po³¹czenia i relacje miêdzy nimi. Proces projektowania bazy danych jest procesem bardzo wa¿nym, a jednoczeœnie czêsto bagatelizowanym. W sytuacji nieprzemyœlanego zaprojektowania bazy danych istnieje mo¿liwoœæ pojawienia siê problemu z jej rozbudow¹ i dodawaniem kolejnych potrzebnych tabel, na których mia³yby operowaæ nowe funkcjonalnoœci aplikacji. Nieprzemyœlana struktura tabel mo¿e doprowadziæ do zbêdnego powielania danych, której konsekwencj¹ bêdzie bardzo szybko powiêkszaj¹cy siê rozmiar bazy danych. Kolejnym efektem Ÿle zaprojektowanej bazy mo¿e byæ spowolniona praca i d³ugie wykonywanie zapytañ. W celu unikniêcia przedstawionych problemów, dokonana zosta³a szczegó³owa analiza wymaganych funkcjonalnoœci oraz danych, które one zwracaj¹. Wykorzystana w budowanej aplikacji baza danych mo¿e zostaæ podzielona na dwa g³ówne sk³adniki - czêœæ s³ownikow¹ zawieraj¹c¹ opisy wybranych algorytmów metaheurystycznych oraz funkcji testowych, a tak¿e czêœæ dotycz¹c¹ przeprowadzanych badañ oraz wyników przez nie otrzymanych.
 
@@ -513,35 +513,35 @@ Na s³ownikow¹ czêœæ bazy danych sk³adaj¹ siê trzy tabele przedstawione na rysunk
 
 Tabela \textit{Alghoritms} jest prost¹ tabel¹ s³ownikow¹ zawieraj¹c¹ identyfikator oraz nazwê algorytmu metaheurystycznego. Lista algorytmów dostêpnych do przetestowania w aplikacji znajduje siê w³aœnie w tej tabeli. Na podstawie nazwy algorytmu, dopasowywana jest jej funkcja Matlabowa, w której tkwi g³ówna logika algorytmu. W celu prawid³owego obs³u¿enia kolejnego algorytmu, nale¿y dodaæ wpis w opisywanej tabeli oraz wed³ug odpowiedniego schematu umiejscowionego w klasie \textit{FunctionNameMatcher} stworzyæ funkcjê w aplikacji Matlab. Tak utworzony schemat algorytmu nale¿y kolejno dodaæ do warstwy ViewModel oraz dostosowaæ logikê okna u¿ytkownika do wymaganych przez algorytm parametrów. 
 
-\textit{TestFunctions} jest to tabela, która zawiera opis funkcji testowych na bazie których dokonywane s¹ testy algorytmów. Zawarte w niej s¹ takie informacje jak identyfikator funkcji, jej nazwa, poziom trudnoœci ustalony na bazie stopnia skomplikowania funkcji testowej zaczerpniêty z \cite{RankingFunkcjiTestowych}, odnoœnik do wykresu danej funkcji wraz z informacjami na jej temat, zakres p³aszczyzny w obrêbie której ma byæ poszukiwana wartoœæ minimalna oraz wymiar funkcji czyli liczba zmiennych, na której owa funkcja bazuje. W celu dodania do aplikacji kolejnej funkcji testowej nale¿y dokonaæ dodania jej definicji w opisywanej tabeli oraz utworzyæ plik Matlabowy zawieraj¹cy jej wzór. Nazwa pliku powinna zgadzaæ siê ze schematem zawartym w klasie dopasowuj¹cej - \textit{FunctionNameMatcher}. Tak utworzona funkcja bêdzie automatycznie dostêpna do wyboru z poziomu aplikacji.
+\textit{TestFunctions} jest to tabela, która zawiera opis funkcji testowych, na podstawie których dokonywane s¹ testy algorytmów. Zawarte w niej s¹ takie informacje jak identyfikator funkcji, jej nazwa, poziom trudnoœci ustalony na bazie stopnia skomplikowania funkcji testowej zaczerpniêty z \cite{RankingFunkcjiTestowych}, odnoœnik do wykresu danej funkcji wraz z informacjami na jej temat, zakres p³aszczyzny, w obrêbie której ma byæ poszukiwana wartoœæ minimalna, oraz wymiar funkcji czyli liczba zmiennych, na której owa funkcja bazuje. W celu dodania do aplikacji kolejnej funkcji testowej nale¿y dokonaæ dodania jej definicji do opisywanej tabeli oraz utworzyæ plik Matlabowy zawieraj¹cy jej definicjê. Nazwa pliku powinna zgadzaæ siê ze schematem zawartym w klasie dopasowuj¹cej - \textit{FunctionNameMatcher}. Tak utworzona funkcja bêdzie automatycznie dostêpna do wyboru z poziomu aplikacji.
 
 Ostatnia tabela z czêœci s³ownikowej bazy danych to tabela \textit{ExitFlags}, w której zdefiniowane s¹ numery flag wyjœcia z Matlabowych funkcji oraz ich opis. Przeznaczeniem jej jest uzyskanie informacji dotycz¹cej powodu zakoñczenia pracy danego algorytmu. Powodem tym mo¿e byæ dla przyk³adu osi¹gniêcie maksymalnego za³o¿onego czasu dzia³ania algorytmu, liczby iteracji lub liczby odwo³añ do funkcji testowej.
 
 \subsubsection*{Czêœæ dotycz¹ca przeprowadzonych badañ}
 
-Czêœæ bazy danych odnosz¹ca siê do przeprowadzanych badañ jest czêœci¹ bardziej rozbudowan¹ ni¿ czêœæ s³ownikowa. Zawiera ona wszelkie informacje dotycz¹ce parametrów wejœciowych danego testu oraz rezultaty przeprowadzanych badañ. G³ówn¹ tabel¹, która jest swojego rodzaju trzonem bazy danych jest tabela \textit{Results}. Po przeprowadzeniu pojedynczego doœwiadczenia w tabeli tej tworzony jest wpis, który zawiera identyfikatory wierszy odnosz¹ce siê do wszystkich niezbêdnych tabel, które umo¿liwiaj¹ uzyskanie wszelkich informacji o doœwiadczeniu.
+Czêœæ bazy danych odnosz¹ca siê do przeprowadzanych badañ jest bardziej rozbudowana ni¿ czêœæ s³ownikowa. Zawiera ona wszelkie informacje dotycz¹ce parametrów wejœciowych danego testu oraz rezultaty przeprowadzanych badañ. G³ówn¹ tabel¹, która jest najwa¿niejszym elementem bazy danych, jest tabela \textit{Results}. Po przeprowadzeniu pojedynczego eksperymentu w tabeli tej tworzony jest wpis, który zawiera identyfikatory wierszy odnosz¹ce siê do wszystkich niezbêdnych tabel, które umo¿liwiaj¹ uzyskanie wszelkich informacji o doœwiadczeniu.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{img_bazaDane.png}
-    \caption{Przestawienie czêœci bazy danych dotycz¹cej przeprowadzanych badañ, Ÿród³o: Opracowanie w³asne.}
+    \caption{Przedstawienie czêœci bazy danych dotycz¹cej przeprowadzanych badañ, Ÿród³o: Opracowanie w³asne.}
     \label{rys:baza_dane}
 \end{figure} 
 
-W tabeli \textit{InputParameters} zawarte s¹ informacje o parametrach wejœciowych algorytmów takich jak zadany maksymalny czas dzia³ania algorytmu, maksymalna liczba iteracji, dopuszczalna liczba odwo³añ do funkcji testowej oraz w zale¿noœci od wybranego algorytmu wielkoœæ roju lub wielkoœæ populacji.
+W tabeli \textit{InputParameters} zawarte s¹ informacje o parametrach wejœciowych algorytmów takich jak: zadany maksymalny czas dzia³ania algorytmu, maksymalna liczba iteracji, dopuszczalna liczba odwo³añ do funkcji testowej  u¿yta w eksperymentach jako jedno z kryteriów porównawczych oraz - w zale¿noœci od wybranego algorytmu - wielkoœæ roju lub wielkoœæ populacji.
 
-Rezultaty przeprowadzonego badania umiejscawiane s¹ w tabeli \textit{ResultDetails}, w której to mo¿na uzyskaæ informacjê na temat liczby przeprowadzonych iteracji, liczby odwo³añ do funkcji testowej, najmniejszej znalezionej wartoœci funkcji, czasu dzia³ania algorytmu oraz informacjê o powodzeniu jego wykonania. Dodatkowym elementem, który przechowywany jest w bazie jest lokalizacja punktu posiadaj¹cego najmniejsz¹ znalezion¹ wartoœæ funkcji. Pocz¹tkowo temat pracy magisterskiej zak³ada³ porównanie algorytmów metaheurystycznych bazuj¹c wy³¹cznie na funkcjach dwóch zmiennych. Lokalizacja najlepszego punktu przechowywana by³a w dwóch kolumnach tabeli \textit{ResultDetails}. Po zmianie wymagañ, które dotyczy³y koniecznoœci obs³u¿enia funkcji wielu zmiennych, musia³a nast¹piæ modyfikacja struktury bazy danych. Warte wspomnienia s¹ tutaj fazy dok³adnej analizy potrzeb, które baza danych ma spe³niaæ oraz proces jej projektowania. Ju¿ na tym etapie jako jedno z ryzyk projektowych za³o¿one zosta³o zmienienie podejœcia do liczby wymiarów funkcji testowych. W celu zapewnienia prawid³owego przetwarzania i przechowywania danych zosta³a w tym celu stworzona nowa tabela - \textit{Points}. Tabela ta jest w relacji wiele do jednego z tabel¹ \textit{ResultDetails} oraz umo¿liwia przechowywanie wspó³rzêdnej punktu dla ka¿dego wymiaru jako oddzielny wpis. Dla przyk³adu, lokalizacja punktu dla funkcji piêciu zmiennych przechowywana bêdzie w postaci piêciu wpisów w omawianej tabeli, z których ka¿dy opisywaæ bêdzie jego lokalizacjê oraz numer wymiaru do którego ma odniesienie.
+Rezultaty przeprowadzonego badania zapisywane s¹ w tabeli \textit{ResultDetails}, w której mo¿na uzyskaæ informacjê na temat liczby przeprowadzonych iteracji, liczby odwo³añ do funkcji testowej, najmniejszej znalezionej wartoœci funkcji, czasu dzia³ania algorytmu oraz informacjê o powodzeniu jego wykonania. Dodatkowym elementem, który przechowywany jest w bazie, jest lokalizacja punktu posiadaj¹cego najmniejsz¹ znalezion¹ wartoœæ funkcji. Pocz¹tkowo zakres pracy magisterskiej zak³ada³ porównanie algorytmów metaheurystycznych bazuj¹c wy³¹cznie na funkcjach dwóch zmiennych. Lokalizacja najlepszego punktu przechowywana by³a w dwóch kolumnach tabeli \textit{ResultDetails}. Po zmianie wymagañ, które dotyczy³y koniecznoœci obs³u¿enia funkcji wielu zmiennych, musia³a nast¹piæ modyfikacja struktury bazy danych. Warte wspomnienia s¹ tutaj fazy dok³adnej analizy potrzeb, które baza danych ma spe³niaæ oraz proces jej projektowania. Ju¿ na tym etapie jako jedno z ryzyk projektowych za³o¿one zosta³o zmienienie podejœcia do liczby wymiarów funkcji testowych. W celu zapewnienia prawid³owego przetwarzania i przechowywania danych zosta³a w tym celu stworzona nowa tabela - \textit{Points}. Tabela ta jest w relacji wiele do jednego z tabel¹ \textit{ResultDetails} oraz umo¿liwia przechowywanie wspó³rzêdnej punktu dla ka¿dego wymiaru jako oddzielny wpis. Dla przyk³adu, lokalizacja punktu dla funkcji piêciu zmiennych przechowywana bêdzie w postaci piêciu wpisów w omawianej tabeli, z których ka¿dy opisywaæ bêdzie jego lokalizacjê oraz numer wymiaru, do którego ma odniesienie.
 
 \subsection{Komunikacja bazy danych z projektem programistycznym}
 
-Umo¿liwienie kontaktu aplikacji z baz¹ dan¹ jest kluczow¹ kwesti¹, która odnosi siê do prawid³owego dzia³ania bazodanowego projektu programistycznego. Bezpieczne, stabilne oraz ci¹g³e po³¹czenie umo¿liwia pozbawione problemów przesy³anie danych z gwarancj¹ ich niezmiennoœci oraz odpowiedni¹ informacj¹ w momencie pojawienia siê b³êdu komunikacyjnego. W technologii .NET, w której implementowana jest aplikacja bazodanowa mo¿liwe jest kilka podejœæ do omawianego zagadnienia. Jednym z nich jest standardowe podejœcie udostêpniane przez ADO.NET oraz nowsze, które dotyczy komunikacji na poziomie obiektów.
+Umo¿liwienie kontaktu aplikacji z baz¹ dan¹ jest kluczow¹ kwesti¹, która odnosi siê do prawid³owego dzia³ania projektu programistycznego bazy danych. Bezpieczne, stabilne oraz ci¹g³e po³¹czenie umo¿liwia pozbawione problemów przesy³anie danych z gwarancj¹ ich niezmiennoœci oraz odpowiedni¹ informacj¹ w momencie pojawienia siê b³êdu komunikacyjnego. W technologii .NET, w której implementowana jest aplikacja, mo¿liwe jest kilka podejœæ do omawianego zagadnienia. Jednym z nich jest standardowe podejœcie udostêpniane przez ADO.NET oraz nowsze, które dotyczy komunikacji na poziomie obiektów.
 
 \subsubsection{Mapowanie obiektowo-relacyjne}
 
-Mapowanie obiektowo-relacyjne (ang. ORM - Object-Relational Mapping) jest to pojêcie, które dotyczy informatycznego terminu odnosz¹cego siê do wspó³pracy z baz¹ danych przy wykorzystaniu programowania obiektowego. Dok³adniej chodzi tutaj o translacjê danych, które przechowywane s¹ w tabelach bazodanowych w relacyjnej bazie danych na postaæ obiektow¹, która dostêpna jest z poziomu projektu programistycznego. Przedstawiony sposób komunikacji jest sposobem bardzo u¿ytecznym przez wzgl¹d na brak koniecznoœci analizy struktury bazy danych przez programistê oraz umo¿liwienie pobierania oraz zapisu danych z poziomu kodu, unikaj¹c bazodanowego jêzyka zapytañ SQL.
-Aplikacje komputerowe, które u¿ywane s¹ przez wielu u¿ytkowników oraz wymagaj¹ pobierania i zapisywania du¿ych iloœci danych czêsto korzystaj¹ z serwerów bazodanowych. Serwery te pozwalaj¹ na przechowywanie danych bez ¿adnych przerw oraz ich szybkie wyszukiwanie, dodawanie oraz edycjê. Aspekt ten jest bardzo trudny do osi¹gniêcia korzystaj¹c wy³¹cznie ze standardowych aplikacji. W technologii .NET standardowa komunikacja z baz¹ danych przebiega za pomoc¹ protoko³u ADO.NET. Przy jego zastosowaniu, w celu pobrania danych, programista musi za ka¿dym razem po³¹czyæ siê z baz¹ danych, manualnie napisaæ zapytanie SQL, odebraæ wynik, zapisaæ go w zmiennej oraz zamkn¹æ po³¹czenie. Schemat ten bardzo komplikuje kwestiê utrzymania aplikacji w sytuacji modyfikacji struktury bazy danych. Zapisane przez programistê zapytanie SQL nie podlega procesowi walidacji pod k¹tem poprawnoœci jego formy, a w sytuacji edycji kolumny bazodanowej, nastêpuje obowi¹zek uaktualnienia wszystkich zapytañ, które jej dotyczy³y. Przyk³adowy schemat pracy podczas korzystania z ADO.NET wraz z porównaniem analogicznej operacji w technologii ORM zaprezentowane zosta³o na poziomie kodu Ÿród³owego \ref{listing:PorownanieAdoEf}.
+Mapowanie obiektowo-relacyjne (ang. ORM - Object-Relational Mapping) to pojêcie, które dotyczy informatycznego terminu odnosz¹cego siê do wspó³pracy z baz¹ danych przy wykorzystaniu programowania obiektowego. Dok³adniej, chodzi tutaj o translacjê danych, które przechowywane s¹ w tabelach bazodanowych w relacyjnej bazie danych, na postaæ obiektow¹, która dostêpna jest z poziomu projektu programistycznego. Przedstawiony sposób komunikacji jest sposobem bardzo u¿ytecznym przez wzgl¹d na brak koniecznoœci analizy struktury bazy danych przez programistê oraz umo¿liwienie pobierania oraz zapisu danych z poziomu kodu, unikaj¹c jêzyka zapytañ SQL.
+Aplikacje komputerowe, które u¿ywane s¹ przez wielu u¿ytkowników oraz wymagaj¹ pobierania i zapisywania du¿ych iloœci danych czêsto korzystaj¹ z serwerów bazodanowych. Serwery te pozwalaj¹ na przechowywanie danych bez ¿adnych przerw oraz ich szybkie wyszukiwanie, dodawanie oraz edycjê. Aspekt ten jest bardzo trudny do osi¹gniêcia korzystaj¹c wy³¹cznie ze standardowych aplikacji. W technologii .NET standardowa komunikacja z baz¹ danych przebiega za pomoc¹ protoko³u ADO.NET. Przy jego zastosowaniu, w celu pobrania danych, programista musi za ka¿dym razem po³¹czyæ siê z baz¹ danych, manualnie napisaæ zapytanie SQL, odebraæ wynik, zapisaæ go w zmiennej oraz zamkn¹æ po³¹czenie. Schemat ten bardzo komplikuje kwestiê utrzymania aplikacji w sytuacji modyfikacji struktury bazy danych. Zapisane przez programistê zapytanie SQL nie podlega procesowi walidacji pod k¹tem poprawnoœci jego formy, a w sytuacji edycji kolumny bazodanowej, nastêpuje obowi¹zek uaktualnienia wszystkich zapytañ, które jej dotyczy³y. Przyk³adowe u¿ycie ADO.NET oraz technologii ORM zaprezentowane zosta³o w poni¿szym kodzie Ÿród³owym:
 
-\begin{lstlisting}[caption={Porównanie operacji dodania algorytmu heurystycznego do tabeli \textit{Alghoritms} w ADO.NET oraz Entity Framework.}, label={listing:PorownanieAdoEf}]
+\begin{lstlisting}[caption={Zestawienie operacji dodania algorytmu heurystycznego do tabeli \textit{Alghoritms} w ADO.NET oraz Entity Framework.}, label={listing:PorownanieAdoEf}]
 
 //ADO.NET
 // ADO.NET wymaga manualnego dodania pliku konfiguracyjnego zawieraj¹cego œcie¿kê z ustawieniami po³¹czenia do bazy danych.
@@ -571,16 +571,16 @@ W implementowanej aplikacji bazodanowej, zdecydowano siê przeciwdzia³aæ opisanym
 
 Entity Framework jest to dedykowane dla platformy .NET narzêdzie mapowania obiektowo-relacyjnego, którego zadaniem jest wspieranie budowy trójwarstwowych aplikacji bazodanowych. Budowa obiektowego modelu bazy danych w opisywanym narzêdziu mo¿e byæ wykonana na trzy sposoby.
 
-Pierwsz¹ metod¹ jest \textit{Code First}, który pozwala na utworzenie fizycznego modelu bazy danych na podstawie klas napisanych w jêzyku C\# oraz ich odpowiednimi przypisami \cite{PrzypisyCodeFirst}.
+Pierwsz¹ metod¹ jest \textit{Code First}, który pozwala na utworzenie fizycznego modelu bazy danych na podstawie w³asnorêcznie napisanych klas w jêzyku C\# oraz ich odpowiednimi adnotacjami opisanymi w artykule \cite{PrzypisyCodeFirst}.
 
-Kolejnym sposobem jest podejœcie \textit{Database First}, które jest u¿yteczne w sytuacji, w której dostêpna jest dzia³aj¹ca ju¿ baza danych. Korzystaj¹c z dostêpnego w frameworku kreatora, istnieje mo¿liwoœæ okreœlenia lokalizacji bazy oraz poddania jej automatycznemu mapowaniu, w wyniku którego wygenerowane zostaj¹ niezbêdne klasy obiektowego modelu bazy danych.
+Kolejnym sposobem jest podejœcie \textit{Database First}, które jest u¿yteczne w sytuacji, w której dostêpna jest dzia³aj¹ca ju¿ baza danych. Korzystaj¹c z dostêpnego kreatora, istnieje mo¿liwoœæ okreœlenia lokalizacji bazy oraz poddania jej automatycznemu mapowaniu, w wyniku którego wygenerowane zostaj¹ niezbêdne klasy obiektowego modelu bazy danych.
 
-Ostatni¹ metod¹ jest \textit{Model First}, które polega na utworzeniu fizycznego modelu bazy danych pos³uguj¹c siê wbudowanemu w Entity Framework Designerem, który w du¿ym stopniu upraszcza tworzenie w³aœciwoœci oraz encji bazodanowych. Œcie¿ka ta stosowana jest, gdy posiadany jest wy³¹cznie sam schemat bazy danych. Ze zbudowanego modelu nastêpuje wygenerowanie fizycznego modelu bazy danych jak i równie¿ klas, które reprezentuj¹ model obiektowy. Sposób ten zosta³ zastosowany w prezentowanej pracy magisterskiej. Po analizie wymagañ i utworzeniu schematu bazy danych, zosta³ on przeniesiony na poziom Designera opisywanego frameworku, który automatycznie stworzy³ skrypt napisany w jêzyku SQL, po wykonaniu którego utworzony zosta³ fizyczny model bazy danych, a tak¿e wygenerowane zosta³y wszystkie niezbêdne klasy reprezentuj¹ce model obiektowy zadanego schematu bazy.
+Ostatni¹ metod¹ jest \textit{Model First}, który polega na utworzeniu fizycznego modelu bazy danych pos³uguj¹c siê dostêpnym w Entity Framework narzêdziem, które w du¿ym stopniu upraszcza tworzenie w³aœciwoœci oraz encji. Œcie¿ka ta stosowana jest, gdy posiadany jest wy³¹cznie sam schemat bazy danych. Ze zbudowanego modelu nastêpuje wygenerowanie fizycznego modelu bazy danych jak i równie¿ klas, które reprezentuj¹ model obiektowy. Sposób ten zosta³ zastosowany w prezentowanej pracy magisterskiej. Po analizie wymagañ i utworzeniu schematu bazy danych, zosta³ on przeniesiony na poziom Entity Framework, w którym nast¹pi³o automatyczne wygenerowanie skryptu napisanego w jêzyku SQL, po wykonaniu którego utworzony zosta³ fizyczny model bazy danych oraz wszystkie niezbêdne klasy reprezentuj¹ce model obiektowy zadanego schematu bazy.
 
 \subsection{Komunikacja Matlaba z projektem programistycznym}
 \label{dzial:KomunikacjaMatlabaZProjektem}
 
-Poprawne skomunikowanie aplikacji bazodanowej ze œrodowiskiem obliczeniowym Matlab by³o najtrudniejsz¹ czêœci¹ podczas ca³ej pracy implementacyjnej. Podczas tworzenia architektury budowanej aplikacji poszukiwany by³ efektywny sposób integracji obu œrodowisk. Przez fakt utworzenia ich przez ró¿nych producentów, nie istnieje domyœlnie wbudowana funkcjonalnoœæ ich integracji. Poszukiwania doprowadzi³y do zastosowania dedykowanej dla œrodowiska .NET biblioteki opisanej w podpunkcie \ref{dzial:MatlabApplicationLibrary}, która ³¹czy siê z poœrednicz¹cym serwerem Matlaba. Serwer ten nie jest domyœlnie dodawany przy instalacji œrodowiska obliczeniowego, dlatego te¿ nachodzi koniecznoœæ jego dodatkowego doinstalowania. Biblioteka umo¿liwia stworzenie ¿¹dania na poziomie C\#, które nastêpnie przekazywane jest do serwera poœrednicz¹cego, które t³umaczy je na jêzyk stosowany przez Matlaba. ¯¹danie te jest  wykonywane przez œrodowisko obliczeniowe, a jego rezultat analogiczn¹ œcie¿k¹ przekazywany jest do aplikacji bazodanowej. Sporym problemem okaza³o siê prawid³owe tworzenie ¿¹dañ przez fakt na bardzo ograniczon¹ dokumentacjê biblioteki i ma³¹ liczbê przyk³adów. Na podstawie metody prób i b³êdów uda³o siê jednak utworzyæ prawid³owy typ ¿¹dañ oraz w sposób w³aœciwy dokonywaæ odbioru ich odpowiedzi. ¯¹danie w kodzie Ÿród³owym numer \ref{listing:SendRequestToMatlab} prezentuje sposób wykonania pojedynczego doœwiadczenia dotycz¹cego algorytmu symulowanego wy¿arzania, natomiast kod Ÿród³owy numer \ref{listing:ParseResultsFromMatlab}, który umiejscowiony zosta³ ju¿ w punkcie \ref{dzial:ModelAplikacji}, ukazuje sposób przetwarzania otrzymanej odpowiedzi.
+Poprawne skomunikowanie aplikacji bazodanowej ze œrodowiskiem obliczeniowym Matlab by³o najtrudniejsz¹ czêœci¹ podczas ca³ej pracy implementacyjnej. Podczas tworzenia architektury budowanej aplikacji poszukiwany by³ efektywny sposób integracji obu œrodowisk. Przez fakt utworzenia ich przez ró¿nych producentów, nie istnieje domyœlnie wbudowana funkcjonalnoœæ ich integracji. Poszukiwania doprowadzi³y do zastosowania dedykowanej dla œrodowiska .NET biblioteki opisanej w podpunkcie \ref{dzial:MatlabApplicationLibrary}, która ³¹czy siê z poœrednicz¹cym serwerem Matlaba. Serwer ten nie jest domyœlnie dodawany przy instalacji œrodowiska obliczeniowego, dlatego te¿ nachodzi koniecznoœæ jego dodatkowego doinstalowania. Biblioteka umo¿liwia stworzenie ¿¹dania na poziomie C\#, które nastêpnie przekazywane jest do serwera poœrednicz¹cego, które t³umaczy je na jêzyk stosowany przez Matlaba. ¯¹danie to jest  wykonywane przez œrodowisko obliczeniowe, a jego rezultat analogiczn¹ œcie¿k¹ przekazywany jest do aplikacji bazodanowej. Przez wzgl¹d na braki w dokumentacji zastosowanej biblioteki, sporym problemem okaza³o siê prawid³owe tworzenie ¿¹dañ. Stosuj¹c metodê prób i b³êdów uda³o siê jednak utworzyæ prawid³owy typ ¿¹dañ oraz w sposób w³aœciwy dokonywaæ odbioru ich odpowiedzi. ¯¹danie w kodzie Ÿród³owym numer \ref{listing:SendRequestToMatlab} prezentuje sposób wykonania pojedynczego doœwiadczenia dotycz¹cego algorytmu symulowanego wy¿arzania, natomiast kod Ÿród³owy numer \ref{listing:ParseResultsFromMatlab}, który umiejscowiony zosta³ w punkcie \ref{dzial:ModelAplikacji}, ukazuje sposób przetwarzania otrzymanej odpowiedzi.
 
 \begin{lstlisting}[caption= {Implementacja oraz opis funkcji wysy³aj¹cej ¿¹danie do œrodowiska obliczeniowego Matlab.}, label={listing:SendRequestToMatlab}]
 private ResultDetail ExecuteSimulatedAnnealingAlghoritm( Alghoritm alghoritm, TestFunction testFunction, InputParameter inputParameter)
@@ -614,8 +614,8 @@ private ResultDetail ExecuteSimulatedAnnealingAlghoritm( Alghoritm alghoritm, Te
 
 \subsection{Uruchomienie aplikacji bazodanowej}
 
-W celu uruchomienia zaimplementowanej aplikacji bazodanowej niezbêdne jest posiadanie œrodowiska obliczeniowego Matlab R2017 w wersji 9.2, serwera SQL wraz z narzêdziem SQL Server Management Studio 17 oraz .NET Framework w wersji 4.5.1.
-Przed uruchomieniem aplikacji, niezbêdn¹ operacj¹ jest odpowiednia konfiguracja serwera bazodanowego. W tym celu, w narzêdziu SQL Server Management Studio nale¿y utworzyæ bazê danych za pomoc¹ skryptu \textit{EntityDataModel.edmx.sql} za³¹czonego do solucji programistycznej. Po jego wykonaniu utworzone zostan¹ wszystkie niezbêdne tabele bazodanowe wraz z odpowiednimi relacjami. Kolejnym krokiem jest dodanie wymaganych danych do czêœci s³ownikowej bazy danych. Odpowiedzialny jest za to skrypt \textit{AddDictionaries.sql}, po wykonaniu którego dodane zostan¹ wszelkie niezbêdne informacje dotycz¹ce porównywanych algorytmów heurystycznych oraz u¿ytych funkcji testowych. Tak przygotowane œrodowisko, na bazie domyœlnej konfiguracji umo¿liwia uruchomienie zaimplementowanej aplikacji, która podczas startu uruchamia automatycznie aplikacjê Matlab. Niweluje to koniecznoœæ pamiêtania o uruchomieniu œrodowiska obliczeniowego manualnie. Okno uruchomionej aplikacji, które aktualnie wykonuje testy, widoczne jest na rysunku \ref{rys:apka}.
+W celu uruchomienia zaimplementowanej aplikacji niezbêdne jest posiadanie œrodowiska obliczeniowego Matlab R2017 w wersji 9.2, serwera SQL wraz z narzêdziem SQL Server Management Studio 17 oraz .NET Framework w wersji 4.5.1.
+Przed uruchomieniem aplikacji, niezbêdn¹ operacj¹ jest odpowiednia konfiguracja serwera bazy danych. W tym celu, w narzêdziu SQL Server Management Studio nale¿y utworzyæ bazê danych za pomoc¹ skryptu \textit{EntityDataModel.edmx.sql} za³¹czonego do solucji programistycznej. Po jego wykonaniu utworzone zostan¹ wszystkie niezbêdne tabele wraz z odpowiednimi relacjami. Kolejnym krokiem jest dodanie wymaganych danych do czêœci s³ownikowej bazy danych. Odpowiedzialny jest za to skrypt \textit{AddDictionaries.sql}, po wykonaniu którego dodane zostan¹ wszelkie niezbêdne informacje dotycz¹ce porównywanych algorytmów heurystycznych oraz u¿ytych funkcji testowych. Tak przygotowane œrodowisko, na bazie domyœlnej konfiguracji umo¿liwia uruchomienie zaimplementowanej aplikacji, która podczas startu uruchamia automatycznie aplikacjê Matlab. Niweluje to koniecznoœæ pamiêtania o uruchomieniu œrodowiska obliczeniowego manualnie. Okno uruchomionej aplikacji aktualnie wykonuj¹cej testy, widoczne jest na rysunku \ref{rys:apka}.
 
 \begin{figure}[H]
     \centering
@@ -626,12 +626,12 @@ Przed uruchomieniem aplikacji, niezbêdn¹ operacj¹ jest odpowiednia konfiguracja 
 
 \section{Badania eksperymentalne}
 
-Ca³y proces pocz¹wszy od pomys³u automatyzacji przeprowadzanych badañ zawarty w punkcie \ref{dzial:ZalozeniaProjektu}, przez analizê rozwi¹zañ technologicznych opisanych w punkcie \ref{dzial:WykorzystaneRozwiazaniaTechnologiczne}, po budowê architektury oraz samej aplikacji bazodanowej ujêty w punkcie \ref{dzial:ArchitekturaBudowanejApl} mia³ za zadanie u³atwiæ przeprowadzenie eksperymentalnych badañ porównawczych wybranych algorytmów metaheurystycznych. W obecnym rozdziale przedstawiony zosta³ opis metod porównawczych, a tak¿e samych badañ doœwiadczalnych wraz z ich zagregowanymi wynikami zawartymi w podpunkcie \ref{dzial:WynikiDoswiadczenDlaZadanychFun}.
+Ca³y proces pocz¹wszy od za³o¿eñ projektu opisanych w punkcie \ref{dzial:ZalozeniaProjektu}, przez analizê rozwi¹zañ technologicznych opisanych w punkcie \ref{dzial:WykorzystaneRozwiazaniaTechnologiczne}, po opis architektury budowanej aplikacji zawarty w punkcie \ref{dzial:ArchitekturaBudowanejApl} mia³ za zadanie u³atwiæ przeprowadzenie eksperymentalnych badañ porównawczych wybranych algorytmów metaheurystycznych. W obecnym rozdziale przedstawiony zosta³ opis metod porównawczych, a tak¿e samych badañ doœwiadczalnych wraz z ich zagregowanymi wynikami zawartymi w podpunkcie \ref{dzial:WynikiDoswiadczenDlaZadanychFun}.
 
 \subsection{Metody porównawcze wybranych algorytmów}
 \label{dzial:MetodyPorownawczeWybranychAlgorytmow}
 
-W celu zrównania szans ka¿dego z porównywanych algorytmów, wszystkie przeprowadzane testy dokonane zosta³y na tej samej maszynie obliczeniowej o parametrach przedstawionych na rysunku \ref{rys:specyfikacja} przy tych samych warunkach obci¹¿eniowych systemu. 
+W celu zapewnienia jednolitych warunków dla ka¿dego z porównywanych algorytmów, wszystkie przeprowadzane testy dokonane zosta³y na tej samej maszynie obliczeniowej o parametrach przedstawionych na rysunku \ref{rys:specyfikacja} przy tych samych warunkach obci¹¿eniowych systemu. 
 
 \begin{figure}[H]
     \centering
@@ -640,37 +640,37 @@ W celu zrównania szans ka¿dego z porównywanych algorytmów, wszystkie przeprowadz
     \label{rys:specyfikacja}
 \end{figure} 
 
-Bazuj¹c na informacjach zawartych w artykule \cite{MetodyPorownawczeDoc} dokonano wyboru dwóch kryteriów pod k¹tem których przeprowadzane zosta³y testy porównawcze algorytmów.
-Pierwszym z kryteriów porównawczym by³ maksymalny czas, w którym algorytm poszukiwa³ najlepszego rezultatu. Parametr ten bra³ pod uwagê kilka ró¿nych ustalonych wartoœci dla których przeprowadzana zosta³a próbka doœwiadczeñ, z których wartoœci œrednie zosta³y zestawione i porównane w obrêbie wszystkich algorytmów oraz funkcji testowych. Drugim kryterium porównawczym by³a liczba odwo³añ algorytmu do zadanej funkcji testowej. W kryterium tym porównane zosta³y, w sposób analogiczny jak w kryterium pierwszym, rezultaty otrzymane przez algorytmy przy takim za³o¿eniu, i¿ mog³y one wyliczyæ wartoœæ funkcji testowej okreœlon¹ liczbê razy.
+Bazuj¹c na informacjach zawartych w artykule \cite{MetodyPorownawczeDoc} dokonano wyboru dwóch kryteriów, pod k¹tem których przeprowadzane zosta³y testy porównawcze algorytmów.
+Pierwszym z kryteriów porównawczym by³ maksymalny czas, w którym algorytm poszukiwa³ najlepszego rezultatu. Zaproponowano zbiór wartoœci, dla których przeprowadzono seriê eksperymentów, z których wartoœci œrednie zosta³y zestawione i porównane ze sob¹ dla poszczególnych algorytmów oraz funkcji testowych. Drugim kryterium porównawczym by³a liczba odwo³añ algorytmu do zadanej funkcji testowej. W kryterium tym porównane zosta³y, w sposób analogiczny jak w kryterium pierwszym, rezultaty otrzymane przez algorytmy przy takim za³o¿eniu, i¿ mog³y one wyliczyæ wartoœæ funkcji testowej okreœlon¹ liczbê razy.
 
 \subsection{Opis przeprowadzonych badañ}
 
 \subsubsection{Skalowanie algorytmów}
 
-Przez wzgl¹d na du¿¹ liczbê parametrów ka¿dego porównywanego algorytmu heurystycznego, zdecydowano siê dokonaæ ich dostrojenia przed przeprowadzeniem zaplanowanych badañ. Na bazie wybranych funkcji testowych wykonano liczne testy, na bazie których wybrano parametry, dla których œrednia uzyskanych rezultatów by³a najlepsza. Dla algorytmu symulowanego wy¿arzania jako metoda sch³adzaj¹ca, wybrana zosta³a standardowa funkcja
+Przez wzgl¹d na du¿¹ liczbê parametrów ka¿dego porównywanego algorytmu heurystycznego, zdecydowano siê dokonaæ ich dostrojenia przed przeprowadzeniem zaplanowanych badañ. Na bazie wybranych funkcji testowych wykonano liczne testy, na podstawie których wybrano parametry, dla których œrednia uzyskanych rezultatów by³a najlepsza. Dla algorytmu symulowanego wy¿arzania, jako metoda sch³adzaj¹ca wybrana zosta³a standardowa funkcja
 \begin{equation}
 NowaTemperatura = ObecnaTemperatura * 0.95^k
 \end{equation}
 , gdzie \textit{k} jest numerem iteracji od wy¿arzenia. Uwzglêdniaj¹c fakt du¿ej liczby iteracji, któr¹ algorytm móg³ wykonaæ podczas testów, zdecydowano siê wprowadziæ mo¿liwoœæ wyst¹pienia operacji ponownego wy¿arzenia (ang. reannealing), w czasie której algorytm ponownie ustala temperaturê na domyœln¹ wartoœæ $100$ stopni i kontynuuje pracê. Wartoœæ parametru dotycz¹cego mo¿liwoœci wyst¹pienia ponownego wy¿arzania ustalona zosta³a na poziomie $40$ i definiuje liczbê punktów, które algorytm ma obowi¹zek zaakceptowaæ przed wyst¹pieniem wspomnianej operacji.
-W metodzie optymalizacji rojem cz¹stek domyœlne parametry wzoru \ref{wzor:pso} zawartego w podpunkcie \ref{dzial:MetodaOptymalizacjiRojemCzastek} ustalone zosta³y na nastêpuj¹ce wartoœci:
+W metodzie optymalizacji rojem cz¹stek domyœlne parametry wzoru (\ref{wzor:pso}) podanego w podpunkcie \ref{dzial:MetodaOptymalizacjiRojemCzastek} przyjê³y nastêpuj¹ce wartoœci:
 $W = 0.6$, $c_1 = c_2 = 0.75$.
-Algorytm genetyczny z kolei wymaga³ najwiêkszej iloœci testów skaluj¹cych przez fakt posiadania najwiêkszej liczby mo¿liwych kombinacji parametrów. Na ich postawie wybrano metodê ruletki jako metodê selekcji, zastêpowanie elitarne o wielkoœci elity równej $0.05*WielkoscPopulacji$ jako metodê wymiany pokoleñ oraz metodê krzy¿owania jednopunktowego.
+Algorytm genetyczny z kolei wymaga³ najwiêkszej liczby testów skaluj¹cych przez fakt posiadania najwiêkszej liczby mo¿liwych kombinacji parametrów. Na ich postawie wybrano metodê ruletki jako metodê selekcji, zastêpowanie elitarne o wielkoœci elity równej $0.05*WielkoscPopulacji$ jako metodê wymiany pokoleñ oraz metodê krzy¿owania jednopunktowego.
 
 \subsubsection{Przeprowadzenie doœwiadczeñ w zaimplementowanym œrodowisku testowym}
 
-W zaimplementowanej aplikacji, dla ka¿dego opisanego w podpunkcie \ref{dzial:MetodyPorownawczeWybranychAlgorytmow} kryterium, umieszczane by³y ustalone wartoœci parametrów, po czym przeprowadzana by³a operacja uruchomienia programu. Dla kryterium maksymalnego czasu, w którym algorytmy poszukiwa³y globalnego minimum funkcji, doœwiadczenia wykonywane zosta³y dla zakresu od jednej do piêciu sekund, z jednosekundowym interwa³em. Liczba testów dla ka¿dej wartoœci z ustalonego zakresu ustalona zosta³a na poziomie stu prób. Pozosta³e parametry, takie jak maksymalna liczba iteracji oraz odwo³añ do funkcji wraz z maksymaln¹ liczb¹ iteracji bez poprawy wyniku, ustalone zosta³y na niemo¿liw¹ do osi¹gniêcia wartoœæ $999999$. Spowodowane by³o to tym, i¿ jednym warunkiem stopu w przedstawianej metodzie porównawczej by³ maksymalny ustalony czas dzia³ania algorytmu.
-W przypadku algorytmu genetycznego oraz optymalizacji rojem cz¹stek dodatkowo przeprowadzone zosta³y doœwiadczenia dla ró¿nych wielkoœci populacji i roju, dziêki czemu mo¿liwa do wykonania by³a analiza wp³ywu tych parametrów na otrzymane rezultaty.
+W zaimplementowanej aplikacji, dla ka¿dego opisanego w podpunkcie \ref{dzial:MetodyPorownawczeWybranychAlgorytmow} kryterium, umieszczane by³y ustalone wartoœci parametrów. Dla kryterium maksymalnego czasu, w którym algorytmy poszukiwa³y globalnego minimum funkcji, eksperymenty wykonywane zosta³y dla 1, 2, 3, 4, 5 oraz 6 sekund. Liczba testów dla ka¿dej wartoœci z ustalonego zakresu ustalona zosta³a na poziomie stu prób. Jedynym warunkiem stopu w przedstawianej metodzie porównawczej by³ maksymalny ustalony czas dzia³ania algorytmu.
+W przypadku algorytmu genetycznego oraz optymalizacji rojem cz¹stek dodatkowo przeprowadzone zosta³y doœwiadczenia dla ró¿nych wielkoœci populacji i roju, dziêki czemu mo¿liwa by³a analiza wp³ywu tych parametrów na otrzymane rezultaty.
 
-Przeprowadzenie badañ dotycz¹cych kryterium maksymalnej liczby odwo³añ do funkcji testowej przebiega³o w sposób analogiczny, z t¹ ró¿nic¹, i¿ niemo¿liw¹ do osi¹gniêcia wartoœci¹ $999999$ zosta³ objêty maksymalny czas poszukiwañ, który w opisywanym kryterium nie by³ brany pod uwagê. Wartoœæ parametru dotycz¹cego maksymalnej liczby odwo³añ do funkcji testowej ustalona zosta³a na poziomie $1000, 2000, 3000, 4000, 5000$ oraz $6000$.
+Przeprowadzenie badañ dotycz¹cych kryterium maksymalnej liczby odwo³añ do funkcji testowej przebiega³o w sposób analogiczny ale bez uwzglêdnienia maksymalnego czasu poszukiwañ, który w opisywanym kryterium nie by³ brany pod uwagê. Wartoœæ parametru dotycz¹cego maksymalnej liczby odwo³añ do funkcji testowej w kolejnych seriach eksperymentów ustalona zosta³a na poziomie $1000, 2000, 3000, 4000, 5000$ oraz $6000$.
 
 \subsection{Wyniki doœwiadczeñ dla zadanych funkcji testowych}
 \label{dzial:WynikiDoswiadczenDlaZadanychFun}
 
-Aktualny rozdzia³ prezentuje zagregowane wyniki przeprowadzanych doœwiadczeñ dla funkcji testowych opisanych w podpunkcie \ref{dzial:FunkcjeTestowe}. Prezentacja wyników dla ka¿dej funkcji testowej podzielona zosta³a na dwie czêœci przez wzgl¹d na dwa kryteria porównawcze algorytmów zdefiniowane w podpunkcie \ref{dzial:MetodyPorownawczeWybranychAlgorytmow}. Warte zdefiniowania jest znaczenie kolorów tabel zawartych w poni¿szych podrozdzia³ach. Zielony kolor definiuje najlepsze otrzymane rezultaty w obrêbie jednego testu, czerwony natomiast wyniki gorsze.
+W bie¿¹cym podpunkcie zaprezentowano zagregowane wyniki przeprowadzanych doœwiadczeñ dla funkcji testowej Bohachevsky'ego I, Colville'a, Ackleya, Rosenbrocka, Eggholdera oraz Griewanka. Prezentacja wyników dla ka¿dej funkcji testowej podzielona zosta³a na dwie czêœci przez wzgl¹d na dwa kryteria porównawcze algorytmów zdefiniowane w podpunkcie \ref{dzial:MetodyPorownawczeWybranychAlgorytmow}. Warte zdefiniowania jest znaczenie kolorów tabel zawartych w kolejnych punktach. Zielony kolor definiuje najlepsze otrzymane rezultaty w obrêbie jednego testu, natomiast wyniki gorsze - czerwony.
 
 \subsubsection{Funkcja Bohachevsky’ego I}
 
-W tabeli \ref{tab:boh_ga_1} przedstawione zosta³y wyniki otrzymane przez algorytm genetyczny dla kryterium czasowego. Wynika z niej, i¿ najlepsze rezultaty uzyskane zosta³y dla wielkoœci populacji równej $100$.
+W tabeli \ref{tab:boh_ga_1} przedstawione zosta³y wyniki otrzymane przez algorytm genetyczny dla kryterium czasowego. Wynika z niej, i¿ najlepsze rezultaty uzyskane zosta³y dla populacji o liczebnoœci równej $100$.
 Dla metody optymalizacji rojem cz¹stek otrzymane rezultaty zaprezentowane zosta³y w tabeli \ref{tab:boh_pso_1}, z której wynika, i¿ najlepsze wyniki uzyskane zosta³y dla wielkoœci roju równej 50 oraz 100. W tym jednak przypadku, jako najlepsze rezultaty wybrane zosta³y wyniki z wielkoœci¹ roju równ¹ 100, z powodu mniejszej liczby odwo³añ do funkcji testowej ni¿ w przypadku roju o wielkoœci 50.
 
 \begin{table}[H]
@@ -693,11 +693,11 @@ Najlepsze rezultaty algorytmu genetycznego oraz optymalizacji rojem cz¹stek zost
 \begin{table}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{boh_all_1.png}
-    \caption{Zestawienie najlepszych wyników wszystkich trzech porównywanych algorytmów metaheurystycznych dla funkcji Bohachevsky’ego I - kryterium czasowe, Ÿród³o: Opracowanie w³asne.}
+    \caption{Zestawienie najlepszych wyników wszystkich trzech porównywanych algorytmów dla funkcji Bohachevsky’ego I - kryterium czasowe, Ÿród³o: Opracowanie w³asne.}
     \label{tab:boh_all_1}
 \end{table}
 
-W przypadku kryterium dotycz¹cym okreœlonej maksymalnej liczby odwo³añ algorytmu do funkcji testowej, otrzymane rezultaty s¹ bardzo zbli¿one do rezultatów poprzedniego kryterium. Algorytm genetyczny najlepsze wyniki uzyska³ dla wielkoœci populacji równej 100, co mo¿na zaobserwowaæ na wykresie \ref{tab:boh_ga_2}. Metoda optymalizacji rojem cz¹stek, wed³ug wykresu \ref{tab:boh_pso_2}, najlepsze rezultaty zanotowa³a dla wielkoœci roju równego 50, co jest inn¹ wartoœci¹ ni¿ w przypadku kryterium czasowego. Wyniki te zosta³y zestawione w tabeli \ref{tab:boh_all_2} z rezultatami otrzymanymi przez algorytm symulowanego wy¿arzania, z której wynika i¿ ponownie dla ka¿dej wartoœci zadanego kryterium, najlepsza okaza³a siê metoda optymalizacji rojem cz¹stek.
+W przypadku kryterium dotycz¹cym okreœlonej maksymalnej liczby odwo³añ algorytmu do funkcji testowej, otrzymane rezultaty s¹ bardzo zbli¿one do rezultatów poprzedniego kryterium. Algorytm genetyczny najlepsze wyniki uzyska³ dla wielkoœci populacji równej $100$, co mo¿na zaobserwowaæ w tabeli \ref{tab:boh_ga_2}. Metoda optymalizacji rojem cz¹stek, wed³ug tabeli \ref{tab:boh_pso_2}, najlepsze rezultaty zanotowa³a dla wielkoœci roju równego $50$, co jest inn¹ wartoœci¹ ni¿ w przypadku kryterium czasowego. Wyniki te zosta³y zestawione w tabeli \ref{tab:boh_all_2} z rezultatami otrzymanymi przez algorytm symulowanego wy¿arzania, z której wynika, i¿ ponownie dla ka¿dej wartoœci zadanego kryterium, najlepsza okaza³a siê metoda optymalizacji rojem cz¹stek.
 
 \begin{table}[H]
     \centering
@@ -716,13 +716,13 @@ W przypadku kryterium dotycz¹cym okreœlonej maksymalnej liczby odwo³añ algorytmu
 \begin{table}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{boh_all_2.png}
-    \caption{Zestawienie najlepszych wyników wszystkich trzech porównywanych algorytmów metaheurystycznych dla funkcji Bohachevsky’ego I - kryterium liczby odwo³añ do funkcji testowej, Ÿród³o: Opracowanie w³asne.}
+    \caption{Zestawienie najlepszych wyników wszystkich trzech porównywanych algorytmów dla funkcji Bohachevsky’ego I - kryterium liczby odwo³añ do funkcji testowej, Ÿród³o: Opracowanie w³asne.}
     \label{tab:boh_all_2}
 \end{table}
 
 \subsubsection{Funkcja Colville'a}
 
-Dla funkcji Colville'a, wyniki testów sprawdzaj¹cych optymaln¹ wielkoœæ populacji dla algorytu genetycznego przedstawione zosta³y w tabeli \ref{tab:col_ga_1}, z której wynika, i¿ najbli¿ej minimum globalnego dla kryterium czasowego uplasowa³y siê rezultaty z wielkoœci¹ populacji równ¹ 100. Taka sama wartoœæ zosta³a ustalona dla analogicznego testu sprawdzaj¹cego optymaln¹ wielkoœæ roju dla metody optymalizacji rojem cz¹stek widocznego na wykresie \ref{tab:col_pso_1}. Wyniki obu testów zosta³y zestawione z rezultatami otrzymanymi przez algorytm symulowanego wy¿arzania na wykresie \ref{tab:col_all_1}. Z wykresu tego wynika, i¿ najbli¿ej wartoœci 0, która jest minimum globalnym badanej funkcji, uplasowa³y siê rezultaty otrzymane przez metodê optymalizacji rojem cz¹stek. Wyniki zwrócone przez algorytm genetyczny umiejscowi³y go na drugim miejscu, przed algorytmem symulowanego wy¿arzania, którego rezultaty by³y bardzo odleg³e od poszukiwanego minimum globalnego.
+Dla funkcji Colville'a, wyniki testów sprawdzaj¹cych optymaln¹ wielkoœæ populacji dla algorytu genetycznego przedstawione zosta³y w tabeli \ref{tab:col_ga_1}, z której wynika, i¿ najbli¿ej minimum globalnego dla kryterium czasowego uplasowa³y siê rezultaty z wielkoœci¹ populacji równ¹ 100. Taka sama wartoœæ zosta³a ustalona dla analogicznego testu sprawdzaj¹cego optymaln¹ wielkoœæ roju dla metody optymalizacji rojem cz¹stek widocznego w tabeli \ref{tab:col_pso_1}. Wyniki obu testów zosta³y zestawione z rezultatami otrzymanymi przez algorytm symulowanego wy¿arzania w tabeli \ref{tab:col_all_1}. Z tabeli tej wynika, i¿ najbli¿ej wartoœci 0, która jest minimum globalnym badanej funkcji, uplasowa³y siê rezultaty otrzymane przez metodê optymalizacji rojem cz¹stek. Wyniki zwrócone przez algorytm genetyczny umiejscowi³y go na drugim miejscu, przed algorytmem symulowanego wy¿arzania, którego rezultaty by³y bardzo odleg³e od poszukiwanego minimum globalnego.
 
 \begin{table}[H]
     \centering
@@ -741,16 +741,16 @@ Dla funkcji Colville'a, wyniki testów sprawdzaj¹cych optymaln¹ wielkoœæ populacj
 \begin{table}[H]
     \centering
     \includegraphics[height=0.75\textwidth]{col_all_1.png}
-    \caption{Zestawienie najlepszych wyników wszystkich trzech porównywanych algorytmów metaheurystycznych dla funkcji Colville'a - kryterium czasowe, Ÿród³o: Opracowanie w³asne.}
+    \caption{Zestawienie najlepszych wyników wszystkich trzech porównywanych algorytmów dla funkcji Colville'a - kryterium czasowe, Ÿród³o: Opracowanie w³asne.}
     \label{tab:col_all_1}
 \end{table}
 
-Rezultaty dotycz¹ce testów dla kryterium odnosz¹cego siê do maksymalnej liczby odwo³añ algorytmu do funkcji testowej okaza³y siê bardzo ciekawe przez wzgl¹d na uzyskanie najlepszych rezultatów przez inny algorytm ni¿ w kryterium poprzednim. Do podsumowuj¹cego testu wszystkich trzech algorytmów metaheurystycznych zosta³y wybrane dla algorytmu genetycznego rezultaty przedstawione w tabeli \ref{tab:col_ga_2} z wielkoœci¹ populacji równ¹ 100, natomiast dla metody optymalizacji rojem cz¹stek wyniki z wielkoœci¹ roju równ¹ 10, które dostêpne s¹ do wgl¹du w tabli \ref{tab:col_pso_2}. Podsumowanie widoczne w tabeli \ref{tab:col_all_2} pozwala dostrzec, i¿ najlepsze wyniki uzyska³ algorytm genetyczny, który w testach pierwszego kryterium uzyska³ drugi rezultat.
+Rezultaty dotycz¹ce testów dla kryterium odnosz¹cego siê do maksymalnej liczby odwo³añ algorytmu do funkcji testowej okaza³y siê bardzo ciekawe przez wzgl¹d na uzyskanie najlepszych rezultatów przez inny algorytm ni¿ w kryterium poprzednim. Do podsumowuj¹cego testu wszystkich trzech algorytmów metaheurystycznych zosta³y wybrane dla algorytmu genetycznego rezultaty przedstawione w tabeli \ref{tab:col_ga_2} z wielkoœci¹ populacji równ¹ 100, natomiast dla metody optymalizacji rojem cz¹stek wyniki z wielkoœci¹ roju równ¹ 10, które dostêpne s¹ do wgl¹du w tabeli \ref{tab:col_pso_2}. Zestawienie podsumowuj¹ce zamieszczone w tabeli \ref{tab:col_all_2} pozwala dostrzec, i¿ najlepsze wyniki uzyska³ algorytm genetyczny, który w testach pierwszego kryterium uzyska³ drugi rezultat.
 
 \begin{table}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{col_ga_2.png}
-    \caption{Zestawienie wyników algorytmu genetycznego dla funkcji Colville'a - kryterium liczby odwo³añ do funkcji testowej, Ÿród³o: Opracowanie w³asne., Ÿród³o: Opracowanie w³asne.}
+    \caption{Zestawienie wyników algorytmu genetycznego dla funkcji Colville'a - kryterium liczby odwo³añ do funkcji testowej, Ÿród³o: Opracowanie w³asne.}
     \label{tab:col_ga_2}
 \end{table}
 
@@ -761,18 +761,18 @@ Rezultaty dotycz¹ce testów dla kryterium odnosz¹cego siê do maksymalnej liczby o
     \label{tab:col_pso_2}
 \end{table}
 
-Porównuj¹c wyniki dla obu kryteriów porównawczych z tabel \ref{tab:col_all_1} oraz \ref{tab:col_all_2}, widoczna jest zale¿noœæ wyjaœniaj¹ca taki efekt. Metoda optymalizacji rojem cz¹stek przeprowadza³a znacznie wiêcej odwo³añ do badanej funkcji Colville'a ni¿ algorytm genetyczny dla tego samego czasu pracy algorytmów. Z tego powodu przy limicie owych odwo³añ w kryterium drugim, wyniki otrzymane przez algorytm genetyczny okaza³y siê lepsze. Wartym wspomnienia jest tak¿e to, i¿ w analizowanym przyk³adzie wyniki uzyskane przez metodê optymalizacji rojem cz¹stek s¹ nie tylko gorsze od wyników uzyskanych przez algorytm genetyczny lecz tak¿e przez symulowane wy¿arzanie, które to uzyska³o drugi rezultat dla ka¿dego badanego parametru maksymalnej liczby odwo³añ do funkcji testowej.
+Porównuj¹c wyniki dla obu kryteriów porównawczych z tabel \ref{tab:col_all_1} oraz \ref{tab:col_all_2}, widoczna jest zale¿noœæ wyjaœniaj¹ca taki efekt. Metoda optymalizacji rojem cz¹stek przeprowadza³a znacznie wiêcej odwo³añ do badanej funkcji Colville'a ni¿ algorytm genetyczny dla tego samego czasu pracy algorytmów. Z tego powodu przy limicie owych odwo³añ w kryterium drugim, wyniki otrzymane przez algorytm genetyczny okaza³y siê lepsze. Wartym wspomnienia jest tak¿e to, i¿ w analizowanym przyk³adzie wyniki uzyskane przez metodê optymalizacji rojem cz¹stek s¹ nie tylko gorsze od wyników uzyskanych przez algorytm genetyczny, lecz tak¿e przez symulowane wy¿arzanie, które uzyska³o drugi rezultat dla wszystkich u¿ytych wartoœci maksymalnej liczby odwo³añ do funkcji testowej.
 
 \begin{table}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{col_all_2.png}
-    \caption{Zestawienie najlepszych wyników wszystkich trzech porównywanych algorytmów metaheurystycznych dla funkcji Colville'a - kryterium liczby odwo³añ do funkcji testowej, Ÿród³o: Opracowanie w³asne.}
+    \caption{Zestawienie najlepszych wyników wszystkich trzech porównywanych algorytmów dla funkcji Colville'a - kryterium liczby odwo³añ do funkcji testowej, Ÿród³o: Opracowanie w³asne.}
     \label{tab:col_all_2}
 \end{table}
 
 \subsubsection{Funkcja Ackleya}
 
-Kolejn¹ funkcj¹, która poddana zosta³a testom by³a funkcja Ackleya, dla której algorytm genetyczny oraz metoda optymalizacji rojem cz¹stek dla kryterium czasowego uzyska³a najlepsze rezultaty dla wielkoœci populacji oraz roju wynosz¹cej 50. Wyniki te (tabela \ref{tab:ack_ga_1} oraz \ref{tab:ack_pso_1}) zestawione zosta³y w tabeli \ref{tab:ack_all_1} z wynikami otrzymanymi przez algorytm symulowanego wy¿arzania. Z podsumowania tego jednoznacznie wynika, i¿ dla ka¿dego badanego parametru maksymalnego czasu, algorytm genetyczny zwróci³ najlepsze rezultaty, które to s¹ bardzo zbli¿one do minimum globalnego wynosz¹cego 0. Pozosta³e algorytmy nawet nie zbli¿y³y siê do tych rezultatów i utknê³y w minimach lokalnych funkcji.
+Kolejn¹ funkcj¹, która poddana zosta³a testom, by³a funkcja Ackleya, dla której algorytm genetyczny oraz metoda optymalizacji rojem cz¹stek dla kryterium czasowego uzyska³a najlepsze rezultaty dla wielkoœci populacji oraz roju wynosz¹cej 50. Wyniki te (tabela \ref{tab:ack_ga_1} oraz \ref{tab:ack_pso_1}) zestawione zosta³y w tabeli \ref{tab:ack_all_1} z wynikami otrzymanymi przez algorytm symulowanego wy¿arzania. Z podsumowania tego jednoznacznie wynika, i¿ dla wszystkich wartoœci maksymalnego czasu, algorytm genetyczny zwróci³ najlepsze rezultaty, które to s¹ bardzo zbli¿one do minimum globalnego wynosz¹cego 0. Pozosta³e algorytmy nawet nie zbli¿y³y siê do tych rezultatów i utknê³y w minimach lokalnych funkcji.
 
 \begin{table}[H]
     \centering
@@ -791,11 +791,11 @@ Kolejn¹ funkcj¹, która poddana zosta³a testom by³a funkcja Ackleya, dla której a
 \begin{table}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{ack_all_1.png}
-    \caption{Zestawienie najlepszych wyników wszystkich trzech porównywanych algorytmów metaheurystycznych dla funkcji Ackleya - kryterium czasowe, Ÿród³o: Opracowanie w³asne.}
+    \caption{Zestawienie najlepszych wyników wszystkich trzech porównywanych algorytmów dla funkcji Ackleya - kryterium czasowe, Ÿród³o: Opracowanie w³asne.}
     \label{tab:ack_all_1}
 \end{table}
 
-Wyniki dotycz¹ce kryterium limitu odwo³añ do funkcji testowej s¹ analogiczne jak w przypadku pierwszego kryterium. Jedyn¹ ró¿nic¹ s¹ wielkoœci populacji oraz roju, których wyniki zosta³y wziête do testu podsumowuj¹cego widocznego w tabeli \ref{tab:ack_all_2}. Funkcja Ackleya jest pierwsz¹ testowan¹ funkcj¹, do której minimum globalnego w obu badanych kryteriach zbli¿y³ siê tylko jeden porównywany algorytm metaheurystyczny - algorytm genetyczny.
+Wyniki dotycz¹ce kryterium limitu odwo³añ do funkcji testowej s¹ analogiczne jak w przypadku pierwszego kryterium. Jedyn¹ ró¿nic¹ s¹ wielkoœci populacji oraz roju, których wyniki zosta³y wziête do testu podsumowuj¹cego widocznego w tabeli \ref{tab:ack_all_2}. Funkcja Ackleya jest pierwsz¹ testowan¹ funkcj¹, do której minimum globalnego w obu badanych kryteriach zbli¿y³ siê tylko jeden porównywany algorytm - algorytm genetyczny.
 
 \begin{table}[H]
     \centering
@@ -814,13 +814,13 @@ Wyniki dotycz¹ce kryterium limitu odwo³añ do funkcji testowej s¹ analogiczne jak
 \begin{table}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{ack_all_2.png}
-    \caption{Zestawienie najlepszych wyników wszystkich trzech porównywanych algorytmów metaheurystycznych dla funkcji Ackleya - kryterium liczby odwo³añ do funkcji testowej, Ÿród³o: Opracowanie w³asne.}
+    \caption{Zestawienie najlepszych wyników wszystkich trzech porównywanych algorytmów dla funkcji Ackleya - kryterium liczby odwo³añ do funkcji testowej, Ÿród³o: Opracowanie w³asne.}
     \label{tab:ack_all_2}
 \end{table}
 
 \subsubsection{Funkcja Rosenbrocka}
 
-Funkcja Rosenbrocka jest pierwsz¹ funkcj¹, w której analizuj¹c ustalone kryterium, najlepsze otrzymane rezultaty nie nale¿¹ do jednego algorytmu heurystycznego. Po wyborze optymalnych wielkoœci populacji oraz roju dla kryterium czasowego, których wyniki testów dostêpne s¹ do wgl¹du w tabeli \ref{tab:ros_ga_1} oraz \ref{tab:ros_pso_1}, dokonano zestawienia najlepszych rezultatów wszystkich trzech algorytmów w tabeli \ref{tab:ros_all_1}. Wynika z niej, i¿ dla wartoœci maksymalnego czasu od 1 do 3 sekund, najlepsze rezultaty uzyska³a metoda optymalizacji rojem cz¹stek, podczas gdy dla wy¿szych z zakresu 4 do 6 sekund - algorytm genetyczny.
+Funkcja Rosenbrocka jest pierwsz¹ funkcj¹, w której analizuj¹c ustalone kryterium, najlepsze otrzymane rezultaty nie nale¿¹ do jednego algorytmu heurystycznego. Po wyborze optymalnych wielkoœci populacji oraz roju dla kryterium czasowego, których wyniki testów dostêpne s¹ w tabelach \ref{tab:ros_ga_1} oraz \ref{tab:ros_pso_1}, dokonano zestawienia najlepszych rezultatów wszystkich trzech algorytmów w tabeli \ref{tab:ros_all_1}. Wynika z niej, i¿ dla wartoœci maksymalnego czasu od 1 do 3 sekund, najlepsze rezultaty uzyska³a metoda optymalizacji rojem cz¹stek, podczas gdy dla wy¿szych z zakresu 4 do 6 sekund - algorytm genetyczny.
 
 \begin{table}[H]
     \centering
@@ -839,11 +839,11 @@ Funkcja Rosenbrocka jest pierwsz¹ funkcj¹, w której analizuj¹c ustalone kryteriu
 \begin{table}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{ros_all_1.png}
-    \caption{Zestawienie najlepszych wyników wszystkich trzech porównywanych algorytmów metaheurystycznych dla funkcji Rosenbrocka - kryterium czasowe, Ÿród³o: Opracowanie w³asne.}
+    \caption{Zestawienie najlepszych wyników wszystkich trzech porównywanych algorytmów dla funkcji Rosenbrocka - kryterium czasowe, Ÿród³o: Opracowanie w³asne.}
     \label{tab:ros_all_1}
 \end{table}
 
-Dla drugiego analizowanego kryterium dotycz¹cego ustalonej maksymalnej liczby odwo³añ do funkcji testowej, rezultaty, które dostêpne s¹ do wgl¹du w tabeli \ref{tab:ros_all_2} okaza³y siê ju¿ bardziej jednolite. Algorytm genetyczny dla wielkoœci populacji równej 50 (tabela \ref{tab:ros_ga_2}) osi¹gn¹³ lepsze rezultaty od metody optymalizacji rojem cz¹stek z wielkoœci¹ roju równ¹ 10 (tabela \ref{tab:ros_pso_2}) dla ka¿dego przeprowadzonego testu.
+Dla drugiego analizowanego kryterium dotycz¹cego ustalonej maksymalnej liczby odwo³añ do funkcji testowej, rezultaty, które dostêpne s¹ w tabeli \ref{tab:ros_all_2} okaza³y siê ju¿ bardziej jednolite. Algorytm genetyczny dla wielkoœci populacji równej 50 (tabela \ref{tab:ros_ga_2}) osi¹gn¹³ lepsze rezultaty od metody optymalizacji rojem cz¹stek z wielkoœci¹ roju równ¹ 10 (tabela \ref{tab:ros_pso_2}) dla ka¿dego przeprowadzonego testu.
 
 \begin{table}[H]
     \centering
@@ -862,13 +862,13 @@ Dla drugiego analizowanego kryterium dotycz¹cego ustalonej maksymalnej liczby od
 \begin{table}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{ros_all_2.png}
-    \caption{Zestawienie najlepszych wyników wszystkich trzech porównywanych algorytmów metaheurystycznych dla funkcji Rosenbrocka - kryterium liczby odwo³añ do funkcji testowej, Ÿród³o: Opracowanie w³asne.}
+    \caption{Zestawienie najlepszych wyników wszystkich trzech porównywanych algorytmów dla funkcji Rosenbrocka - kryterium liczby odwo³añ do funkcji testowej, Ÿród³o: Opracowanie w³asne.}
     \label{tab:ros_all_2}
 \end{table}
 
 \subsubsection{Funkcja Eggholdera}
 
-Czwart¹ z kolei funkcj¹ jest funkcja Eggholdera, dla której rezultaty testów weryfikuj¹cych optymaln¹ wartoœæ populacji oraz roju zaprezentowane zosta³y na wykresach \ref{tab:egg_ga_1} oraz \ref{tab:egg_pso_1}. Dla obu algorytmów w kontekœcie testów dotycz¹cych kryterium maksymalnego czasu, wartoœci te zosta³y ustalone na poziomie 100. Ich rezultaty, wraz z rezultatami otrzymanymi dla algorytmu symulowanego wy¿arzania zgrupowane zosta³y na wykresie \ref{tab:egg_all_1}. Analizuj¹c wykres mo¿na dostrzec, i¿ metoda optymalizacji rojem cz¹stek poradzi³a sobie najlepiej, oscyluj¹c bardzo blisko minimum globalnego funkcji Eggholdera, które wynosi $-959,6407$. Tu¿ za rojem cz¹stek uplasowa³ siê algorytm genetyczny, którego rezultaty osi¹ga³y œrednio wartoœæ blisk¹ wartoœci $-900$. Wynik ten jest wci¹¿ du¿o lepszy od wyników zwróconych przez algorytm symulowanego wy¿arzania, który zatrzymywa³ siê na poziomie wartoœci oko³o $-500$.
+Czwart¹ z kolei funkcj¹ jest funkcja Eggholdera, dla której rezultaty testów weryfikuj¹cych optymaln¹ wartoœæ populacji oraz roju zaprezentowane zosta³y w tabelach \ref{tab:egg_ga_1} oraz \ref{tab:egg_pso_1}. Dla obu algorytmów w kontekœcie testów dotycz¹cych kryterium maksymalnego czasu, wartoœci te zosta³y ustalone na poziomie 100. Ich rezultaty, wraz z rezultatami otrzymanymi dla algorytmu symulowanego wy¿arzania zgrupowane zosta³y w tabeli \ref{tab:egg_all_1}. Analizuj¹c tabelê mo¿na dostrzec, i¿ metoda optymalizacji rojem cz¹stek poradzi³a sobie najlepiej, oscyluj¹c bardzo blisko minimum globalnego funkcji Eggholdera, które wynosi $-959,6407$. Tu¿ za rojem cz¹stek uplasowa³ siê algorytm genetyczny, którego rezultaty osi¹ga³y œrednio wartoœæ blisk¹ wartoœci $-900$. Wynik ten jest wci¹¿ du¿o lepszy od wyników zwróconych przez algorytm symulowanego wy¿arzania, który zatrzymywa³ siê na poziomie wartoœci oko³o $-500$.
 
 \begin{table}[H]
     \centering
@@ -887,11 +887,11 @@ Czwart¹ z kolei funkcj¹ jest funkcja Eggholdera, dla której rezultaty testów wer
 \begin{table}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{egg_all_1.png}
-    \caption{Zestawienie najlepszych wyników wszystkich trzech porównywanych algorytmów metaheurystycznych dla funkcji Eggholdera - kryterium czasowe, Ÿród³o: Opracowanie w³asne.}
+    \caption{Zestawienie najlepszych wyników wszystkich trzech porównywanych algorytmów dla funkcji Eggholdera - kryterium czasowe, Ÿród³o: Opracowanie w³asne.}
     \label{tab:egg_all_1}
 \end{table}
 
-Przechodz¹c do drugiego analizowanego kryterium - maksymalnej liczby odwo³añ do funkcji - mo¿na zaobserwowaæ, i¿ wyniki s¹ bardzo zbli¿one do wyników otrzymanych w kryterium pierwszym. Testy badaj¹ce optymaln¹ wielkoœæ populacji dla algorytmu genetycznego oraz wielkoœci roju dla metody optymalizacji rojem cz¹stek dostêpne s¹ do wgl¹du na wykresie \ref{tab:egg_ga_2} oraz \ref{tab:egg_pso_2}, natomiast testy porównuj¹ce wszystkie trzy badane algorytmy heurystyczne na wykresie \ref{tab:egg_all_2}. 
+Przechodz¹c do drugiego analizowanego kryterium - maksymalnej liczby odwo³añ do funkcji - mo¿na zaobserwowaæ, i¿ wyniki s¹ bardzo zbli¿one do wyników otrzymanych w kryterium pierwszym. Wyniki testów dla algorytmu genetycznego oraz wielkoœci roju dla metody optymalizacji rojem cz¹stek dostêpne s¹ w tabelach \ref{tab:egg_ga_2} oraz \ref{tab:egg_pso_2}, natomiast testy porównuj¹ce wszystkie trzy badane algorytmy w tabeli \ref{tab:egg_all_2}. 
 
 \begin{table}[H]
     \centering
@@ -910,13 +910,13 @@ Przechodz¹c do drugiego analizowanego kryterium - maksymalnej liczby odwo³añ do 
 \begin{table}[H]
     \centering
     \includegraphics[height=1\textwidth]{egg_all_2.png}
-    \caption{Zestawienie najlepszych wyników wszystkich trzech porównywanych algorytmów metaheurystycznych dla funkcji Eggholdera - kryterium liczby odwo³añ do funkcji testowej, Ÿród³o: Opracowanie w³asne.}
+    \caption{Zestawienie najlepszych wyników wszystkich trzech porównywanych algorytmów dla funkcji Eggholdera - kryterium liczby odwo³añ do funkcji testowej, Ÿród³o: Opracowanie w³asne.}
     \label{tab:egg_all_2}
 \end{table}
 
 \subsubsection{Funkcja Griewanka}
 
-Ostatni¹ u¿yt¹ funkcj¹ testow¹ by³a funkcja Griewanka, dla której podobnie jak w przypadku funkcji Rosenbrocka rezultaty otrzymane dla kryterium maksymalnego czasu nie s¹ jednoznaczne. Porównuj¹c najlepsze wyniki otrzymane dla algorytmu genetycznego z tabeli \ref{tab:gri_ga_1} oraz dla metody optymalizacji rojem cz¹stek z tabeli \ref{tab:gri_pso_1} z wynikami otrzymanymi przez algorytm symulowanego wy¿arzania, mo¿na dostrzec w tabeli \ref{tab:gri_all_1}, i¿ lepszy rezultat otrzymany w teœcie 1 oraz 3 sekund nale¿y do algorytmu genetycznego, a dla pozosta³ych wartoœci maksymalnego czasu dla metody optymalizacji rojem cz¹stek. Otrzymane przez algorytm genetyczny oraz metodê roju cz¹stek rezultaty s¹ jednak bardzo do siebie zbli¿one i nie mog¹ jednoznacznie wyznaczyæ najlepszego algorytmu. 
+Ostatni¹ u¿yt¹ funkcj¹ testow¹ by³a funkcja Griewanka, dla której - podobnie jak w przypadku funkcji Rosenbrocka - rezultaty otrzymane dla kryterium maksymalnego czasu nie s¹ jednoznaczne. Porównuj¹c najlepsze wyniki otrzymane dla algorytmu genetycznego z tabeli \ref{tab:gri_ga_1} oraz dla metody optymalizacji rojem cz¹stek z tabeli \ref{tab:gri_pso_1} z wynikami otrzymanymi przez algorytm symulowanego wy¿arzania, mo¿na dostrzec w tabeli \ref{tab:gri_all_1}, i¿ lepszy rezultat otrzymany w teœcie dla 1 oraz 3 sekund nale¿y do algorytmu genetycznego, a dla pozosta³ych wartoœci maksymalnego czasu dla metody optymalizacji rojem cz¹stek. Otrzymane przez algorytm genetyczny oraz metodê roju cz¹stek rezultaty s¹ jednak bardzo do siebie zbli¿one i nie mog¹ jednoznacznie wyznaczyæ najlepszego algorytmu. 
 
 \begin{table}[H]
     \centering
@@ -935,11 +935,11 @@ Ostatni¹ u¿yt¹ funkcj¹ testow¹ by³a funkcja Griewanka, dla której podobnie jak w
 \begin{table}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{gri_all_1.png}
-    \caption{Zestawienie najlepszych wyników wszystkich trzech porównywanych algorytmów metaheurystycznych dla funkcji Griewanka - kryterium czasowe, Ÿród³o: Opracowanie w³asne.}
+    \caption{Zestawienie najlepszych wyników wszystkich trzech porównywanych algorytmów dla funkcji Griewanka - kryterium czasowe, Ÿród³o: Opracowanie w³asne.}
     \label{tab:gri_all_1}
 \end{table}
 
-Drugie kryterium, pod k¹tem którego przeprowadzone zosta³y testy wskazuje ju¿ jednak w tabeli \ref{tab:gri_all_2} jednoznacznie, i¿ lepsze rezultaty uzyska³ algorytm genetyczny. Ponad dwukrotnie wiêksza liczba odwo³añ metody optymalizacji rojem cz¹stek do funkcji testowej w pierwszym kryterium, w kryterium drugim zosta³a zrównana. W tym przypadku przy takiej samej liczbie obliczeñ wartoœci funkcji testowej, algorytm genetyczny uzyska³ wyniki bli¿sze minimum globalnemu ni¿ metoda optymalizacji rojem cz¹stek. Algorytm symulowanego wy¿arzania w testach dotycz¹cych obu kryteriów odniós³ najgorsze rezultaty ze wszystkich porównywanych algorytmów heurystycznych. Warto jednak nadmieniæ, i¿ wyniki przez niego uzyskane oscylowa³y równie¿ blisko minimum globalnego.
+Drugie kryterium, pod k¹tem którego przeprowadzone zosta³y testy, wskazuje ju¿ jednak w tabeli \ref{tab:gri_all_2} jednoznacznie, i¿ lepsze rezultaty uzyska³ algorytm genetyczny. Ponad dwukrotnie wiêksza liczba odwo³añ metody optymalizacji rojem cz¹stek do funkcji testowej w pierwszym kryterium, w kryterium drugim zosta³a zrównana. W tym przypadku przy takiej samej liczbie obliczeñ wartoœci funkcji testowej, algorytm genetyczny uzyska³ wyniki bli¿sze minimum globalnemu ni¿ metoda optymalizacji rojem cz¹stek. Algorytm symulowanego wy¿arzania w testach dotycz¹cych obu kryteriów uzyska³ najgorsze rezultaty ze wszystkich porównywanych algorytmów. Warto jednak nadmieniæ, i¿ wyniki przez niego uzyskane oscylowa³y równie¿ blisko minimum globalnego.
 
 \begin{table}[H]
     \centering
@@ -958,46 +958,46 @@ Drugie kryterium, pod k¹tem którego przeprowadzone zosta³y testy wskazuje ju¿ je
 \begin{table}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{gri_all_2.png}
-    \caption{Zestawienie najlepszych wyników wszystkich trzech porównywanych algorytmów metaheurystycznych dla funkcji Griewanka - kryterium liczby odwo³añ do funkcji testowej, Ÿród³o: Opracowanie w³asne.}
+    \caption{Zestawienie najlepszych wyników wszystkich trzech porównywanych algorytmów dla funkcji Griewanka - kryterium liczby odwo³añ do funkcji testowej, Ÿród³o: Opracowanie w³asne.}
     \label{tab:gri_all_2}
 \end{table}
 
-\subsection{Wnioski z przeprowadzonych doœwiadczeñ}
+\subsection{Wnioski z przeprowadzonych eksperymentów}
 
-Przeprowadzone doœwiadczenia wykonane zosta³y z myœl¹ o wyrównaniu szans ka¿dego z badanych algorytmów heurystycznych. Metody porównawcze opisane w \ref{dzial:MetodyPorownawczeWybranychAlgorytmow} umo¿liwi³y na podstawie ustalonych kryteriów, jednakowych dla wszystkich algorytmów, sprawdziæ rezultaty przez nie uzyskane. Przez fakt ró¿n¹ specyfikê algorytmów oraz posiadanie przez nich ró¿nych parametrów, czasoch³onn¹ kwesti¹ okaza³a siê próba ich wyskalowania. 
-Podsumowuj¹c przeprowadzone doœwiadczenia w kontekœcie kryterium ustalonego czasu pracy, w obrêbie którego algorytm za zadanie mia³ znaleŸæ najmniejsz¹ wartoœæ badanej funkcji, algorytm genetyczny w jednej na szeœæ funkcji testowych - funkcji Ackleya - uzyska³ najlepszy rezultat dla ka¿dej wartoœci maksymalnego czasu. W dwóch kolejnych funkcjach - Rosenbrocka oraz Griewanka - uzyska³ najlepszy wynik dla kolejno trzech z szeœciu oraz czterech z szeœciu wartoœci parametru. Funkcja Bohachevsky'ego I, Colville'a oraz Eggholdera by³y funkcjami w której algorytm genetyczny uplasowa³ siê na drugim miejscu, za metod¹ optymalizacji rojem cz¹stek, która zwróci³a najlepsze wyniki. 
-Metoda ta uzyska³a równie¿ najlepsze rezultaty dla trzech z szeœciu oraz dwóch z szeœciu parametrów dla funkcji Rosenbrocka oraz Griewanka. Najgorzej w zestawieniu wypad³ algorytm symulowanego wy¿arzania, który dla ka¿dej funkcji testowej ulokowa³ siê na miejscu trzecim. Algorytm ten, choæ zwraca³ wyniki bliskie minimum globalnemu, by³y one gorsze od rezultatów zwróconych przez algorytm genetyczny oraz metodê optymalizacji rojem cz¹stek.
+Przeprowadzone eksperymenty przeprowadzone zosta³y z myœl¹ o stworzeniu jednolitych warunków dla ka¿dego z badanych algorytmów heurystycznych. Metody porównawcze opisane w punkcie \ref{dzial:MetodyPorownawczeWybranychAlgorytmow} umo¿liwi³y na podstawie ustalonych kryteriów, jednakowych dla wszystkich algorytmów, sprawdziæ rezultaty przez nie uzyskane. Przez wzgl¹d na ró¿ne parametry testowanych algorytmów, sporo czasu przeznaczone zosta³o na testy polegaj¹ce na ich dostrojeniu.
+Podsumowuj¹c przeprowadzone eksperymenty w kontekœcie kryterium ustalonego czasu pracy, dla którego algorytm za zadanie mia³ znaleŸæ najmniejsz¹ wartoœæ badanej funkcji, algorytm genetyczny w jednej na szeœæ funkcji testowych - funkcji Ackleya - uzyska³ najlepszy rezultat dla ka¿dej wartoœci maksymalnego czasu. W dwóch kolejnych funkcjach - Rosenbrocka oraz Griewanka - uzyska³ najlepszy wynik dla kolejno trzech z szeœciu oraz czterech z szeœciu wartoœci parametru. Funkcja Bohachevsky'ego I, Colville'a oraz Eggholdera by³y funkcjami, dla których algorytm genetyczny uplasowa³ siê na drugim miejscu, za metod¹ optymalizacji rojem cz¹stek, która zwróci³a najlepsze wyniki. 
+Metoda ta uzyska³a równie¿ najlepsze rezultaty dla trzech z szeœciu oraz dwóch z szeœciu parametrów dla funkcji Rosenbrocka oraz Griewanka. Najgorzej w zestawieniu wypad³ algorytm symulowanego wy¿arzania, który dla ka¿dej funkcji testowej ulokowa³ siê na miejscu trzecim. Algorytm zwraca³ wyniki bliskie minimum globalnemu, lecz by³y one gorsze od rezultatów zwróconych przez algorytm genetyczny oraz metodê optymalizacji rojem cz¹stek.
 
-Przy analizie wyników dotycz¹cych próby czasowej, zauwa¿alna by³a ró¿nica w iloœci wyliczeñ funkcji testowej dokonywana przez porównywane algorytmy. Metoda optymalizacji rojem cz¹stek odwo³ywa³a siê do funkcji testowych œrednio $2,59$ razy wiêcej ni¿ algorytm genetyczny oraz $25.58$ razy wiêcej ni¿ algorytm symulowanego wy¿arzania. Ró¿nice te zosta³y zrównane w wynikach testów odnosz¹cych siê do drugiego kryterium porównawczego jakim by³a ustalona maksymalna liczba odwo³añ do funkcji testowej.
+Przy analizie wyników dotycz¹cych próby czasowej, zauwa¿alna by³a ró¿nica w liczbie wyliczeñ funkcji testowej dokonywana przez porównywane algorytmy. Metoda optymalizacji rojem cz¹stek odwo³ywa³a siê do funkcji testowych œrednio $2,59$ razy wiêcej ni¿ algorytm genetyczny oraz $25.58$ razy wiêcej ni¿ algorytm symulowanego wy¿arzania. Ró¿nice te zosta³y zrównane w wynikach testów odnosz¹cych siê do drugiego kryterium porównawczego, jakim by³a ustalona maksymalna liczba odwo³añ do funkcji testowej.
 
 Przy za³o¿eniu jednakowej liczby odwo³añ do funkcji testowych, klasyfikacja algorytmów uleg³a du¿emu przetasowaniu w porównaniu do kryterium pierwszego. Bez zmiany wyników zachowa³y siê wszystkie testowane funkcje dwuwymiarowe - Bohachevsky'ego I oraz Eggholdera, w której metoda optymalizacji rojem cz¹stek uplasowa³a siê przed algorytmem genetycznym oraz algorytmem symulowanego wy¿arzenia. W pozosta³ych czterech funkcjach najlepsze rezultaty uzyska³ algorytm genetyczny, który dla funkcji Rosenbrocka oraz Griewanka zaj¹³ pierwsze miejsce przed metod¹ optymalizacji rojem cz¹stek oraz symulowanym wy¿arzaniem. Ciekawe wyniki dostarczy³a funkcja Colville'a, dla której w pierwszym kryterium najlepsze wyniki uzyska³a metoda optymalizacji rojem cz¹stek. W drugim kryterium osi¹gnê³a ona najgorszy rezultat, plasuj¹c siê za algorytmem symulowanego wy¿arzania, który dla funkcji Colville'a oraz Ackleya uzyska³ wyniki pozwalaj¹ce umiejscowiæ go na drugiej pozycji.
 
-Ranking algorytmów odnosz¹cy siê do wyników przeprowadzonych testów dla kryterium czasowego oraz kryterium maksymalnej liczby odwo³añ do funkcji testowej za³¹czone zosta³y do wgl¹du w tabeli \ref{tab:results_1} oraz \ref{tab:results_2}
+Rankingi algorytmów odnosz¹ce siê do wyników przeprowadzonych testów dla kryterium czasowego oraz kryterium maksymalnej liczby odwo³añ do funkcji testowej za³¹czone zosta³y w tabelach \ref{tab:results_1} oraz \ref{tab:results_2}.
 
 \begin{table}[H]
     \centering
     \includegraphics[width=0.5\textwidth]{results_1.png}
-    \caption{Ranking porównanych algorytmów heurystycznych (Algorytm genetyczny - GA; Metoda optymalizacji rojem cz¹stek - PSO; Algorytm symulowanego wy¿arzania - SA) dla wyników dotycz¹cych kryterium maksymalnego czasu, Ÿród³o: Opracowanie w³asne.}
+    \caption{Ranking porównywanych algorytmów (algorytm genetyczny - GA; metoda optymalizacji rojem cz¹stek - PSO; algorytm symulowanego wy¿arzania - SA) dla wyników dotycz¹cych kryterium maksymalnego czasu, Ÿród³o: Opracowanie w³asne.}
     \label{tab:results_1}
 \end{table}
 
 \begin{table}[H]
     \centering
     \includegraphics[width=0.5\textwidth]{results_2.png}
-    \caption{Ranking porównanych algorytmów heurystycznych (Algorytm genetyczny - GA; Metoda optymalizacji rojem cz¹stek - PSO; Algorytm symulowanego wy¿arzania - SA) dla wyników dotycz¹cych maksymalnej liczby odwo³añ do funkcji testowej, Ÿród³o: Opracowanie w³asne.}
+    \caption{Ranking porównywanych algorytmów (algorytm genetyczny - GA; metoda optymalizacji rojem cz¹stek - PSO; algorytm symulowanego wy¿arzania - SA) dla wyników dotycz¹cych maksymalnej liczby odwo³añ do funkcji testowej, Ÿród³o: Opracowanie w³asne.}
     \label{tab:results_2}
 \end{table}
 
 \section{Podsumowanie}
 
-Celem prezentowanej pracy magisterskiej by³o dokonanie analizy porównawczej algorytmu symulowanego wy¿arzania, algorytmu genetycznego oraz metody optymalizacji rojem cz¹stek przy pomocy dedykowanej aplikacji bazodanowej umo¿liwiaj¹cej zautomatyzowanie procesu szukania minimum globalnego dla zadanych funkcji testowych.
-Przedstawiony cel zosta³ zrealizowany, czego efektem jest dzia³aj¹ca aplikacja bazodanowa, która umo¿liwi³a przeprowadzenie licznych testów zadanych algorytmów heurystycznych, których zagregowane wyniki umo¿liwi³y ich porównanie.
+Celem prezentowanej pracy magisterskiej by³o dokonanie analizy porównawczej algorytmu symulowanego wy¿arzania, algorytmu genetycznego oraz metody optymalizacji rojem cz¹stek przy pomocy dedykowanej aplikacji umo¿liwiaj¹cej zautomatyzowanie procesu szukania minimum globalnego dla zadanych funkcji testowych.
+Przedstawiony cel zosta³ zrealizowany, czego efektem jest dzia³aj¹ca aplikacja, która umo¿liwi³a przeprowadzenie licznych testów zadanych algorytmów heurystycznych, których zagregowane wyniki zosta³y porównane ze sob¹.
 
 Zastosowanie œrodowiska bazodanowego umo¿liwi³o bardzo szybkie zapisywanie du¿ych iloœci danych dostarczanych z zaimplementowanej aplikacji, a nastêpnie ich agregacjê wed³ug uznanych kryteriów. Agregacja ta dziêki jêzykowi zapytañ SQL by³a bardzo efektywna przez fakt du¿ej dowolnoœci w kontekœcie sposobu jej wykonania. Mo¿liwe by³o pogrupowanie wszystkich otrzymanych wyników, bazuj¹c na dowolnym zapisywanym w bazie danych parametrze, co umo¿liwi³o przeprowadzenie operacji dostrojenia algorytmów oraz ich porównania pod k¹tem ustalonych dwóch kryteriów porównawczych. Dziêki obecnoœci bazy danych mo¿liwe by³o równie¿ przechowanie wyników wszystkich testów, co pozwoli³o na ich analizê w dowolnym momencie czasu bez obawy o ich utratê i koniecznoœæ ponownego wykonania czasoch³onnych testów.
 
-W fazie implementacji za³o¿onych modu³ów aplikacji bazodanowej napotkano na kilka problemów dotycz¹cych zmiany wymagañ projektowych, sposobu realizacji ustalonych funkcji oraz integracji systemów. Zmiany te dotyczy³y g³ównie technicznych aspektów dotycz¹cych sposobu implementacji aplikacji bazodanowej oraz zmiany podejœcia co do liczby wymiarów obs³ugiwanych funkcji testowych. Wraz z biegiem czasu powstawa³y nowe pomys³y, które dotyczy³y usprawnienia istniej¹cych rozwi¹zañ, które nie zawsze jednak mog³y byæ wprowadzone przez pryzmat czasu którego to wymaga³y do ich implementacji, przetestowania oraz po³¹czenia z istniej¹cym ju¿ systemem. Powstaj¹ce propozycje zmian wi¹za³y siê tak¿e z modyfikacj¹ istniej¹cej architektury systemu, co w znacznym stopniu zmienia³oby zaplanowany wczeœniej harmonogram prac i wyd³u¿a³oby finalne ukoñczenie projektu. 
+W fazie implementacji modu³ów aplikacji napotkano na kilka problemów dotycz¹cych zmiany wymagañ projektowych, sposobu realizacji ustalonych funkcji oraz integracji systemów. Zmiany te dotyczy³y g³ównie technicznych aspektów dotycz¹cych sposobu implementacji aplikacji oraz zmiany podejœcia co do liczby wymiarów obs³ugiwanych funkcji testowych. Wraz z biegiem czasu powstawa³y nowe pomys³y, które dotyczy³y usprawnienia istniej¹cych rozwi¹zañ, które nie zawsze jednak mog³y byæ wprowadzone przez pryzmat czasu, którego wymaga³yby do ich implementacji, przetestowania oraz po³¹czenia z istniej¹cym ju¿ systemem. Powstaj¹ce propozycje zmian wi¹za³y siê tak¿e z modyfikacj¹ istniej¹cej architektury systemu, co w znacznym stopniu zmienia³oby zaplanowany wczeœniej harmonogram prac i wyd³u¿a³oby finalne ukoñczenie projektu. 
 
-Pomimo tych elementów utworzona aplikacja, sposób jej po³¹czenia ze œrodowiskiem obliczeniowym Matlab oraz œrodowiskiem bazodanowym MS-SQL umo¿liwi³ osi¹gniêcie celów zadanych w prezentowanej pracy magisterskiej, czego efektem s¹ wyniki testów które namacalnie prezentuj¹ uzyskane rezultaty otrzymane przez porównywane algorytmy metaheurystyczne.
+Pomimo tych elementów utworzona aplikacja, sposób jej po³¹czenia ze œrodowiskiem obliczeniowym Matlab oraz œrodowiskiem bazodanowym MS-SQL umo¿liwi³ osi¹gniêcie celów zadanych w prezentowanej pracy magisterskiej, czego efektem s¹ wyniki testów porównywanych algorytmów.
 
 \begin{thebibliography}{12}
 

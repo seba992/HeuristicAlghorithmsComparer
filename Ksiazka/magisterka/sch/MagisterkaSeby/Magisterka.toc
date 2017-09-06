@@ -35,7 +35,7 @@
 \contentsline {subsubsection}{\numberline {5.1.3}\kernsubsubsekcyjny Model aplikacji}{36}
 \contentsline {subsection}{\numberline {5.2}\kernsubsekcyjny Architektura bazy danych}{40}
 \contentsline {subsubsection}{\numberline {5.2.1}\kernsubsubsekcyjny Microsoft SQL Server \IeC {\textendash } system do zarz\k adzania baz\k a danych}{40}
-\contentsline {subsubsection}{\numberline {5.2.2}\kernsubsubsekcyjny Budowa bazy danych u\.zytej w projekcie}{41}
+\contentsline {subsubsection}{\numberline {5.2.2}\kernsubsubsekcyjny Struktura bazy danych u\.zytej w projekcie}{41}
 \contentsline {subsection}{\numberline {5.3}\kernsubsekcyjny Komunikacja bazy danych z projektem programistycznym}{44}
 \contentsline {subsubsection}{\numberline {5.3.1}\kernsubsubsekcyjny Mapowanie obiektowo-relacyjne}{45}
 \contentsline {subsubsection}{\numberline {5.3.2}\kernsubsubsekcyjny Zastosowane narz\k edzie mapowania obiektowo relacyjnego \IeC {\textendash } Entity Framework}{46}
@@ -47,12 +47,12 @@
 \contentsline {subsubsection}{\numberline {6.2.1}\kernsubsubsekcyjny Skalowanie algorytm\'ow}{52}
 \contentsline {subsubsection}{\numberline {6.2.2}\kernsubsubsekcyjny Przeprowadzenie do\'swiadcze\'n w zaimplementowanym \'srodowisku testowym}{53}
 \contentsline {subsection}{\numberline {6.3}\kernsubsekcyjny Wyniki do\'swiadcze\'n dla zadanych funkcji testowych}{53}
-\contentsline {subsubsection}{\numberline {6.3.1}\kernsubsubsekcyjny Funkcja Bohachevsky\IeC {\textquoteright }ego I}{54}
+\contentsline {subsubsection}{\numberline {6.3.1}\kernsubsubsekcyjny Funkcja Bohachevsky\IeC {\textquoteright }ego I}{53}
 \contentsline {subsubsection}{\numberline {6.3.2}\kernsubsubsekcyjny Funkcja Colville'a}{59}
 \contentsline {subsubsection}{\numberline {6.3.3}\kernsubsubsekcyjny Funkcja Ackleya}{65}
 \contentsline {subsubsection}{\numberline {6.3.4}\kernsubsubsekcyjny Funkcja Rosenbrocka}{71}
 \contentsline {subsubsection}{\numberline {6.3.5}\kernsubsubsekcyjny Funkcja Eggholdera}{77}
 \contentsline {subsubsection}{\numberline {6.3.6}\kernsubsubsekcyjny Funkcja Griewanka}{83}
-\contentsline {subsection}{\numberline {6.4}\kernsubsekcyjny Wnioski z przeprowadzonych do\'swiadcze\'n}{89}
+\contentsline {subsection}{\numberline {6.4}\kernsubsekcyjny Wnioski z przeprowadzonych eksperyment\'ow}{89}
 \contentsline {section}{\numberline {7}\kernsekcyjny Podsumowanie}{93}
 \contentsline {section}{Bibliografia}{95}
